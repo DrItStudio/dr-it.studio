@@ -1,0 +1,111 @@
+Personvernerklæring
+Ikrafttredelsesdato: 6. mai 2025
+Appnavn: Forest Calculator
+Utvikler: DR.IT.Studio
+Plassering: Kyiv, Ukraina
+Kontakt: support@dr-it.studio
+
+1. Innledning
+Forest Calculator er en app for beregning av tømmer-volum og profesjonelle funksjoner, utviklet av DR.IT.Studio ("vi"). Denne personvernerklæringen forklarer hvilke data vi samler inn, hvordan vi bruker, lagrer, beskytter og deler dem – inkludert informasjon om belønningsannonser (rewarded ads).
+
+2. Data vi samler inn
+2.1 Personlig informasjon
+Vi samler ikke automatisk inn personlig informasjon. Brukere kan imidlertid frivillig oppgi:
+
+E-postadresse ved kontakt med kundestøtte;
+
+Innhold og innstillinger lagt inn manuelt (f.eks. beregninger).
+
+2.2 Ikke-personlig (teknisk) informasjon
+Vi kan samle inn anonym informasjon for diagnostikk, forbedringer og annonsering:
+
+Enhetstype og OS-versjon;
+
+Språk på grensesnittet;
+
+Bruksmønster og hyppighet;
+
+Feillogger;
+
+Annonse-ID.
+
+3. Tillatelser og enhetstilgang
+Tillatelse	Formål
+Lagringstilgang	Lagre og åpne filer (PDF, Excel osv.)
+Internett	For oppdateringer, annonser og e-post
+Dele med andre apper	Eksport av beregninger via meldingsapper og e-post
+Installerte apper (valgfritt)	Vise tilgjengelige eksportmetoder
+
+Vi sporer ikke brukerens atferd i andre apper.
+
+4. Annonser og tredjeparts tjenester
+4.1 Generell informasjon
+Appen kan vise personlig eller upersonlig tilpassede annonser fra partnere som Google AdMob. Brukeren kan velge annonsetype ved første oppstart og endre det i innstillingene.
+
+4.2 Belønningsannonser
+Appen bruker rewarded video-annonser som gir tilgang til visse funksjoner etter frivillig visning.
+
+Viktig:
+
+Å se annonser er alltid frivillig;
+
+Det forklares tydelig hva man får før visning;
+
+Belønning gis kun etter fullført visning;
+
+Ingen personlig informasjon deles med reklamepartnere.
+
+4.3 Brukte teknologier
+Partnere (inkludert Google) kan bruke:
+
+Annonseidentifikatorer;
+
+Informasjonskapsler (cookies) eller lignende teknologi;
+
+Aggregerte data for annonsemålretting.
+Googles retningslinjer
+
+5. Betalte funksjoner og abonnementer
+Appen kan tilby:
+
+Avanserte beregningsmetoder;
+
+Eksport til PDF og Excel;
+
+Fjerning av annonser;
+
+Premium-tilgang (engangsbetaling eller abonnement).
+Alle betalinger behandles via Google Play. Vi lagrer ikke kortinformasjon.
+
+6. Kontroll over dine data
+Du kan:
+
+Slette lagrede data via appen eller Android-innstillinger;
+
+Tilbakekalle tillatelser i enhetens innstillinger;
+
+Deaktivere annonser via kjøp;
+
+Endre annonse-samtykke når som helst;
+
+Be om sletting av frivillig innsendte data via e-post.
+
+7. Sikkerhet
+Appen sender ikke data til eksterne servere uten samtykke.
+All data lagres lokalt.
+Vi anbefaler å bruke skjermlås og andre sikkerhetstiltak.
+
+8. Barns personvern
+Appen er ikke ment for barn under 13 år. Hvis du tror barnet ditt har delt informasjon, kontakt oss for umiddelbar sletting.
+
+9. Oppdateringer av denne erklæringen
+Vi kan oppdatere erklæringen. Endringer trer i kraft når de publiseres med ny dato.
+
+10. Kontaktinformasjon
+DR.IT.Studio
+Kyiv, Ukraina
+📧 support@dr-it.studio
+
+11. Brukersamtykke
+Ved å bruke appen godtar du denne personvernerklæringen. Hvis du ikke godtar den, vennligst stopp bruken av appen.
+

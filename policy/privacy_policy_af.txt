@@ -1,0 +1,82 @@
+Privaatheidsbeleid
+Ingangsdatum: 6 Mei 2025
+Toepnaam: Forest Calculator
+Ontwikkelaar: DR.IT.Studio
+Ligging: Kyiv, Oekraïne
+Kontak: support@dr-it.studio
+
+1. Inleiding
+Forest Calculator is ‘n toepassing ontwikkel deur DR.IT.Studio vir die berekening van houtvolumes en ander professionele funksies. Hierdie privaatheidsbeleid verduidelik watter data ons insamel, hoe ons dit gebruik, stoor, beskerm en deel — insluitend inligting oor beloonde video-advertensies (rewarded ads).
+
+2. Data wat Ons Insamel
+2.1 Persoonlike Inligting
+Ons samel nie persoonlike data outomaties in nie. Gebruikers kan egter vrywillig voorsien:
+
+E-posadres wanneer hulle ondersteuning kontak
+
+Handmatig ingevoerde inhoud en instellings (bv. berekeninge)
+
+2.2 Nie-persoonlike (Tegniese) Inligting
+Vir foutopsporing, verbetering en advertensies:
+
+Toesteltipe en OS-weergawe
+
+Taal van die koppelvlak
+
+Gebruikspatrone
+
+Foutlogs
+
+Advertensie-ID
+
+3. Toestemmings en Toegang
+Toestemming	Doel
+Stoor toegang	Om lêers te stoor en oop te maak (PDF, Excel, ens.)
+Internet	Vir opdaterings, advertensies en e-pos stuur
+Deel met ander toepassings	Om berekeninge te deel via boodskappe of e-pos
+Lys van geïnstalleerde toepassings (opsioneel)	Om uitvoeropsies te toon
+
+4. Advertensies en Derdeparty-dienste
+Persoonlike of nie-persoonlike advertensies deur bv. Google AdMob
+
+Beloning-videoadvertensies is altyd opsioneel
+
+Geen persoonlike data word met advertensievennote gedeel nie
+
+Google beleid: https://policies.google.com/technologies/ads
+
+5. Betaalde Kenmerke en Intekeninge
+Gevorderde berekeningsmetodes
+
+Uitvoer na PDF of Excel
+
+Verwydering van advertensies
+
+Premium toegang (eenmalig of intekening)
+
+6. Databeheer
+Vee gestoorde data uit via die toepassing of Android-instellings
+
+Herroep toestemmings
+
+Versoek uitvee van data by support@dr-it.studio
+
+7. Sekuriteit
+Geen data word sonder toestemming aan bedieners gestuur nie
+
+Alle data word plaaslik gestoor
+
+8. Kinders se Privaatheid
+Die toepassing is nie bedoel vir kinders onder 13 jaar nie
+
+9. Beleid-opdaterings
+Veranderings kan enige tyd gemaak word. Gaan gereeld na vir opdaterings.
+
+10. Kontakbesonderhede
+DR.IT.Studio
+Kyiv, Oekraïne
+📧 support@dr-it.studio
+
+11. Gebruikerstoestemming
+Deur die toepassing te gebruik, stem jy in tot hierdie beleid.
+

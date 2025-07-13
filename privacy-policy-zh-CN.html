@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh-CN" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>隐私政策 - Forest Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Microsoft YaHei', 'PingFang SC', 'Hiragino Sans GB', 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .policy-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2E7D32;
+        }
+
+        .policy-info h2 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .policy-info p {
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h3 {
+            color: #2E7D32;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E8F5E8;
+        }
+
+        .section p, .section li {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .permission-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .permission-table th,
+        .permission-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #E8F5E8;
+        }
+
+        .permission-table th {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .permission-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc8 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .contact p {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #2E7D32;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #2E7D32;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2E7D32;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .permission-table {
+                font-size: 0.9rem;
+            }
+
+            .permission-table th,
+            .permission-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <p>隐私政策</p>
+        </div>
+
+        <div class="content">
+            <a href="privacy-policy.html" class="back-link">← 返回语言选择</a>
+
+            <div class="policy-info">
+                <h2>政策信息</h2>
+                <p><strong>生效日期：</strong> 2025年5月6日</p>
+                <p><strong>应用名称：</strong> Forest Calculator</p>
+                <p><strong>开发者：</strong> DR.IT.Studio</p>
+                <p><strong>地址：</strong> 乌克兰，基辅</p>
+                <p><strong>联系邮箱：</strong> support@dr-it.studio</p>
+            </div>
+
+            <div class="section">
+                <h3>1. 简介</h3>
+                <p>Forest Calculator 是由 DR.IT.Studio（"我们"）开发的一款用于计算木材体积和其他专业功能的应用程序。本隐私政策说明了我们收集哪些数据，如何使用、存储、保护和分享这些数据，包括带奖励的视频广告（Rewarded Video）的相关信息。</p>
+            </div>
+
+            <div class="section">
+                <h3>2. 我们收集的数据</h3>
+                
+                <h4>2.1 个人信息</h4>
+                <p>我们不会自动收集用户的个人信息。用户可能在以下情况下自愿提供信息：</p>
+                <ul>
+                    <li>联系客服时提供的电子邮箱地址；</li>
+                    <li>在应用中手动输入的内容（如计算数据等）。</li>
+                </ul>
+
+                <h4>2.2 非个人（技术性）信息</h4>
+                <p>为了诊断问题、改进服务和展示广告，我们可能会收集以下匿名数据：</p>
+                <ul>
+                    <li>设备类型及操作系统版本；</li>
+                    <li>应用界面语言；</li>
+                    <li>使用频率与行为；</li>
+                    <li>崩溃日志（crash logs）；</li>
+                    <li>广告设备标识符（Advertising ID）。</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>3. 权限请求</h3>
+                <table class="permission-table">
+                    <thead>
+                        <tr>
+                            <th>权限</th>
+                            <th>用途</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>访问存储空间</td>
+                            <td>保存和打开文件（PDF、Excel等）</td>
+                        </tr>
+                        <tr>
+                            <td>网络连接</td>
+                            <td>用于更新、广告和邮件发送</td>
+                        </tr>
+                        <tr>
+                            <td>与其他应用共享</td>
+                            <td>通过通讯软件或邮箱导出计算结果</td>
+                        </tr>
+                        <tr>
+                            <td>安装应用列表（可选）</td>
+                            <td>展示可用的导出方式</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>我们不会追踪用户在其他应用中的行为。</p>
+            </div>
+
+            <div class="section">
+                <h3>4. 广告与第三方服务</h3>
+                
+                <h4>4.1 一般信息</h4>
+                <p>应用可能通过 Google AdMob 等合作伙伴显示个性化或非个性化广告。用户在首次使用时可选择广告类型，之后也可在设置中更改。</p>
+
+                <h4>4.2 奖励广告（Rewarded Video）</h4>
+                <div class="highlight">
+                    <p>用户可以选择观看广告视频来获取特定功能的访问权限。</p>
+                    
+                    <p><strong>注意：</strong></p>
+                    <ul>
+                        <li>观看奖励广告是自愿的；</li>
+                        <li>播放前会清楚说明所获功能；</li>
+                        <li>仅在完整观看后才会发放奖励；</li>
+                        <li>我们不会将任何个人信息提供给广告合作方。</li>
+                    </ul>
+                </div>
+
+                <h4>4.3 使用的技术</h4>
+                <p>合作方（包括 Google）可能使用：</p>
+                <ul>
+                    <li>广告标识符；</li>
+                    <li>Cookie 或类似技术；</li>
+                    <li>聚合数据用于广告展示。</li>
+                </ul>
+                <p>Google 政策：<a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+            </div>
+
+            <div class="section">
+                <h3>5. 付费功能和订阅</h3>
+                <p>应用提供以下付费功能：</p>
+                <ul>
+                    <li>高级计算方法；</li>
+                    <li>导出为 PDF 或 Excel；</li>
+                    <li>移除广告；</li>
+                    <li>高级访问权限（订阅或一次性购买）。</li>
+                </ul>
+                <p>所有支付由 Google Play 处理。我们不保存任何银行卡信息。</p>
+            </div>
+
+            <div class="section">
+                <h3>6. 数据控制</h3>
+                <p>您可以：</p>
+                <ul>
+                    <li>在应用或 Android 设置中删除本地数据；</li>
+                    <li>在设备中撤销权限；</li>
+                    <li>通过购买功能关闭广告；</li>
+                    <li>修改广告显示的同意；</li>
+                    <li>通过邮箱 support@dr-it.studio 请求删除您主动提供的数据。</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>7. 安全性</h3>
+                <ul>
+                    <li>我们不会未经许可将数据传输至远程服务器。</li>
+                    <li>所有数据都保存在用户设备本地。</li>
+                    <li>建议开启屏幕锁等安全措施保护设备。</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>8. 儿童隐私</h3>
+                <p>本应用不面向13岁以下儿童，亦不主动收集他们的任何数据。如发现误收集，请联系我们删除。</p>
+            </div>
+
+            <div class="section">
+                <h3>9. 政策更新</h3>
+                <p>本政策可能不定期更新。新版本发布后立即生效，建议您定期查看更新内容。</p>
+            </div>
+
+            <div class="section">
+                <h3>11. 用户同意</h3>
+                <p>使用本应用即表示您同意本隐私政策。如不同意，请停止使用该应用。</p>
+            </div>
+
+            <div class="contact">
+                <h3>10. 联系方式</h3>
+                <p><strong>DR.IT.Studio</strong></p>
+                <p>乌克兰，基辅</p>
+                <p>📧 support@dr-it.studio</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

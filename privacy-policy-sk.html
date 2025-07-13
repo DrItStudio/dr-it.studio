@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="sk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Calculator - Zásady ochrany osobných údajov</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Arial', 'Helvetica', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 3rem;
+        }
+
+        .app-info {
+            background: #f8f9fa;
+            border-left: 4px solid #4a7c59;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .app-info h3 {
+            color: #2d5016;
+            margin-bottom: 1rem;
+        }
+
+        .app-info p {
+            margin: 0.5rem 0;
+        }
+
+        .app-info strong {
+            color: #2d5016;
+        }
+
+        h2 {
+            color: #2d5016;
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #4a7c59;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #4a7c59;
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .permissions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .permissions-table th,
+        .permissions-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .permissions-table th {
+            background: #4a7c59;
+            color: white;
+            font-weight: bold;
+        }
+
+        .permissions-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .permissions-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .important-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .important-box h4 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+
+        .important-box ul {
+            margin: 0;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #2d5016;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .date-updated {
+            background: #e8f5e8;
+            border: 1px solid #4a7c59;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .date-updated strong {
+            color: #2d5016;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .header {
+                padding: 2rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .permissions-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <div class="subtitle">Zásady ochrany osobných údajov</div>
+        </div>
+
+        <div class="content">
+            <div class="date-updated">
+                <strong>Dátum účinnosti:</strong> 6. máj 2025
+            </div>
+
+            <div class="app-info">
+                <h3>Informácie o aplikácii</h3>
+                <p><strong>Názov aplikácie:</strong> Forest Calculator</p>
+                <p><strong>Vývojár:</strong> DR.IT.Studio</p>
+                <p><strong>Sídlo:</strong> Kyjev, Ukrajina</p>
+                <p><strong>Kontakt:</strong> <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>1. Úvod</h2>
+            <p>Aplikácia Forest Calculator, vyvinutá spoločnosťou DR.IT.Studio („my"), slúži na výpočet objemu dreva a ďalšie odborné funkcie. Tieto zásady ochrany osobných údajov vysvetľujú, aké údaje zhromažďujeme, ako ich používame, uchovávame, chránime a zdieľame — vrátane reklám s odmenou.</p>
+
+            <h2>2. Aké údaje zhromažďujeme</h2>
+            
+            <h3>2.1 Osobné údaje</h3>
+            <p>Nezhromažďujeme osobné údaje automaticky. Používateľ však môže dobrovoľne poskytnúť:</p>
+            <ul>
+                <li>e-mailovú adresu pri kontakte s podporou</li>
+                <li>ručne zadaný obsah a nastavenia (napr. výpočty)</li>
+            </ul>
+
+            <h3>2.2 Neosobné (technické) údaje</h3>
+            <p>Pre diagnostiku, vylepšenie aplikácie a reklamu môžeme zbierať anonymné údaje:</p>
+            <ul>
+                <li>typ zariadenia a verzia operačného systému</li>
+                <li>jazyk rozhrania</li>
+                <li>frekvencia a spôsob používania aplikácie</li>
+                <li>chybové hlásenia (crash logy)</li>
+                <li>reklamný identifikátor (Advertising ID)</li>
+            </ul>
+
+            <h2>3. Povolenia a prístup k zariadeniu</h2>
+            <table class="permissions-table">
+                <thead>
+                    <tr>
+                        <th>Povolenie</th>
+                        <th>Účel</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Prístup k úložisku</td>
+                        <td>Ukladanie a otváranie súborov (PDF, Excel atď.)</td>
+                    </tr>
+                    <tr>
+                        <td>Internet</td>
+                        <td>Na aktualizácie, reklamy, e-maily</td>
+                    </tr>
+                    <tr>
+                        <td>Zdieľanie s inými aplikáciami</td>
+                        <td>Export výpočtov cez správy alebo e-mail</td>
+                    </tr>
+                    <tr>
+                        <td>Zoznam nainštalovaných aplikácií (voliteľné)</td>
+                        <td>Zobrazenie dostupných exportných metód</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Nepoužívame povolenia na sledovanie aktivity v iných aplikáciách.</p>
+
+            <h2>4. Reklama a služby tretích strán</h2>
+            
+            <h3>4.1 Všeobecné informácie</h3>
+            <p>Aplikácia môže zobrazovať personalizované alebo nepersonalizované reklamy od partnerov, ako je Google AdMob. Typ reklamy si môžete vybrať pri prvom spustení a kedykoľvek ho zmeniť v nastaveniach.</p>
+
+            <h3>4.2 Reklamy s odmenou (Rewarded Video)</h3>
+            <p>Aplikácia ponúka možnosť dobrovoľného pozretia videa výmenou za prístup k prémiovým funkciám (napr. dočasný prístup k pokročilým nástrojom).</p>
+
+            <div class="important-box">
+                <h4>Dôležité:</h4>
+                <ul>
+                    <li>Reklamy sú vždy voliteľné</li>
+                    <li>Pred prehratím je jasne vysvetlené, čo získate</li>
+                    <li>Odmena sa poskytuje iba po úplnom pozretí</li>
+                    <li>Osobné údaje sa reklamným partnerom neodovzdávajú</li>
+                </ul>
+            </div>
+
+            <h3>4.3 Použité technológie</h3>
+            <p>Partneri (vrátane Google) môžu používať:</p>
+            <ul>
+                <li>reklamné identifikátory</li>
+                <li>cookies alebo podobné technológie</li>
+                <li>agregované údaje na cielenie reklamy</li>
+            </ul>
+            <p>Zásady Google: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+
+            <h2>5. Platené funkcie a predplatné</h2>
+            <p>Aplikácia môže ponúkať:</p>
+            <ul>
+                <li>pokročilé výpočtové metódy</li>
+                <li>export do PDF a Excelu</li>
+                <li>odstránenie reklám</li>
+                <li>prístup k prémiovým funkciám (predplatné alebo jednorazový nákup)</li>
+            </ul>
+            <p>Platby sa spracúvajú cez Google Play. Údaje o kartách neukladáme.</p>
+
+            <h2>6. Správa údajov</h2>
+            <p>Môžete:</p>
+            <ul>
+                <li>odstrániť uložené údaje v aplikácii alebo v nastaveniach systému Android</li>
+                <li>zrušiť povolenia v nastaveniach zariadenia</li>
+                <li>vypnúť reklamy nákupom</li>
+                <li>kedykoľvek zmeniť súhlas so zobrazovaním reklám</li>
+                <li>požiadať o odstránenie poskytnutých údajov e-mailom na <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></li>
+            </ul>
+
+            <h2>7. Bezpečnosť</h2>
+            <ul>
+                <li>Aplikácia neposiela dáta na vzdialené servery bez súhlasu.</li>
+                <li>Všetky údaje sa ukladajú lokálne.</li>
+                <li>Odporúčame zapnúť zámok obrazovky a ďalšie bezpečnostné opatrenia.</li>
+            </ul>
+
+            <h2>8. Ochrana detí</h2>
+            <p>Aplikácia nie je určená pre deti mladšie ako 13 rokov a neúmyselne nezhromažďuje ich osobné údaje. Ak máte podozrenie, že vaše dieťa poskytlo údaje, kontaktujte nás a my ich okamžite odstránime.</p>
+
+            <h2>9. Aktualizácie zásad</h2>
+            <p>Tieto zásady ochrany osobných údajov môžu byť pravidelne aktualizované. Zmeny nadobúdajú účinnosť okamžitým zverejnením novej verzie s aktualizovaným dátumom účinnosti.</p>
+
+            <h2>10. Kontaktné údaje</h2>
+            <div class="contact-info">
+                <h3>DR.IT.Studio</h3>
+                <p>Kyjev, Ukrajina</p>
+                <p>📧 <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>11. Súhlas používateľa</h2>
+            <p>Používaním aplikácie Forest Calculator súhlasíte s touto politikou ochrany osobných údajov. Ak nesúhlasíte — aplikáciu nepoužívajte.</p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 DR.IT.Studio. Všetky práva vyhradené.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,82 @@
+Maxfiylik siyosati
+Kuchga kirgan sana: 2025-yil 6-may
+Ilova nomi: Forest Calculator
+Ishlab chiquvchi: DR.IT.Studio
+Manzil: Kiyev, Ukraina
+Aloqa: support@dr-it.studio
+
+1. Kirish
+Forest Calculator – bu DR.IT.Studio tomonidan ishlab chiqilgan yogʻoch hajmini hisoblash va boshqa professional funksiyalar uchun moʻljallangan ilova. Ushbu Maxfiylik siyosatida biz qanday maʼlumotlarni toʻplaymiz, qanday ishlatamiz, saqlaymiz, himoya qilamiz va ulashamiz – jumladan mukofotli reklamalar (rewarded ads) haqida ham tushuntiriladi.
+
+2. Biz toʻplaydigan maʼlumotlar
+2.1 Shaxsiy maʼlumotlar
+Biz avtomatik tarzda shaxsiy maʼlumotlarni yigʻmaymiz. Foydalanuvchi quyidagi maʼlumotlarni ixtiyoriy ravishda taqdim qilishi mumkin:
+
+Qoʻllab-quvvatlashga murojaat qilganda elektron pochta manzili;
+
+Ilovaga qoʻlda kiritilgan kontent (hisob-kitoblar va boshqalar).
+
+2.2 Shaxsiy boʻlmagan (texnik) maʼlumotlar
+Xatoliklarni aniqlash, xizmatni yaxshilash va reklamalarni koʻrsatish maqsadida quyidagi anonim maʼlumotlar toʻplanishi mumkin:
+
+Qurilma turi va operatsion tizim versiyasi;
+
+Interfeys tili;
+
+Ilova ishlatilish chastotasi va usuli;
+
+Xatolik jurnallari (crash logs);
+
+Reklama identifikatori (Advertising ID).
+
+3. Ruxsatlar va qurilmaga kirish
+Ruxsat	Maqsad
+Xotiraga kirish	PDF, Excel va boshqa fayllarni saqlash va ochish
+Internet	Yangilanishlar, reklamalar va xabar yuborish
+Boshqa ilovalar bilan ulashish	Hisob-kitoblarni messenjerlar yoki email orqali yuborish
+O‘rnatilgan ilovalar ro‘yxati (ixtiyoriy)	Eksport usullarini ko‘rsatish uchun
+
+4. Reklama va uchinchi tomon xizmatlari
+Ilova Google AdMob kabi hamkorlardan shaxsiylashtirilgan yoki shaxsiylashtirilmagan reklamalarni koʻrsatishi mumkin
+
+Mukofotli reklamalar har doim ixtiyoriy hisoblanadi
+
+Shaxsiy maʼlumotlar reklamachilar bilan almashilmaydi
+
+Google siyosati: https://policies.google.com/technologies/ads
+
+5. Pullik funksiyalar
+Kengaytirilgan hisoblash usullari
+
+PDF yoki Excel formatida eksport qilish
+
+Reklamalarni o‘chirish
+
+Premium imkoniyatlar (obuna yoki bir martalik to‘lov)
+
+6. Maʼlumotlar ustidan nazorat
+Ilova yoki Android sozlamalari orqali saqlangan maʼlumotlarni o‘chirish mumkin
+
+Qurilma ruxsatlarini bekor qilish mumkin
+
+support@dr-it.studio manziliga yozib, maʼlumotlarni o‘chirishni so‘rash mumkin
+
+7. Xavfsizlik
+Maʼlumotlar foydalanuvchi roziligisiz serverga yuborilmaydi
+
+Barcha maʼlumotlar faqat qurilmada saqlanadi
+
+8. Bolalar maxfiyligi
+Ilova 13 yoshdan kichik bolalar uchun moʻljallanmagan va ularning maʼlumotlarini toʻplamaydi
+
+9. Siyosat yangilanishi
+Bu siyosat vaqti-vaqti bilan yangilanadi. Iltimos, yangiliklarni tekshirib turing
+
+10. Aloqa maʼlumotlari
+DR.IT.Studio
+Kiyev, Ukraina
+📧 support@dr-it.studio
+
+11. Foydalanuvchi roziligi
+Ilovadan foydalanib, siz ushbu Maxfiylik siyosatiga rozilik bildirgan bo‘lasiz.
+

@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ha">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Calculator - Manufar Sirri</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Arial', 'Helvetica', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 3rem;
+        }
+
+        .app-info {
+            background: #f8f9fa;
+            border-left: 4px solid #4a7c59;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .app-info h3 {
+            color: #2d5016;
+            margin-bottom: 1rem;
+        }
+
+        .app-info p {
+            margin: 0.5rem 0;
+        }
+
+        .app-info strong {
+            color: #2d5016;
+        }
+
+        h2 {
+            color: #2d5016;
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #4a7c59;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #4a7c59;
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .permissions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .permissions-table th,
+        .permissions-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .permissions-table th {
+            background: #4a7c59;
+            color: white;
+            font-weight: bold;
+        }
+
+        .permissions-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .permissions-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .important-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .important-box h4 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+
+        .important-box ul {
+            margin: 0;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #2d5016;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .date-updated {
+            background: #e8f5e8;
+            border: 1px solid #4a7c59;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .date-updated strong {
+            color: #2d5016;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .header {
+                padding: 2rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .permissions-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <div class="subtitle">Manufar Sirri</div>
+        </div>
+
+        <div class="content">
+            <div class="date-updated">
+                <strong>Ranar Fara Aiki:</strong> 6 Mayu, 2025
+            </div>
+
+            <div class="app-info">
+                <h3>Bayanin Manhaja</h3>
+                <p><strong>Sunan Manhaja:</strong> Forest Calculator</p>
+                <p><strong>Masanin Haɓakawa:</strong> DR.IT.Studio</p>
+                <p><strong>Wuri:</strong> Kyiv, Ukraine</p>
+                <p><strong>Tuntuɓi:</strong> <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>1. Gabatarwa</h2>
+            <p>Forest Calculator wani manhaja ne da DR.IT.Studio ya ƙirƙira domin ƙididdigar itace da wasu ƙarin ayyukan ƙwararru. Wannan manufar sirri tana bayyana irin bayanan da muke tattarawa, yadda muke amfani da su, adanawa, kariya da kuma rabawa — ciki har da tallace-tallacen bidiyo na lada (rewarded ads).</p>
+
+            <h2>2. Abubuwan da Muke Tattarawa</h2>
+            
+            <h3>2.1 Bayanai Na Kaina</h3>
+            <p>Ba mu tattara bayanan mutum ta atomatik ba. Sai dai mai amfani na iya bayar da:</p>
+            <ul>
+                <li>Adireshin imel idan ya tuntuɓi taimako;</li>
+                <li>Abubuwan da ya shigar da kansa a manhaja (kamar sakamakon ƙididdiga da sauransu).</li>
+            </ul>
+
+            <h3>2.2 Bayanan Fasaha (Ba Na Kaina ba)</h3>
+            <p>Domin gyara matsaloli, inganta sabis da nuna tallace-tallace, za mu iya tattara bayanai kamar:</p>
+            <ul>
+                <li>Nau'in na'ura da sigar tsarin aiki;</li>
+                <li>Harshen da ake amfani da shi a manhaja;</li>
+                <li>Sau da yawa da hanyar amfani da manhaja;</li>
+                <li>Rahotannin faduwar manhaja (crash logs);</li>
+                <li>Advertising ID (lambar talla).</li>
+            </ul>
+
+            <h2>3. Izini da Samun Na'ura</h2>
+            <table class="permissions-table">
+                <thead>
+                    <tr>
+                        <th>Izini</th>
+                        <th>Dalili</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Samun ajiyar bayanai</td>
+                        <td>Domin ajiya da buɗe fayiloli (PDF, Excel, da sauransu)</td>
+                    </tr>
+                    <tr>
+                        <td>Intanet</td>
+                        <td>Don sabunta, talla da aikawa da imel</td>
+                    </tr>
+                    <tr>
+                        <td>Raba tare da sauran manhajoji</td>
+                        <td>Fitar da ƙididdiga ta manhajoji ko imel</td>
+                    </tr>
+                    <tr>
+                        <td>Jerin manhajojin da aka girka (na zaɓi)</td>
+                        <td>Nuna hanyoyin fitarwa da ake da su</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>4. Tallace-Tallace da Sabis na Ƙetare</h2>
+            
+            <h3>4.1 Bayanai Na Gaba Ɗaya</h3>
+            <p>Manhajan na iya nuna tallace-tallace daga abokan hulɗa kamar Google AdMob. Masu amfani za su iya zaɓar nau'in talla da farko da kuma canza shi cikin saitunan.</p>
+
+            <h3>4.2 Tallan Bidiyo Na Lada</h3>
+            <p>Manhajan yana ba da tallace-tallacen bidiyo na zaɓi inda masu amfani za su iya kallon bidiyo domin samun wasu ayyuka (misali, samun damar amfani da kayan aiki na premium na ɗan lokaci).</p>
+
+            <div class="important-box">
+                <h4>Muhimmi:</h4>
+                <ul>
+                    <li>Kallon tallace-tallacen lada koyaushe na zaɓi ne;</li>
+                    <li>Za a ba da bayani mai kyau kafin nuna tallan;</li>
+                    <li>Za a ba da lada ne kawai bayan cikakken kallo;</li>
+                    <li>Ba mu raba bayanan sirri da abokan talla ba.</li>
+                </ul>
+            </div>
+
+            <p>Manufar Google: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+
+            <h2>5. Ayyukan Da Ake Biya</h2>
+            <p>Manhajan yana bayar da waɗannan ayyukan da ake biya:</p>
+            <ul>
+                <li>Sabbin hanyoyin ƙididdiga;</li>
+                <li>Fitar da bayanai zuwa PDF/Excel;</li>
+                <li>Cire tallace-tallace;</li>
+                <li>Samun damar premium (ta biyan kuɗi ko sau ɗaya).</li>
+            </ul>
+
+            <h2>6. Ikon Sarrafa Bayanai</h2>
+            <p>Kuna iya:</p>
+            <ul>
+                <li>Goge bayanai daga manhaja ko saitunan Android;</li>
+                <li>Cire izini a saitunan na'urarku;</li>
+                <li>Tuntuɓi <a href="mailto:support@dr-it.studio">support@dr-it.studio</a> don goge bayanan da ka bayar.</li>
+            </ul>
+
+            <h2>7. Tsaro</h2>
+            <ul>
+                <li>Ba a aika bayanai zuwa uwar garken nesa ba tare da izininka ba;</li>
+                <li>Ana adana dukkan bayanai a cikin na'urarka kawai.</li>
+            </ul>
+
+            <h2>8. Sirrin Yara</h2>
+            <p>Manhajar ba don yara ƙasa da shekara 13 ba ce kuma ba mu tattara bayanai daga gare su da gangan ba.</p>
+
+            <h2>9. Sabunta Manufa</h2>
+            <p>Za a iya sabunta wannan manufar lokaci-lokaci. Ana ba da shawara ka duba lokaci-lokaci.</p>
+
+            <h2>10. Tuntuɓi</h2>
+            <div class="contact-info">
+                <h3>DR.IT.Studio</h3>
+                <p>Kyiv, Ukraine</p>
+                <p>📧 <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>11. Amincewar Mai Amfani</h2>
+            <p>Ta amfani da Forest Calculator, ka amince da wannan manufar sirri. Idan baka yarda ba — daina amfani da manhajar.</p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 DR.IT.Studio. An kebe dukkan haƙƙoƙi.</p>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,111 @@
+Petsa ng Pagkabisa: Mayo 6, 2025
+Pangalan ng App: Forest Calculator
+Developer: DR.IT.Studio
+Lokasyon: Kyiv, Ukraine
+Email: support@dr-it.studio
+
+1. Panimula
+Ang Forest Calculator ay isang app na ginawa ng DR.IT.Studio (“kami”) para sa pagkalkula ng dami ng kahoy at iba pang propesyonal na gamit. Ipinapaliwanag ng patakaran sa privacy na ito kung anong impormasyon ang kinokolekta namin, paano ito ginagamit, iniimbak, pinoprotektahan, at ibinabahagi — kabilang ang tungkol sa rewarded video ads.
+
+2. Anong Datos ang Kinokolekta
+2.1 Personal na Impormasyon
+Hindi kami kusang kumokolekta ng personal na datos. Gayunpaman, maaaring boluntaryong magbigay ang user ng:
+
+Email address kapag kumokontak sa suporta;
+
+Manwal na ipinasok na nilalaman at setting (tulad ng kalkulasyon).
+
+2.2 Di-personal (Teknikal) na Impormasyon
+Para sa diagnostics, pagpapabuti ng serbisyo, at pagpapakita ng ads, maaaring kolektahin ang sumusunod na anonymous na datos:
+
+Uri ng device at bersyon ng OS;
+
+Wika ng interface;
+
+Dalas at paraan ng paggamit ng app;
+
+Crash logs;
+
+Advertising ID.
+
+3. Pahintulot at Access ng Device
+Pahintulot	Layunin
+Access sa Storage	Para i-save at buksan ang mga file (PDF, Excel)
+Internet	Para sa update, ads, at email sending
+Pag-share sa ibang apps	Para sa export ng kalkulasyon sa chat o email
+Listahan ng apps (opsyonal)	Para ipakita ang available export methods
+
+Hindi namin ginagamit ang mga pahintulot para subaybayan ang aktibidad sa ibang apps.
+
+4. Ads at Mga Third-Party
+4.1 Pangkalahatang Impormasyon
+Ang app ay maaaring magpakita ng personalized o non-personalized na ads mula sa mga partner gaya ng Google AdMob. Pwedeng piliin ng user ang uri ng ad sa unang launch, at baguhin ito sa settings.
+
+4.2 Rewarded Video Ads
+Gumagamit ang app ng rewarded video ads kung saan boluntaryong nanonood ang user ng ad para makakuha ng access sa feature (hal. isang beses na access sa premium tools).
+
+Mahalaga:
+
+Ang panonood ay opsyonal;
+
+May malinaw na paliwanag bago simulan ang ad;
+
+Ang reward ay ibinibigay lamang pagkatapos ng buong panonood;
+
+Walang personal na data ang ibinabahagi sa ad partners.
+
+4.3 Ginagamit na Teknolohiya
+Maaaring gumamit ang mga partner (kasama ang Google) ng:
+
+Advertising ID;
+
+Cookies o katulad na teknolohiya;
+
+Aggregated data para sa ad targeting.
+Patakaran ng Google: https://policies.google.com/technologies/ads
+
+5. Bayad na Feature at Subscription
+Maaaring mag-alok ang app ng:
+
+Advanced na kalkulasyon;
+
+Export sa PDF at Excel;
+
+Pag-alis ng ads;
+
+Premium access (subscription o one-time).
+
+Lahat ng bayad ay pinoproseso sa pamamagitan ng Google Play. Hindi kami nag-iimbak ng card information.
+
+6. Kontrol sa Iyong Datos
+Maari kang:
+
+Magtanggal ng data sa app o Android settings;
+
+Bawiin ang pahintulot sa settings ng device;
+
+Patayin ang ads sa pamamagitan ng pagbili;
+
+Baguhin ang ad consent anumang oras;
+
+Humiling ng pagbura ng datos sa email: support@dr-it.studio.
+
+7. Seguridad
+Hindi ipinapadala ng app ang datos sa remote server nang walang pahintulot.
+Lahat ng datos ay naka-store lamang sa device mo.
+Inirerekomenda namin ang paggamit ng screen lock at security features.
+
+8. Privacy ng Bata
+Ang app ay hindi para sa mga batang wala pang 13 taon at hindi sadyang kumokolekta ng kanilang data. Kung sa palagay mo may ganitong kaso – kontakin kami para agad naming burahin ito.
+
+9. Pag-update ng Patakaran
+Maaaring i-update ang patakaran paminsan-minsan. Epektibo ito agad matapos ilabas ang bagong bersyon.
+Inirerekomenda naming regular na tingnan ito.
+
+10. Impormasyon sa Pakikipag-ugnayan
+DR.IT.Studio
+Kyiv, Ukraine
+📧 support@dr-it.studio
+
+11. Pahintulot ng User
+Sa paggamit ng Forest Calculator, kinukumpirma mong sumasang-ayon ka sa patakaran sa privacy na ito. Kung hindi – itigil ang paggamit ng app.

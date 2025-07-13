@@ -1,0 +1,81 @@
+Politika privatnosti
+Datum stupanja na snagu: 6. maj 2025.
+Naziv aplikacije: Forest Calculator
+Razvijač: DR.IT.Studio
+Lokacija: Kijev, Ukrajina
+Kontakt: support@dr-it.studio
+
+1. Uvod
+Forest Calculator je aplikacija razvijena od strane DR.IT.Studio za proračun zapremine drveta i druge profesionalne funkcije. Ova politika privatnosti objašnjava koje podatke prikupljamo, kako ih koristimo, čuvamo, štitimo i dijelimo — uključujući reklame s nagradom (rewarded video oglasi).
+
+2. Podaci koje prikupljamo
+2.1 Lični podaci
+Ne prikupljamo lične podatke automatski. Korisnik ih može dobrovoljno dostaviti:
+
+email adresu prilikom kontaktiranja podrške;
+
+sadržaj i postavke koje ručno unosi u aplikaciji (npr. izračuni).
+
+2.2 Tehnički (nepersonalni) podaci
+Za poboljšanje usluge i prikazivanje oglasa možemo prikupljati:
+
+vrstu uređaja i verziju OS-a;
+
+jezik aplikacije;
+
+učestalost i način korištenja aplikacije;
+
+izvještaje o greškama (crash logs);
+
+oglasni identifikator (Advertising ID).
+
+3. Dozvole i pristup uređaju
+Dozvola	Namjena
+Pristup skladištu	Spremanje i otvaranje datoteka (PDF, Excel itd.)
+Internet	Za ažuriranja, oglase i slanje emailova
+Dijeljenje s drugim aplikacijama	Izvoz izračuna putem messengera i emaila
+Lista instaliranih aplikacija (opcionalno)	Za prikaz dostupnih metoda izvoza
+
+4. Oglasi i servisi trećih strana
+Mogu se prikazivati personalizovani ili nepersonalizovani oglasi (npr. Google AdMob)
+
+Rewarded video oglasi su uvijek opcionalni
+
+Ne dijelimo lične podatke s oglašivačima
+
+Google pravila: https://policies.google.com/technologies/ads
+
+5. Plaćene funkcije
+Napredni metodi izračuna
+
+Izvoz u PDF, Excel
+
+Uklanjanje oglasa
+
+Premium pristup (jednokratno ili putem pretplate)
+
+6. Kontrola podataka
+Brisanje podataka u aplikaciji ili Android postavkama
+
+Poništavanje dozvola
+
+Zahtjev za brisanje dobrovoljno unesenih podataka putem: support@dr-it.studio
+
+7. Sigurnost
+Aplikacija ne šalje podatke bez pristanka korisnika
+
+Svi podaci se čuvaju lokalno na uređaju
+
+8. Privatnost djece
+Aplikacija nije namijenjena djeci mlađoj od 13 godina
+
+9. Ažuriranje politike
+Ova politika može biti povremeno ažurirana. Preporučujemo redovnu provjeru.
+
+10. Kontakt
+DR.IT.Studio
+Kijev, Ukrajina
+📧 support@dr-it.studio
+
+11. Saglasnost korisnika
+Korištenjem aplikacije potvrđujete da se slažete s ovom politikom privatnosti.

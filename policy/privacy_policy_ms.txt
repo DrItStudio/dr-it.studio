@@ -1,0 +1,110 @@
+Dasar Privasi
+Tarikh Kuat Kuasa: 6 Mei 2025
+Nama Aplikasi: Forest Calculator
+Pembangun: DR.IT.Studio
+Lokasi: Kyiv, Ukraine
+Hubungi: support@dr-it.studio
+
+1. Pengenalan
+Forest Calculator, dibangunkan oleh DR.IT.Studio ("kami"), adalah aplikasi untuk pengiraan isipadu kayu dan ciri profesional lain. Dasar Privasi ini menerangkan data yang kami kumpul, cara kami menggunakannya, menyimpan, melindungi dan berkongsi — termasuk iklan ganjaran.
+
+2. Data yang Kami Kumpulkan
+2.1 Maklumat Peribadi
+Kami tidak mengumpul data peribadi secara automatik. Namun, pengguna mungkin memberikan:
+
+alamat emel semasa menghubungi sokongan;
+
+kandungan dan tetapan yang dimasukkan secara manual (contohnya, pengiraan).
+
+2.2 Maklumat Bukan Peribadi (Teknikal)
+Kami mungkin mengumpul maklumat tanpa nama untuk diagnosis, penambahbaikan dan pengiklanan, termasuk:
+
+jenis peranti dan versi OS;
+
+bahasa antara muka;
+
+kekerapan dan kaedah penggunaan aplikasi;
+
+log ralat;
+
+ID pengiklanan.
+
+3. Kebenaran & Akses Peranti
+Kebenaran	Tujuan
+Akses storan	Menyimpan dan membuka fail (PDF, Excel, dll.)
+Internet	Kemas kini, iklan, dan penghantaran emel
+Perkongsian dengan aplikasi lain	Eksport pengiraan melalui pemesej dan emel
+Senarai aplikasi terpasang (pilihan)	Menunjukkan kaedah eksport tersedia
+
+Kami tidak menjejak tingkah laku pengguna dalam aplikasi lain.
+
+4. Iklan dan Perkhidmatan Pihak Ketiga
+4.1 Umum
+Aplikasi ini mungkin memaparkan iklan diperibadikan atau tidak melalui rakan seperti Google AdMob. Pengguna boleh memilih jenis iklan semasa pelancaran pertama dan menukarnya dalam tetapan.
+
+4.2 Iklan Video Ganjaran
+Pengguna boleh menonton video secara sukarela untuk membuka akses ke ciri tertentu (seperti alat premium sekali sahaja).
+
+Penting:
+
+Menonton iklan adalah pilihan;
+
+Penjelasan yang jelas diberikan sebelum tayangan;
+
+Ganjaran hanya diberikan selepas tontonan penuh;
+
+Tiada data peribadi dikongsi dengan rakan iklan.
+
+4.3 Teknologi Digunakan
+Rakan kongsi (termasuk Google) boleh menggunakan:
+
+ID pengiklanan;
+
+kuki atau teknologi serupa;
+
+data agregat untuk penyasaran iklan.
+Dasar Google: https://policies.google.com/technologies/ads
+
+5. Ciri Berbayar & Langganan
+Aplikasi ini menawarkan:
+
+kaedah pengiraan lanjutan;
+
+eksport ke PDF atau Excel;
+
+buang iklan;
+
+akses premium (berlangganan atau sekali sahaja).
+Pembayaran diproses oleh Google Play. Kami tidak menyimpan maklumat kad.
+
+6. Kawalan Data Anda
+Anda boleh:
+
+memadam data dari aplikasi atau tetapan Android;
+
+tarik balik kebenaran;
+
+nyahaktifkan iklan dengan pembelian;
+
+ubah kebenaran iklan bila-bila masa;
+
+minta pemadaman data peribadi melalui emel ke support@dr-it.studio.
+
+7. Keselamatan
+Tiada data dihantar ke pelayan tanpa kebenaran.
+Semua dokumen disimpan secara setempat.
+Gunakan kunci skrin atau perlindungan lain untuk keselamatan.
+
+8. Privasi Kanak-kanak
+Aplikasi ini tidak ditujukan kepada kanak-kanak di bawah umur 13 tahun. Jika anak anda telah menghantar data, hubungi kami dan kami akan memadamkannya segera.
+
+9. Kemas Kini Polisi
+Dasar ini mungkin dikemas kini dari semasa ke semasa. Tarikh berkuat kuasa baru akan ditunjukkan. Semak secara berkala.
+
+10. Hubungi
+DR.IT.Studio
+Kyiv, Ukraine
+📧 support@dr-it.studio
+
+11. Persetujuan Pengguna
+Dengan menggunakan Forest Calculator, anda bersetuju dengan dasar ini. Jika tidak bersetuju — sila berhenti menggunakan aplikasi.

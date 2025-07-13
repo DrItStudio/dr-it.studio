@@ -1,0 +1,111 @@
+Privacybeleid
+Ingangsdatum: 6 mei 2025
+Appnaam: Forest Calculator
+Ontwikkelaar: DR.IT.Studio
+Locatie: Kyiv, Oekraïne
+Contact: support@dr-it.studio
+
+1. Inleiding
+Forest Calculator is een app voor het berekenen van houtvolumes en andere professionele functies, ontwikkeld door DR.IT.Studio (“wij”). In dit privacybeleid leggen we uit welke gegevens we verzamelen, hoe we deze gebruiken, opslaan, beschermen en delen — inclusief informatie over beloningsadvertenties.
+
+2. Gegevens die we verzamelen
+2.1 Persoonlijke gegevens
+We verzamelen niet automatisch persoonlijke gegevens. Gebruikers kunnen echter vrijwillig het volgende verstrekken:
+
+E-mailadres bij contact met ondersteuning;
+
+Handmatig ingevoerde inhoud en voorkeuren (zoals berekeningen).
+
+2.2 Niet-persoonlijke (technische) gegevens
+Voor diagnose, verbetering en advertenties verzamelen we anonieme gegevens zoals:
+
+Apparaattype en besturingssysteemversie;
+
+Taal van de interface;
+
+Gebruiksfrequentie en -wijze van de app;
+
+Foutlogboeken (crash logs);
+
+Advertentie-ID.
+
+3. Machtigingen en apparaattoegang
+Machtiging	Doel
+Opslagtoegang	Opslaan en openen van bestanden (PDF, Excel, enz.)
+Internet	Voor updates, advertenties, e-mailverkeer
+Delen met andere apps	Export van berekeningen via berichtenapps of e-mail
+Lijst geïnstalleerde apps (optioneel)	Beschikbare exportmethoden tonen
+
+We volgen geen gedrag in andere apps.
+
+4. Advertenties en services van derden
+4.1 Algemeen
+De app kan gepersonaliseerde of niet-gepersonaliseerde advertenties tonen via partners zoals Google AdMob. De gebruiker kiest bij eerste gebruik welk type advertenties wordt getoond en kan dit later wijzigen in de instellingen.
+
+4.2 Beloningsadvertenties
+Gebruikers kunnen vrijwillig een video bekijken om toegang te krijgen tot bepaalde functies (zoals eenmalige premiumtools).
+
+Belangrijk:
+
+Advertenties bekijken is altijd optioneel;
+
+De functie wordt duidelijk uitgelegd vóór het afspelen;
+
+Beloningen worden alleen toegekend na volledige weergave;
+
+Geen persoonlijke gegevens worden gedeeld met advertentiepartners.
+
+4.3 Gebruikte technologieën
+Partners (zoals Google) kunnen gebruik maken van:
+
+Advertentie-ID's;
+
+Cookies of vergelijkbare technologieën;
+
+Geaggregeerde gegevens voor advertentiedoeleinden.
+Beleid van Google
+
+5. Betaalde functies en abonnementen
+De app kan het volgende bieden:
+
+Geavanceerde berekeningsmethoden;
+
+Export naar PDF of Excel;
+
+Verwijderen van advertenties;
+
+Premiumtoegang (via abonnement of eenmalige aankoop).
+Alle betalingen verlopen via Google Play. Wij slaan geen kaartgegevens op.
+
+6. Gegevensbeheer
+Je kunt:
+
+Gegevens wissen in de app of via Android-instellingen;
+
+Machtigingen intrekken in je apparaatinstellingen;
+
+Advertenties uitschakelen via een aankoop;
+
+Je toestemming voor advertenties op elk moment wijzigen;
+
+Verzoek tot gegevensverwijdering sturen via support@dr-it.studio.
+
+7. Beveiliging
+De app verzendt geen gegevens zonder toestemming.
+Alle gegevens worden lokaal op het apparaat opgeslagen.
+We raden aan schermvergrendeling of andere beveiligingsmethoden te gebruiken.
+
+8. Privacy van kinderen
+De app is niet bedoeld voor kinderen jonger dan 13 jaar. Indien je vermoedt dat een kind persoonlijke gegevens heeft verstrekt, neem dan contact met ons op – we verwijderen deze onmiddellijk.
+
+9. Updates van dit beleid
+We kunnen dit beleid van tijd tot tijd bijwerken. De wijzigingen worden van kracht bij publicatie van de nieuwe versie.
+
+10. Contactinformatie
+DR.IT.Studio
+Kyiv, Oekraïne
+📧 support@dr-it.studio
+
+11. Toestemming gebruiker
+Door gebruik van Forest Calculator ga je akkoord met dit beleid. Als je het er niet mee eens bent, gebruik de app dan niet.
+

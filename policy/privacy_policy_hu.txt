@@ -1,0 +1,111 @@
+Adatvédelmi irányelvek
+Hatályba lépés dátuma: 2025. május 6.
+Alkalmazás neve: Forest Calculator
+Fejlesztő: DR.IT.Studio
+Helyszín: Kijev, Ukrajna
+Kapcsolat: support@dr-it.studio
+
+1. Bevezetés
+A Forest Calculator a DR.IT.Studio ("mi") által fejlesztett alkalmazás fa térfogatának kiszámítására és egyéb szakmai funkciókra. Ez az adatvédelmi irányelv elmagyarázza, milyen adatokat gyűjtünk, hogyan használjuk, tároljuk, védjük és osztjuk meg — beleértve a jutalmazott videóhirdetéseket is (Rewarded Video).
+
+2. Gyűjtött adatok
+2.1 Személyes adatok
+Nem gyűjtünk személyes adatokat automatikusan. A felhasználó azonban önkéntesen megadhatja:
+
+E-mail címet ügyfélszolgálati kapcsolatfelvételkor
+
+Az alkalmazásban manuálisan megadott tartalmakat és számításokat
+
+2.2 Nem személyes (technikai) adatok
+Hibakeresés, fejlesztés és hirdetés céljából anonim technikai adatokat gyűjthetünk:
+
+Eszköztípus és operációs rendszer verziója
+
+Felület nyelve
+
+Funkciók használatának gyakorisága
+
+Hibanaplók (crash log)
+
+Hirdetési azonosító (Advertising ID)
+
+3. Engedélyek
+Engedély	Cél
+Tárhely elérés	Fájlok mentése és megnyitása (PDF, Excel stb.)
+Internetkapcsolat	Frissítésekhez, reklámhoz, e-mailek küldéséhez
+Megosztás más alkalmazásokkal	Exportálás üzenetküldőkkel vagy e-mailben
+Telepített alkalmazások listája (opcionális)	Elérhető exportálási lehetőségek megjelenítése
+
+Nem követjük a felhasználó más alkalmazásokban végzett tevékenységét.
+
+4. Hirdetés és külső szolgáltatók
+4.1 Általános információk
+Az alkalmazás személyre szabott vagy nem személyre szabott hirdetéseket jeleníthet meg a Google AdMob és más partnereken keresztül. A felhasználó az első használatkor választhat, majd később módosíthatja.
+
+4.2 Jutalmazott videóhirdetések (Rewarded Video)
+A felhasználók önként nézhetnek reklámokat egyes prémium funkciók egyszeri eléréséhez.
+
+Fontos:
+
+A reklám megtekintése teljesen önkéntes
+
+A jutalom egyértelműen ismertetésre kerül
+
+Csak teljes megtekintés után jár a jutalom
+
+Személyes adatokat nem osztunk meg hirdetőkkel
+
+4.3 Használt technológiák
+Partnerek (pl. Google) használhatják:
+
+Hirdetési azonosítók
+
+Cookie-k és hasonló technológiák
+
+Aggregált adatok a célzott hirdetésekhez
+Google irányelvek: https://policies.google.com/technologies/ads
+
+5. Fizetős funkciók és előfizetések
+Az alkalmazás a következő fizetős lehetőségeket kínálhatja:
+
+Fejlettebb számítási módszerek
+
+PDF és Excel exportálás
+
+Hirdetések eltávolítása
+
+Prémium hozzáférés (előfizetés vagy egyszeri vásárlás)
+
+A fizetések a Google Play-en keresztül történnek. Nem tárolunk kártyaadatokat.
+
+6. Adatok kezelése
+Lehetőséged van:
+
+Az adatok törlésére az alkalmazásból vagy az Android beállításaiból
+
+Engedélyek visszavonására
+
+Hirdetések kikapcsolására vásárlással
+
+Hozzájárulás módosítására
+
+Adattörlési kérés küldésére: support@dr-it.studio
+
+7. Biztonság
+Nem továbbítunk adatokat külső szerverekre a hozzájárulásod nélkül.
+Minden adat helyileg tárolódik az eszközön.
+Javasoljuk a képernyőzár használatát.
+
+8. Gyermekek védelme
+Az alkalmazás nem gyermekek számára készült, és nem gyűjt kiskorúaktól származó adatokat. Ha ez megtörtént, kérjük, értesíts minket.
+
+9. Irányelv frissítések
+A szabályzatot időről időre frissíthetjük. A módosítások azonnal hatályba lépnek.
+
+10. Kapcsolat
+DR.IT.Studio
+Kijev, Ukrajna
+📧 support@dr-it.studio
+
+11. Felhasználói hozzájárulás
+Az alkalmazás használatával elfogadod ezt az adatvédelmi irányelvet. Ha nem értesz egyet, kérjük, ne használd tovább az alkalmazást.

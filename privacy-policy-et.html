@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="et">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Calculator - Privaatsuspoliitika</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Arial', 'Helvetica', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 3rem;
+        }
+
+        .app-info {
+            background: #f8f9fa;
+            border-left: 4px solid #4a7c59;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .app-info h3 {
+            color: #2d5016;
+            margin-bottom: 1rem;
+        }
+
+        .app-info p {
+            margin: 0.5rem 0;
+        }
+
+        .app-info strong {
+            color: #2d5016;
+        }
+
+        h2 {
+            color: #2d5016;
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #4a7c59;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #4a7c59;
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .permissions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .permissions-table th,
+        .permissions-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .permissions-table th {
+            background: #4a7c59;
+            color: white;
+            font-weight: bold;
+        }
+
+        .permissions-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .permissions-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .important-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .important-box h4 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+
+        .important-box ul {
+            margin: 0;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #2d5016;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .date-updated {
+            background: #e8f5e8;
+            border: 1px solid #4a7c59;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .date-updated strong {
+            color: #2d5016;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .header {
+                padding: 2rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .permissions-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <div class="subtitle">Privaatsuspoliitika</div>
+        </div>
+
+        <div class="content">
+            <div class="date-updated">
+                <strong>Jõustumise kuupäev:</strong> 6. mai 2025
+            </div>
+
+            <div class="app-info">
+                <h3>Rakenduse teave</h3>
+                <p><strong>Rakenduse nimi:</strong> Forest Calculator</p>
+                <p><strong>Arendaja:</strong> DR.IT.Studio</p>
+                <p><strong>Asukoht:</strong> Kiiev, Ukraina</p>
+                <p><strong>Kontakt:</strong> <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>1. Sissejuhatus</h2>
+            <p>Forest Calculator on DR.IT.Studio poolt arendatud rakendus puidu mahu arvutamiseks ja muude professionaalsete funktsioonide jaoks. Käesolev privaatsuspoliitika selgitab, milliseid andmeid me kogume, kuidas me neid kasutame, salvestame, kaitseme ja jagame – sealhulgas tasuliste reklaamide (rewarded ads) kasutamise kohta.</p>
+
+            <h2>2. Kogutavad andmed</h2>
+            
+            <h3>2.1 Isikuandmed</h3>
+            <p>Me ei kogu isikuandmeid automaatselt. Kasutaja võib neid vabatahtlikult esitada:</p>
+            <ul>
+                <li>E-posti aadressi tugiteenusega ühenduse võtmisel;</li>
+                <li>Rakendusse käsitsi sisestatud sisu ja seaded (nt arvutused).</li>
+            </ul>
+
+            <h3>2.2 Mitteisiklik (tehniline) info</h3>
+            <p>Teenuste parandamiseks ja reklaamide kuvamiseks võime koguda anonüümset teavet:</p>
+            <ul>
+                <li>Seadme tüüp ja operatsioonisüsteemi versioon;</li>
+                <li>Liidese keel;</li>
+                <li>Funktsioonide kasutamise sagedus;</li>
+                <li>Krahhilogid (crash logs);</li>
+                <li>Reklaamituvastus-ID (Advertising ID).</li>
+            </ul>
+
+            <h2>3. Lubade ja seadme juurdepääs</h2>
+            <table class="permissions-table">
+                <thead>
+                    <tr>
+                        <th>Luba</th>
+                        <th>Eesmärk</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Mälu kasutamine</td>
+                        <td>Failide (PDF, Excel) salvestamine ja avamine</td>
+                    </tr>
+                    <tr>
+                        <td>Internetiühendus</td>
+                        <td>Uuendused, reklaamid, e-kirjade saatmine</td>
+                    </tr>
+                    <tr>
+                        <td>Jagamine teiste rakendustega</td>
+                        <td>Arvutuste eksportimine sõnumite või e-posti kaudu</td>
+                    </tr>
+                    <tr>
+                        <td>Installitud rakenduste loend (valikuline)</td>
+                        <td>Ekspordivõimaluste kuvamine</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Me ei kasuta lubasid teiste rakenduste jälgimiseks.</p>
+
+            <h2>4. Reklaamid ja kolmandad osapooled</h2>
+            
+            <h3>4.1 Üldinfo</h3>
+            <p>Rakendus võib näidata isikupärastatud või mitteisikupärastatud reklaame sellistelt partneritelt nagu Google AdMob. Reklaamitüüpi saab valida rakenduse esmakordsel käivitamisel ja muuta hiljem seadetes.</p>
+
+            <h3>4.2 Tasu eest vaadatavad reklaamid (Rewarded Ads)</h3>
+            <p>Kasutaja saab vabatahtlikult vaadata reklaame, et saada ajutist juurdepääsu premium-funktsioonidele.</p>
+
+            <div class="important-box">
+                <h4>Oluline:</h4>
+                <ul>
+                    <li>Reklaamivaatamine on vabatahtlik;</li>
+                    <li>Enne reklaami näitamist on selge teave;</li>
+                    <li>Preemia antakse ainult pärast täielikku vaatamist;</li>
+                    <li>Isikuandmeid ei jagata reklaamipartneritega.</li>
+                </ul>
+            </div>
+
+            <h3>4.3 Kasutatavad tehnoloogiad</h3>
+            <p>Partnerid (sh Google) võivad kasutada:</p>
+            <ul>
+                <li>Reklaamituvastajaid;</li>
+                <li>Küpsiseid ja sarnaseid tehnoloogiaid;</li>
+                <li>Ühendandmeid reklaamide sihtimiseks.</li>
+            </ul>
+            <p>Google'i poliitika: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+
+            <h2>5. Tasulised funktsioonid ja tellimused</h2>
+            <p>Rakendus võib pakkuda järgmisi tasulisi funktsioone:</p>
+            <ul>
+                <li>Täiustatud arvutusmeetodid;</li>
+                <li>Eksportimine PDF-i või Excelisse;</li>
+                <li>Reklaamide eemaldamine;</li>
+                <li>Premium-juurdepääs (tellis või ühekordne ost).</li>
+            </ul>
+            <p>Kõik maksed toimuvad Google Play kaudu. Me ei salvesta ega töötle kaardiandmeid.</p>
+
+            <h2>6. Andmete haldamine</h2>
+            <p>Kasutaja saab:</p>
+            <ul>
+                <li>Kustutada salvestatud andmed rakenduses või Androidi seadetes;</li>
+                <li>Tühistada load seadme seadetes;</li>
+                <li>Osta reklaamide keelamise funktsiooni;</li>
+                <li>Muuta reklaaminõusolekut igal ajal;</li>
+                <li>Paluda vabatahtlikult edastatud andmete kustutamist: <a href="mailto:support@dr-it.studio">support@dr-it.studio</a>.</li>
+            </ul>
+
+            <h2>7. Turvalisus</h2>
+            <ul>
+                <li>Andmeid ei saadeta kaugserverisse ilma kasutaja loata.</li>
+                <li>Kõik andmed ja dokumendid salvestatakse kohalikku seadmesse.</li>
+                <li>Soovitame kasutada ekraanilukku ja muid kaitsevõtteid.</li>
+            </ul>
+
+            <h2>8. Laste privaatsus</h2>
+            <p>Rakendus ei ole mõeldud alla 13-aastastele lastele ning me ei kogu tahtlikult nende andmeid. Kui olete lapsevanem ja arvate, et andmed on esitatud, võtke meiega ühendust.</p>
+
+            <h2>9. Poliitika värskendused</h2>
+            <p>Võime privaatsuspoliitikat aeg-ajalt uuendada. Uus versioon jõustub avaldamise kuupäeval. Soovitame regulaarselt tutvuda värskendustega.</p>
+
+            <h2>10. Kontakt</h2>
+            <div class="contact-info">
+                <h3>DR.IT.Studio</h3>
+                <p>Ukraina, Kiiev</p>
+                <p>📧 <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>11. Kasutaja nõusolek</h2>
+            <p>Rakenduse kasutamisega kinnitate, et nõustute käesoleva privaatsuspoliitikaga. Kui te ei nõustu – lõpetage rakenduse kasutamine.</p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 DR.IT.Studio. Kõik õigused kaitstud.</p>
+        </div>
+    </div>
+</body>
+</html>

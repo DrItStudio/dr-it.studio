@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Calculator - Chính sách bảo mật</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Arial', 'Helvetica', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 3rem;
+        }
+
+        .app-info {
+            background: #f8f9fa;
+            border-left: 4px solid #4a7c59;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .app-info h3 {
+            color: #2d5016;
+            margin-bottom: 1rem;
+        }
+
+        .app-info p {
+            margin: 0.5rem 0;
+        }
+
+        .app-info strong {
+            color: #2d5016;
+        }
+
+        h2 {
+            color: #2d5016;
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #4a7c59;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #4a7c59;
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .permissions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .permissions-table th,
+        .permissions-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .permissions-table th {
+            background: #4a7c59;
+            color: white;
+            font-weight: bold;
+        }
+
+        .permissions-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .permissions-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .important-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .important-box h4 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+
+        .important-box ul {
+            margin: 0;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #2d5016;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .date-updated {
+            background: #e8f5e8;
+            border: 1px solid #4a7c59;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .date-updated strong {
+            color: #2d5016;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .header {
+                padding: 2rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .permissions-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <div class="subtitle">Chính sách bảo mật</div>
+        </div>
+
+        <div class="content">
+            <div class="date-updated">
+                <strong>Ngày có hiệu lực:</strong> 6 tháng 5 năm 2025
+            </div>
+
+            <div class="app-info">
+                <h3>Thông tin ứng dụng</h3>
+                <p><strong>Tên ứng dụng:</strong> Forest Calculator</p>
+                <p><strong>Nhà phát triển:</strong> DR.IT.Studio</p>
+                <p><strong>Địa chỉ:</strong> Kyiv, Ukraina</p>
+                <p><strong>Liên hệ:</strong> <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>1. Giới thiệu</h2>
+            <p>Forest Calculator là ứng dụng do DR.IT.Studio ("chúng tôi") phát triển nhằm tính toán thể tích gỗ và các chức năng chuyên nghiệp khác. Chính sách này giải thích dữ liệu chúng tôi thu thập, cách sử dụng, lưu trữ, bảo vệ và chia sẻ dữ liệu — bao gồm quảng cáo có thưởng (Rewarded Video).</p>
+
+            <h2>2. Dữ liệu được thu thập</h2>
+            
+            <h3>2.1 Thông tin cá nhân</h3>
+            <p>Chúng tôi không tự động thu thập thông tin cá nhân. Tuy nhiên, người dùng có thể tự nguyện cung cấp:</p>
+            <ul>
+                <li>Email khi liên hệ với bộ phận hỗ trợ</li>
+                <li>Nội dung và thông số nhập thủ công trong ứng dụng</li>
+            </ul>
+
+            <h3>2.2 Thông tin phi cá nhân (kỹ thuật)</h3>
+            <p>Chúng tôi có thể thu thập dữ liệu ẩn danh nhằm cải thiện dịch vụ, chẩn đoán và hiển thị quảng cáo:</p>
+            <ul>
+                <li>Loại thiết bị và phiên bản hệ điều hành</li>
+                <li>Ngôn ngữ giao diện</li>
+                <li>Tần suất và cách sử dụng</li>
+                <li>Nhật ký sự cố (crash logs)</li>
+                <li>Mã định danh quảng cáo (Advertising ID)</li>
+            </ul>
+
+            <h2>3. Quyền truy cập ứng dụng</h2>
+            <table class="permissions-table">
+                <thead>
+                    <tr>
+                        <th>Quyền</th>
+                        <th>Mục đích</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Truy cập bộ nhớ</td>
+                        <td>Lưu và mở tệp (PDF, Excel, v.v.)</td>
+                    </tr>
+                    <tr>
+                        <td>Kết nối Internet</td>
+                        <td>Cập nhật, quảng cáo, gửi email</td>
+                    </tr>
+                    <tr>
+                        <td>Chia sẻ với ứng dụng khác</td>
+                        <td>Xuất dữ liệu qua tin nhắn hoặc email</td>
+                    </tr>
+                    <tr>
+                        <td>Danh sách ứng dụng đã cài (tuỳ chọn)</td>
+                        <td>Hiển thị các phương thức xuất khả dụng</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Chúng tôi không theo dõi hoạt động trong các ứng dụng khác.</p>
+
+            <h2>4. Quảng cáo và dịch vụ bên thứ ba</h2>
+            
+            <h3>4.1 Thông tin chung</h3>
+            <p>Ứng dụng có thể hiển thị quảng cáo cá nhân hóa hoặc không từ đối tác như Google AdMob. Người dùng có thể chọn loại quảng cáo khi mở ứng dụng lần đầu và thay đổi sau đó.</p>
+
+            <h3>4.2 Quảng cáo có thưởng (Rewarded Video)</h3>
+            <p>Người dùng có thể tự nguyện xem video quảng cáo để nhận quyền truy cập vào một số tính năng cao cấp.</p>
+
+            <div class="important-box">
+                <h4>Lưu ý:</h4>
+                <ul>
+                    <li>Việc xem quảng cáo là tùy chọn</li>
+                    <li>Quyền lợi sẽ được giải thích rõ trước khi hiển thị</li>
+                    <li>Phần thưởng chỉ được trao khi xem xong hoàn toàn</li>
+                    <li>Chúng tôi không chia sẻ dữ liệu cá nhân với đối tác quảng cáo</li>
+                </ul>
+            </div>
+
+            <h3>4.3 Công nghệ được sử dụng</h3>
+            <p>Đối tác (bao gồm Google) có thể sử dụng:</p>
+            <ul>
+                <li>Mã định danh quảng cáo</li>
+                <li>Cookie hoặc công nghệ tương tự</li>
+                <li>Dữ liệu tổng hợp để hiển thị quảng cáo</li>
+            </ul>
+            <p>Chính sách của Google: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+
+            <h2>5. Tính năng trả phí và đăng ký</h2>
+            <p>Ứng dụng có thể cung cấp:</p>
+            <ul>
+                <li>Phương pháp tính nâng cao</li>
+                <li>Xuất file PDF, Excel</li>
+                <li>Tắt quảng cáo</li>
+                <li>Truy cập cao cấp (đăng ký hoặc mua một lần)</li>
+            </ul>
+            <p>Tất cả thanh toán được xử lý qua Google Play. Chúng tôi không lưu trữ dữ liệu thẻ.</p>
+
+            <h2>6. Kiểm soát dữ liệu</h2>
+            <p>Bạn có thể:</p>
+            <ul>
+                <li>Xoá dữ liệu trong ứng dụng hoặc cài đặt Android</li>
+                <li>Thu hồi quyền ứng dụng</li>
+                <li>Tắt quảng cáo bằng cách mua chức năng tương ứng</li>
+                <li>Thay đổi lựa chọn quảng cáo</li>
+                <li>Gửi yêu cầu xóa dữ liệu qua email: <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></li>
+            </ul>
+
+            <h2>7. Bảo mật</h2>
+            <ul>
+                <li>Ứng dụng không gửi dữ liệu lên máy chủ bên ngoài nếu không có sự đồng ý.</li>
+                <li>Tất cả dữ liệu được lưu cục bộ trên thiết bị.</li>
+                <li>Khuyến nghị sử dụng mã PIN hoặc bảo mật màn hình.</li>
+            </ul>
+
+            <h2>8. Quyền riêng tư của trẻ em</h2>
+            <p>Ứng dụng không dành cho trẻ dưới 13 tuổi và không thu thập dữ liệu của trẻ em. Nếu điều này xảy ra, vui lòng liên hệ để xoá dữ liệu.</p>
+
+            <h2>9. Cập nhật chính sách</h2>
+            <p>Chính sách này có thể được cập nhật. Thay đổi có hiệu lực ngay khi được công bố.</p>
+
+            <h2>10. Thông tin liên hệ</h2>
+            <div class="contact-info">
+                <h3>DR.IT.Studio</h3>
+                <p>Kyiv, Ukraina</p>
+                <p>📧 <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>11. Sự đồng ý</h2>
+            <p>Bằng việc sử dụng ứng dụng Forest Calculator, bạn đồng ý với chính sách này. Nếu không đồng ý, vui lòng ngừng sử dụng ứng dụng.</p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 DR.IT.Studio. Bản quyền được bảo hộ.</p>
+        </div>
+    </div>
+</body>
+</html>

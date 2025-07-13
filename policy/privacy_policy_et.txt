@@ -1,0 +1,111 @@
+Jõustumise kuupäev: 6. mai 2025
+Rakenduse nimi: Forest Calculator
+Arendaja: DR.IT.Studio
+Asukoht: Kiiev, Ukraina
+Kontakt: support@dr-it.studio
+
+1. Sissejuhatus
+Forest Calculator on DR.IT.Studio poolt arendatud rakendus puidu mahu arvutamiseks ja muude professionaalsete funktsioonide jaoks. Käesolev privaatsuspoliitika selgitab, milliseid andmeid me kogume, kuidas me neid kasutame, salvestame, kaitseme ja jagame – sealhulgas tasuliste reklaamide (rewarded ads) kasutamise kohta.
+
+2. Kogutavad andmed
+2.1 Isikuandmed
+Me ei kogu isikuandmeid automaatselt. Kasutaja võib neid vabatahtlikult esitada:
+
+E-posti aadressi tugiteenusega ühenduse võtmisel;
+
+Rakendusse käsitsi sisestatud sisu ja seaded (nt arvutused).
+
+2.2 Mitteisiklik (tehniline) info
+Teenuste parandamiseks ja reklaamide kuvamiseks võime koguda anonüümset teavet:
+
+Seadme tüüp ja operatsioonisüsteemi versioon;
+
+Liidese keel;
+
+Funktsioonide kasutamise sagedus;
+
+Krahhilogid (crash logs);
+
+Reklaamituvastus-ID (Advertising ID).
+
+3. Lubade ja seadme juurdepääs
+Luba	Eesmärk
+Mälu kasutamine	Failide (PDF, Excel) salvestamine ja avamine
+Internetiühendus	Uuendused, reklaamid, e-kirjade saatmine
+Jagamine teiste rakendustega	Arvutuste eksportimine sõnumite või e-posti kaudu
+Installitud rakenduste loend (valikuline)	Ekspordivõimaluste kuvamine
+
+Me ei kasuta lubasid teiste rakenduste jälgimiseks.
+
+4. Reklaamid ja kolmandad osapooled
+4.1 Üldinfo
+Rakendus võib näidata isikupärastatud või mitteisikupärastatud reklaame sellistelt partneritelt nagu Google AdMob. Reklaamitüüpi saab valida rakenduse esmakordsel käivitamisel ja muuta hiljem seadetes.
+
+4.2 Tasu eest vaadatavad reklaamid (Rewarded Ads)
+Kasutaja saab vabatahtlikult vaadata reklaame, et saada ajutist juurdepääsu premium-funktsioonidele.
+
+Oluline:
+
+Reklaamivaatamine on vabatahtlik;
+
+Enne reklaami näitamist on selge teave;
+
+Preemia antakse ainult pärast täielikku vaatamist;
+
+Isikuandmeid ei jagata reklaamipartneritega.
+
+4.3 Kasutatavad tehnoloogiad
+Partnerid (sh Google) võivad kasutada:
+
+Reklaamituvastajad;
+
+Küpsised ja sarnased tehnoloogiad;
+
+Ühendandmeid reklaamide sihtimiseks.
+Google’i poliitika: https://policies.google.com/technologies/ads
+
+5. Tasulised funktsioonid ja tellimused
+Rakendus võib pakkuda järgmisi tasulisi funktsioone:
+
+Täiustatud arvutusmeetodid;
+
+Eksportimine PDF-i või Excelisse;
+
+Reklaamide eemaldamine;
+
+Premium-juurdepääs (tellis või ühekordne ost).
+
+Kõik maksed toimuvad Google Play kaudu. Me ei salvesta ega töötle kaardiandmeid.
+
+6. Andmete haldamine
+Kasutaja saab:
+
+Kustutada salvestatud andmed rakenduses või Androidi seadetes;
+
+Tühistada load seadme seadetes;
+
+Osta reklaamide keelamise funktsiooni;
+
+Muuta reklaaminõusolekut igal ajal;
+
+Paluda vabatahtlikult edastatud andmete kustutamist, kirjutades aadressil support@dr-it.studio.
+
+7. Turvalisus
+Andmeid ei saadeta kaugserverisse ilma kasutaja loata.
+Kõik andmed ja dokumendid salvestatakse kohalikku seadmesse.
+Soovitame kasutada ekraanilukku ja muid kaitsevõtteid.
+
+8. Laste privaatsus
+Rakendus ei ole mõeldud alla 13-aastastele lastele ning me ei kogu tahtlikult nende andmeid. Kui olete lapsevanem ja arvate, et andmed on esitatud, võtke meiega ühendust.
+
+9. Poliitika värskendused
+Võime privaatsuspoliitikat aeg-ajalt uuendada. Uus versioon jõustub avaldamise kuupäeval.
+Soovitame regulaarselt tutvuda värskendustega.
+
+10. Kontakt
+DR.IT.Studio
+Ukraina, Kiiev
+📧 support@dr-it.studio
+
+11. Kasutaja nõusolek
+Rakenduse kasutamisega kinnitate, et nõustute käesoleva privaatsuspoliitikaga. Kui te ei nõustu – lõpetage rakenduse kasutamine.

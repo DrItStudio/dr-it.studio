@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Calculator - Professional Wood Volume Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+        }
+
+        .forest-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="tree" x="0" y="0" width="20" height="20" patternUnits="userSpaceOnUse"><circle cx="10" cy="15" r="1" fill="%23ffffff" opacity="0.1"/><path d="M10 5 L12 15 L8 15 Z" fill="%23ffffff" opacity="0.05"/></pattern></defs><rect width="100" height="100" fill="url(%23tree)"/></svg>') repeat;
+            z-index: -1;
+            opacity: 0.3;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #27ae60;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #27ae60;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .language-dropdown {
+            position: relative;
+        }
+
+        .language-current {
+            padding: 8px 15px;
+            background: #27ae60;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .language-current:hover {
+            background: #219a52;
+        }
+
+        .language-options {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 10px 0;
+            min-width: 120px;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .language-options.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .language-option:hover {
+            background: #f8f9fa;
+        }
+
+        .language-option.active {
+            background: #27ae60;
+            color: white;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.9) 0%, rgba(27, 94, 32, 0.9) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><path d="M20 80 Q30 60 40 80 Q50 60 60 80 Q70 60 80 80" stroke="%23ffffff" stroke-width="0.5" fill="none" opacity="0.1"/></svg>') repeat;
+            animation: forestWave 20s linear infinite;
+        }
+
+        @keyframes forestWave {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .product-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease;
+        }
+
+        .product-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            animation: fadeInUp 1s ease 0.2s both;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.6s both;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, #27ae60 0%, #219a52 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.8s both;
+            box-shadow: 0 8px 25px rgba(39, 174, 96, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(39, 174, 96, 0.4);
+            background: linear-gradient(135deg, #219a52 0%, #27ae60 100%);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #f39c12 0%, #e67e22 100%);
+            box-shadow: 0 8px 25px rgba(243, 156, 18, 0.3);
+            margin-left: 15px;
+        }
+
+        .btn-secondary:hover {
+            box-shadow: 0 12px 35px rgba(243, 156, 18, 0.4);
+            background: linear-gradient(135deg, #e67e22 0%, #f39c12 100%);
+        }
+
+        .section {
+            padding: 6rem 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .section:nth-child(even) {
+            background: rgba(248, 249, 250, 0.95);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(39, 174, 96, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 45px rgba(39, 174, 96, 0.15);
+            border-color: rgba(39, 174, 96, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            color: #27ae60;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        .forest-theme {
+            background: linear-gradient(135deg, rgba(46, 125, 50, 0.1) 0%, rgba(27, 94, 32, 0.1) 100%);
+            border: 2px solid rgba(39, 174, 96, 0.3);
+        }
+
+        .forest-theme .feature-icon {
+            color: #1b5e20;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #1b5e20 0%, #2e7d32 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .contact h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-item h3 {
+            color: #4caf50;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-item p {
+            opacity: 0.9;
+        }
+
+        .contact-item a {
+            color: #4caf50;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #81c784;
+        }
+
+        footer {
+            background: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: #4caf50;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #4caf50;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .language-selector {
+                margin-left: auto;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .product-logo {
+                width: 80px;
+                height: 80px;
+            }
+
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 10px;
+                display: block;
+                width: fit-content;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="forest-bg"></div>
+    
+    <header>
+        <nav class="container">
+            <div class="logo-container">
+                <img src="logo_light.png" alt="DR.IT.Studio" class="logo-img">
+                <a href="index.html" class="logo-text">DR.IT.Studio</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-en="Home" data-ru="Главная" data-uk="Головна" data-es="Inicio" data-fr="Accueil" data-de="Startseite" data-zh="首页">Home</a></li>
+                <li><a href="#features" data-en="Features" data-ru="Возможности" data-uk="Можливості" data-es="Características" data-fr="Fonctionnalités" data-de="Funktionen" data-zh="功能">Features</a></li>
+                <li><a href="#about" data-en="About" data-ru="О продукте" data-uk="Про продукт" data-es="Acerca del Producto" data-fr="À propos du Produit" data-de="Über das Produkt" data-zh="关于产品">About</a></li>
+                <li><a href="#contact" data-en="Contact" data-ru="Контакты" data-uk="Контакти" data-es="Contacto" data-fr="Contact" data-de="Kontakt" data-zh="联系">Contact</a></li>
+            </ul>
+            <div class="language-selector">
+                <div class="language-dropdown">
+                    <button class="language-current">
+                        <span id="current-lang">🇺🇸 EN</span>
+                        <span>▼</span>
+                    </button>
+                    <div class="language-options" id="language-options">
+                        <div class="language-option active" data-lang="en">🇺🇸 English</div>
+                        <div class="language-option" data-lang="ru">🇷🇺 Русский</div>
+                        <div class="language-option" data-lang="uk">🇺🇦 Українська</div>
+                        <div class="language-option" data-lang="es">🇪🇸 Español</div>
+                        <div class="language-option" data-lang="fr">🇫🇷 Français</div>
+                        <div class="language-option" data-lang="de">🇩🇪 Deutsch</div>
+                        <div class="language-option" data-lang="zh">🇨🇳 中文</div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="product-logo">
+                <img src="splash.png" alt="Forest Calculator">
+            </div>
+            <h1 data-en="Forest Calculator" data-ru="Forest Calculator" data-uk="Forest Calculator" data-es="Forest Calculator" data-fr="Forest Calculator" data-de="Forest Calculator" data-zh="Forest Calculator">Forest Calculator</h1>
+            <div class="subtitle" data-en="Professional Wood Volume Calculator" data-ru="Профессиональный калькулятор объема древесины" data-uk="Професійний калькулятор об'єму деревини" data-es="Calculadora Profesional de Volumen de Madera" data-fr="Calculateur Professionnel de Volume de Bois" data-de="Professioneller Holzvolumen-Rechner" data-zh="专业木材体积计算器">Professional Wood Volume Calculator</div>
+            <p data-en="Precise calculations in m³ and Board Feet (BF), offline export to PDF/Excel, no subscriptions required. The most powerful offline tool for forest industry professionals." data-ru="Точные расчеты в м³ и досковых футах (BF), офлайн экспорт в PDF/Excel, без подписок. Самый мощный офлайн-инструмент для специалистов лесной отрасли." data-uk="Точні розрахунки в м³ та Board Feet (BF), офлайн експорт у PDF/Excel, без підписок. Найпотужніший офлайн-інструмент для фахівців лісової галузі." data-es="Cálculos precisos en m³ y Board Feet (BF), exportación offline a PDF/Excel, sin suscripciones. La herramienta offline más potente para profesionales de la industria forestal." data-fr="Calculs précis en m³ et Board Feet (BF), export hors ligne vers PDF/Excel, sans abonnements. L'outil hors ligne le plus puissant pour les professionnels de l'industrie forestière." data-de="Präzise Berechnungen in m³ und Board Feet (BF), Offline-Export zu PDF/Excel, keine Abonnements. Das leistungsstärkste Offline-Tool für Forstfachleute." data-zh="精确计算m³和板英尺(BF)，离线导出PDF/Excel，无需订阅。林业专业人士最强大的离线工具。">Precise calculations in m³ and Board Feet (BF), offline export to PDF/Excel, no subscriptions required. The most powerful offline tool for forest industry professionals.</p>
+            <div>
+                <a href="#features" class="btn" data-en="Explore Features" data-ru="Изучить возможности" data-uk="Дослідити можливості" data-es="Explorar Características" data-fr="Explorer les Fonctionnalités" data-de="Funktionen Erkunden" data-zh="探索功能">Explore Features</a>
+                <a href="privacy-policy.html" class="btn btn-secondary" data-en="Privacy Policy" data-ru="Политика конфиденциальности" data-uk="Політика конфіденційності" data-es="Política de Privacidad" data-fr="Politique de Confidentialité" data-de="Datenschutzrichtlinie" data-zh="隐私政策">Privacy Policy</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section">
+        <div class="container">
+            <h2 class="section-title" data-en="Key Features" data-ru="Ключевые возможности" data-uk="Ключові можливості" data-es="Características Clave" data-fr="Fonctionnalités Clés" data-de="Hauptfunktionen" data-zh="主要功能">Key Features</h2>
+            <p class="section-subtitle" data-en="Professional tools designed specifically for forest industry professionals worldwide" data-ru="Профессиональные инструменты, разработанные специально для специалистов лесной отрасли по всему миру" data-uk="Професійні інструменти, розроблені спеціально для фахівців лісової галузі по всьому світу" data-es="Herramientas profesionales diseñadas específicamente para profesionales de la industria forestal en todo el mundo" data-fr="Outils professionnels conçus spécifiquement pour les professionnels de l'industrie forestière dans le monde entier" data-de="Professionelle Tools, die speziell für Forstfachleute weltweit entwickelt wurden" data-zh="专为全球林业专业人士设计的专业工具">Professional tools designed specifically for forest industry professionals worldwide</p>
+            <div class="features">
+                <div class="feature-card forest-theme">
+                    <div class="feature-icon">📐</div>
+                    <h3 data-en="Precise Calculations" data-ru="Точные расчеты" data-uk="Точні розрахунки" data-es="Cálculos Precisos" data-fr="Calculs Précis" data-de="Präzise Berechnungen" data-zh="精确计算">Precise Calculations</h3>
+                    <p data-en="Calculate volume in m³ and Board Feet using exact formulas by length and diameter. Support for different log shapes and wood species with density coefficients." data-ru="Расчет объема в м³ и досковых футах по точным формулам длины и диаметра. Поддержка разных форм бревен и пород древесины с коэффициентами плотности." data-uk="Розрахунок об'єму в м³ та Board Feet за точними формулами довжини та діаметра. Підтримка різних форм колод та порід деревини з коефіцієнтами щільності." data-es="Calcule el volumen en m³ y Board Feet usando fórmulas exactas por longitud y diámetro. Soporte para diferentes formas de troncos y especies de madera con coeficientes de densidad." data-fr="Calculez le volume en m³ et Board Feet en utilisant des formules exactes par longueur et diamètre. Support pour différentes formes de grumes et essences de bois avec coefficients de densité." data-de="Berechnen Sie das Volumen in m³ und Board Feet mit exakten Formeln nach Länge und Durchmesser. Unterstützung für verschiedene Stammformen und Holzarten mit Dichtekoeffizienten." data-zh="使用精确的长度和直径公式计算m³和板英尺体积。支持不同的原木形状和带有密度系数的木材种类。">Calculate volume in m³ and Board Feet using exact formulas by length and diameter. Support for different log shapes and wood species with density coefficients.</p>
+                </div>
+                <div class="feature-card forest-theme">
+                    <div class="feature-icon">📄</div>
+                    <h3 data-en="Export to PDF/Excel" data-ru="Экспорт в PDF/Excel" data-uk="Експорт у PDF/Excel" data-es="Exportar a PDF/Excel" data-fr="Exporter vers PDF/Excel" data-de="Export zu PDF/Excel" data-zh="导出为PDF/Excel">Export to PDF/Excel</h3>
+                    <p data-en="Generate professional documents with calculation tables, company logo and digital signature. Support for CSV and JSON formats for further data processing." data-ru="Создавайте профессиональные документы с таблицами расчетов, логотипом компании и цифровой подписью. Поддержка форматов CSV и JSON для дальнейшей обработки данных." data-uk="Генеруйте професійні документи з таблицями розрахунків, логотипом компанії та цифровим підписом. Підтримка форматів CSV та JSON для подальшої обробки даних." data-es="Genere documentos profesionales con tablas de cálculos, logo de empresa y firma digital. Soporte para formatos CSV y JSON para procesamiento adicional de datos." data-fr="Générez des documents professionnels avec tableaux de calculs, logo d'entreprise et signature numérique. Support des formats CSV et JSON pour traitement ultérieur des données." data-de="Erstellen Sie professionelle Dokumente mit Berechnungstabellen, Firmenlogo und digitaler Unterschrift. Unterstützung für CSV- und JSON-Formate zur weiteren Datenverarbeitung." data-zh="生成带有计算表、公司徽标和数字签名的专业文档。支持CSV和JSON格式进行进一步的数据处理。">Generate professional documents with calculation tables, company logo and digital signature. Support for CSV and JSON formats for further data processing.</p>
+                </div>
+                <div class="feature-card forest-theme">
+                    <div class="feature-icon">📶</div>
+                    <h3 data-en="Fully Offline" data-ru="Полностью офлайн" data-uk="Повністю офлайн" data-es="Completamente Offline" data-fr="Entièrement Hors Ligne" data-de="Vollständig Offline" data-zh="完全离线">Fully Offline</h3>
+                    <p data-en="Works without internet connection in any field conditions. All calculations, exports and database access function completely offline. No data collection or tracking." data-ru="Работает без подключения к интернету в любых полевых условиях. Все расчеты, экспорты и доступ к базе данных функционируют полностью офлайн. Без сбора данных и отслеживания." data-uk="Працює без підключення до інтернету в будь-яких польових умовах. Всі розрахунки, експорти та доступ до бази даних функціонують повністю офлайн. Без збору даних та відстеження." data-es="Funciona sin conexión a internet en cualquier condición de campo. Todos los cálculos, exportaciones y acceso a base de datos funcionan completamente sin conexión. Sin recopilación de datos o seguimiento." data-fr="Fonctionne sans connexion internet dans toutes conditions de terrain. Tous les calculs, exports et accès à la base de données fonctionnent entièrement hors ligne. Aucune collecte de données ou suivi." data-de="Funktioniert ohne Internetverbindung unter allen Feldbedingungen. Alle Berechnungen, Exporte und Datenbankzugriffe funktionieren vollständig offline. Keine Datensammlung oder Tracking." data-zh="在任何野外条件下都可以在没有互联网连接的情况下工作。所有计算、导出和数据库访问都完全离线运行。无数据收集或跟踪。">Works without internet connection in any field conditions. All calculations, exports and database access function completely offline. No data collection or tracking.</p>
+                </div>
+                <div class="feature-card forest-theme">
+                    <div class="feature-icon">🌍</div>
+                    <h3 data-en="50+ Languages" data-ru="50+ языков" data-uk="50+ мов" data-es="50+ Idiomas" data-fr="50+ Langues" data-de="50+ Sprachen" data-zh="50+种语言">50+ Languages</h3>
+                    <p data-en="Interface translated into 50+ languages with automatic system language detection. All calculation units and export documents adapt to local standards and terminology." data-ru="Интерфейс переведен на 50+ языков с автоматическим определением языка системы. Все единицы расчета и экспортные документы адаптируются к местным стандартам и терминологии." data-uk="Інтерфейс перекладено на 50+ мов з автоматичним визначенням мови системи. Всі одиниці розрахунку та експортні документи адаптуються до місцевих стандартів та термінології." data-es="Interfaz traducida a 50+ idiomas con detección automática del idioma del sistema. Todas las unidades de cálculo y documentos de exportación se adaptan a estándares y terminología locales." data-fr="Interface traduite en 50+ langues avec détection automatique de la langue du système. Toutes les unités de calcul et documents d'export s'adaptent aux standards et terminologie locaux." data-de="Benutzeroberfläche in 50+ Sprachen übersetzt mit automatischer Systemsprachenerkennung. Alle Berechnungseinheiten und Exportdokumente passen sich an lokale Standards und Terminologie an." data-zh="界面翻译成50+种语言，具有自动系统语言检测功能。所有计算单位和导出文档都适应当地标准和术语。">Interface translated into 50+ languages with automatic system language detection. All calculation units and export documents adapt to local standards and terminology.</p>
+                </div>
+                <div class="feature-card forest-theme">
+                    <div class="feature-icon">🪵</div>
+                    <h3 data-en="Wood Species Database" data-ru="База пород древесины" data-uk="База порід деревини" data-es="Base de Datos de Especies de Madera" data-fr="Base de Données des Essences de Bois" data-de="Holzarten-Datenbank" data-zh="木材种类数据库">Wood Species Database</h3>
+                    <p data-en="Comprehensive reference with 200+ wood species, density data, regional distribution maps. Advanced filtering by wood type, density range, and geographical region." data-ru="Полный справочник с 200+ породами древесины, данными плотности, картами регионального распространения. Расширенная фильтрация по типу древесины, диапазону плотности и географическому региону." data-uk="Повний довідник з 200+ породами деревини, даними щільності, картами регіонального поширення. Розширена фільтрація за типом деревини, діапазоном щільності та географічним регіоном." data-es="Referencia completa con 200+ especies de madera, datos de densidad, mapas de distribución regional. Filtrado avanzado por tipo de madera, rango de densidad y región geográfica." data-fr="Référence complète avec 200+ essences de bois, données de densité, cartes de distribution régionale. Filtrage avancé par type de bois, plage de densité et région géographique." data-de="Umfassendes Nachschlagewerk mit 200+ Holzarten, Dichtedaten, regionalen Verbreitungskarten. Erweiterte Filterung nach Holztyp, Dichtebereich und geografischer Region." data-zh="包含200+木材种类、密度数据、区域分布图的综合参考。按木材类型、密度范围和地理区域进行高级过滤。">Comprehensive reference with 200+ wood species, density data, regional distribution maps. Advanced filtering by wood type, density range, and geographical region.</p>
+                </div>
+                <div class="feature-card forest-theme">
+                    <div class="feature-icon">💎</div>
+                    <h3 data-en="Flexible Pricing" data-ru="Гибкое ценообразование" data-uk="Гнучке ціноутворення" data-es="Precios Flexibles" data-fr="Tarification Flexible" data-de="Flexible Preisgestaltung" data-zh="灵活定价">Flexible Pricing</h3>
+                    <p data-en="Watch optional reward videos to unlock premium features or subscribe to PRO version. No forced advertising, no hidden fees. Transparent pricing model with lifetime purchase options." data-ru="Смотрите опциональные видео за вознаграждение для разблокировки премиум функций или оформите подписку PRO. Без принудительной рекламы, без скрытых платежей. Прозрачная модель ценообразования с вариантами пожизненной покупки." data-uk="Дивіться опціональні відео за винагороду для розблокування преміум функцій або оформіть підписку PRO. Без примусової реклами, без прихованих платежів. Прозора модель ціноутворення з варіантами довічної покупки." data-es="Vea videos de recompensa opcionales para desbloquear funciones premium o suscríbase a la versión PRO. Sin publicidad forzada, sin tarifas ocultas. Modelo de precios transparente con opciones de compra de por vida." data-fr="Regardez des vidéos de récompense optionnelles pour débloquer les fonctionnalités premium ou abonnez-vous à la version PRO. Pas de publicité forcée, pas de frais cachés. Modèle de tarification transparent avec options d'achat à vie." data-de="Schauen Sie optionale Belohnungsvideos, um Premium-Funktionen freizuschalten, oder abonnieren Sie die PRO-Version. Keine Zwangswerbung, keine versteckten Gebühren. Transparentes Preismodell mit lebenslangen Kaufoptionen." data-zh="观看可选奖励视频以解锁高级功能或订阅PRO版本。无强制广告，无隐藏费用。透明的定价模式，提供终身购买选项。">Watch optional reward videos to unlock premium features or subscribe to PRO version. No forced advertising, no hidden fees. Transparent pricing model with lifetime purchase options.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title" data-en="About Forest Calculator" data-ru="О Forest Calculator" data-uk="Про Forest Calculator" data-es="Acerca de Forest Calculator" data-fr="À propos de Forest Calculator" data-de="Über Forest Calculator" data-zh="关于Forest Calculator">About Forest Calculator</h2>
+            <p class="section-subtitle" data-en="The most trusted wood volume calculation tool for forest industry professionals worldwide" data-ru="Самый надежный инструмент расчета объема древесины для специалистов лесной отрасли по всему миру" data-uk="Найнадійніший інструмент розрахунку об'єму деревини для фахівців лісової галузі по всьому світу" data-es="La herramienta de cálculo de volumen de madera más confiable para profesionales de la industria forestal en todo el mundo" data-fr="L'outil de calcul de volume de bois le plus fiable pour les professionnels de l'industrie forestière dans le monde entier" data-de="Das vertrauenswürdigste Holzvolumen-Berechnungstool für Forstfachleute weltweit" data-zh="全球林业专业人士最值得信赖的木材体积计算工具">The most trusted wood volume calculation tool for forest industry professionals worldwide</p>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 data-en="Professional Accuracy" data-ru="Профессиональная точность" data-uk="Професійна точність" data-es="Precisión Profesional" data-fr="Précision Professionnelle" data-de="Professionelle Genauigkeit" data-zh="专业精度">Professional Accuracy</h3>
+                    <p data-en="Used by forest industry professionals in 50+ countries. Calculations verified against international forestry standards and local measurement requirements." data-ru="Используется специалистами лесной отрасли в 50+ странах. Расчеты проверены по международным стандартам лесного хозяйства и местным требованиям измерений." data-uk="Використовується фахівцями лісової галузі в 50+ країнах. Розрахунки перевірені за міжнародними стандартами лісового господарства та місцевими вимогами вимірювань." data-es="Utilizado por profesionales de la industria forestal en 50+ países. Cálculos verificados contra estándares forestales internacionales y requisitos de medición locales." data-fr="Utilisé par les professionnels de l'industrie forestière dans 50+ pays. Calculs vérifiés selon les standards forestiers internationaux et exigences de mesure locales." data-de="Von Forstfachleuten in 50+ Ländern verwendet. Berechnungen nach internationalen Forststandards und lokalen Messanforderungen verifiziert." data-zh="被50多个国家的林业专业人士使用。计算已根据国际林业标准和当地测量要求进行验证。">Used by forest industry professionals in 50+ countries. Calculations verified against international forestry standards and local measurement requirements.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 data-en="Field-Ready Design" data-ru="Дизайн для полевых условий" data-uk="Дизайн для польових умов" data-es="Diseño Listo para Campo" data-fr="Conception Prête pour le Terrain" data-de="Feldtaugliches Design" data-zh="野外就绪设计">Field-Ready Design</h3>
+                    <p data-en="Optimized interface for outdoor conditions with large buttons, high contrast display, and glove-friendly touch controls. Works in extreme weather conditions." data-ru="Оптимизированный интерфейс для наружных условий с большими кнопками, высококонтрастным дисплеем и сенсорным управлением, дружественным к перчаткам. Работает в экстремальных погодных условиях." data-uk="Оптимізований інтерфейс для зовнішніх умов з великими кнопками, висококонтрастним дисплеєм та сенсорним управлінням, дружнім до рукавичок. Працює в екстремальних погодних умовах." data-es="Interfaz optimizada para condiciones exteriores con botones grandes, pantalla de alto contraste y controles táctiles compatibles con guantes. Funciona en condiciones climáticas extremas." data-fr="Interface optimisée pour conditions extérieures avec gros boutons, affichage haute contraste et contrôles tactiles compatibles gants. Fonctionne dans conditions météo extrêmes." data-de="Optimierte Benutzeroberfläche für Außenbedingungen mit großen Tasten, kontrastreicher Anzeige und handschuhfreundlichen Touch-Bedienelementen. Funktioniert bei extremen Wetterbedingungen." data-zh="针对户外条件优化的界面，具有大按钮、高对比度显示和手套友好的触摸控制。在极端天气条件下工作。">Optimized interface for outdoor conditions with large buttons, high contrast display, and glove-friendly touch controls. Works in extreme weather conditions.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 data-en="Privacy & Security" data-ru="Конфиденциальность и безопасность" data-uk="Конфіденційність та безпека" data-es="Privacidad y Seguridad" data-fr="Confidentialité et Sécurité" data-de="Datenschutz & Sicherheit" data-zh="隐私与安全">Privacy & Security</h3>
+                    <p data-en="All calculations and data remain on your device. No cloud dependencies, no data collection, no tracking. Your measurement data stays private and secure." data-ru="Все расчеты и данные остаются на вашем устройстве. Без зависимости от облака, без сбора данных, без отслеживания. Ваши данные измерений остаются приватными и защищенными." data-uk="Всі розрахунки та дані залишаються на вашому пристрої. Без залежності від хмари, без збору даних, без відстеження. Ваші дані вимірювань залишаються приватними та захищеними." data-es="Todos los cálculos y datos permanecen en su dispositivo. Sin dependencias en la nube, sin recopilación de datos, sin seguimiento. Sus datos de medición permanecen privados y seguros." data-fr="Tous les calculs et données restent sur votre appareil. Aucune dépendance cloud, aucune collecte de données, aucun suivi. Vos données de mesure restent privées et sécurisées." data-de="Alle Berechnungen und Daten bleiben auf Ihrem Gerät. Keine Cloud-Abhängigkeiten, keine Datensammlung, kein Tracking. Ihre Messdaten bleiben privat und sicher." data-zh="所有计算和数据都保留在您的设备上。无云依赖，无数据收集，无跟踪。您的测量数据保持私密和安全。">All calculations and data remain on your device. No cloud dependencies, no data collection, no tracking. Your measurement data stays private and secure.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-en="Contact & Support" data-ru="Контакты и поддержка" data-uk="Контакти та підтримка" data-es="Contacto y Soporte" data-fr="Contact et Support" data-de="Kontakt & Support" data-zh="联系与支持">Contact & Support</h2>
+            <p data-en="Questions about Forest Calculator? Need technical support? We're here to help forest professionals!" data-ru="Вопросы о Forest Calculator? Нужна техническая поддержка? Мы готовы помочь специалистам лесного хозяйства!" data-uk="Питання щодо Forest Calculator? Потрібна технічна підтримка? Ми готові допомогти фахівцям лісового господарства!" data-es="¿Preguntas sobre Forest Calculator? ¿Necesita soporte técnico? ¡Estamos aquí para ayudar a los profesionales forestales!" data-fr="Questions sur Forest Calculator? Besoin d'aide technique? Nous sommes là pour aider les professionnels forestiers!" data-de="Fragen zu Forest Calculator? Brauchen Sie technischen Support? Wir sind hier, um Forstfachleuten zu helfen!" data-zh="对Forest Calculator有疑问？需要技术支持？我们在这里帮助林业专业人士！">Questions about Forest Calculator? Need technical support? We're here to help forest professionals!</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3 data-en="Email Support" data-ru="Поддержка по Email" data-uk="Підтримка по Email" data-es="Soporte por Email" data-fr="Support Email" data-de="E-Mail-Support" data-zh="邮件支持">Email Support</h3>
+                    <p><a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+                    <p data-en="Technical support, feature requests, and general inquiries" data-ru="Техническая поддержка, запросы функций и общие вопросы" data-uk="Технічна підтримка, запити функцій та загальні питання" data-es="Soporte técnico, solicitudes de funciones y consultas generales" data-fr="Support technique, demandes de fonctionnalités et demandes générales" data-de="Technischer Support, Feature-Anfragen und allgemeine Anfragen" data-zh="技术支持、功能请求和一般咨询">Technical support, feature requests, and general inquiries</p>
+                </div>
+                <div class="contact-item">
+                    <h3 data-en="Privacy Policy" data-ru="Политика конфиденциальности" data-uk="Політика конфіденційності" data-es="Política de Privacidad" data-fr="Politique de Confidentialité" data-de="Datenschutzrichtlinie" data-zh="隐私政策">Privacy Policy</h3>
+                    <p><a href="privacy-policy.html" data-en="View Privacy Policy" data-ru="Посмотреть политику конфиденциальности" data-uk="Переглянути політику конфіденційності" data-es="Ver Política de Privacidad" data-fr="Voir la Politique de Confidentialité" data-de="Datenschutzrichtlinie anzeigen" data-zh="查看隐私политики">View Privacy Policy</a></p>
+                    <p data-en="Learn how we protect your data and privacy" data-ru="Узнайте, как мы защищаем ваши данные и конфиденциальность" data-uk="Дізнайтеся, як ми захищаємо ваші дані та конфіденційність" data-es="Aprenda cómo protegemos sus datos y privacidad" data-fr="Découvrez comment nous protégeons vos données et votre vie privée" data-de="Erfahren Sie, wie wir Ihre Daten und Privatsphäre schützen" data-zh="了解我们如何保护您的数据和隐私">Learn how we protect your data and privacy</p>
+                </div>
+                <div class="contact-item">
+                    <h3 data-en="Developer" data-ru="Разработчик" data-uk="Розробник" data-es="Desarrollador" data-fr="Développeur" data-de="Entwickler" data-zh="开发者">Developer</h3>
+                    <p data-en="DR.IT.Studio" data-ru="DR.IT.Studio" data-uk="DR.IT.Studio" data-es="DR.IT.Studio" data-fr="DR.IT.Studio" data-de="DR.IT.Studio" data-zh="DR.IT.Studio">DR.IT.Studio</p>
+                    <p data-en="Kyiv, Ukraine" data-ru="Киев, Украина" data-uk="Київ, Україна" data-es="Kiev, Ucrania" data-fr="Kiev, Ukraine" data-de="Kiew, Ukraine" data-zh="基辅，乌克兰">Kyiv, Ukraine</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 data-en="Forest Calculator" data-ru="Forest Calculator" data-uk="Forest Calculator" data-es="Forest Calculator" data-fr="Forest Calculator" data-de="Forest Calculator" data-zh="Forest Calculator">Forest Calculator</h4>
+                    <a href="#features" data-en="Features" data-ru="Возможности" data-uk="Можливості" data-es="Características" data-fr="Fonctionnalités" data-de="Funktionen" data-zh="功能">Features</a>
+                    <a href="privacy-policy.html" data-en="Privacy Policy" data-ru="Политика конфиденциальности" data-uk="Політика конфіденційності" data-es="Política de Privacidad" data-fr="Politique de Confidentialité" data-de="Datenschutzrichtlinie" data-zh="隐私政策">Privacy Policy</a>
+                </div>
+                <div class="footer-section">
+                    <h4 data-en="Support" data-ru="Поддержка" data-uk="Підтримка" data-es="Soporte" data-fr="Support" data-de="Support" data-zh="支持">Support</h4>
+                    <a href="mailto:support@dr-it.studio" data-en="Contact Support" data-ru="Связаться с поддержкой" data-uk="Зв'язатися з підтримкою" data-es="Contactar Soporte" data-fr="Contacter le Support" data-de="Support kontaktieren" data-zh="联系支持">Contact Support</a>
+                </div>
+                <div class="footer-section">
+                    <h4 data-en="Company" data-ru="Компания" data-uk="Компанія" data-es="Empresa" data-fr="Entreprise" data-de="Unternehmen" data-zh="公司">Company</h4>
+                    <a href="index.html" data-en="DR.IT.Studio" data-ru="DR.IT.Studio" data-uk="DR.IT.Studio" data-es="DR.IT.Studio" data-fr="DR.IT.Studio" data-de="DR.IT.Studio" data-zh="DR.IT.Studio">DR.IT.Studio</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DR.IT.Studio. <span data-en="All rights reserved." data-ru="Все права защищены." data-uk="Всі права захищені." data-es="Todos los derechos reservados." data-fr="Tous droits réservés." data-de="Alle Rechte vorbehalten." data-zh="版权所有。">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/language-manager.js"></script>
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .contact-item').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="mt" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politika tal-Privatezza - Forest Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .policy-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2E7D32;
+        }
+
+        .policy-info h2 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .policy-info p {
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h3 {
+            color: #2E7D32;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E8F5E8;
+        }
+
+        .section p, .section li {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .permission-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .permission-table th,
+        .permission-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #E8F5E8;
+        }
+
+        .permission-table th {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .permission-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc8 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .contact p {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #2E7D32;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #2E7D32;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2E7D32;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .permission-table {
+                font-size: 0.9rem;
+            }
+
+            .permission-table th,
+            .permission-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <p>Politika tal-Privatezza</p>
+        </div>
+
+        <div class="content">
+            <a href="privacy-policy.html" class="back-link">← Erġa' lura għall-għażla tal-lingwa</a>
+
+            <div class="policy-info">
+                <h2>Informazzjoni dwar il-Politika</h2>
+                <p><strong>Data tad-Dħul fis-Seħħ:</strong> 6 ta' Mejju, 2025</p>
+                <p><strong>Isem tal-App:</strong> Forest Calculator</p>
+                <p><strong>Żviluppatur:</strong> DR.IT.Studio</p>
+                <p><strong>Post:</strong> Kyiv, l-Ukraina</p>
+                <p><strong>Kuntatt:</strong> support@dr-it.studio</p>
+            </div>
+
+            <div class="section">
+                <h3>1. Introduzzjoni</h3>
+                <p>Forest Calculator, żviluppata minn DR.IT.Studio ("aħna", "tagħna"), hija app għall-kalkolu tal-volum tal-injam u funzjonijiet professjonali oħra. Din il-Politika tal-Privatezza tispjega x'dawk id-dejta li niġbru, kif nużawha, inħażnuha, nipproteġuha u naqsmuha – inkluża informazzjoni dwar reklami b'rikompensa (Rewarded Ads).</p>
+            </div>
+
+            <div class="section">
+                <h3>2. Dejta li Niġbru</h3>
+                
+                <h4>2.1 Informazzjoni Personali</h4>
+                <p>Aħna ma niġbrux dejta personali awtomatikament. Inti tista' tagħti:</p>
+                <ul>
+                    <li>Indirizz tal-email meta tikkuntattja l-appoġġ;</li>
+                    <li>Kontenut u preferenzi daħlu manwalment (kalkoli, eċċ.).</li>
+                </ul>
+
+                <h4>2.2 Informazzjoni Teknika</h4>
+                <p>Għal dijanjostiċi u titjib tas-servizz:</p>
+                <ul>
+                    <li>Tip u verżjoni tal-apparat u tas-sistema operattiva;</li>
+                    <li>Lingwa tal-interface;</li>
+                    <li>Frekwenza u mod ta' użu;</li>
+                    <li>Crash logs;</li>
+                    <li>ID tar-reklamar.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>3. Permessi</h3>
+                <table class="permission-table">
+                    <thead>
+                        <tr>
+                            <th>Permess</th>
+                            <th>Skop</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Aċċess għall-ħażna</td>
+                            <td>Biex tiftaħ/u tissejvja fajls (PDF, Excel, eċċ.)</td>
+                        </tr>
+                        <tr>
+                            <td>Internet</td>
+                            <td>Għal aġġornamenti, reklami u email</td>
+                        </tr>
+                        <tr>
+                            <td>Qsim ma' apps oħra</td>
+                            <td>Għall-esportazzjoni tal-kalkoli</td>
+                        </tr>
+                        <tr>
+                            <td>Lista ta' apps installati (mhux obbligatorja)</td>
+                            <td>Uri metodi disponibbli għall-esportazzjoni</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h3>4. Reklami u Servizzi ta' Terzi</h3>
+                <p>L-app tista' turi reklami personalizzati jew mhux personalizzati.</p>
+                
+                <div class="highlight">
+                    <h4>Reklami b'Rikompensa:</h4>
+                    <ul>
+                        <li>Reklami b'rikompensa huma mhux obbligatorji</li>
+                        <li>Ebda dejta personali ma tintbagħat lill-imsieħba</li>
+                        <li>Joffru aċċess temporanju għal għodod premium</li>
+                    </ul>
+                </div>
+                
+                <p>Politika ta' Google: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+            </div>
+
+            <div class="section">
+                <h3>5. Karatteristiċi Mħallsa</h3>
+                <ul>
+                    <li>Kalkoli avvanzati</li>
+                    <li>Esportazzjoni għal PDF, Excel</li>
+                    <li>Tneħħija tar-reklami</li>
+                    <li>Aċċess premium (abbonament jew ħlas wieħed)</li>
+                </ul>
+                <p>Il-ħlasijiet kollha jsiru permezz ta' Google Play. Ma naħżnux dettalji tal-kards.</p>
+            </div>
+
+            <div class="section">
+                <h3>6. Kontroll tad-Dejta</h3>
+                <p>Inti tista':</p>
+                <ul>
+                    <li>Ħassar dejta fil-app jew fl-issettjar tal-Android</li>
+                    <li>Irrtirar permessi</li>
+                    <li>Ikkuntattjana biex tneħħi dejta: support@dr-it.studio</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>7. Sigurtà</h3>
+                <ul>
+                    <li>L-app ma tibgħatx dejta lil servers mingħajr permess</li>
+                    <li>Id-dejta kollha tinħażen lokalment fuq l-apparat tiegħek</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>8. Privatezza tat-Tfal</h3>
+                <p>L-app mhix maħsuba għal tfal taħt it-13-il sena. Jekk taħseb li tifel/tifla tiegħek bagħat dejta, ikkuntattjana.</p>
+            </div>
+
+            <div class="section">
+                <h3>9. Aġġornamenti</h3>
+                <p>Din il-politika tista' tiġi aġġornata minn żmien għal żmien. Jekk jogħġbok iċċekkja perjodikament.</p>
+            </div>
+
+            <div class="section">
+                <h3>11. Kunsens tal-Utent</h3>
+                <p>Billi tuża l-app, inti taqbel mal-politika tal-privatezza tagħna. Inkella, jekk ma taqbilx, jekk jogħġbok waqqaf l-użu.</p>
+            </div>
+
+            <div class="contact">
+                <h3>10. Informazzjoni ta' Kuntatt</h3>
+                <p><strong>DR.IT.Studio</strong></p>
+                <p>Kyiv, l-Ukraina</p>
+                <p>📧 support@dr-it.studio</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

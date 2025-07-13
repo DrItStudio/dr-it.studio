@@ -1,0 +1,751 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Calculator - Политика конфиденциальности</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 2rem 0;
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .logo {
+            color: white;
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .subtitle {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.2rem;
+        }
+
+        .language-selector {
+            background: white;
+            border-radius: 15px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+
+        .language-selector h2 {
+            color: #2d5016;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .language-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .language-card {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border: 2px solid transparent;
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-decoration: none;
+            color: #333;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .language-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(45, 80, 22, 0.2);
+            border-color: #4a7c59;
+        }
+
+        .language-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
+            transition: left 0.5s;
+        }
+
+        .language-card:hover::before {
+            left: 100%;
+        }
+
+        .flag {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .language-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2d5016;
+            margin-bottom: 0.5rem;
+        }
+
+        .language-native {
+            font-size: 1rem;
+            color: #666;
+            font-style: italic;
+        }
+
+        .content-section {
+            background: white;
+            border-radius: 15px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            display: none;
+        }
+
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .content-section h1 {
+            color: #2d5016;
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid #4a7c59;
+            padding-bottom: 0.5rem;
+        }
+
+        .content-section h2 {
+            color: #4a7c59;
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .content-section h3 {
+            color: #2d5016;
+            font-size: 1.4rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .content-section p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        .content-section ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        .content-section li {
+            margin-bottom: 0.5rem;
+        }
+
+        .back-btn {
+            display: inline-block;
+            background: #4a7c59;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 25px;
+            text-decoration: none;
+            margin-bottom: 1rem;
+            transition: background 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #2d5016;
+        }
+
+        .last-updated {
+            background: #f8f9fa;
+            border-left: 4px solid #4a7c59;
+            padding: 1rem;
+            margin: 2rem 0;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 2rem;
+        }
+
+        footer {
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 3rem;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .language-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .content-section {
+                padding: 2rem 1rem;
+            }
+            
+            .container {
+                padding: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">🌲 Forest Calculator</div>
+            <div class="subtitle">Политика конфиденциальности</div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div id="language-selector" class="language-selector">
+            <h2>Выберите язык / Choose Language</h2>
+            <p>Пожалуйста, выберите язык для просмотра политики конфиденциальности</p>
+            
+            <div class="language-grid">
+                <a href="privacy-policy-ru.html" class="language-card">
+                    <span class="flag">🇷🇺</span>
+                    <div class="language-name">Русский</div>
+                    <div class="language-native">Russian</div>
+                </a>
+                
+                <a href="privacy-policy-en.html" class="language-card">
+                    <span class="flag">🇺🇸</span>
+                    <div class="language-name">English</div>
+                    <div class="language-native">English</div>
+                </a>
+                
+                <a href="privacy-policy-es.html" class="language-card">
+                    <span class="flag">🇪🇸</span>
+                    <div class="language-name">Español</div>
+                    <div class="language-native">Spanish</div>
+                </a>
+                
+                <a href="privacy-policy-fr.html" class="language-card">
+                    <span class="flag">🇫🇷</span>
+                    <div class="language-name">Français</div>
+                    <div class="language-native">French</div>
+                </a>
+                
+                <a href="privacy-policy-de.html" class="language-card">
+                    <span class="flag">🇩🇪</span>
+                    <div class="language-name">Deutsch</div>
+                    <div class="language-native">German</div>
+                </a>
+                
+                <a href="privacy-policy-zh.html" class="language-card">
+                    <span class="flag">🇨🇳</span>
+                    <div class="language-name">中文</div>
+                    <div class="language-native">Chinese</div>
+                </a>
+                
+                <a href="privacy-policy-it.html" class="language-card">
+                    <span class="flag">🇮🇹</span>
+                    <div class="language-name">Italiano</div>
+                    <div class="language-native">Italian</div>
+                </a>
+                
+                <a href="privacy-policy-pt.html" class="language-card">
+                    <span class="flag">🇵🇹</span>
+                    <div class="language-name">Português</div>
+                    <div class="language-native">Portuguese</div>
+                </a>
+                
+                <a href="privacy-policy-jp.html" class="language-card">
+                    <span class="flag">🇯🇵</span>
+                    <div class="language-name">日本語</div>
+                    <div class="language-native">Japanese</div>
+                </a>
+                
+                <a href="privacy-policy-ko.html" class="language-card">
+                    <span class="flag">🇰🇷</span>
+                    <div class="language-name">한국어</div>
+                    <div class="language-native">Korean</div>
+                </a>
+                
+                <a href="privacy-policy-ar.html" class="language-card">
+                    <span class="flag">🇸🇦</span>
+                    <div class="language-name">العربية</div>
+                    <div class="language-native">Arabic</div>
+                </a>
+                
+                <a href="privacy-policy-nl.html" class="language-card">
+                    <span class="flag">🇳🇱</span>
+                    <div class="language-name">Nederlands</div>
+                    <div class="language-native">Dutch</div>
+                </a>
+                
+                <a href="privacy-policy-sv.html" class="language-card">
+                    <span class="flag">🇸🇪</span>
+                    <div class="language-name">Svenska</div>
+                    <div class="language-native">Swedish</div>
+                </a>
+                
+                <a href="privacy-policy-tr.html" class="language-card">
+                    <span class="flag">🇹🇷</span>
+                    <div class="language-name">Türkçe</div>
+                    <div class="language-native">Turkish</div>
+                </a>
+                
+                <a href="privacy-policy-th.html" class="language-card">
+                    <span class="flag">🇹🇭</span>
+                    <div class="language-name">ไทย</div>
+                    <div class="language-native">Thai</div>
+                </a>
+                
+                <a href="privacy-policy-pl.html" class="language-card">
+                    <span class="flag">🇵🇱</span>
+                    <div class="language-name">Polski</div>
+                    <div class="language-native">Polish</div>
+                </a>
+                
+                <a href="privacy-policy-uk.html" class="language-card">
+                    <span class="flag">🇺🇦</span>
+                    <div class="language-name">Українська</div>
+                    <div class="language-native">Ukrainian</div>
+                </a>
+                
+                <a href="privacy-policy-vi.html" class="language-card">
+                    <span class="flag">🇻🇳</span>
+                    <div class="language-name">Tiếng Việt</div>
+                    <div class="language-native">Vietnamese</div>
+                </a>
+                
+                <a href="privacy-policy-no.html" class="language-card">
+                    <span class="flag">🇳🇴</span>
+                    <div class="language-name">Norsk</div>
+                    <div class="language-native">Norwegian</div>
+                </a>
+                
+                <a href="privacy-policy-id.html" class="language-card">
+                    <span class="flag">🇮🇩</span>
+                    <div class="language-name">Bahasa Indonesia</div>
+                    <div class="language-native">Indonesian</div>
+                </a>
+                
+                <a href="privacy-policy-bn.html" class="language-card">
+                    <span class="flag">🇧🇩</span>
+                    <div class="language-name">বাংলা</div>
+                    <div class="language-native">Bengali</div>
+                </a>
+                
+                <a href="privacy-policy-ur.html" class="language-card">
+                    <span class="flag">🇵🇰</span>
+                    <div class="language-name">اردو</div>
+                    <div class="language-native">Urdu</div>
+                </a>
+                
+                <a href="privacy-policy-cs.html" class="language-card">
+                    <span class="flag">🇨🇿</span>
+                    <div class="language-name">Čeština</div>
+                    <div class="language-native">Czech</div>
+                </a>
+                
+                <a href="privacy-policy-sk.html" class="language-card">
+                    <span class="flag">🇸🇰</span>
+                    <div class="language-name">Slovenčina</div>
+                    <div class="language-native">Slovak</div>
+                </a>
+                
+                <a href="privacy-policy-hu.html" class="language-card">
+                    <span class="flag">🇭🇺</span>
+                    <div class="language-name">Magyar</div>
+                    <div class="language-native">Hungarian</div>
+                </a>
+                
+                <a href="privacy-policy-ro.html" class="language-card">
+                    <span class="flag">🇷🇴</span>
+                    <div class="language-name">Română</div>
+                    <div class="language-native">Romanian</div>
+                </a>
+                
+                <a href="privacy-policy-bg.html" class="language-card">
+                    <span class="flag">🇧🇬</span>
+                    <div class="language-name">Български</div>
+                    <div class="language-native">Bulgarian</div>
+                </a>
+                
+                <a href="privacy-policy-hr.html" class="language-card">
+                    <span class="flag">🇭🇷</span>
+                    <div class="language-name">Hrvatski</div>
+                    <div class="language-native">Croatian</div>
+                </a>
+                
+                <a href="privacy-policy-hu.html" class="language-card">
+                    <span class="flag">🇭🇺</span>
+                    <div class="language-name">Magyar</div>
+                    <div class="language-native">Hungarian</div>
+                </a>
+                
+                <a href="privacy-policy-id.html" class="language-card">
+                    <span class="flag">🇮🇩</span>
+                    <div class="language-name">Bahasa Indonesia</div>
+                    <div class="language-native">Indonesian</div>
+                </a>
+                
+                <a href="privacy-policy-jp.html" class="language-card">
+                    <span class="flag">🇯🇵</span>
+                    <div class="language-name">日本語</div>
+                    <div class="language-native">Japanese</div>
+                </a>
+                
+                <a href="privacy-policy-ko.html" class="language-card">
+                    <span class="flag">🇰🇷</span>
+                    <div class="language-name">한국어</div>
+                    <div class="language-native">Korean</div>
+                </a>
+                
+                <a href="privacy-policy-nl.html" class="language-card">
+                    <span class="flag">🇳🇱</span>
+                    <div class="language-name">Nederlands</div>
+                    <div class="language-native">Dutch</div>
+                </a>
+                
+                <a href="privacy-policy-th.html" class="language-card">
+                    <span class="flag">🇹🇭</span>
+                    <div class="language-name">ภาษาไทย</div>
+                    <div class="language-native">Thai</div>
+                </a>
+                
+                <a href="privacy-policy-vi.html" class="language-card">
+                    <span class="flag">🇻🇳</span>
+                    <div class="language-name">Tiếng Việt</div>
+                    <div class="language-native">Vietnamese</div>
+                </a>
+                
+                <a href="privacy-policy-af.html" class="language-card">
+                    <span class="flag">🇿🇦</span>
+                    <div class="language-name">Afrikaans</div>
+                    <div class="language-native">Afrikaans</div>
+                </a>
+                
+                <a href="privacy-policy-am.html" class="language-card">
+                    <span class="flag">🇪🇹</span>
+                    <div class="language-name">አማርኛ</div>
+                    <div class="language-native">Amharic</div>
+                </a>
+                
+                <a href="privacy-policy-az.html" class="language-card">
+                    <span class="flag">🇦🇿</span>
+                    <div class="language-name">Azərbaycan</div>
+                    <div class="language-native">Azerbaijani</div>
+                </a>
+                
+                <a href="privacy-policy-be.html" class="language-card">
+                    <span class="flag">🇧🇾</span>
+                    <div class="language-name">Беларуская</div>
+                    <div class="language-native">Belarusian</div>
+                </a>
+                
+                <a href="privacy-policy-bn.html" class="language-card">
+                    <span class="flag">🇧🇩</span>
+                    <div class="language-name">বাংলা</div>
+                    <div class="language-native">Bengali</div>
+                </a>
+                
+                <a href="privacy-policy-bs.html" class="language-card">
+                    <span class="flag">🇧🇦</span>
+                    <div class="language-name">Bosanski</div>
+                    <div class="language-native">Bosnian</div>
+                </a>
+                
+                <a href="privacy-policy-cy.html" class="language-card">
+                    <span class="flag">🏴󠁧󠁢󠁷󠁬󠁳󠁿</span>
+                    <div class="language-name">Cymraeg</div>
+                    <div class="language-native">Welsh</div>
+                </a>
+                
+                <a href="privacy-policy-da.html" class="language-card">
+                    <span class="flag">🇩🇰</span>
+                    <div class="language-name">Dansk</div>
+                    <div class="language-native">Danish</div>
+                </a>
+                
+                <a href="privacy-policy-et.html" class="language-card">
+                    <span class="flag">🇪🇪</span>
+                    <div class="language-name">Eesti</div>
+                    <div class="language-native">Estonian</div>
+                </a>
+                
+                <a href="privacy-policy-fa.html" class="language-card">
+                    <span class="flag">🇮🇷</span>
+                    <div class="language-name">فارسی</div>
+                    <div class="language-native">Persian</div>
+                </a>
+                
+                <a href="privacy-policy-fil.html" class="language-card">
+                    <span class="flag">🇵🇭</span>
+                    <div class="language-name">Filipino</div>
+                    <div class="language-native">Filipino</div>
+                </a>
+                
+                <a href="privacy-policy-ga.html" class="language-card">
+                    <span class="flag">🇮🇪</span>
+                    <div class="language-name">Gaeilge</div>
+                    <div class="language-native">Irish</div>
+                </a>
+                
+                <a href="privacy-policy-gb.html" class="language-card">
+                    <span class="flag">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>
+                    <div class="language-name">Gàidhlig</div>
+                    <div class="language-native">Scottish Gaelic</div>
+                </a>
+                
+                <a href="privacy-policy-gu.html" class="language-card">
+                    <span class="flag">🇮🇳</span>
+                    <div class="language-name">ગુજરાતી</div>
+                    <div class="language-native">Gujarati</div>
+                </a>
+                
+                <a href="privacy-policy-ha.html" class="language-card">
+                    <span class="flag">🇳🇬</span>
+                    <div class="language-name">Hausa</div>
+                    <div class="language-native">Hausa</div>
+                </a>
+                
+                <a href="privacy-policy-he.html" class="language-card">
+                    <span class="flag">🇮🇱</span>
+                    <div class="language-name">עברית</div>
+                    <div class="language-native">Hebrew</div>
+                </a>
+                
+                <a href="privacy-policy-hy.html" class="language-card">
+                    <span class="flag">🇦🇲</span>
+                    <div class="language-name">Հայերեն</div>
+                    <div class="language-native">Armenian</div>
+                </a>
+                
+                <a href="privacy-policy-ig.html" class="language-card">
+                    <span class="flag">🇳🇬</span>
+                    <div class="language-name">Igbo</div>
+                    <div class="language-native">Igbo</div>
+                </a>
+                
+                <a href="privacy-policy-ka.html" class="language-card">
+                    <span class="flag">🇬🇪</span>
+                    <div class="language-name">ქართული</div>
+                    <div class="language-native">Georgian</div>
+                </a>
+                
+                <a href="privacy-policy-kn.html" class="language-card">
+                    <span class="flag">🇮🇳</span>
+                    <div class="language-name">ಕನ್ನಡ</div>
+                    <div class="language-native">Kannada</div>
+                </a>
+                
+                <a href="privacy-policy-lb.html" class="language-card">
+                    <span class="flag">🇱🇺</span>
+                    <div class="language-name">Lëtzebuergesch</div>
+                    <div class="language-native">Luxembourgish</div>
+                </a>
+                
+                <a href="privacy-policy-lt.html" class="language-card">
+                    <span class="flag">🇱🇹</span>
+                    <div class="language-name">Lietuvių</div>
+                    <div class="language-native">Lithuanian</div>
+                </a>
+                
+                <a href="privacy-policy-lv.html" class="language-card">
+                    <span class="flag">🇱🇻</span>
+                    <div class="language-name">Latviešu</div>
+                    <div class="language-native">Latvian</div>
+                </a>
+                
+                <a href="privacy-policy-mk.html" class="language-card">
+                    <span class="flag">🇲🇰</span>
+                    <div class="language-name">Македонски</div>
+                    <div class="language-native">Macedonian</div>
+                </a>
+                
+                <a href="privacy-policy-ml.html" class="language-card">
+                    <span class="flag">🇮🇳</span>
+                    <div class="language-name">മലയാളം</div>
+                    <div class="language-native">Malayalam</div>
+                </a>
+                
+                <a href="privacy-policy-mn.html" class="language-card">
+                    <span class="flag">🇲🇳</span>
+                    <div class="language-name">Монгол</div>
+                    <div class="language-native">Mongolian</div>
+                </a>
+                
+                <a href="privacy-policy-ms.html" class="language-card">
+                    <span class="flag">🇲🇾</span>
+                    <div class="language-name">Bahasa Malaysia</div>
+                    <div class="language-native">Malay</div>
+                </a>
+                
+                <a href="privacy-policy-mt.html" class="language-card">
+                    <span class="flag">🇲🇹</span>
+                    <div class="language-name">Malti</div>
+                    <div class="language-native">Maltese</div>
+                </a>
+                
+                <a href="privacy-policy-ne.html" class="language-card">
+                    <span class="flag">🇳🇵</span>
+                    <div class="language-name">नेपाली</div>
+                    <div class="language-native">Nepali</div>
+                </a>
+                
+                <a href="privacy-policy-pa.html" class="language-card">
+                    <span class="flag">🇮🇳</span>
+                    <div class="language-name">ਪੰਜਾਬੀ</div>
+                    <div class="language-native">Punjabi</div>
+                </a>
+                
+                <a href="privacy-policy-si.html" class="language-card">
+                    <span class="flag">🇱🇰</span>
+                    <div class="language-name">සිංහල</div>
+                    <div class="language-native">Sinhala</div>
+                </a>
+                
+                <a href="privacy-policy-sl.html" class="language-card">
+                    <span class="flag">🇸🇮</span>
+                    <div class="language-name">Slovenščina</div>
+                    <div class="language-native">Slovenian</div>
+                </a>
+                
+                <a href="privacy-policy-sq.html" class="language-card">
+                    <span class="flag">🇦🇱</span>
+                    <div class="language-name">Shqip</div>
+                    <div class="language-native">Albanian</div>
+                </a>
+                
+                <a href="privacy-policy-sr.html" class="language-card">
+                    <span class="flag">🇷🇸</span>
+                    <div class="language-name">Српски</div>
+                    <div class="language-native">Serbian</div>
+                </a>
+                
+                <a href="privacy-policy-sw.html" class="language-card">
+                    <span class="flag">🇹🇿</span>
+                    <div class="language-name">Kiswahili</div>
+                    <div class="language-native">Swahili</div>
+                </a>
+                
+                <a href="privacy-policy-ta.html" class="language-card">
+                    <span class="flag">🇮🇳</span>
+                    <div class="language-name">தமிழ்</div>
+                    <div class="language-native">Tamil</div>
+                </a>
+                
+                <a href="privacy-policy-te.html" class="language-card">
+                    <span class="flag">🇮🇳</span>
+                    <div class="language-name">తెలుగు</div>
+                    <div class="language-native">Telugu</div>
+                </a>
+                
+                <a href="privacy-policy-tg.html" class="language-card">
+                    <span class="flag">🇹🇯</span>
+                    <div class="language-name">Тоҷикӣ</div>
+                    <div class="language-native">Tajik</div>
+                </a>
+                
+                <a href="privacy-policy-tk.html" class="language-card">
+                    <span class="flag">🇹🇲</span>
+                    <div class="language-name">Türkmençe</div>
+                    <div class="language-native">Turkmen</div>
+                </a>
+
+                <a href="privacy-policy-uz.html" class="language-card">
+                    <span class="flag">🇺🇿</span>
+                    <div class="language-name">O'zbek</div>
+                    <div class="language-native">Uzbek</div>
+                </a>
+
+                <a href="privacy-policy-yo.html" class="language-card">
+                    <span class="flag">🇳🇬</span>
+                    <div class="language-name">Yorùbá</div>
+                    <div class="language-native">Yoruba</div>
+                </a>
+
+                <a href="privacy-policy-zh-CN.html" class="language-card">
+                    <span class="flag">🇨🇳</span>
+                    <div class="language-name">简体中文</div>
+                    <div class="language-native">Simplified Chinese</div>
+                </a>
+
+                <a href="privacy-policy-zh-TW.html" class="language-card">
+                    <span class="flag">🇹🇼</span>
+                    <div class="language-name">繁體中文</div>
+                    <div class="language-native">Traditional Chinese</div>
+                </a>
+
+                <a href="privacy-policy-zu.html" class="language-card">
+                    <span class="flag">🇿🇦</span>
+                    <div class="language-name">isiZulu</div>
+                    <div class="language-native">Zulu</div>
+                </a>
+            </div>
+        </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 DR.IT.Studio. Forest Calculator. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Анимация карточек при загрузке
+        document.addEventListener('DOMContentLoaded', function() {
+            const cards = document.querySelectorAll('.language-card');
+            cards.forEach((card, index) => {
+                card.style.opacity = '0';
+                card.style.transform = 'translateY(20px)';
+                
+                setTimeout(() => {
+                    card.style.transition = 'all 0.5s ease';
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        });
+    </script>
+</body>
+</html>

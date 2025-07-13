@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="ne" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>गोपनीयता नीति - Forest Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Devanagari', 'Devanagari UI', 'Segoe UI', 'Arial Unicode MS', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .policy-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2E7D32;
+        }
+
+        .policy-info h2 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .policy-info p {
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h3 {
+            color: #2E7D32;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E8F5E8;
+        }
+
+        .section p, .section li {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .permission-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .permission-table th,
+        .permission-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #E8F5E8;
+        }
+
+        .permission-table th {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .permission-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc8 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .contact p {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #2E7D32;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #2E7D32;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2E7D32;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .permission-table {
+                font-size: 0.9rem;
+            }
+
+            .permission-table th,
+            .permission-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <p>गोपनीयता नीति</p>
+        </div>
+
+        <div class="content">
+            <a href="privacy-policy.html" class="back-link">← भाषा चयनमा फर्कनुहोस्</a>
+
+            <div class="policy-info">
+                <h2>नीति जानकारी</h2>
+                <p><strong>प्रभावकारी मिति:</strong> २०२५ मे ६</p>
+                <p><strong>एपको नाम:</strong> Forest Calculator</p>
+                <p><strong>डेभलपर:</strong> DR.IT.Studio</p>
+                <p><strong>स्थान:</strong> कीभ, युक्रेन</p>
+                <p><strong>सम्पर्क:</strong> support@dr-it.studio</p>
+            </div>
+
+            <div class="section">
+                <h3>1. परिचय</h3>
+                <p>Forest Calculator DR.IT.Studio द्वारा विकास गरिएको काठको आयतन गणना र अन्य व्यावसायिक सुविधाहरूका लागि एप हो। यो गोपनीयता नीतिले हामीले कुन डेटा सङ्कलन गर्छौं, कसरी प्रयोग, भण्डारण, सुरक्षा र साझेदारी गर्छौं भन्ने व्याख्या गर्छ — पुरस्कारसहितको विज्ञापन (rewarded ads) समेत।</p>
+            </div>
+
+            <div class="section">
+                <h3>2. हामीले सङ्कलन गर्ने डेटा</h3>
+                
+                <h4>2.1 व्यक्तिगत जानकारी</h4>
+                <p>हामी स्वतः व्यक्तिगत जानकारी सङ्कलन गर्दैनौं। तर प्रयोगकर्ताले स्वेच्छाले दिन सक्छन्:</p>
+                <ul>
+                    <li>समर्थनमा सम्पर्क गर्दा ईमेल ठेगाना</li>
+                    <li>एपमा म्यानुअली प्रविष्ट गरिएका सामग्री (गणना आदि)</li>
+                </ul>
+
+                <h4>2.2 गैर-व्यक्तिगत (प्राविधिक) जानकारी</h4>
+                <p>सेवा सुधार, समस्या निदान र विज्ञापनको लागि:</p>
+                <ul>
+                    <li>यन्त्रको प्रकार र OS संस्करण</li>
+                    <li>इन्टरफेस भाषा</li>
+                    <li>प्रयोग आवृत्ति र तरिका</li>
+                    <li>क्र्यास लग</li>
+                    <li>विज्ञापन ID</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>3. अनुमतिहरू</h3>
+                <table class="permission-table">
+                    <thead>
+                        <tr>
+                            <th>अनुमति</th>
+                            <th>उद्देश्य</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>भण्डारण पहुँच</td>
+                            <td>PDF, Excel जस्ता फाइलहरू बचत गर्न र खोल्न</td>
+                        </tr>
+                        <tr>
+                            <td>इन्टरनेट</td>
+                            <td>अपडेट, विज्ञापन र इमेल पठाउन</td>
+                        </tr>
+                        <tr>
+                            <td>अन्य एप्ससँग साझेदारी</td>
+                            <td>गणनाहरू म्यासेन्जर वा इमेलमार्फत पठाउन</td>
+                        </tr>
+                        <tr>
+                            <td>इन्स्टल एपहरूको सूची (ऐच्छिक)</td>
+                            <td>उपलब्ध निर्यात विधिहरू देखाउन</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h3>4. विज्ञापन र तेस्रो-पक्ष सेवाहरू</h3>
+                <p>Google AdMob जस्ता साझेदारबाट वैयक्तिक वा अवैयक्तिक विज्ञापन देखाउन सकिन्छ।</p>
+                
+                <div class="highlight">
+                    <h4>पुरस्कारयुक्त विज्ञापन:</h4>
+                    <ul>
+                        <li>पुरस्कारयुक्त विज्ञापन स्वैच्छिक हुन्छ</li>
+                        <li>व्यक्तिगत डेटा साझेदारी गरिँदैन</li>
+                        <li>प्रिमियम सुविधाहरूमा अस्थायी पहुँच प्रदान गर्छ</li>
+                    </ul>
+                </div>
+                
+                <p>Google नीति: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+            </div>
+
+            <div class="section">
+                <h3>5. भुक्तानी सुविधाहरू</h3>
+                <ul>
+                    <li>विस्तारित गणना विधिहरू</li>
+                    <li>PDF/Excel निर्यात</li>
+                    <li>विज्ञापन हटाउने विकल्प</li>
+                    <li>प्रिमियम पहुँच (एकपटक वा सदस्यता)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>6. डेटा नियन्त्रण</h3>
+                <p>तपाईंले गर्न सक्नुहुन्छ:</p>
+                <ul>
+                    <li>एप वा Android सेटिङबाट डेटा मेटाउन सकिन्छ</li>
+                    <li>अनुमति खारेज गर्न सकिन्छ</li>
+                    <li>support@dr-it.studio मा सम्पर्क गरेर डेटा मेटाउने अनुरोध गर्न सकिन्छ</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>7. सुरक्षा</h3>
+                <ul>
+                    <li>प्रयोगकर्ता स्वीकृति बिना कुनै डाटा सर्भरमा पठाइँदैन</li>
+                    <li>सबै डाटा यन्त्रमा स्थानीय रूपमा सुरक्षित हुन्छ</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>8. बालबालिकाको गोपनीयता</h3>
+                <p>यो एप १३ वर्षभन्दा कम उमेरका बालबालिकाका लागि होइन।</p>
+            </div>
+
+            <div class="section">
+                <h3>9. नीति अद्यावधिक</h3>
+                <p>नीति समय-समयमा अद्यावधिक हुन सक्छ। कृपया नियमित रूपमा जाँच गर्नुहोस्।</p>
+            </div>
+
+            <div class="section">
+                <h3>11. प्रयोगकर्ताको सहमति</h3>
+                <p>एप प्रयोग गरेर तपाईंले यो नीति स्वीकार गर्नुभएको प्रमाणित गर्नुहुन्छ।</p>
+            </div>
+
+            <div class="contact">
+                <h3>10. सम्पर्क</h3>
+                <p><strong>DR.IT.Studio</strong></p>
+                <p>कीभ, युक्रेन</p>
+                <p>📧 support@dr-it.studio</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

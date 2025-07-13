@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="sq" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politika e Privatësisë - Forest Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .policy-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2E7D32;
+        }
+
+        .policy-info h2 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .policy-info p {
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h3 {
+            color: #2E7D32;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E8F5E8;
+        }
+
+        .section p, .section li {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .permission-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .permission-table th,
+        .permission-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #E8F5E8;
+        }
+
+        .permission-table th {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .permission-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc8 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .contact p {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #2E7D32;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #2E7D32;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2E7D32;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .permission-table {
+                font-size: 0.9rem;
+            }
+
+            .permission-table th,
+            .permission-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <p>Politika e Privatësisë</p>
+        </div>
+
+        <div class="content">
+            <a href="privacy-policy.html" class="back-link">← Kthehu te zgjedhja e gjuhës</a>
+
+            <div class="policy-info">
+                <h2>Informacioni i Politikës</h2>
+                <p><strong>Data e hyrjes në fuqi:</strong> 6 Maj 2025</p>
+                <p><strong>Emri i aplikacionit:</strong> Forest Calculator</p>
+                <p><strong>Zhvilluesi:</strong> DR.IT.Studio</p>
+                <p><strong>Vendndodhja:</strong> Kiev, Ukrainë</p>
+                <p><strong>Kontakti:</strong> support@dr-it.studio</p>
+            </div>
+
+            <div class="section">
+                <h3>1. Hyrje</h3>
+                <p>Aplikacioni Forest Calculator është zhvilluar nga DR.IT.Studio ("ne") për llogaritjen e vëllimit të drurëve dhe funksione të tjera profesionale. Kjo politikë shpjegon se çfarë të dhënash grumbullojmë, si i përdorim, ruajmë, mbrojmë dhe ndajmë – duke përfshirë informacionin rreth reklamave me shpërblim (rewarded video).</p>
+            </div>
+
+            <div class="section">
+                <h3>2. Të dhënat e grumbulluara</h3>
+                
+                <h4>2.1 Të dhënat personale</h4>
+                <p>Nuk grumbullojmë të dhëna personale në mënyrë automatike. Përdoruesi mund t'i japë vullnetarisht:</p>
+                <ul>
+                    <li>adresën e emailit kur kontakton mbështetjen;</li>
+                    <li>të dhënat e futura manualisht (p.sh. llogaritjet, cilësimet).</li>
+                </ul>
+
+                <h4>2.2 Të dhënat jo-personale (teknike)</h4>
+                <p>Për diagnostikë, përmirësime dhe shfaqje reklamash mund të grumbullojmë të dhëna anonime:</p>
+                <ul>
+                    <li>lloji i pajisjes dhe versioni i sistemit operativ;</li>
+                    <li>gjuha e ndërfaqes;</li>
+                    <li>mënyra dhe shpeshtësia e përdorimit të aplikacionit;</li>
+                    <li>raporte të rrënimeve (crash logs);</li>
+                    <li>ID-ja e reklamave.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>3. Lejet dhe qasja në pajisje</h3>
+                <table class="permission-table">
+                    <thead>
+                        <tr>
+                            <th>Leja</th>
+                            <th>Qëllimi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Qasje në ruajtje</td>
+                            <td>Ruajtja dhe hapja e dosjeve (PDF, Excel etj.)</td>
+                        </tr>
+                        <tr>
+                            <td>Internet</td>
+                            <td>Për përditësime, reklama dhe dërgimi i emailit</td>
+                        </tr>
+                        <tr>
+                            <td>Ndarje me aplikacione të tjera</td>
+                            <td>Eksportimi i llogaritjeve përmes mesazheve ose emailit</td>
+                        </tr>
+                        <tr>
+                            <td>Lista e aplikacioneve të instaluara (opsionale)</td>
+                            <td>Shfaqja e opsioneve të disponueshme për eksport</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Nuk përdorim leje për të ndjekur aktivitetin në aplikacione të tjera.</p>
+            </div>
+
+            <div class="section">
+                <h3>4. Reklamat dhe shërbimet e palëve të treta</h3>
+                
+                <h4>4.1 Informacioni i përgjithshëm</h4>
+                <p>Aplikacioni mund të shfaqë reklama të personalizuara ose jo të personalizuara nga partnerët si Google AdMob. Lloji i reklamave mund të zgjidhet nga përdoruesi gjatë hapjes së parë dhe të ndryshohet më vonë në cilësime.</p>
+
+                <h4>4.2 Reklamat me shpërblim (Rewarded Video)</h4>
+                <div class="highlight">
+                    <p>Përdoruesi mund të shohë vullnetarisht përmbajtje video reklamash për qasje në funksione shtesë.</p>
+                    
+                    <p><strong>E rëndësishme:</strong></p>
+                    <ul>
+                        <li>Shikimi i reklamave nuk është i detyrueshëm;</li>
+                        <li>Është shprehur qartë se çfarë do të marrë përdoruesi;</li>
+                        <li>Shpërblimi jepet vetëm pas shikimit të plotë të reklamës;</li>
+                        <li>Të dhënat personale nuk ndahen me partnerët reklamues.</li>
+                    </ul>
+                </div>
+
+                <h4>4.3 Teknologjitë e përdorura</h4>
+                <p>Partnerët (duke përfshirë Google) mund të përdorin:</p>
+                <ul>
+                    <li>identifikues reklamash;</li>
+                    <li>cookies ose teknologji të ngjashme;</li>
+                    <li>të dhëna të bashkuara për reklamim të synuar.</li>
+                </ul>
+                <p>Politika e Google: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+            </div>
+
+            <div class="section">
+                <h3>5. Funksionet me pagesë dhe abonimi</h3>
+                <p>Aplikacioni mund të ofrojë:</p>
+                <ul>
+                    <li>metoda të avancuara llogaritjesh;</li>
+                    <li>eksport në PDF/Excel;</li>
+                    <li>heqje të reklamave;</li>
+                    <li>qasje premium (abonim ose blerje një here).</li>
+                </ul>
+                <p>Pagesat kryhen përmes Google Play. Nuk ruajmë të dhëna kartash.</p>
+            </div>
+
+            <div class="section">
+                <h3>6. Kontrolli mbi të dhënat tuaja</h3>
+                <p>Përdoruesi mund:</p>
+                <ul>
+                    <li>të fshijë të dhënat e ruajtura në aplikacion ose në cilësimet e Android;</li>
+                    <li>të revokojë lejet në cilësimet e pajisjes;</li>
+                    <li>të çaktivizojë reklamat me blerje;</li>
+                    <li>të ndryshojë pëlqimin për reklama;</li>
+                    <li>të kërkojë fshirjen e të dhënave të dhëna përmes emailit support@dr-it.studio.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>7. Siguria</h3>
+                <ul>
+                    <li>Aplikacioni nuk dërgon të dhëna në serverë të largët pa leje.</li>
+                    <li>Të gjitha të dhënat ruhen lokalisht.</li>
+                    <li>Rekomandojmë përdorimin e kyçjes së ekranit dhe masave të tjera sigurie.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>8. Privatësia e fëmijëve</h3>
+                <p>Aplikacioni nuk është për fëmijë nën 13 vjeç. Nëse mendoni se fëmija juaj ka dhënë të dhëna personale, na kontaktoni.</p>
+            </div>
+
+            <div class="section">
+                <h3>9. Përditësimet e politikës</h3>
+                <p>Kjo politikë mund të përditësohet herë pas here. Ndryshimet hyjnë në fuqi me publikimin e versionit të ri.</p>
+            </div>
+
+            <div class="section">
+                <h3>11. Pëlqimi i përdoruesit</h3>
+                <p>Duke përdorur aplikacionin, pajtoheni me këtë politikë. Nëse nuk pajtoheni – ndalni përdorimin e aplikacionit.</p>
+            </div>
+
+            <div class="contact">
+                <h3>10. Kontakti</h3>
+                <p><strong>DR.IT.Studio</strong></p>
+                <p>Kiev, Ukrainë</p>
+                <p>📧 support@dr-it.studio</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

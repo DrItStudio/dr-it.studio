@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="sw" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sera ya Faragha - Forest Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .policy-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2E7D32;
+        }
+
+        .policy-info h2 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .policy-info p {
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h3 {
+            color: #2E7D32;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E8F5E8;
+        }
+
+        .section p, .section li {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .permission-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .permission-table th,
+        .permission-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #E8F5E8;
+        }
+
+        .permission-table th {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .permission-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc8 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .contact p {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #2E7D32;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #2E7D32;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2E7D32;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .permission-table {
+                font-size: 0.9rem;
+            }
+
+            .permission-table th,
+            .permission-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <p>Sera ya Faragha</p>
+        </div>
+
+        <div class="content">
+            <a href="privacy-policy.html" class="back-link">← Rudi kwa uchaguzi wa lugha</a>
+
+            <div class="policy-info">
+                <h2>Taarifa za Sera</h2>
+                <p><strong>Tarehe ya Kuanzia:</strong> Mei 6, 2025</p>
+                <p><strong>Jina la Programu:</strong> Forest Calculator</p>
+                <p><strong>Mwandaji:</strong> DR.IT.Studio</p>
+                <p><strong>Mahali:</strong> Kyiv, Ukraine</p>
+                <p><strong>Mawasiliano:</strong> support@dr-it.studio</p>
+            </div>
+
+            <div class="section">
+                <h3>1. Utangulizi</h3>
+                <p>Forest Calculator ni programu iliyotengenezwa na DR.IT.Studio kwa ajili ya kuhesabu ujazo wa mbao na vipengele vingine vya kitaalamu. Sera hii ya faragha inaelezea ni data gani tunakusanya, jinsi tunavyotumia, kuhifadhi, kulinda na kushiriki — ikiwa ni pamoja na matangazo ya video yenye zawadi (rewarded ads).</p>
+            </div>
+
+            <div class="section">
+                <h3>2. Data Tunayokusanya</h3>
+                
+                <h4>2.1 Taarifa Binafsi</h4>
+                <p>Hatukusanyi data ya binafsi moja kwa moja. Hata hivyo, mtumiaji anaweza kutoa kwa hiari:</p>
+                <ul>
+                    <li>Barua pepe anapowasiliana na msaada;</li>
+                    <li>Maudhui yaliyoingizwa kwa mikono ndani ya programu (mahesabu n.k.).</li>
+                </ul>
+
+                <h4>2.2 Taarifa Zisizo za Kibinafsi</h4>
+                <p>Kwa madhumuni ya utambuzi wa matatizo, kuboresha huduma na kuonyesha matangazo, tunaweza kukusanya taarifa zifuatazo:</p>
+                <ul>
+                    <li>Aina ya kifaa na toleo la OS;</li>
+                    <li>Lugha ya kiolesura;</li>
+                    <li>Mara kwa mara na jinsi ya kutumia programu;</li>
+                    <li>Ripoti za hitilafu (crash logs);</li>
+                    <li>Kitambulisho cha matangazo (Advertising ID).</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>3. Ruhusa na Ufikiaji wa Kifaa</h3>
+                <table class="permission-table">
+                    <thead>
+                        <tr>
+                            <th>Ruhusa</th>
+                            <th>Kusudi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ufikiaji wa hifadhi</td>
+                            <td>Kuhifadhi na kufungua faili (PDF, Excel, nk.)</td>
+                        </tr>
+                        <tr>
+                            <td>Mtandao</td>
+                            <td>Kwa masasisho, matangazo, na kutuma barua pepe</td>
+                        </tr>
+                        <tr>
+                            <td>Kushiriki na programu nyingine</td>
+                            <td>Kusafirisha mahesabu kupitia mitandao ya kijamii au barua pepe</td>
+                        </tr>
+                        <tr>
+                            <td>Orodha ya programu zilizowekwa (hiari)</td>
+                            <td>Kuonyesha chaguo la kusafirisha lililopo</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Hatutumii ruhusa kufuatilia shughuli katika programu nyingine.</p>
+            </div>
+
+            <div class="section">
+                <h3>4. Matangazo na Huduma za Watu wa Tatu</h3>
+                
+                <h4>4.1 Taarifa za Ujumla</h4>
+                <p>Programu inaweza kuonyesha matangazo yaliyobinafsishwa au yasiyobinafsishwa kutoka kwa washirika kama Google AdMob. Mtumiaji anaweza kuchagua aina ya matangazo wakati wa kwanza na kubadilisha baadaye katika mipangilio.</p>
+
+                <h4>4.2 Matangazo ya Video yenye Zawadi (Rewarded Video)</h4>
+                <div class="highlight">
+                    <p>Mtumiaji anaweza kuchagua kuona video ya tangazo ili kupata ufikiaji wa vipengele maalum.</p>
+                    
+                    <p><strong>Muhimu:</strong></p>
+                    <ul>
+                        <li>Kuona matangazo ni kwa hiari;</li>
+                        <li>Imeelezwa wazi kile mtumiaji atakachopata;</li>
+                        <li>Zawadi inatolewa tu baada ya kuona video nzima;</li>
+                        <li>Data ya kibinafsi haishiriki na washirika wa matangazo.</li>
+                    </ul>
+                </div>
+
+                <h4>4.3 Teknolojia Zinazotumiwa</h4>
+                <p>Washirika (ikiwa ni pamoja na Google) wanaweza kutumia:</p>
+                <ul>
+                    <li>vitambulisho vya matangazo;</li>
+                    <li>cookies au teknolojia zinazofanana;</li>
+                    <li>data zilizounganishwa kwa ajili ya matangazo yaliyolengwa.</li>
+                </ul>
+                <p>Sera ya Google: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+            </div>
+
+            <div class="section">
+                <h3>5. Vipengele vya Malipo na Usajili</h3>
+                <p>Programu inaweza kutoa:</p>
+                <ul>
+                    <li>njia za juu za kuhesabu;</li>
+                    <li>kusafirisha kwa PDF/Excel;</li>
+                    <li>kuondoa matangazo;</li>
+                    <li>ufikiaji wa premium (usajili au ununuzi wa mara moja).</li>
+                </ul>
+                <p>Malipo yanafanywa kupitia Google Play. Hatuhifadhi taarifa za kadi za benki.</p>
+            </div>
+
+            <div class="section">
+                <h3>6. Udhibiti wa Data Yako</h3>
+                <p>Unaweza:</p>
+                <ul>
+                    <li>kufuta data zilizohifadhiwa katika programu au mipangilio ya Android;</li>
+                    <li>kuondoa ruhusa katika mipangilio ya kifaa;</li>
+                    <li>kuzima matangazo kwa kununua kipengele;</li>
+                    <li>kubadilisha idhini ya matangazo;</li>
+                    <li>kuomba kufuta data ulizoitoa kwa hiari kupitia barua pepe support@dr-it.studio.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>7. Usalama</h3>
+                <ul>
+                    <li>Programu haitumi data kwenye seva za mbali bila idhini.</li>
+                    <li>Data zote zinahifadhiwa ndani ya kifaa.</li>
+                    <li>Tunashauri utumie kufunga skrini na hatua nyingine za usalama.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>8. Faragha ya Watoto</h3>
+                <p>Programu haikusudiwi kwa watoto chini ya miaka 13. Ikiwa unadhani mtoto amtuma data za kibinafsi, tafadhali tuwasiliane nasi kuzifuta.</p>
+            </div>
+
+            <div class="section">
+                <h3>9. Masasisho ya Sera</h3>
+                <p>Sera hii inaweza kusasishwa mara kwa mara. Mabadiliko yanakuwa kazi mara toka toleo jipya linapochapishwa.</p>
+            </div>
+
+            <div class="section">
+                <h3>11. Idhini ya Mtumiaji</h3>
+                <p>Kwa kutumia programu hii, unathibitisha kukubaliana na sera hii ya faragha. Ikiwa hukubaliani - acha kutumia programu.</p>
+            </div>
+
+            <div class="contact">
+                <h3>10. Mawasiliano</h3>
+                <p><strong>DR.IT.Studio</strong></p>
+                <p>Kyiv, Ukraine</p>
+                <p>📧 support@dr-it.studio</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

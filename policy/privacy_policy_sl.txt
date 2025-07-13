@@ -1,0 +1,110 @@
+Politika zasebnosti
+Datum začetka veljavnosti: 6. maj 2025
+Ime aplikacije: Forest Calculator
+Razvijalec: DR.IT.Studio
+Lokacija: Kijev, Ukrajina
+Kontakt: support@dr-it.studio
+
+1. Uvod
+Aplikacijo Forest Calculator je razvilo podjetje DR.IT.Studio ("mi") za izračun volumna lesa in druge profesionalne funkcije. Ta politika pojasnjuje, katere podatke zbiramo, kako jih uporabljamo, shranjujemo, varujemo in delimo – vključno z informacijami o oglasih z nagradami (rewarded video).
+
+2. Zbrani podatki
+2.1 Osebni podatki
+Osebnih podatkov ne zbiramo samodejno. Uporabnik jih lahko prostovoljno posreduje:
+
+e-poštni naslov pri kontaktu s podporo;
+
+ročno vnešeni podatki (npr. izračuni, nastavitve).
+
+2.2 Neosebni (tehnični) podatki
+Za diagnostiko, izboljšave in prikaz oglasov lahko zbiramo anonimne podatke:
+
+tip naprave in verzija operacijskega sistema;
+
+jezik vmesnika;
+
+način in pogostost uporabe aplikacije;
+
+zapisi o zrušitvah (crash logi);
+
+oglaševalski ID.
+
+3. Dovoljenja in dostop do naprave
+Dovoljenje	Namen
+Dostop do shrambe	Shranjevanje in odpiranje datotek (PDF, Excel itd.)
+Internet	Za posodobitve, oglase in pošiljanje e-pošte
+Deljenje z drugimi aplikacijami	Izvoz izračunov preko sporočil ali e-pošte
+Seznam nameščenih aplikacij (neobvezno)	Prikaz razpoložljivih možnosti izvoza
+
+Ne uporabljamo dovoljenj za sledenje dejavnosti v drugih aplikacijah.
+
+4. Oglasi in storitve tretjih oseb
+4.1 Splošne informacije
+Aplikacija lahko prikazuje prilagojene ali neprilagojene oglase partnerjev, kot je Google AdMob. Vrsto oglasov lahko uporabnik izbere ob prvem zagonu in jo pozneje spremeni v nastavitvah.
+
+4.2 Oglasi z nagrado (Rewarded Video)
+Uporabnik lahko prostovoljno pogleda oglasno video vsebino za dostop do dodatnih funkcij.
+
+Pomembno:
+
+Ogled oglasov ni obvezen;
+
+Jasno je navedeno, kaj bo uporabnik prejel;
+
+Nagrada se podeli le po ogledu celotnega oglasa;
+
+Osebni podatki se ne delijo z oglaševalskimi partnerji.
+
+4.3 Tehnologije, ki se uporabljajo
+Partnerji (vključno z Google) lahko uporabljajo:
+
+oglaševalske identifikatorje;
+
+piškotke ali podobne tehnologije;
+
+združene podatke za ciljno oglaševanje.
+Googlova politika
+
+5. Plačljive funkcije in naročnine
+Aplikacija lahko ponuja:
+
+napredne metode izračunov;
+
+izvoz v PDF/Excel;
+
+odstranitev oglasov;
+
+premium dostop (naročnina ali enkratni nakup).
+Plačila se izvajajo prek Google Play. Podatkov o karticah ne shranjujemo.
+
+6. Nadzor nad vašimi podatki
+Uporabnik lahko:
+
+izbriše shranjene podatke v aplikaciji ali Android nastavitvah;
+
+prekliče dovoljenja v nastavitvah naprave;
+
+onemogoči oglase z nakupom;
+
+spremeni soglasje za oglase;
+
+zahteva izbris posredovanih podatkov prek e-pošte.
+
+7. Varnost
+Aplikacija ne pošilja podatkov na oddaljene strežnike brez dovoljenja.
+Vsi podatki se shranjujejo lokalno.
+Priporočamo uporabo zaklepa zaslona in drugih varnostnih ukrepov.
+
+8. Zasebnost otrok
+Aplikacija ni namenjena otrokom, mlajšim od 13 let. Če menite, da je vaš otrok posredoval osebne podatke, nas kontaktirajte.
+
+9. Posodobitve politike
+Ta politika se lahko občasno posodobi. Spremembe začnejo veljati z objavo nove različice.
+
+10. Kontakt
+DR.IT.Studio
+Kijev, Ukrajina
+📧 support@dr-it.studio
+
+11. Soglasje uporabnika
+Z uporabo aplikacije soglašate s to politiko. Če se ne strinjate – prenehajte z uporabo aplikacije.

@@ -1,0 +1,111 @@
+Datenschutzrichtlinie
+Gültig ab: 6. Mai 2025
+App-Name: Forest Calculator
+Entwickler: DR.IT.Studio
+Standort: Kiew, Ukraine
+Kontakt: support@dr-it.studio
+
+1. Einführung
+Forest Calculator wurde von DR.IT.Studio entwickelt („wir“, „uns“, „unser“) und dient zur Berechnung von Holzvolumen und anderen professionellen Funktionen. Diese Datenschutzrichtlinie beschreibt, welche Daten wir erheben, wie wir sie verwenden, speichern, schützen und weitergeben, einschließlich Informationen zu Rewarded Videos.
+
+2. Gesammelte Daten
+2.1 Personenbezogene Daten
+Wir erfassen keine personenbezogenen Daten automatisch. Der Nutzer kann jedoch freiwillig:
+
+seine E-Mail-Adresse bei Kontaktaufnahme mit dem Support angeben;
+
+manuell eingegebene Inhalte und Einstellungen (Berechnungen etc.).
+
+2.2 Nicht-personenbezogene (technische) Daten
+Zur Diagnose, Verbesserung und für Werbung können wir anonyme Daten erfassen:
+
+Gerätetyp und Betriebssystemversion;
+
+Sprache der Benutzeroberfläche;
+
+Nutzungshäufigkeit und -verhalten;
+
+Absturzprotokolle (Crash-Logs);
+
+Werbe-ID.
+
+3. Zugriffsrechte
+Berechtigung	Zweck
+Speicherzugriff	Speichern und Öffnen von Dateien (PDF, Excel usw.)
+Internet	Für Updates, Werbung, E-Mails
+Teilen mit anderen Apps	Export über Messenger oder E-Mail
+Liste installierter Apps (optional)	Anzeige von Exportmöglichkeiten
+
+Wir verfolgen keine Aktivitäten in anderen Apps.
+
+4. Werbung & Drittanbieter
+4.1 Allgemeines
+Die App zeigt personalisierte oder nicht-personalisierte Werbung über Partner wie Google AdMob. Nutzer können beim ersten Start die Art der Werbung wählen und jederzeit ändern.
+
+4.2 Rewarded Video Werbung
+Die App nutzt freiwillig anschaubare Videos mit Belohnung, um bestimmte Funktionen freizuschalten.
+
+Wichtig:
+
+Der Nutzer entscheidet selbst, ob er Werbung anschaut;
+
+Eine Erklärung erfolgt vorher;
+
+Belohnung nur nach vollständigem Ansehen;
+
+Keine persönlichen Daten werden weitergegeben.
+
+4.3 Verwendete Technologien
+Partner (z. B. Google) können verwenden:
+
+Werbe-IDs;
+
+Cookies oder ähnliche Technologien;
+
+aggregierte Daten zur Werbeanzeige.
+Google-Richtlinie: https://policies.google.com/technologies/ads
+
+5. Kostenpflichtige Funktionen
+Die App bietet kostenpflichtige Features:
+
+erweiterte Berechnungsmethoden;
+
+Export nach PDF, Excel;
+
+Werbefreiheit;
+
+Premiumzugang (Abo oder einmalig).
+
+Alle Zahlungen erfolgen über Google Play. Wir speichern keine Kartendaten.
+
+6. Datenkontrolle
+Sie können:
+
+Daten in der App oder über Android löschen;
+
+Berechtigungen widerrufen;
+
+Werbung per Kauf deaktivieren;
+
+Ihre Zustimmung zur Werbung ändern;
+
+uns unter support@dr-it.studio kontaktieren, um Daten zu löschen.
+
+7. Sicherheit
+Keine Datenübertragung ohne Zustimmung.
+Alle Daten bleiben lokal auf dem Gerät.
+Bildschirmsperre und Geräteschutz werden empfohlen.
+
+8. Datenschutz für Kinder
+Die App ist nicht für Kinder unter 13 gedacht und sammelt deren Daten nicht. Bitte melden Sie uns irrtümliche Eingaben.
+
+9. Änderungen
+Diese Richtlinie kann aktualisiert werden. Änderungen gelten ab Veröffentlichung.
+
+10. Kontakt
+DR.IT.Studio
+Kyiv, Ukraine
+📧 support@dr-it.studio
+
+11. Zustimmung
+Durch die Nutzung von Forest Calculator stimmen Sie dieser Richtlinie zu. Wenn Sie nicht einverstanden sind, beenden Sie bitte die Nutzung.

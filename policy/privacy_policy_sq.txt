@@ -1,0 +1,81 @@
+Politika e Privatësisë
+Data e hyrjes në fuqi: 6 Maj 2025
+Emri i aplikacionit: Forest Calculator
+Zhvilluesi: DR.IT.Studio
+Vendndodhja: Kiev, Ukrainë
+Kontakti: support@dr-it.studio
+
+1. Hyrje
+Forest Calculator është një aplikacion i zhvilluar nga DR.IT.Studio për llogaritjen e vëllimit të drurit dhe funksione të tjera profesionale. Kjo Politikë Privatësie shpjegon se çfarë të dhënash mbledhim, si i përdorim, ruajmë, mbrojmë dhe ndajmë — përfshirë reklamat me shpërblim (rewarded video ads).
+
+2. Të dhënat që mbledhim
+2.1 Të dhëna personale
+Nuk mbledhim automatikisht të dhëna personale. Megjithatë, përdoruesi mund të japë vullnetarisht:
+
+adresën e emailit kur kontakton mbështetjen;
+
+përmbajtje dhe preferenca të futura manualisht në aplikacion (llogaritje etj.).
+
+2.2 Të dhëna teknike (jo personale)
+Për përmirësim të shërbimit dhe reklama:
+
+lloji i pajisjes dhe versioni i sistemit operativ;
+
+gjuha e ndërfaqes;
+
+mënyra dhe shpeshtësia e përdorimit të aplikacionit;
+
+regjistrat e gabimeve (crash logs);
+
+identifikuesi i reklamave (Advertising ID).
+
+3. Lejet dhe qasja në pajisje
+Leja	Qëllimi
+Qasje në ruajtje	Ruajtja dhe hapja e skedarëve (PDF, Excel, etj.)
+Internet	Për përditësime, reklama dhe dërgim emaili
+Ndarja me aplikacione të tjera	Eksportimi i llogaritjeve
+Lista e aplikacioneve të instaluara (opsionale)	Për të shfaqur mënyrat e disponueshme të eksportit
+
+4. Reklamat dhe shërbimet e palëve të treta
+Mund të shfaqen reklama nga partnerë si Google AdMob
+
+Reklamat me shpërblim janë gjithmonë opsionale
+
+Nuk ndajmë të dhëna personale me partnerët e reklamave
+
+Politika e Google: https://policies.google.com/technologies/ads
+
+5. Funksionalitetet me pagesë
+Metoda të avancuara të llogaritjes
+
+Eksport në PDF ose Excel
+
+Heqja e reklamave
+
+Qasje premium (abonim ose një herë)
+
+6. Kontrolli i të dhënave
+Fshini të dhënat në aplikacion ose në cilësimet Android
+
+Tërhiqni lejet nga cilësimet e pajisjes
+
+Kërkoni fshirjen e të dhënave duke kontaktuar në support@dr-it.studio
+
+7. Siguria
+Aplikacioni nuk dërgon të dhëna pa pëlqimin tuaj
+
+Të gjitha të dhënat ruhen lokalisht në pajisjen tuaj
+
+8. Privatësia e fëmijëve
+Aplikacioni nuk është për fëmijë nën 13 vjeç
+
+9. Përditësime të politikës
+Përditësimet mund të ndodhin herë pas here. Kontrolloni rregullisht për ndryshime.
+
+10. Informacion kontakti
+DR.IT.Studio
+Kiev, Ukrainë
+📧 support@dr-it.studio
+
+11. Pëlqimi i përdoruesit
+Duke përdorur aplikacionin, ju pranoni këtë politikë.

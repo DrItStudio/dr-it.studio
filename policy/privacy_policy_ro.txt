@@ -1,0 +1,111 @@
+Politica de Confidențialitate
+Dată intrare în vigoare: 6 mai 2025
+Nume aplicație: Forest Calculator
+Dezvoltator: DR.IT.Studio
+Locație: Kiev, Ucraina
+Contact: support@dr-it.studio
+
+1. Introducere
+Forest Calculator, dezvoltată de DR.IT.Studio ("noi"), este o aplicație pentru calculul volumului de lemn și alte funcții profesionale. Această Politică de Confidențialitate explică ce date colectăm, cum le folosim, stocăm, protejăm și partajăm — inclusiv reclame video recompensate.
+
+2. Ce date colectăm
+2.1 Informații personale
+Nu colectăm automat date personale. Totuși, utilizatorii pot furniza voluntar:
+
+adresa de e-mail când contactează suportul;
+
+conținut și preferințe introduse manual (calculări etc.).
+
+2.2 Informații non-personale (tehnice)
+Pentru diagnosticare, îmbunătățiri și publicitate, colectăm informații anonime precum:
+
+tipul dispozitivului și versiunea sistemului de operare;
+
+limba interfeței;
+
+frecvența și modul de utilizare al aplicației;
+
+jurnale de erori;
+
+ID-ul de publicitate.
+
+3. Permisiuni și acces la dispozitiv
+Permisiune	Scop
+Acces la stocare	Salvare și deschidere fișiere (PDF, Excel etc.)
+Internet	Actualizări, reclame, trimitere email
+Partajare cu alte aplicații	Export calcule prin mesagerie și email
+Listă aplicații instalate (opțional)	Afișare metode disponibile de export
+
+Nu urmărim comportamentul în alte aplicații.
+
+4. Reclame și servicii terțe
+4.1 Informații generale
+Aplicația poate afișa reclame personalizate sau nepersonalizate prin parteneri precum Google AdMob. Tipul reclamei poate fi selectat la prima utilizare și modificat ulterior.
+
+4.2 Reclame video recompensate
+Aplicația oferă acces opțional la funcții premium în schimbul vizionării voluntare a unui videoclip publicitar.
+
+Important:
+
+Reclamele sunt opționale;
+
+Funcția oferită este clar explicată înainte;
+
+Recompensa este acordată doar după vizionarea completă;
+
+Nu partajăm date personale cu partenerii de publicitate.
+
+4.3 Tehnologii utilizate
+Partenerii (inclusiv Google) pot folosi:
+
+ID-uri publicitare;
+
+cookie-uri sau tehnologii similare;
+
+date agregate pentru direcționare.
+Politica Google
+
+5. Funcții plătite și abonamente
+Aplicația poate include:
+
+metode avansate de calcul;
+
+export PDF/Excel;
+
+eliminarea reclamelor;
+
+acces premium (abonament sau plată unică).
+Plățile sunt procesate prin Google Play. Nu stocăm date despre carduri.
+
+6. Controlul datelor
+Puteți:
+
+șterge datele salvate din aplicație sau setările Android;
+
+revoca permisiunile;
+
+dezactiva reclamele prin achiziție;
+
+modifica consimțământul pentru reclame;
+
+solicita ștergerea datelor voluntare prin email.
+
+7. Securitate
+Nu transmitem date fără consimțământ.
+Toate datele sunt stocate local pe dispozitiv.
+Recomandăm blocarea ecranului și măsuri de securitate.
+
+8. Confidențialitatea copiilor
+Aplicația nu este destinată copiilor sub 13 ani. Dacă un copil a trimis informații, contactați-ne — le vom șterge imediat.
+
+9. Actualizări ale politicii
+Această politică poate fi actualizată. Schimbările intră în vigoare la publicare.
+
+10. Informații de contact
+DR.IT.Studio
+Kiev, Ucraina
+📧 support@dr-it.studio
+
+11. Consimțământul utilizatorului
+Prin utilizarea aplicației, sunteți de acord cu această Politică. Dacă nu sunteți de acord — vă rugăm să opriți utilizarea.
+

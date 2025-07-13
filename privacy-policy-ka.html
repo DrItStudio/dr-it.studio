@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Calculator - კონფიდენციალურობის პოლიტიკა</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'BPG Nino Mtavruli', 'Arial', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 3rem;
+        }
+
+        .app-info {
+            background: #f8f9fa;
+            border-left: 4px solid #4a7c59;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .app-info h3 {
+            color: #2d5016;
+            margin-bottom: 1rem;
+        }
+
+        .app-info p {
+            margin: 0.5rem 0;
+        }
+
+        .app-info strong {
+            color: #2d5016;
+        }
+
+        h2 {
+            color: #2d5016;
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #4a7c59;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #4a7c59;
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .permissions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .permissions-table th,
+        .permissions-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .permissions-table th {
+            background: #4a7c59;
+            color: white;
+            font-weight: bold;
+        }
+
+        .permissions-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .permissions-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .important-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .important-box h4 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+
+        .important-box ul {
+            margin: 0;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #2d5016;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .date-updated {
+            background: #e8f5e8;
+            border: 1px solid #4a7c59;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .date-updated strong {
+            color: #2d5016;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .header {
+                padding: 2rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .permissions-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <div class="subtitle">კონფიდენციალურობის პოლიტიკა</div>
+        </div>
+
+        <div class="content">
+            <div class="date-updated">
+                <strong>შესვლის თარიღი ძალაში:</strong> 2025 წლის 6 მაისი
+            </div>
+
+            <div class="app-info">
+                <h3>აპლიკაციის ინფორმაცია</h3>
+                <p><strong>აპლიკაციის სახელი:</strong> Forest Calculator</p>
+                <p><strong>შემქმნელი:</strong> DR.IT.Studio</p>
+                <p><strong>მდებარეობა:</strong> კიევი, უკრაინა</p>
+                <p><strong>კონტაქტი:</strong> <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>1. შესავალი</h2>
+            <p>Forest Calculator არის DR.IT.Studio-ს მიერ შექმნილი აპლიკაცია ხის მოცულობისა და სხვა პროფესიული ფუნქციების დასათვლელად. კონფიდენციალურობის პოლიტიკა განმარტავს, რომელი მონაცემები იკრიბება, როგორ გამოიყენება, ინახება, დაცულია და იზიარება — მათ შორის, დაჯილდოვებული რეკლამების (rewarded video ads) დეტალები.</p>
+
+            <h2>2. ჩვენ ვაგროვებთ მონაცემებს</h2>
+            
+            <h3>2.1 პერსონალური მონაცემები</h3>
+            <p>პირადი მონაცემები ავტომატურად არ იკრიბება. მომხმარებელი შეიძლება ნებაყოფლობით მოგვაწოდოს:</p>
+            <ul>
+                <li>ელფოსტა მხარდაჭერასთან დაკავშირებისას;</li>
+                <li>აპლიკაციაში ხელით შეყვანილი ინფორმაცია (გათვლები და სხვა).</li>
+            </ul>
+
+            <h3>2.2 არაპერსონალური (ტექნიკური) მონაცემები</h3>
+            <p>გაუმჯობესებისა და რეკლამის ჩვენებისთვის შეგვიძლია შევაგროვოთ:</p>
+            <ul>
+                <li>მოწყობილობის ტიპი და ოპერაციული სისტემის ვერსია;</li>
+                <li>ინტერფეისის ენა;</li>
+                <li>გამოყენების სიხშირე და ხერხი;</li>
+                <li>შეცდომების ჩანაწერები (crash logs);</li>
+                <li>სარეკლამო ID.</li>
+            </ul>
+
+            <h2>3. დაშვებები და წვდომა</h2>
+            <table class="permissions-table">
+                <thead>
+                    <tr>
+                        <th>დაშვება</th>
+                        <th>მიზანი</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>მეხსიერებაზე წვდომა</td>
+                        <td>ფაილების შენახვა და გახსნა (PDF, Excel და სხვ.)</td>
+                    </tr>
+                    <tr>
+                        <td>ინტერნეტი</td>
+                        <td>განახლებებისთვის, რეკლამისთვის და ელფოსტის გაგზავნისთვის</td>
+                    </tr>
+                    <tr>
+                        <td>სხვა აპებთან გაზიარება</td>
+                        <td>გათვლების ექსპორტი მესენჯერის ან ელფოსტის მეშვეობით</td>
+                    </tr>
+                    <tr>
+                        <td>დაყენებული აპების სია (არასავალდებულო)</td>
+                        <td>ხელმისაწვდომი ექსპორტის მეთოდების ჩვენება</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>4. რეკლამები და მესამე მხარეები</h2>
+            
+            <h3>4.1 ზოგადი ინფორმაცია</h3>
+            <p>შეიძლება გამოჩნდეს პერსონალიზებული ან არაპერსონალიზებული რეკლამები Google AdMob-ის ნაირი პარტნიორებისგან. მომხმარებელს შეუძლია პირველი ჩართვისას აირჩიოს რეკლამის ტიპი და შემდგომ შეცვალოს პარამეტრებში.</p>
+
+            <h3>4.2 დაჯილდოვებული რეკლამები</h3>
+            <p>აპლიკაცია გთავაზობთ ნებაყოფლობით ვიდეო რეკლამებს, სადაც მომხმარებლებს შეუძლიათ ნახონ ვიდეო ზოგიერთი ფუნქციის მისაღებად (მაგალითად, დროებითი წვდომა premium ინსტრუმენტებზე).</p>
+
+            <div class="important-box">
+                <h4>მნიშვნელოვანი:</h4>
+                <ul>
+                    <li>Rewarded ვიდეო რეკლამები ყოველთვის ნებაყოფლობითია;</li>
+                    <li>რეკლამის ჩვენების წინ მკაფიო ახსნა იძლევა;</li>
+                    <li>ჯილდო მიიღება მხოლოდ სრული ყურებით;</li>
+                    <li>პირადი მონაცემები რეკლამის პარტნიორებს არ გადაეცემა.</li>
+                </ul>
+            </div>
+
+            <p>Google-ის პოლიტიკა: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+
+            <h2>5. ფასიანი ფუნქციები</h2>
+            <p>აპლიკაცია შეიძლება შსთავაზოს შემდეგ ფასიან ფუნქციებს:</p>
+            <ul>
+                <li>გაფართოებული გათვლის მეთოდები;</li>
+                <li>ექსპორტი PDF/Excel-ში;</li>
+                <li>რეკლამის გამორთვა;</li>
+                <li>პრემიუმ წვდომა (ერთჯერადი ან გამოწერით).</li>
+            </ul>
+
+            <h2>6. მონაცემების კონტროლი</h2>
+            <p>თქვენ შეგიძლიათ:</p>
+            <ul>
+                <li>წაშალოთ მონაცემები აპიდან ან Android პარამეტრებიდან;</li>
+                <li>უარყოთ დაშვებები;</li>
+                <li>მონაცემების წაშლის მოთხოვნა: <a href="mailto:support@dr-it.studio">support@dr-it.studio</a>.</li>
+            </ul>
+
+            <h2>7. უსაფრთხოება</h2>
+            <ul>
+                <li>მონაცემები სერვერზე არ იგზავნება მომხმარებლის თანხმობის გარეშე;</li>
+                <li>ყველაფერი ინახება ლოკალურად მოწყობილობაში.</li>
+            </ul>
+
+            <h2>8. ბავშვების კონფიდენციალურობა</h2>
+            <p>აპლიკაცია არ არის განკუთვნილი 13 წლამდე ბავშვებისთვის და ჩვენ ცნობიერად არ ვაგროვებთ მათ მონაცემებს.</p>
+
+            <h2>9. პოლიტიკის განახლება</h2>
+            <p>პოლიტიკა შეიძლება დროდადრო განახლდეს. გირჩევთ, გადაამოწმოთ იგი პერიოდულად.</p>
+
+            <h2>10. საკონტაქტო ინფორმაცია</h2>
+            <div class="contact-info">
+                <h3>DR.IT.Studio</h3>
+                <p>კიევი, უკრაინა</p>
+                <p>📧 <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>11. მომხმარებლის თანხმობა</h2>
+            <p>აპლიკაციის გამოყენებით ადასტურებთ თანხმობას კონფიდენციალურობის პოლიტიკაზე.</p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 DR.IT.Studio. ყველა უფლება დაცულია.</p>
+        </div>
+    </div>
+</body>
+</html>

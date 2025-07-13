@@ -1,0 +1,112 @@
+Stājas spēkā: 2025. gada 6. maijā
+Lietotnes nosaukums: Forest Calculator
+Izstrādātājs: DR.IT.Studio
+Atrašanās vieta: Ukraina, Kijiva
+Kontakts: support@dr-it.studio
+
+1. Ievads
+Forest Calculator ir lietotne, ko izstrādājis DR.IT.Studio (“mēs”), kas paredzēta koksnes tilpuma aprēķināšanai un citiem profesionāliem mērķiem. Šī privātuma politika izskaidro, kādus datus mēs ievācam, kā tos izmantojam, glabājam, aizsargājam un kopīgojam – tostarp informāciju par atlīdzības reklāmām (rewarded ads).
+
+2. Kādi datus mēs ievācam
+2.1 Personīgā informācija
+Mēs automātiski nevācam personīgos datus. Tomēr lietotājs var brīvprātīgi sniegt:
+
+E-pasta adresi, sazinoties ar atbalstu;
+
+Manuāli ievadītu saturu un iestatījumus (piemēram, aprēķinus).
+
+2.2 Ne-personīgā (tehniskā) informācija
+Diagnostikas, uzlabošanas un reklāmas nolūkos mēs varam vākt anonīmu informāciju:
+
+Ierīces tips un OS versija;
+
+Lietotāja interfeisa valoda;
+
+Lietošanas biežums un veids;
+
+Kļūdu žurnāli (crash logs);
+
+Reklāmas identifikators (Advertising ID).
+
+3. Atļaujas un piekļuve ierīcei
+Atļauja	Mērķis
+Piekļuve glabātuvei	Saglabāt un atvērt failus (PDF, Excel u.c.)
+Internets	Atdarinājumi, reklāmas, e-pasti
+Kopīgošana ar lietotnēm	Aprēķinu eksportēšana
+Instalēto lietotņu saraksts (pēc izvēles)	Rādīt pieejamos eksporta veidus
+
+Mēs neizmantojam atļaujas, lai izsekotu darbības citās lietotnēs.
+
+4. Reklāma un trešās puses
+4.1 Vispārīga informācija
+Lietotne var rādīt personalizētas vai nepersonalizētas reklāmas no tādiem partneriem kā Google AdMob. Reklāmas tipu var izvēlēties pirmo reizi palaižot, un vēlāk mainīt iestatījumos.
+
+4.2 Atlīdzības video reklāmas
+Lietotnē tiek izmantotas video reklāmas ar atlīdzību, kuras lietotājs var brīvprātīgi skatīties, lai iegūtu piekļuvi noteiktām funkcijām (piemēram, uz laiku premium rīkiem).
+
+Svarīgi:
+
+Skatīšanās ir pēc izvēles;
+
+Pirms atskaņošanas tiek skaidri paskaidrots, ko iegūst;
+
+Atlīdzība tiek piešķirta tikai pēc pilnīgas noskatīšanās;
+
+Netiek kopīgoti nekādi personas dati ar reklāmas partneriem.
+
+4.3 Tehnoloģijas
+Partneri (tostarp Google) var izmantot:
+
+Reklāmas ID;
+
+Sīkfailus vai līdzīgas tehnoloģijas;
+
+Apkopotus datus reklāmu mērķēšanai.
+Google politika: https://policies.google.com/technologies/ads
+
+5. Maksas funkcijas un abonementi
+Lietotnē var būt pieejamas šādas maksas funkcijas:
+
+Paplašināti aprēķinu veidi;
+
+Eksports uz PDF, Excel;
+
+Reklāmu izslēgšana;
+
+Premium piekļuve (abonements vai vienreizējs pirkums).
+
+Visi maksājumi tiek apstrādāti caur Google Play. Mēs neglabājam kartes datus.
+
+6. Datu kontrole
+Jūs varat:
+
+Dzēst saglabātos datus lietotnē vai Android iestatījumos;
+
+Atcelt atļaujas ierīces iestatījumos;
+
+Izslēgt reklāmas, iegādājoties funkciju;
+
+Mainīt reklāmas piekrišanu jebkurā laikā;
+
+Pieprasīt savu datu dzēšanu, rakstot uz support@dr-it.studio.
+
+7. Drošība
+Dati netiek sūtīti uz attālinātiem serveriem bez jūsu piekrišanas.
+Visi dati tiek glabāti ierīcē.
+Mēs iesakām izmantot ekrāna bloķēšanu un citas drošības funkcijas.
+
+8. Bērnu privātums
+Lietotne nav paredzēta bērniem līdz 13 gadu vecumam un apzināti nedrīkst ievākt viņu datus. Ja uzskatāt, ka dati ir ievākti kļūdaini – lūdzu, sazinieties ar mums.
+
+9. Politikas atjauninājumi
+Mēs varam periodiski atjaunināt šo politiku. Tā stājas spēkā ar publicēšanas brīdi.
+Lietotājiem ieteicams to pārbaudīt regulāri.
+
+10. Kontaktinformācija
+DR.IT.Studio
+Ukraina, Kijiva
+📧 support@dr-it.studio
+
+11. Lietotāja piekrišana
+Izmantojot Forest Calculator, jūs apliecināt savu piekrišanu šai privātuma politikai. Ja nepiekrītat – pārtrauciet lietošanu.
+

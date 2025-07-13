@@ -1,0 +1,110 @@
+Privatlivspolitik
+Ikrafttrædelsesdato: 6. maj 2025
+Appnavn: Forest Calculator
+Udvikler: DR.IT.Studio
+Placering: Kyiv, Ukraine
+Kontakt: support@dr-it.studio
+
+1. Introduktion
+Forest Calculator er en app til beregning af trævolumen og professionelle funktioner, udviklet af DR.IT.Studio ("vi"). Denne privatlivspolitik forklarer, hvilke data vi indsamler, og hvordan vi bruger, gemmer, beskytter og deler dem – herunder oplysninger om belønningsannoncer.
+
+2. Hvilke data vi indsamler
+2.1 Personlige oplysninger
+Vi indsamler ikke automatisk personlige oplysninger. Brugeren kan dog frivilligt give:
+
+E-mailadresse ved kontakt med support;
+
+Indtastet indhold og præferencer (f.eks. beregninger).
+
+2.2 Ikke-personlige (tekniske) oplysninger
+Vi kan indsamle anonym information til diagnosticering, forbedring og annoncer:
+
+Enhedstype og operativsystemversion;
+
+Sproget i appen;
+
+Brugsfrekvens og -mønster;
+
+Fejllogs;
+
+Annonce-ID.
+
+3. Tilladelser og adgang til enhed
+Tilladelse	Formål
+Lageradgang	Gem og åbn filer (PDF, Excel m.m.)
+Internet	Til opdateringer, annoncer og e-mails
+Deling med andre apps	Eksport via beskeder og e-mails
+Installerede apps (valgfrit)	Vise tilgængelige eksportmetoder
+
+Vi sporer ikke brugen af andre apps.
+
+4. Annoncer og tredjepartstjenester
+4.1 Generelt
+Appen kan vise personaliserede eller ikke-personaliserede annoncer fra partnere som Google AdMob. Brugeren kan vælge annonceindstillinger ved første opstart og ændre dem senere.
+
+4.2 Belønningsannoncer
+Appen tilbyder adgang til visse funktioner via frivillig visning af reklamevideoer.
+
+Vigtigt:
+
+At se reklamer er altid frivilligt;
+
+Der gives klar information om funktionens formål;
+
+Belønning gives kun efter fuld visning;
+
+Der deles ingen personlige oplysninger med reklamepartnere.
+
+4.3 Brugte teknologier
+Partnere (inkl. Google) kan bruge:
+
+Annonce-ID'er;
+
+Cookies eller lignende teknologier;
+
+Aggregede data til annoncering.
+Googles politik
+
+5. Betalte funktioner og abonnementer
+Appen kan tilbyde:
+
+Avancerede beregningsmetoder;
+
+Eksport til PDF/Excel;
+
+Fjernelse af annoncer;
+
+Premiumadgang (engangsbetaling eller abonnement).
+Alle betalinger behandles via Google Play. Vi opbevarer ikke kortdata.
+
+6. Kontrol over dine data
+Du kan:
+
+Slette data i appen eller Android-indstillinger;
+
+Tilbagekalde tilladelser;
+
+Deaktivere annoncer med køb;
+
+Ændre annonce-samtykke;
+
+Anmode om sletning af frivillige oplysninger via e-mail.
+
+7. Sikkerhed
+Appen sender ikke data til servere uden samtykke.
+Alle data gemmes lokalt.
+Vi anbefaler at bruge skærmlås og andre beskyttelsestiltag.
+
+8. Børns privatliv
+Appen er ikke beregnet til børn under 13 år. Hvis dit barn har indsendt data, bedes du kontakte os for sletning.
+
+9. Opdateringer
+Politikken kan opdateres. Ændringer træder i kraft ved offentliggørelse med ny dato.
+
+10. Kontakt
+DR.IT.Studio
+Kyiv, Ukraine
+📧 support@dr-it.studio
+
+11. Brugerens samtykke
+Ved at bruge appen accepterer du denne politik. Hvis du ikke accepterer, skal du afbryde brugen.

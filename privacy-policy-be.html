@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="be">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Calculator - Палітыка канфідэнцыяльнасці</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Arial', 'Helvetica', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 3rem;
+        }
+
+        .app-info {
+            background: #f8f9fa;
+            border-left: 4px solid #4a7c59;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .app-info h3 {
+            color: #2d5016;
+            margin-bottom: 1rem;
+        }
+
+        .app-info p {
+            margin: 0.5rem 0;
+        }
+
+        .app-info strong {
+            color: #2d5016;
+        }
+
+        h2 {
+            color: #2d5016;
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #4a7c59;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #4a7c59;
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .permissions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .permissions-table th,
+        .permissions-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .permissions-table th {
+            background: #4a7c59;
+            color: white;
+            font-weight: bold;
+        }
+
+        .permissions-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .permissions-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .important-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .important-box h4 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+
+        .important-box ul {
+            margin: 0;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #2d5016;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .date-updated {
+            background: #e8f5e8;
+            border: 1px solid #4a7c59;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .date-updated strong {
+            color: #2d5016;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .header {
+                padding: 2rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .permissions-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <div class="subtitle">Палітыка канфідэнцыяльнасці</div>
+        </div>
+
+        <div class="content">
+            <div class="date-updated">
+                <strong>Дата ўступлення ў сілу:</strong> 6 траўня 2025 года
+            </div>
+
+            <div class="app-info">
+                <h3>Інфармацыя пра дадатак</h3>
+                <p><strong>Назва дадатку:</strong> Forest Calculator</p>
+                <p><strong>Распрацоўшчык:</strong> DR.IT.Studio</p>
+                <p><strong>Месцазнаходжанне:</strong> Кіеў, Украіна</p>
+                <p><strong>Кантакт:</strong> <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>1. Уводзіны</h2>
+            <p>Forest Calculator — гэта дадатак для разліку аб'ёму драўніны і іншых прафесійных функцый, распрацаваны DR.IT.Studio. Гэта Палітыка канфідэнцыяльнасці тлумачыць, якія даныя мы збіраем, як мы іх выкарыстоўваем, захоўваем, абараняем і перадаем, уключаючы рэкламу з узнагародай (rewarded video ads).</p>
+
+            <h2>2. Якія даныя мы збіраем</h2>
+            
+            <h3>2.1 Асабістыя даныя</h3>
+            <p>Мы не збіраем асабістыя даныя аўтаматычна. Але карыстальнік можа добраахвотна падаць:</p>
+            <ul>
+                <li>адрас электроннай пошты пры звароце ў падтрымку;</li>
+                <li>дадзеныя, унесеныя ўручную (разлікі і г.д.).</li>
+            </ul>
+
+            <h3>2.2 Неасабістыя (тэхнічныя) даныя</h3>
+            <p>Для паляпшэння сэрвісу і дыягностыкі мы можам збіраць:</p>
+            <ul>
+                <li>тып прылады і версія АС;</li>
+                <li>мова інтэрфейсу;</li>
+                <li>частата і спосаб выкарыстання;</li>
+                <li>crash-логі;</li>
+                <li>ідэнтыфікатар рэкламы (Advertising ID).</li>
+            </ul>
+
+            <h2>3. Дазволы і доступ</h2>
+            <table class="permissions-table">
+                <thead>
+                    <tr>
+                        <th>Дазвол</th>
+                        <th>Мэта</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Доступ да сховішча</td>
+                        <td>Зберажэнне і адкрыццё файлаў (PDF, Excel і інш.)</td>
+                    </tr>
+                    <tr>
+                        <td>Інтэрнэт</td>
+                        <td>Абнаўленні, рэклама, адпраўка лістоў</td>
+                    </tr>
+                    <tr>
+                        <td>Доступ да іншых праграм</td>
+                        <td>Экспарт разлікаў праз месенджары і пошту</td>
+                    </tr>
+                    <tr>
+                        <td>Спіс усталяваных праграм (неабавязкова)</td>
+                        <td>Паказ даступных метадаў экспарту</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>4. Рэклама і сэрвісы трэціх бакоў</h2>
+            <p>Можа адлюстроўвацца персаналізаваная або неперсаналізаваная рэклама (Google AdMob)</p>
+            <p>Відэарэклама з узнагародай — заўсёды па жаданні</p>
+
+            <div class="important-box">
+                <h4>Увага:</h4>
+                <ul>
+                    <li>Асабістыя даныя не перадаюцца рэкламным партнёрам</li>
+                    <li>Прагляд рэкламы цалкам добраахвотны</li>
+                </ul>
+            </div>
+
+            <p>Палітыка Google: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+
+            <h2>5. Платныя функцыі</h2>
+            <ul>
+                <li>Пашыраныя разлікі</li>
+                <li>Экспарт у PDF, Excel</li>
+                <li>Выдаленне рэкламы</li>
+                <li>Premium-доступ (разава ці па падпісцы)</li>
+            </ul>
+
+            <h2>6. Кантроль над дадзенымі</h2>
+            <ul>
+                <li>Выдаліць даныя ў дадатку або наладах Android</li>
+                <li>Адклікаць дазволы</li>
+                <li>Запытаць выдаленне праз: <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></li>
+            </ul>
+
+            <h2>7. Бяспека</h2>
+            <ul>
+                <li>Мы не перадаем даныя без згоды</li>
+                <li>Усе файлы захоўваюцца лакальна</li>
+            </ul>
+
+            <h2>8. Канфідэнцыяльнасць дзяцей</h2>
+            <p>Дадатак не прызначаны для дзяцей да 13 гадоў</p>
+
+            <h2>9. Абнаўленні палітыкі</h2>
+            <p>Мы можам перыядычна абнаўляць гэтую палітыку. Рэкамендуем правяраць змены.</p>
+
+            <h2>10. Кантакты</h2>
+            <div class="contact-info">
+                <h3>DR.IT.Studio</h3>
+                <p>Кіеў, Украіна</p>
+                <p>📧 <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>11. Згода карыстальніка</h2>
+            <p>Карыстаючыся дадаткам, вы пацвярджаеце згоду з гэтай палітыкай.</p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 DR.IT.Studio. Усе правы захаваны.</p>
+        </div>
+    </div>
+</body>
+</html>

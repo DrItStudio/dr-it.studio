@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="yo" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ilana Asiri - Forest Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .policy-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2E7D32;
+        }
+
+        .policy-info h2 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .policy-info p {
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h3 {
+            color: #2E7D32;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E8F5E8;
+        }
+
+        .section p, .section li {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .permission-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .permission-table th,
+        .permission-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #E8F5E8;
+        }
+
+        .permission-table th {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .permission-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc8 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .contact p {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #2E7D32;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #2E7D32;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2E7D32;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .permission-table {
+                font-size: 0.9rem;
+            }
+
+            .permission-table th,
+            .permission-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <p>Ilana Asiri</p>
+        </div>
+
+        <div class="content">
+            <a href="privacy-policy.html" class="back-link">← Pada si yiyan ede</a>
+
+            <div class="policy-info">
+                <h2>Alaye Ilana</h2>
+                <p><strong>Ọjọ Ibere:</strong> May 6, 2025</p>
+                <p><strong>Orukọ App:</strong> Forest Calculator</p>
+                <p><strong>Agbẹda:</strong> DR.IT.Studio</p>
+                <p><strong>Ipo:</strong> Kyiv, Ukraine</p>
+                <p><strong>Ibaraẹnisọrọ:</strong> support@dr-it.studio</p>
+            </div>
+
+            <div class="section">
+                <h3>1. Ifihan</h3>
+                <p>Forest Calculator jẹ ohun elo ti DR.IT.Studio ṣẹda fun iṣiro iwọn igi ati awọn ẹya amọdaju miiran. Ilana asiri yii ṣalaye iru data ti a n gba, bi a ṣe n lo, fipamọ, daabobo ati pin — pẹlu alaye nipa ipolowo ti o funni ni ẹbun (rewarded ads).</p>
+            </div>
+
+            <div class="section">
+                <h3>2. Awọn data Ti A N Gba</h3>
+                
+                <h4>2.1 Alaye Ti ara ẹni</h4>
+                <p>A ko gba alaye ti ara ẹni laifọwọyi. Ṣugbọn olumulo le pese alaye naa ni ifẹ:</p>
+                <ul>
+                    <li>Adirẹsi imeeli nigba ti wọn ba kan si atilẹyin;</li>
+                    <li>Akoonu ti ọwọ ti olumulo fi sii (gẹgẹbi iṣiro).</li>
+                </ul>
+
+                <h4>2.2 Alaye Airotẹlẹ (Imọ-ẹrọ)</h4>
+                <p>Fun ayewo, ilọsiwaju iṣẹ ati ifihan ipolowo, a le gba awọn alaye alaimesin yii:</p>
+                <ul>
+                    <li>Iru ẹrọ ati ẹya OS;</li>
+                    <li>Ede atunto;</li>
+                    <li>Igbohunsafẹfẹ ati ọna lilo app;</li>
+                    <li>Awọn igbasilẹ ikuna (crash logs);</li>
+                    <li>ID ipolowo.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>3. Awọn Igbanilaaye ati Wiwọle Ẹrọ</h3>
+                <table class="permission-table">
+                    <thead>
+                        <tr>
+                            <th>Igbanilaaye</th>
+                            <th>Idi</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Wiwọle Ibi ipamọ</td>
+                            <td>Fipamọ ati ṣi faili (PDF, Excel, ati bẹbẹ lọ)</td>
+                        </tr>
+                        <tr>
+                            <td>Intanẹẹti</td>
+                            <td>Fun imudojuiwọn, ipolowo, ati ifiranṣẹ imeeli</td>
+                        </tr>
+                        <tr>
+                            <td>Pin pẹlu awọn apps miiran</td>
+                            <td>Firánṣẹ iṣiro nipasẹ awọn oluranlọwọ tabi imeeli</td>
+                        </tr>
+                        <tr>
+                            <td>Atokọ ti awọn apps ti a fi sori ẹrọ (yiyan)</td>
+                            <td>Fi awọn ọna gbigbe to wa han</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>A ko lo awọn igbanilaaye lati ṣe atọpinpin awọn iṣẹ ni awọn apps miiran.</p>
+            </div>
+
+            <div class="section">
+                <h3>4. Awọn Ipolowo ati Awọn Iṣẹ Kẹta</h3>
+                
+                <h4>4.1 Alaye Gbogbogbo</h4>
+                <p>App naa le fi awọn ipolowo ti o ni ifojuri tabi ti ko ni ifojuri han lati ọdọ awọn alabaṣiṣẹpọ bii Google AdMob. Olumulo le yan iru ipolowo ni ipilẹṣẹ akọkọ ati yipada nigbamii ni awọn eto.</p>
+
+                <h4>4.2 Awọn Ipolowo Ẹbun (Rewarded Video)</h4>
+                <div class="highlight">
+                    <p>Olumulo le fẹ lati wo fidio ipolowo lati gba iraye si awọn ẹya pataki.</p>
+                    
+                    <p><strong>Pataki:</strong></p>
+                    <ul>
+                        <li>Wiwa ipolowo jẹ ifẹ nigbagbogbo;</li>
+                        <li>O han kedere ohun ti olumulo yoo gba;</li>
+                        <li>Ẹbun ni a n fun lẹhin wiwa pipe nikan;</li>
+                        <li>A ko pin alaye ti ara ẹni pẹlu awọn alabaṣiṣẹpọ ipolowo.</li>
+                    </ul>
+                </div>
+
+                <h4>4.3 Awọn Imọ-ẹrọ Ti a Lo</h4>
+                <p>Awọn alabaṣiṣẹpọ (pẹlu Google) le lo:</p>
+                <ul>
+                    <li>awọn idanimọ ipolowo;</li>
+                    <li>cookies tabi awọn imọ-ẹrọ ti o jọra;</li>
+                    <li>data ti a ko jọ fun ipolowo ifọkansi.</li>
+                </ul>
+                <p>Ilana Google: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+            </div>
+
+            <div class="section">
+                <h3>5. Awọn ẹya Ti o Sanwo ati Alabapin</h3>
+                <p>App naa le pese:</p>
+                <ul>
+                    <li>awọn ọna iṣiro to ti ni ilọsiwaju;</li>
+                    <li>gbigbe si PDF tabi Excel;</li>
+                    <li>yọ ipolowo kuro;</li>
+                    <li>iwọle Ere (alabapin tabi rira lẹẹkan).</li>
+                </ul>
+                <p>Gbogbo awọn isanwo ni a ṣe nipasẹ Google Play. A ko fipamọ alaye kaadi kankan.</p>
+            </div>
+
+            <div class="section">
+                <h3>6. Iṣakoso Data Rẹ</h3>
+                <p>O le:</p>
+                <ul>
+                    <li>pa data ti a fipamọ ni app tabi awọn eto Android;</li>
+                    <li>fa awọn igbanilaaye pada ni awọn eto ẹrọ;</li>
+                    <li>pa ipolowo nipasẹ rira ẹya;</li>
+                    <li>yipada ifọwọsi ipolowo;</li>
+                    <li>beere piparẹ data ti o pese ni ifẹ nipasẹ support@dr-it.studio.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>7. Aabo</h3>
+                <ul>
+                    <li>App naa ko fi data ranṣẹ si awọn olupin latọna jijin laisi igbanilaaye rẹ.</li>
+                    <li>Gbogbo data wa lori ẹrọ rẹ ni agbegbe.</li>
+                    <li>A ṣeduro pe o lo titiipa oju-iwe ati awọn igbese aabo miiran.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>8. Asiri Awọn ọmọde</h3>
+                <p>App yii ko ṣe fun awọn ọmọde ti o wa labẹ ọdun 13. Ti o ba ro pe ọmọ rẹ ti firanṣẹ alaye ti ara ẹni, jọwọ kan si wa lati pa wọn rẹ.</p>
+            </div>
+
+            <div class="section">
+                <h3>9. Awọn Imudojuiwọn Ilana</h3>
+                <p>Ilana yii le ni imudojuiwọn nigbakugba. Awọn iyipada bẹrẹ lati igba ti ẹya tuntun ba ti jade.</p>
+            </div>
+
+            <div class="section">
+                <h3>11. Ifọwọsi Olumulo</h3>
+                <p>Nipa lilo app yii, o fọwọsi ilana asiri yii. Ti o ko ba fọwọsi - duro lilo app naa.</p>
+            </div>
+
+            <div class="contact">
+                <h3>10. Ibaraẹnisọrọ</h3>
+                <p><strong>DR.IT.Studio</strong></p>
+                <p>Kyiv, Ukraine</p>
+                <p>📧 support@dr-it.studio</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DR.IT.Studio - Professional Mobile Application Development</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #3498db;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #3498db;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .language-dropdown {
+            position: relative;
+        }
+
+        .language-current {
+            padding: 8px 15px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .language-current:hover {
+            background: #2980b9;
+        }
+
+        .language-options {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 10px 0;
+            min-width: 120px;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .language-options.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .language-option:hover {
+            background: #f8f9fa;
+        }
+
+        .language-option.active {
+            background: #3498db;
+            color: white;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .product-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            background: white;
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            animation: fadeInUp 1s ease;
+        }
+
+        .product-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            animation: fadeInUp 1s ease 0.2s both;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.6s both;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.8s both;
+            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(52, 152, 219, 0.4);
+            background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+            box-shadow: 0 8px 25px rgba(149, 165, 166, 0.3);
+            margin-left: 15px;
+        }
+
+        .btn-secondary:hover {
+            box-shadow: 0 12px 35px rgba(149, 165, 166, 0.4);
+            background: linear-gradient(135deg, #7f8c8d 0%, #95a5a6 100%);
+        }
+
+        .section {
+            padding: 6rem 0;
+            background: white;
+        }
+
+        .section:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid #ecf0f1;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 45px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        .product-card {
+            position: relative;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .product-icon {
+            margin-bottom: 1.5rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .coming-soon-icon {
+            font-size: 4rem;
+            opacity: 0.7;
+        }
+
+        .product-features {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .feature-tag {
+            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            color: white;
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .coming-soon-tag {
+            background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+        }
+
+        .product-btn {
+            margin-top: auto;
+            padding: 12px 25px;
+            font-size: 1rem;
+            align-self: center;
+        }
+
+        .coming-soon {
+            opacity: 0.8;
+        }
+
+        .coming-soon .product-btn {
+            background: linear-gradient(135deg, #95a5a6 0%, #7f8c8d 100%);
+            cursor: not-allowed;
+            pointer-events: none;
+        }
+
+        .about {
+            background: linear-gradient(135deg, #34495e 0%, #2c3e50 100%);
+            color: white;
+            position: relative;
+        }
+
+        .about::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(52, 73, 94, 0.9) 0%, rgba(44, 62, 80, 0.9) 100%);
+            z-index: 1;
+        }
+
+        .about .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-text h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #3498db;
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            margin-top: 0.5rem;
+        }
+
+        .languages {
+            background: #ecf0f1;
+            padding: 4rem 0;
+            display: none;
+        }
+
+        .language-tabs {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 3rem;
+        }
+
+        .language-tab {
+            padding: 10px 20px;
+            background: white;
+            border: 2px solid #bdc3c7;
+            border-radius: 25px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 500;
+        }
+
+        .language-tab.active {
+            background: #3498db;
+            color: white;
+            border-color: #3498db;
+        }
+
+        .language-tab:hover {
+            border-color: #3498db;
+        }
+
+        .language-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+        }
+
+        .language-content h3 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .language-content p {
+            color: #7f8c8d;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .contact h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-item h3 {
+            color: #3498db;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-item p {
+            opacity: 0.9;
+        }
+
+        .contact-item a {
+            color: #3498db;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #5dade2;
+        }
+
+        footer {
+            background: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #3498db;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .language-selector {
+                margin-left: auto;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .product-logo {
+                width: 80px;
+                height: 80px;
+            }
+
+            .btn-secondary {
+                margin-left: 0;
+                margin-top: 10px;
+                display: block;
+                width: fit-content;
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        .hidden {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo-container">
+                <img src="logo_light.png" alt="DR.IT.Studio" class="logo-img">
+                <a href="#" class="logo-text">DR.IT.Studio</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" data-en="Home" data-ru="Главная" data-uk="Головна" data-es="Inicio" data-fr="Accueil" data-de="Startseite" data-zh="首页">Home</a></li>
+                <li><a href="#products" data-en="Products" data-ru="Продукты" data-uk="Продукти" data-es="Productos" data-fr="Produits" data-de="Produkte" data-zh="产品">Products</a></li>
+                <li><a href="#about" data-en="About" data-ru="О нас" data-uk="Про нас" data-es="Acerca de" data-fr="À propos" data-de="Über uns" data-zh="关于">About</a></li>
+                <li><a href="#contact" data-en="Contact" data-ru="Контакты" data-uk="Контакти" data-es="Contacto" data-fr="Contact" data-de="Kontakt" data-zh="联系">Contact</a></li>
+            </ul>
+            <div class="language-selector">
+                <div class="language-dropdown">
+                    <button class="language-current">
+                        <span id="current-lang">🇺🇸 EN</span>
+                        <span>▼</span>
+                    </button>
+                    <div class="language-options" id="language-options">
+                        <div class="language-option active" data-lang="en">🇺🇸 English</div>
+                        <div class="language-option" data-lang="ru">🇷🇺 Русский</div>
+                        <div class="language-option" data-lang="uk">🇺🇦 Українська</div>
+                        <div class="language-option" data-lang="es">🇪🇸 Español</div>
+                        <div class="language-option" data-lang="fr">🇫🇷 Français</div>
+                        <div class="language-option" data-lang="de">🇩🇪 Deutsch</div>
+                        <div class="language-option" data-lang="zh">🇨🇳 中文</div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="product-logo">
+                <img src="logo_light.png" alt="DR.IT.Studio">
+            </div>
+            <h1 data-en="DR.IT.Studio" data-ru="DR.IT.Studio" data-uk="DR.IT.Studio" data-es="DR.IT.Studio" data-fr="DR.IT.Studio" data-de="DR.IT.Studio" data-zh="DR.IT.Studio">DR.IT.Studio</h1>
+            <div class="subtitle" data-en="Professional Mobile Application Development" data-ru="Профессиональная разработка мобильных приложений" data-uk="Професійна розробка мобільних додатків" data-es="Desarrollo Profesional de Aplicaciones Móviles" data-fr="Développement Professionnel d'Applications Mobiles" data-de="Professionelle Mobile App-Entwicklung" data-zh="专业移动应用开发">Professional Mobile Application Development</div>
+            <p data-en="We create high-quality mobile applications for professional use across various industries. Our solutions are designed to work offline and provide maximum efficiency in field conditions." data-ru="Мы создаем высококачественные мобильные приложения для профессионального использования в различных отраслях. Наши решения работают офлайн и обеспечивают максимальную эффективность в полевых условиях." data-uk="Ми створюємо високоякісні мобільні додатки для професійного використання в різних галузях. Наші рішення працюють офлайн та забезпечують максимальну ефективність у польових умовах." data-es="Creamos aplicaciones móviles de alta calidad para uso profesional en diversas industrias. Nuestras soluciones están diseñadas para funcionar sin conexión y brindar máxima eficiencia en condiciones de campo." data-fr="Nous créons des applications mobiles de haute qualité pour un usage professionnel dans diverses industries. Nos solutions sont conçues pour fonctionner hors ligne et offrir une efficacité maximale dans les conditions de terrain." data-de="Wir erstellen hochwertige mobile Anwendungen für den professionellen Einsatz in verschiedenen Branchen. Unsere Lösungen sind für den Offline-Betrieb konzipiert und bieten maximale Effizienz unter Feldbedingungen." data-zh="我们为各行各业的专业用途创建高质量的移动应用程序。我们的解决方案设计为离线工作，在野外条件下提供最大效率。">We create high-quality mobile applications for professional use across various industries. Our solutions are designed to work offline and provide maximum efficiency in field conditions.</p>
+            <div>
+                <a href="#products" class="btn" data-en="View Products" data-ru="Посмотреть продукты" data-uk="Переглянути продукти" data-es="Ver Productos" data-fr="Voir les Produits" data-de="Produkte Anzeigen" data-zh="查看产品">View Products</a>
+                <a href="#about" class="btn btn-secondary" data-en="About Us" data-ru="О нас" data-uk="Про нас" data-es="Acerca de" data-fr="À propos" data-de="Über uns" data-zh="关于我们">About Us</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="products" class="section">
+        <div class="container">
+            <h2 class="section-title" data-en="Our Products" data-ru="Наши продукты" data-uk="Наші продукти" data-es="Nuestros Productos" data-fr="Nos Produits" data-de="Unsere Produkte" data-zh="我们的产品">Our Products</h2>
+            <p class="section-subtitle" data-en="Professional mobile applications for various industries" data-ru="Профессиональные мобильные приложения для различных отраслей" data-uk="Професійні мобільні додатки для різних галузей" data-es="Aplicaciones móviles profesionales para diversas industrias" data-fr="Applications mobiles professionnelles pour diverses industries" data-de="Professionelle mobile Anwendungen für verschiedene Branchen" data-zh="各行业专业移动应用">Professional mobile applications for various industries</p>
+            <div class="features">
+                <div class="feature-card product-card">
+                    <div class="product-icon">
+                        <img src="splash.png" alt="Forest Calculator" style="width: 80px; height: 80px; object-fit: contain;">
+                    </div>
+                    <h3 data-en="Forest Calculator" data-ru="Forest Calculator" data-uk="Forest Calculator" data-es="Forest Calculator" data-fr="Forest Calculator" data-de="Forest Calculator" data-zh="Forest Calculator">Forest Calculator</h3>
+                    <p data-en="Professional wood volume calculator with offline PDF/Excel export. Calculate in m³ and Board Feet (BF) with precise formulas." data-ru="Профессиональный калькулятор объема древесины с офлайн экспортом в PDF/Excel. Расчеты в м³ и досковых футах (BF) по точным формулам." data-uk="Професійний калькулятор об'єму деревини з офлайн експортом у PDF/Excel. Розрахунки в м³ та Board Feet (BF) за точними формулами." data-es="Calculadora profesional de volumen de madera con exportación offline a PDF/Excel. Cálculos en m³ y Board Feet (BF) con fórmulas precisas." data-fr="Calculateur professionnel de volume de bois avec export hors ligne PDF/Excel. Calculs en m³ et Board Feet (BF) avec formules précises." data-de="Professioneller Holzvolumen-Rechner mit Offline-PDF/Excel-Export. Berechnungen in m³ und Board Feet (BF) mit präzisen Formeln." data-zh="专业木材体积计算器，支持离线PDF/Excel导出。使用精确公式计算m³和板英尺(BF)。">Professional wood volume calculator with offline PDF/Excel export. Calculate in m³ and Board Feet (BF) with precise formulas.</p>
+                    <div class="product-features">
+                        <span class="feature-tag" data-en="Offline" data-ru="Офлайн" data-uk="Офлайн" data-es="Sin conexión" data-fr="Hors ligne" data-de="Offline" data-zh="离线">Offline</span>
+                        <span class="feature-tag" data-en="50+ Languages" data-ru="50+ языков" data-uk="50+ мов" data-es="50+ idiomas" data-fr="50+ langues" data-de="50+ Sprachen" data-zh="50+语言">50+ Languages</span>
+                        <span class="feature-tag" data-en="PDF Export" data-ru="PDF экспорт" data-uk="PDF експорт" data-es="Exportar PDF" data-fr="Export PDF" data-de="PDF-Export" data-zh="PDF导出">PDF Export</span>
+                    </div>
+                    <a href="forest-calculator.html" class="btn product-btn" data-en="Learn More" data-ru="Подробнее" data-uk="Детальніше" data-es="Saber Más" data-fr="En Savoir Plus" data-de="Mehr Erfahren" data-zh="了解更多">Learn More</a>
+                </div>
+                
+                <div class="feature-card product-card coming-soon">
+                    <div class="product-icon">
+                        <div class="coming-soon-icon">🚀</div>
+                    </div>
+                    <h3 data-en="More Products Coming Soon" data-ru="Больше продуктов скоро" data-uk="Більше продуктів незабаром" data-es="Más Productos Próximamente" data-fr="Plus de Produits Bientôt" data-de="Weitere Produkte Kommen Bald" data-zh="更多产品即将推出">More Products Coming Soon</h3>
+                    <p data-en="We're constantly developing new professional applications for various industries. Stay tuned for updates!" data-ru="Мы постоянно разрабатываем новые профессиональные приложения для различных отраслей. Следите за обновлениями!" data-uk="Ми постійно розробляємо нові професійні додатки для різних галузей. Слідкуйте за оновленнями!" data-es="Constantemente desarrollamos nuevas aplicaciones profesionales para diversas industrias. ¡Mantente atento a las actualizaciones!" data-fr="Nous développons constamment de nouvelles applications professionnelles pour diverses industries. Restez à l'écoute des mises à jour!" data-de="Wir entwickeln ständig neue professionelle Anwendungen für verschiedene Branchen. Bleiben Sie dran für Updates!" data-zh="我们不断为各行各业开发新的专业应用程序。敬请关注更新！">We're constantly developing new professional applications for various industries. Stay tuned for updates!</p>
+                    <div class="product-features">
+                        <span class="feature-tag coming-soon-tag" data-en="Coming Soon" data-ru="Скоро" data-uk="Незабаром" data-es="Próximamente" data-fr="Bientôt" data-de="Demnächst" data-zh="即将推出">Coming Soon</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2 class="section-title" data-en="About DR.IT.Studio" data-ru="О DR.IT.Studio" data-uk="Про DR.IT.Studio" data-es="Acerca de DR.IT.Studio" data-fr="À propos de DR.IT.Studio" data-de="Über DR.IT.Studio" data-zh="关于DR.IT.Studio">About DR.IT.Studio</h2>
+                    <p data-en="We are a team of professionals specializing in creating high-quality mobile applications for professional use. Forest Calculator is our flagship product, used by forest industry professionals in 50+ countries worldwide." data-ru="Мы команда профессионалов, специализирующихся на создании высококачественных мобильных приложений для профессионального использования. Forest Calculator - наш флагманский продукт, используемый специалистами лесной отрасли в 50+ странах мира." data-uk="Ми команда професіоналів, що спеціалізується на створенні високоякісних мобільних додатків для професійного використання. Forest Calculator - наш флагманський продукт, який використовують фахівці лісової галузі в 50+ країнах світу." data-es="Somos un equipo de profesionales especializados en crear aplicaciones móviles de alta calidad para uso profesional. Forest Calculator es nuestro producto insignia, utilizado por profesionales de la industria forestal en más de 50 países." data-fr="Nous sommes une équipe de professionnels spécialisés dans la création d'applications mobiles de haute qualité à usage professionnel. Forest Calculator est notre produit phare, utilisé par les professionnels de l'industrie forestière dans plus de 50 pays." data-de="Wir sind ein Team von Fachleuten, die sich auf die Erstellung hochwertiger mobiler Anwendungen für den professionellen Einsatz spezialisiert haben. Forest Calculator ist unser Flaggschiff-Produkt, das von Forstfachleuten in über 50 Ländern weltweit verwendet wird." data-zh="我们是一支专业团队，专门为专业用途创建高质量的移动应用程序。Forest Calculator是我们的旗舰产品，被全球50多个国家的林业专业人士使用。">We are a team of professionals specializing in creating high-quality mobile applications for professional use. Forest Calculator is our flagship product, used by forest industry professionals in 50+ countries worldwide.</p>
+                    <p data-en="Our mission is to provide reliable, offline-capable tools that help professionals work efficiently in field conditions without relying on internet connectivity." data-ru="Наша миссия - предоставлять надежные, работающие офлайн инструменты, которые помогают профессионалам эффективно работать в полевых условиях без зависимости от интернет-соединения." data-uk="Наша місія - надавати надійні, працюючі офлайн інструменти, які допомагають професіоналам ефективно працювати в польових умовах без залежності від інтернет-з'єднання." data-es="Nuestra misión es proporcionar herramientas confiables y capaces de funcionar sin conexión que ayuden a los profesionales a trabajar de manera eficiente en condiciones de campo sin depender de la conectividad a internet." data-fr="Notre mission est de fournir des outils fiables et capables de fonctionner hors ligne qui aident les professionnels à travailler efficacement dans des conditions de terrain sans dépendre de la connectivité internet." data-de="Unsere Mission ist es, zuverlässige, offline-fähige Tools bereitzustellen, die Fachleuten helfen, unter Feldbedingungen effizient zu arbeiten, ohne auf Internetverbindungen angewiesen zu sein." data-zh="我们的使命是提供可靠的离线工具，帮助专业人士在野外条件下高效工作，而无需依赖互联网连接。">Our mission is to provide reliable, offline-capable tools that help professionals work efficiently in field conditions without relying on internet connectivity.</p>
+                </div>
+                <div class="stats-grid">
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <div class="stat-label" data-en="Countries" data-ru="Стран" data-uk="Країн" data-es="Países" data-fr="Pays" data-de="Länder" data-zh="国家">Countries</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">1+</span>
+                        <div class="stat-label" data-en="Products" data-ru="Продуктов" data-uk="Продуктів" data-es="Productos" data-fr="Produits" data-de="Produkte" data-zh="产品">Products</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">100%</span>
+                        <div class="stat-label" data-en="Offline" data-ru="Офлайн" data-uk="Офлайн" data-es="Sin Conexión" data-fr="Hors Ligne" data-de="Offline" data-zh="离线">Offline</div>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">5+</span>
+                        <div class="stat-label" data-en="Years Experience" data-ru="Лет опыта" data-uk="Років досвіду" data-es="Años de Experiencia" data-fr="Années d'Expérience" data-de="Jahre Erfahrung" data-zh="年经验">Years Experience</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-en="Contact Us" data-ru="Свяжитесь с нами" data-uk="Зв'яжіться з нами" data-es="Contáctanos" data-fr="Contactez-nous" data-de="Kontaktieren Sie uns" data-zh="联系我们">Contact Us</h2>
+            <p data-en="Questions about Forest Calculator? Need support? We're here to help!" data-ru="Вопросы о Forest Calculator? Нужна поддержка? Мы готовы помочь!" data-uk="Питання щодо Forest Calculator? Потрібна підтримка? Ми готові допомогти!" data-es="¿Preguntas sobre Forest Calculator? ¿Necesita soporte? ¡Estamos aquí para ayudar!" data-fr="Questions sur Forest Calculator? Besoin d'aide? Nous sommes là pour vous aider!" data-de="Fragen zu Forest Calculator? Brauchen Sie Unterstützung? Wir sind hier, um zu helfen!" data-zh="对Forest Calculator有疑问？需要支持？我们在这里为您提供帮助！">Questions about Forest Calculator? Need support? We're here to help!</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3 data-en="Email Support" data-ru="Поддержка по Email" data-uk="Підтримка по Email" data-es="Soporte por Email" data-fr="Support Email" data-de="E-Mail-Support" data-zh="邮件支持">Email Support</h3>
+                    <p><a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3 data-en="Privacy Policy" data-ru="Политика конфиденциальности" data-uk="Політика конфіденційності" data-es="Política de Privacidad" data-fr="Politique de Confidentialité" data-de="Datenschutzrichtlinie" data-zh="隐私政策">Privacy Policy</h3>
+                    <p><a href="privacy-policy.html" data-en="View Privacy Policy" data-ru="Посмотреть политику конфиденциальности" data-uk="Переглянути політику конфіденційності" data-es="Ver Política de Privacidad" data-fr="Voir la Politique de Confidentialité" data-de="Datenschutzrichtlinie anzeigen" data-zh="查看隐私政策">View Privacy Policy</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3 data-en="Location" data-ru="Местоположение" data-uk="Розташування" data-es="Ubicación" data-fr="Localisation" data-de="Standort" data-zh="位置">Location</h3>
+                    <p data-en="Kyiv, Ukraine" data-ru="Киев, Украина" data-uk="Київ, Україна" data-es="Kiev, Ucrania" data-fr="Kiev, Ukraine" data-de="Kiew, Ukraine" data-zh="基辅，乌克兰">Kyiv, Ukraine</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4 data-en="Product" data-ru="Продукт" data-uk="Продукт" data-es="Producto" data-fr="Produit" data-de="Produkt" data-zh="产品">Product</h4>
+                    <a href="#features" data-en="Features" data-ru="Возможности" data-uk="Можливості" data-es="Características" data-fr="Fonctionnalités" data-de="Funktionen" data-zh="功能">Features</a>
+                    <a href="privacy-policy.html" data-en="Privacy Policy" data-ru="Политика конфиденциальности" data-uk="Політика конфіденційності" data-es="Política de Privacidad" data-fr="Politique de Confidentialité" data-de="Datenschutzrichtlinie" data-zh="隐私政策">Privacy Policy</a>
+                </div>
+                <div class="footer-section">
+                    <h4 data-en="Support" data-ru="Поддержка" data-uk="Підтримка" data-es="Soporte" data-fr="Support" data-de="Support" data-zh="支持">Support</h4>
+                    <a href="mailto:support@dr-it.studio" data-en="Contact Support" data-ru="Связаться с поддержкой" data-uk="Зв'язатися з підтримкою" data-es="Contactar Soporte" data-fr="Contacter le Support" data-de="Support kontaktieren" data-zh="联系支持">Contact Support</a>
+                </div>
+                <div class="footer-section">
+                    <h4 data-en="Company" data-ru="Компания" data-uk="Компанія" data-es="Empresa" data-fr="Entreprise" data-de="Unternehmen" data-zh="公司">Company</h4>
+                    <a href="#about" data-en="About Us" data-ru="О нас" data-uk="Про нас" data-es="Acerca de" data-fr="À propos" data-de="Über uns" data-zh="关于我们">About Us</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DR.IT.Studio. <span data-en="All rights reserved." data-ru="Все права защищены." data-uk="Всі права захищені." data-es="Todos los derechos reservados." data-fr="Tous droits réservés." data-de="Alle Rechte vorbehalten." data-zh="版权所有。">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/language-manager.js"></script>
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-card, .contact-item, .stat-item, .product-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

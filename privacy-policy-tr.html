@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Calculator - Gizlilik Politikası</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Arial', 'Helvetica', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 3rem;
+        }
+
+        .app-info {
+            background: #f8f9fa;
+            border-left: 4px solid #4a7c59;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .app-info h3 {
+            color: #2d5016;
+            margin-bottom: 1rem;
+        }
+
+        .app-info p {
+            margin: 0.5rem 0;
+        }
+
+        .app-info strong {
+            color: #2d5016;
+        }
+
+        h2 {
+            color: #2d5016;
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #4a7c59;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #4a7c59;
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .permissions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .permissions-table th,
+        .permissions-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .permissions-table th {
+            background: #4a7c59;
+            color: white;
+            font-weight: bold;
+        }
+
+        .permissions-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .permissions-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .important-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .important-box h4 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+
+        .important-box ul {
+            margin: 0;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #2d5016;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .date-updated {
+            background: #e8f5e8;
+            border: 1px solid #4a7c59;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .date-updated strong {
+            color: #2d5016;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .header {
+                padding: 2rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .permissions-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <div class="subtitle">Gizlilik Politikası</div>
+        </div>
+
+        <div class="content">
+            <div class="date-updated">
+                <strong>Yürürlük tarihi:</strong> 6 Mayıs 2025
+            </div>
+
+            <div class="app-info">
+                <h3>Uygulama Bilgileri</h3>
+                <p><strong>Uygulama Adı:</strong> Forest Calculator</p>
+                <p><strong>Geliştirici:</strong> DR.IT.Studio</p>
+                <p><strong>Konum:</strong> Kiev, Ukrayna</p>
+                <p><strong>İletişim:</strong> <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>1. Giriş</h2>
+            <p>Forest Calculator, DR.IT.Studio ("biz") tarafından geliştirilmiş, odun hacmi hesaplama ve diğer profesyonel işlevler için tasarlanmış bir uygulamadır. Bu Gizlilik Politikası, hangi verileri topladığımızı, nasıl kullandığımızı, sakladığımızı, koruduğumuzu ve paylaştığımızı, ayrıca ödüllü videolu reklamlar (Rewarded Video) hakkındaki bilgileri açıklar.</p>
+
+            <h2>2. Topladığımız Veriler</h2>
+            
+            <h3>2.1 Kişisel Bilgiler</h3>
+            <p>Kişisel veriler otomatik olarak toplanmaz. Ancak kullanıcı şu verileri gönüllü olarak sağlayabilir:</p>
+            <ul>
+                <li>Destekle iletişime geçerken e-posta adresi</li>
+                <li>Uygulama içinde manuel olarak girilen içerik ve veriler (örneğin hesaplamalar)</li>
+            </ul>
+
+            <h3>2.2 Kişisel Olmayan (Teknik) Bilgiler</h3>
+            <p>Tanılama, hizmet geliştirme ve reklam gösterimi amaçlarıyla anonim teknik veriler toplayabiliriz:</p>
+            <ul>
+                <li>Cihaz türü ve işletim sistemi sürümü</li>
+                <li>Arayüz dili</li>
+                <li>Uygulama kullanım sıklığı ve şekli</li>
+                <li>Hata günlükleri (çökme kayıtları)</li>
+                <li>Reklam cihaz kimliği (Advertising ID)</li>
+            </ul>
+
+            <h2>3. Erişim İzinleri</h2>
+            <table class="permissions-table">
+                <thead>
+                    <tr>
+                        <th>İzin</th>
+                        <th>Amaç</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Depolama erişimi</td>
+                        <td>Dosyaların (PDF, Excel vb.) kaydedilmesi ve açılması</td>
+                    </tr>
+                    <tr>
+                        <td>İnternet</td>
+                        <td>Güncellemeler, reklamlar ve e-posta gönderimi</td>
+                    </tr>
+                    <tr>
+                        <td>Diğer uygulamalarla paylaşım</td>
+                        <td>Hesapların mesajlaşma uygulamalarıyla paylaşılması</td>
+                    </tr>
+                    <tr>
+                        <td>Yüklü uygulama listesi (isteğe bağlı)</td>
+                        <td>İhracat seçeneklerinin gösterilmesi</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Diğer uygulamalardaki etkinliklerinizi izlemeyiz.</p>
+
+            <h2>4. Reklamlar ve Üçüncü Taraf Hizmetleri</h2>
+            
+            <h3>4.1 Genel Bilgi</h3>
+            <p>Uygulama, Google AdMob gibi iş ortakları tarafından sağlanan kişiselleştirilmiş veya kişiselleştirilmemiş reklamlar gösterebilir. Reklam türü ilk kullanımda seçilebilir ve ayarlardan değiştirilebilir.</p>
+
+            <h3>4.2 Ödüllü Video Reklamlar (Rewarded Video)</h3>
+            <p>Kullanıcılar bazı premium özelliklere erişmek için isteğe bağlı olarak reklam izleyebilirler.</p>
+
+            <div class="important-box">
+                <h4>Önemli:</h4>
+                <ul>
+                    <li>Reklam izleme her zaman isteğe bağlıdır</li>
+                    <li>Sağlanan özellik önceden açıklanır</li>
+                    <li>Ödül sadece reklamın tamamen izlenmesi durumunda verilir</li>
+                    <li>Kişisel veriler reklam ortaklarına aktarılmaz</li>
+                </ul>
+            </div>
+
+            <h3>4.3 Kullanılan Teknolojiler</h3>
+            <p>İş ortakları (Google dahil) şu teknolojileri kullanabilir:</p>
+            <ul>
+                <li>Reklam kimlikleri</li>
+                <li>Çerezler veya benzer teknolojiler</li>
+                <li>Toplu veriler ile hedefli reklamlar</li>
+            </ul>
+            <p>Google politikası: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+
+            <h2>5. Ücretli Özellikler ve Abonelikler</h2>
+            <p>Uygulama, ücret karşılığında şu özellikleri sunabilir:</p>
+            <ul>
+                <li>Gelişmiş hesaplama yöntemleri</li>
+                <li>PDF ve Excel dışa aktarım</li>
+                <li>Reklamların kaldırılması</li>
+                <li>Premium erişim (abonelik veya tek seferlik satın alma)</li>
+            </ul>
+            <p>Tüm ödemeler Google Play aracılığıyla yapılır. Kart bilgileri tarafımızca saklanmaz.</p>
+
+            <h2>6. Veri Kontrolü</h2>
+            <p>Şunları yapabilirsiniz:</p>
+            <ul>
+                <li>Verileri uygulama veya Android ayarlarından silebilirsiniz</li>
+                <li>Cihaz ayarlarından izinleri iptal edebilirsiniz</li>
+                <li>Reklamları kapatmak için ilgili özelliği satın alabilirsiniz</li>
+                <li>Reklam izni tercihinizi değiştirebilirsiniz</li>
+                <li>Gönüllü sağladığınız verilerin silinmesini <a href="mailto:support@dr-it.studio">support@dr-it.studio</a> adresine yazarak talep edebilirsiniz</li>
+            </ul>
+
+            <h2>7. Güvenlik</h2>
+            <ul>
+                <li>Kullanıcı onayı olmadan hiçbir veri uzak sunuculara aktarılmaz.</li>
+                <li>Tüm veriler cihazda yerel olarak saklanır.</li>
+                <li>Ekran kilidi gibi güvenlik önlemleri önerilir.</li>
+            </ul>
+
+            <h2>8. Çocukların Gizliliği</h2>
+            <p>Bu uygulama 13 yaş altı çocuklara yönelik değildir ve onların verilerini toplamaz. Yanlışlıkla veri sağlandığını düşünüyorsanız bizimle iletişime geçin.</p>
+
+            <h2>9. Politika Güncellemeleri</h2>
+            <p>Bu politika zaman zaman güncellenebilir. Değişiklikler yayımlandıktan sonra geçerli olur. Güncellemeleri düzenli olarak kontrol etmeniz önerilir.</p>
+
+            <h2>10. İletişim</h2>
+            <div class="contact-info">
+                <h3>DR.IT.Studio</h3>
+                <p>Kiev, Ukrayna</p>
+                <p>📧 <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>11. Kullanıcı Onayı</h2>
+            <p>Forest Calculator uygulamasını kullanarak bu gizlilik politikasını kabul etmiş olursunuz. Kabul etmiyorsanız uygulamayı kullanmayı bırakmalısınız.</p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 DR.IT.Studio. Tüm hakları saklıdır.</p>
+        </div>
+    </div>
+</body>
+</html>

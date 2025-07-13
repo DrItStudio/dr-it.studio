@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zu" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inqubomgomo Yobumfihlo - Forest Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .policy-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2E7D32;
+        }
+
+        .policy-info h2 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .policy-info p {
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h3 {
+            color: #2E7D32;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E8F5E8;
+        }
+
+        .section p, .section li {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .permission-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .permission-table th,
+        .permission-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #E8F5E8;
+        }
+
+        .permission-table th {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .permission-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc8 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .contact p {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #2E7D32;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #2E7D32;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2E7D32;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .permission-table {
+                font-size: 0.9rem;
+            }
+
+            .permission-table th,
+            .permission-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <p>Inqubomgomo Yobumfihlo</p>
+        </div>
+
+        <div class="content">
+            <a href="privacy-policy.html" class="back-link">← Buyela kwisikhethi solimi</a>
+
+            <div class="policy-info">
+                <h2>Imininingwane Yenqubomgomo</h2>
+                <p><strong>Usuku Lokusebenza:</strong> Meyi 6, 2025</p>
+                <p><strong>Igama Lohlelo lokusebenza:</strong> Forest Calculator</p>
+                <p><strong>Umenzi:</strong> DR.IT.Studio</p>
+                <p><strong>Indawo:</strong> Kyiv, e-Ukraine</p>
+                <p><strong>I-imeyili:</strong> support@dr-it.studio</p>
+            </div>
+
+            <div class="section">
+                <h3>1. Isingeniso</h3>
+                <p>Forest Calculator wuhlelo lokusebenza olwakhiwe yi-DR.IT.Studio ukuze lwenze izibalo zobuningi bezinkuni nezinye izici zobuchwepheshe. Le Nqubomgomo Yobumfihlo ichaza ukuthi yiziphi izindlela esiqoqa ngazo idatha, ukuthi siyisebenzisa kanjani, siyigcina kanjani, siyivikela futhi siyabelana ngayo — kufaka phakathi nezikhangiso ezibukwayo ezinikeza imivuzo (rewarded video ads).</p>
+            </div>
+
+            <div class="section">
+                <h3>2. Idatha Esiyiqoqayo</h3>
+                
+                <h4>2.1 Ulwazi Lomuntu Siqu</h4>
+                <p>Asiqoqi ulwazi lomuntu siqu ngokuzenzakalela. Nokho, umsebenzisi anganikeza:</p>
+                <ul>
+                    <li>Ikheli le-imeyili lapho ethintana nethimba lokusekela;</li>
+                    <li>Okuqukethwe okungeniswe ngesandla kuhlelo lokusebenza (isb. izibalo).</li>
+                </ul>
+
+                <h4>2.2 Ulwazi Olungeyona Lwomuntu Siqu (Lobuchwepheshe)</h4>
+                <p>Ukuze senze ukuthuthuka, silungise izinkinga futhi sikhombise izikhangiso:</p>
+                <ul>
+                    <li>Uhlobo lwedivayisi kanye nenguqulo ye-OS;</li>
+                    <li>Ulimi lohlelo lokusebenza;</li>
+                    <li>Imvamisa nokusetshenziswa;</li>
+                    <li>Ama-crash logs;</li>
+                    <li>I-Advertising ID.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>3. Izimvume Nokufinyelela</h3>
+                <table class="permission-table">
+                    <thead>
+                        <tr>
+                            <th>Imvume</th>
+                            <th>Inhloso</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ukufinyelela kudatha</td>
+                            <td>Ukugcina nokuvula amafayela (PDF, Excel, njll.)</td>
+                        </tr>
+                        <tr>
+                            <td>Ukuxhumana kwe-inthanethi</td>
+                            <td>Ukuze kwenziwe izibuyekezo, izikhangiso, ukuthumela i-imeyili</td>
+                        </tr>
+                        <tr>
+                            <td>Ukwabelana nohlelo lokusebenza</td>
+                            <td>Ukuze kuthunyelwe izibalo ngama-messenger noma i-imeyili</td>
+                        </tr>
+                        <tr>
+                            <td>Uhlu lwezinhlelo ezifakiwe (ongakukhetha)</td>
+                            <td>Ukukhombisa izindlela zokuthumela ezitholakalayo</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Asisebenzisi lezi zimvume ukulandelela isenzo sakho kwezinye izinhlelo.</p>
+            </div>
+
+            <div class="section">
+                <h3>4. Izikhangiso Namasevisi Esithathu</h3>
+                
+                <h4>4.1 Ukwaziswa Okuvamile</h4>
+                <p>Izikhangiso zingavela kubalingani abanjengo-Google AdMob. Ungakhetha uhlobo lwezikhangiso nasesikhathini esizayo.</p>
+
+                <h4>4.2 Izikhangiso Zevidiyo Zemivuzo</h4>
+                <div class="highlight">
+                    <p>Lolu hlelo lunikeza izikhangiso zevidiyo aziphoqelekile. Ungakhetha ukuzibuka ukuze uthole amanye amathuba.</p>
+                    
+                    <p><strong>Qaphela:</strong></p>
+                    <ul>
+                        <li>Ukubuka izikhangiso kuyikhethelo lakho;</li>
+                        <li>Sizokuchazela ngaphambi kokudlala ukuthi yini oyizothola;</li>
+                        <li>Umvuzo uyonikwa kuphela uma ugcine ubuke yonke ividiyo;</li>
+                        <li>Asabelani ngemininingwane yomuntu siqu nabalingani bezikhangiso.</li>
+                    </ul>
+                </div>
+
+                <h4>4.3 Ubuchwepheshe Esibunawo</h4>
+                <p>Abalingani (njengo-Google) bangasebenzisa:</p>
+                <ul>
+                    <li>Imininingwane yezikhangiso;</li>
+                    <li>Ama-cookie noma okunye okulingana nakho;</li>
+                    <li>Idatha egxilile kuzikhangiso.</li>
+                </ul>
+                <p>Inqubomgomo ye-Google: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+            </div>
+
+            <div class="section">
+                <h3>5. Izici Ezikhokhelwayo</h3>
+                <p>Lolu hlelo lunikeza:</p>
+                <ul>
+                    <li>Izindlela zokubala ezithuthukisiwe;</li>
+                    <li>Ukuhambisa ku-PDF noma i-Excel;</li>
+                    <li>Ukususa izikhangiso;</li>
+                    <li>Ukufinyelela kwezinga eliphezulu (kanye noma nge-subscription).</li>
+                </ul>
+                <p>Zonke izinkokhelo zenziwa ngo-Google Play. Asigcini imininingwane yephakethe lakho.</p>
+            </div>
+
+            <div class="section">
+                <h3>6. Ukulawula Idatha</h3>
+                <p>Ungakwazi:</p>
+                <ul>
+                    <li>Sula idatha kuhlelo noma ezilungiselelweni ze-Android;</li>
+                    <li>Susa izimvume;</li>
+                    <li>Thenga ukususa izikhangiso;</li>
+                    <li>Shintsha imvume yezikhangiso;</li>
+                    <li>Cela ukusulwa kwemininingwane ngokuqondile ku support@dr-it.studio.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>7. Ezokuphepha</h3>
+                <ul>
+                    <li>Asithumeli idatha ngaphandle kwemvume.</li>
+                    <li>Yonke idatha igcinwa kudivayisi yomsebenzisi.</li>
+                    <li>Sicela uvale isikhiye sadivayisi sakho ukuze sivikele.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>8. Ubumfihlo Bezingane</h3>
+                <p>Uhlelo aluhloselwe izingane ezingaphansi kweminyaka eyi-13. Uma sithole imininingwane yengane ngephutha, sicela usixhumane siyisule.</p>
+            </div>
+
+            <div class="section">
+                <h3>9. Izibuyekezo Zenqubomgomo</h3>
+                <p>Izinguquko zingabekwa noma kunini. Sicela uhlole njalo. Izinguquko ziba namandla uma sethule inguqulo entsha.</p>
+            </div>
+
+            <div class="section">
+                <h3>11. Imvume Yomsebenzisi</h3>
+                <p>Ngokusebenzisa lolu hlelo lokusebenza, uyavuma le Nqubomgomo Yobumfihlo. Uma ungavumi, musa ukusebenzisa uhlelo.</p>
+            </div>
+
+            <div class="contact">
+                <h3>10. Ukuxhumana</h3>
+                <p><strong>DR.IT.Studio</strong></p>
+                <p>Kyiv, Ukraine</p>
+                <p>📧 support@dr-it.studio</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

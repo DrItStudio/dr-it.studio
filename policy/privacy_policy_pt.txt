@@ -1,0 +1,112 @@
+Política de Privacidade
+Data de entrada em vigor: 6 de maio de 2025
+Nome do aplicativo: Forest Calculator
+Desenvolvedor: DR.IT.Studio
+Localização: Kiev, Ucrânia
+Contato: support@dr-it.studio
+
+1. Introdução
+O Forest Calculator, desenvolvido pela DR.IT.Studio ("nós"), é um aplicativo para calcular o volume de madeira e outras funções profissionais. Esta política explica quais dados coletamos, como usamos, armazenamos, protegemos e compartilhamos, incluindo anúncios com recompensa (Rewarded Video).
+
+2. Dados que coletamos
+2.1 Dados pessoais
+Não coletamos dados pessoais automaticamente. No entanto, o usuário pode fornecer voluntariamente:
+
+Endereço de e-mail ao entrar em contato com o suporte;
+
+Dados inseridos manualmente no app (como cálculos).
+
+2.2 Dados técnicos (não pessoais)
+Para diagnósticos, melhorias e publicidade, podemos coletar dados anônimos como:
+
+Tipo de dispositivo e versão do sistema;
+
+Idioma da interface;
+
+Frequência de uso;
+
+Logs de erros (crash logs);
+
+ID de publicidade (Advertising ID).
+
+3. Permissões do app
+Permissão	Finalidade
+Acesso ao armazenamento	Salvar/abrir arquivos (PDF, Excel etc.)
+Internet	Atualizações, anúncios, envio de e-mails
+Compartilhamento com outros apps	Exportação via mensageiros ou e-mail
+Lista de apps instalados (opcional)	Mostrar opções disponíveis de exportação
+
+Não rastreamos atividades em outros aplicativos.
+
+4. Publicidade e terceiros
+4.1 Informações gerais
+O app pode exibir anúncios personalizados ou não personalizados de parceiros como o Google AdMob. O usuário pode escolher o tipo no primeiro uso e alterá-lo depois.
+
+4.2 Anúncios com recompensa (Rewarded Video)
+O usuário pode voluntariamente assistir a anúncios para acessar funções premium.
+
+Importante:
+
+A visualização é opcional;
+
+A função recebida é explicada antes;
+
+A recompensa é dada somente após visualização completa;
+
+Nenhum dado pessoal é compartilhado com anunciantes.
+
+4.3 Tecnologias utilizadas
+Parceiros podem usar:
+
+IDs de anúncios;
+
+Cookies ou tecnologias similares;
+
+Dados agregados para personalizar anúncios.
+Política do Google: https://policies.google.com/technologies/ads
+
+5. Recursos pagos e assinaturas
+O app pode oferecer:
+
+Métodos avançados de cálculo;
+
+Exportação em PDF ou Excel;
+
+Remoção de anúncios;
+
+Acesso premium (assinatura ou compra única).
+
+Pagamentos são processados via Google Play. Não armazenamos dados de cartão.
+
+6. Controle dos seus dados
+Você pode:
+
+Excluir dados no app ou nas configurações do Android;
+
+Revogar permissões do app;
+
+Desativar anúncios com uma compra;
+
+Alterar o consentimento sobre anúncios;
+
+Solicitar remoção de dados fornecidos por e-mail: support@dr-it.studio.
+
+7. Segurança
+O app não envia dados a servidores externos sem seu consentimento.
+Todos os arquivos e cálculos são armazenados localmente.
+Recomendamos proteger o dispositivo com senha ou biometria.
+
+8. Privacidade infantil
+O app não é destinado a crianças menores de 13 anos e não coleta seus dados. Se isso acontecer, entre em contato para exclusão.
+
+9. Atualizações
+Esta política pode ser atualizada periodicamente. As mudanças entram em vigor assim que publicadas.
+
+10. Contato
+DR.IT.Studio
+Kiev, Ucrânia
+📧 support@dr-it.studio
+
+11. Consentimento
+Ao usar o Forest Calculator, você aceita esta política de privacidade. Se não concordar, pare de usar o app.
+

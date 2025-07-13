@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="tk" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gizlinlik syýasaty - Forest Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .policy-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2E7D32;
+        }
+
+        .policy-info h2 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .policy-info p {
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h3 {
+            color: #2E7D32;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E8F5E8;
+        }
+
+        .section p, .section li {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .permission-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .permission-table th,
+        .permission-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #E8F5E8;
+        }
+
+        .permission-table th {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .permission-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc8 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .contact p {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #2E7D32;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #2E7D32;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2E7D32;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .permission-table {
+                font-size: 0.9rem;
+            }
+
+            .permission-table th,
+            .permission-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <p>Gizlinlik syýasaty</p>
+        </div>
+
+        <div class="content">
+            <a href="privacy-policy.html" class="back-link">← Dil saýlamaga gaýt</a>
+
+            <div class="policy-info">
+                <h2>Syýasat maglumaty</h2>
+                <p><strong>Herekli senesi:</strong> 2025-nji ýylyň maý aýynyň 6-y</p>
+                <p><strong>Programma ady:</strong> Forest Calculator</p>
+                <p><strong>Dörediji:</strong> DR.IT.Studio</p>
+                <p><strong>Ýerleşýän ýeri:</strong> Kiýew, Ukraina</p>
+                <p><strong>Habarlaşmak:</strong> support@dr-it.studio</p>
+            </div>
+
+            <div class="section">
+                <h3>1. Giriş</h3>
+                <p>Forest Calculator — DR.IT.Studio tarapyndan agaç mukdaryny hasaplamak we beýleki hünär aýratynlyklary üçin döredilen programmady. Bu gizlinlik syýasaty biz haýsy maglumatlary ýygnap, nädip ulanýarys, saklaýarys, gorap we paýlaşýarys — baýrakly reklamalar (rewarded ads) bilen birlikde düşündirýär.</p>
+            </div>
+
+            <div class="section">
+                <h3>2. Ýygnalýan maglumatlar</h3>
+                
+                <h4>2.1 Şahsy maglumatlar</h4>
+                <p>Biz şahsy maglumatlary awtomatiki ýygnamaýarys. Ulanyjy isleg boýunça berip biler:</p>
+                <ul>
+                    <li>kömek hyzmatyna ýüz tutanda e-poçta salgysy;</li>
+                    <li>el bilen girizilen maglumatlar (hasaplamalar we ş.m.).</li>
+                </ul>
+
+                <h4>2.2 Şahsy däl (tehniki) maglumatlar</h4>
+                <p>Hyzmaty gowulandyrmak we näsazlyklary düzetmek üçin, biz şu anonimlik maglumatlary ýygnap bileris:</p>
+                <ul>
+                    <li>enjam görnüşi we operasion ulgam wersiýasy;</li>
+                    <li>interfeýs dili;</li>
+                    <li>ulanyş ýygylygy we usuly;</li>
+                    <li>näsazlyk ýazgylary (crash logs);</li>
+                    <li>reklamanyň ID belgisi.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>3. Rugsatlar we enjama girmäge mümkinçilik</h3>
+                <table class="permission-table">
+                    <thead>
+                        <tr>
+                            <th>Rugsat</th>
+                            <th>Maksat</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Saklaýyş girşi</td>
+                            <td>Faýllary (PDF, Excel we ş.m.) açmak we saklamak</td>
+                        </tr>
+                        <tr>
+                            <td>Internet</td>
+                            <td>Täzelenmeler, reklamalar we e-poçta ibermek üçin</td>
+                        </tr>
+                        <tr>
+                            <td>Beýleki programmalar bilen paýlaşmak</td>
+                            <td>Hasaplamalary habarlaşyşlar we e-poçta arkaly paýlaşmak</td>
+                        </tr>
+                        <tr>
+                            <td>Gurulan programmalar sanawy (islege bagly)</td>
+                            <td>Eksport mümkinçiliklerini görkezmek üçin</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Biz beýleki programmalardaky hereket yzarlamak üçin rugsatlary ulanmaýarys.</p>
+            </div>
+
+            <div class="section">
+                <h3>4. Reklamalar we üçünji tarap hyzmatlary</h3>
+                
+                <h4>4.1 Umumy maglumat</h4>
+                <p>Programma Google AdMob ýaly hyzmatdaşlardan şahsylaşdyrylan ýa-da şahsylaşdyrylmadyk reklamalary görkezýär. Ulanyjy birinji başlangyçda reklama görnüşini saýlap we soňra sazlamalarda üýtgedip biler.</p>
+
+                <h4>4.2 Baýrakly reklamalar (Rewarded Video)</h4>
+                <div class="highlight">
+                    <p>Ulanyjy isleg boýunça reklama wideosyny görüp, ýörite aýratynlyklara girişip biler.</p>
+                    
+                    <p><strong>Möhüm:</strong></p>
+                    <ul>
+                        <li>Reklama görmek her wagt islege bagly;</li>
+                        <li>Ulanyjynyň näme aljagynyň aç-açan aýdylýar;</li>
+                        <li>Baýrak diňe doly görülenden soň berilýär;</li>
+                        <li>Şahsy maglumatlar reklama hyzmatdaşlary bilen paýlaşylmaýar.</li>
+                    </ul>
+                </div>
+
+                <h4>4.3 Ulanylýan tehnologiýalar</h4>
+                <p>Hyzmatdaşlar (Google-y goşmak bilen) ulanýan bolup biler:</p>
+                <ul>
+                    <li>reklama kesgitlemeler;</li>
+                    <li>cookies ýa-da şuňa meňzeş tehnologiýalar;</li>
+                    <li>maksatly reklama üçin jemlenen maglumatlar.</li>
+                </ul>
+                <p>Google syýasaty: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+            </div>
+
+            <div class="section">
+                <h3>5. Tölegli aýratynlyklar we ýazylmak</h3>
+                <p>Programma hödürlep biler:</p>
+                <ul>
+                    <li>giňişleýin hasaplama usullary;</li>
+                    <li>PDF, Excel eksport;</li>
+                    <li>reklamalary aýyrmak;</li>
+                    <li>premium girişi (bir gezek ýa-da abuna).</li>
+                </ul>
+                <p>Tölegler Google Play arkaly amala aşyrylýar. Biz kart maglumatlaryny saklamaýarys.</p>
+            </div>
+
+            <div class="section">
+                <h3>6. Maglumat gözegçiligi</h3>
+                <p>Siz edip bilersiňiz:</p>
+                <ul>
+                    <li>programmada ýa-da Android sazlamalarynda saklanan maglumatlary pozmak;</li>
+                    <li>enjam sazlamalarynda rugsatlary ýatyrmak;</li>
+                    <li>satyn almak arkaly reklamalary öçürmek;</li>
+                    <li>reklama razylygy üýtgetmek;</li>
+                    <li>meýletin berlen maglumatlary pozmak üçin support@dr-it.studio-a ýüz tutmak.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>7. Howpsuzlyk</h3>
+                <ul>
+                    <li>Programma ulanyjynyň razylygy bolmazdan uzak serwerlere maglumat ibermeýär.</li>
+                    <li>Ähli maglumatlar ýerli saklanýar.</li>
+                    <li>Ekran gulpy we beýleki howpsuzlyk çärelerini ulanmagy maslahat berýäris.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>8. Çagalaryň gizlinligi</h3>
+                <p>Bu programma 13 ýaşdan kiçi çagalar üçin niýetlenilmedik. Çagaňyzyň şahsy maglumat iberdügini pikir etseňiz, olary pozmak üçin biz bilen habarlaşyň.</p>
+            </div>
+
+            <div class="section">
+                <h3>9. Syýasaty täzeläp durmak</h3>
+                <p>Bu syýasat wagtal-wagtal täzelener. Üýtgeşmeler täze wersiýa çykandan güýje girýär.</p>
+            </div>
+
+            <div class="section">
+                <h3>11. Ulanyjy razylygy</h3>
+                <p>Bu programmany ulanmak bilen siz bu gizlinlik syýasatyna razy bolýarsyňyz. Razy bolmasaňyz — programmany ulanmagy bes ediň.</p>
+            </div>
+
+            <div class="contact">
+                <h3>10. Habarlaşmak</h3>
+                <p><strong>DR.IT.Studio</strong></p>
+                <p>Kiýew, Ukraina</p>
+                <p>📧 support@dr-it.studio</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

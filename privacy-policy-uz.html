@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="uz" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maxfiylik siyosati - Forest Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .policy-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2E7D32;
+        }
+
+        .policy-info h2 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .policy-info p {
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h3 {
+            color: #2E7D32;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E8F5E8;
+        }
+
+        .section p, .section li {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .permission-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .permission-table th,
+        .permission-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #E8F5E8;
+        }
+
+        .permission-table th {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .permission-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc8 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .contact p {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #2E7D32;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #2E7D32;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2E7D32;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .permission-table {
+                font-size: 0.9rem;
+            }
+
+            .permission-table th,
+            .permission-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <p>Maxfiylik siyosati</p>
+        </div>
+
+        <div class="content">
+            <a href="privacy-policy.html" class="back-link">← Til tanloviga qaytish</a>
+
+            <div class="policy-info">
+                <h2>Siyosat ma'lumotlari</h2>
+                <p><strong>Kuchga kirgan sana:</strong> 2025-yil 6-may</p>
+                <p><strong>Ilova nomi:</strong> Forest Calculator</p>
+                <p><strong>Ishlab chiquvchi:</strong> DR.IT.Studio</p>
+                <p><strong>Manzil:</strong> Kiyev, Ukraina</p>
+                <p><strong>Aloqa:</strong> support@dr-it.studio</p>
+            </div>
+
+            <div class="section">
+                <h3>1. Kirish</h3>
+                <p>Forest Calculator – bu DR.IT.Studio tomonidan ishlab chiqilgan yogʻoch hajmini hisoblash va boshqa professional funksiyalar uchun moʻljallangan ilova. Ushbu Maxfiylik siyosatida biz qanday maʼlumotlarni toʻplaymiz, qanday ishlatamiz, saqlaymiz, himoya qilamiz va ulashamiz – jumladan mukofotli reklamalar (rewarded ads) haqida ham tushuntiriladi.</p>
+            </div>
+
+            <div class="section">
+                <h3>2. Biz toʻplaydigan maʼlumotlar</h3>
+                
+                <h4>2.1 Shaxsiy maʼlumotlar</h4>
+                <p>Biz avtomatik tarzda shaxsiy maʼlumotlarni yigʻmaymiz. Foydalanuvchi quyidagi maʼlumotlarni ixtiyoriy ravishda taqdim qilishi mumkin:</p>
+                <ul>
+                    <li>Qoʻllab-quvvatlashga murojaat qilganda elektron pochta manzili;</li>
+                    <li>Ilovaga qoʻlda kiritilgan kontent (hisob-kitoblar va boshqalar).</li>
+                </ul>
+
+                <h4>2.2 Shaxsiy boʻlmagan (texnik) maʼlumotlar</h4>
+                <p>Xatoliklarni aniqlash, xizmatni yaxshilash va reklamalarni koʻrsatish maqsadida quyidagi anonim maʼlumotlar toʻplanishi mumkin:</p>
+                <ul>
+                    <li>Qurilma turi va operatsion tizim versiyasi;</li>
+                    <li>Interfeys tili;</li>
+                    <li>Ilova ishlatilish chastotasi va usuli;</li>
+                    <li>Xatolik jurnallari (crash logs);</li>
+                    <li>Reklama identifikatori (Advertising ID).</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>3. Ruxsatlar va qurilmaga kirish</h3>
+                <table class="permission-table">
+                    <thead>
+                        <tr>
+                            <th>Ruxsat</th>
+                            <th>Maqsad</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Xotiraga kirish</td>
+                            <td>PDF, Excel va boshqa fayllarni saqlash va ochish</td>
+                        </tr>
+                        <tr>
+                            <td>Internet</td>
+                            <td>Yangilanishlar, reklamalar va xabar yuborish</td>
+                        </tr>
+                        <tr>
+                            <td>Boshqa ilovalar bilan ulashish</td>
+                            <td>Hisob-kitoblarni messenjerlar yoki email orqali yuborish</td>
+                        </tr>
+                        <tr>
+                            <td>O'rnatilgan ilovalar ro'yxati (ixtiyoriy)</td>
+                            <td>Eksport usullarini ko'rsatish uchun</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Biz boshqa ilovalardagi faoliyatni kuzatish uchun ruxsatlardan foydalanmaymiz.</p>
+            </div>
+
+            <div class="section">
+                <h3>4. Reklama va uchinchi tomon xizmatlari</h3>
+                
+                <h4>4.1 Umumiy ma'lumot</h4>
+                <p>Ilova Google AdMob kabi hamkorlardan shaxsiylashtirilgan yoki shaxsiylashtirilmagan reklamalarni koʻrsatishi mumkin. Foydalanuvchi birinchi ishga tushirishda reklama turini tanlashi va keyinroq sozlamalarda o'zgartirishi mumkin.</p>
+
+                <h4>4.2 Mukofotli reklamalar (Rewarded Video)</h4>
+                <div class="highlight">
+                    <p>Foydalanuvchi ixtiyoriy ravishda reklama videosini tomosha qilib, maxsus funksiyalarga kirish huquqini olishi mumkin.</p>
+                    
+                    <p><strong>Muhim:</strong></p>
+                    <ul>
+                        <li>Reklamalarni tomosha qilish har doim ixtiyoriy;</li>
+                        <li>Foydalanuvchi nimani olishini aniq ko'rsatiladi;</li>
+                        <li>Mukofot faqat to'liq tomosha qilganidan keyin beriladi;</li>
+                        <li>Shaxsiy ma'lumotlar reklama hamkorlari bilan bo'lishilmaydi.</li>
+                    </ul>
+                </div>
+
+                <h4>4.3 Ishlatilayotgan texnologiyalar</h4>
+                <p>Hamkorlar (Google jumladan) quyidagilardan foydalanishi mumkin:</p>
+                <ul>
+                    <li>reklama identifikatorlari;</li>
+                    <li>cookie-lar yoki shunga o'xshash texnologiyalar;</li>
+                    <li>maqsadli reklama uchun yig'ilgan ma'lumotlar.</li>
+                </ul>
+                <p>Google siyosati: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+            </div>
+
+            <div class="section">
+                <h3>5. Pullik funksiyalar va obuna</h3>
+                <p>Ilova quyidagilarni taklif qilishi mumkin:</p>
+                <ul>
+                    <li>kengaytirilgan hisoblash usullari;</li>
+                    <li>PDF yoki Excel formatida eksport qilish;</li>
+                    <li>reklamalarni o'chirish;</li>
+                    <li>premium imkoniyatlar (obuna yoki bir martalik to'lov).</li>
+                </ul>
+                <p>To'lovlar Google Play orqali amalga oshiriladi. Biz karta ma'lumotlarini saqlamaymiz.</p>
+            </div>
+
+            <div class="section">
+                <h3>6. Ma'lumotlar ustidan nazorat</h3>
+                <p>Siz quyidagilarni qilishingiz mumkin:</p>
+                <ul>
+                    <li>ilova yoki Android sozlamalari orqali saqlangan ma'lumotlarni o'chirish;</li>
+                    <li>qurilma sozlamalarida ruxsatlarni bekor qilish;</li>
+                    <li>xarid qilish orqali reklamalarni o'chirish;</li>
+                    <li>reklama roziligini o'zgartirish;</li>
+                    <li>ixtiyoriy taqdim etilgan ma'lumotlarni o'chirish uchun support@dr-it.studio manziliga murojaat qilish.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>7. Xavfsizlik</h3>
+                <ul>
+                    <li>Ilova foydalanuvchi roziligisiz ma'lumotlarni masofaviy serverlarga yubormaydi.</li>
+                    <li>Barcha ma'lumotlar mahalliy saqlanadi.</li>
+                    <li>Ekran qulfi va boshqa xavfsizlik choralarini ishlatishni tavsiya qilamiz.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>8. Bolalar maxfiyligi</h3>
+                <p>Bu ilova 13 yoshdan kichik bolalar uchun mo'ljallanmagan. Agar bolangiz shaxsiy ma'lumot yuborganini hisoblasangiz, iltimos, ularni o'chirish uchun biz bilan bog'laning.</p>
+            </div>
+
+            <div class="section">
+                <h3>9. Siyosat yangilanishi</h3>
+                <p>Bu siyosat vaqti-vaqti bilan yangilanishi mumkin. O'zgarishlar yangi versiya chiqarilgan paytdan boshlab kuchga kiradi.</p>
+            </div>
+
+            <div class="section">
+                <h3>11. Foydalanuvchi roziligi</h3>
+                <p>Ushbu ilovadan foydalanish orqali siz ushbu maxfiylik siyosatiga rozilik bildirasiz. Agar rozi bo'lmasangiz - ilovadan foydalanishni to'xtating.</p>
+            </div>
+
+            <div class="contact">
+                <h3>10. Aloqa ma'lumotlari</h3>
+                <p><strong>DR.IT.Studio</strong></p>
+                <p>Kiyev, Ukraina</p>
+                <p>📧 support@dr-it.studio</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,110 @@
+Zásady ochrany osobných údajov
+Dátum účinnosti: 6. máj 2025
+Názov aplikácie: Forest Calculator
+Vývojár: DR.IT.Studio
+Sídlo: Kyjev, Ukrajina
+Kontakt: support@dr-it.studio
+
+1. Úvod
+Aplikácia Forest Calculator, vyvinutá spoločnosťou DR.IT.Studio („my“), slúži na výpočet objemu dreva a ďalšie odborné funkcie. Tieto zásady ochrany osobných údajov vysvetľujú, aké údaje zhromažďujeme, ako ich používame, uchovávame, chránime a zdieľame — vrátane reklám s odmenou.
+
+2. Aké údaje zhromažďujeme
+2.1 Osobné údaje
+Nezhromažďujeme osobné údaje automaticky. Používateľ však môže dobrovoľne poskytnúť:
+
+e-mailovú adresu pri kontakte s podporou;
+
+ručne zadaný obsah a nastavenia (napr. výpočty).
+
+2.2 Neosobné (technické) údaje
+Pre diagnostiku, vylepšenie aplikácie a reklamu môžeme zbierať anonymné údaje:
+
+typ zariadenia a verzia operačného systému;
+
+jazyk rozhrania;
+
+frekvencia a spôsob používania aplikácie;
+
+chybové hlásenia (crash logy);
+
+reklamný identifikátor (Advertising ID).
+
+3. Povolenia a prístup k zariadeniu
+Povolenie	Účel
+Prístup k úložisku	Ukladanie a otváranie súborov (PDF, Excel atď.)
+Internet	Na aktualizácie, reklamy, e-maily
+Zdieľanie s inými aplikáciami	Export výpočtov cez správy alebo e-mail
+Zoznam nainštalovaných aplikácií (voliteľné)	Zobrazenie dostupných exportných metód
+
+Nepoužívame povolenia na sledovanie aktivity v iných aplikáciách.
+
+4. Reklama a služby tretích strán
+4.1 Všeobecné informácie
+Aplikácia môže zobrazovať personalizované alebo nepersonalizované reklamy od partnerov, ako je Google AdMob. Typ reklamy si môžete vybrať pri prvom spustení a kedykoľvek ho zmeniť v nastaveniach.
+
+4.2 Reklamy s odmenou (Rewarded Video)
+Aplikácia ponúka možnosť dobrovoľného pozretia videa výmenou za prístup k prémiovým funkciám.
+
+Dôležité:
+
+Reklamy sú vždy voliteľné;
+
+Pred prehratím je jasne vysvetlené, čo získate;
+
+Odmena sa poskytuje iba po úplnom pozretí;
+
+Osobné údaje sa reklamným partnerom neodovzdávajú.
+
+4.3 Použité technológie
+Partneri (vrátane Google) môžu používať:
+
+reklamné identifikátory;
+
+cookies alebo podobné technológie;
+
+agregované údaje na cielenie reklamy.
+Zásady Google
+
+5. Platené funkcie a predplatné
+Aplikácia môže ponúkať:
+
+pokročilé výpočtové metódy;
+
+export do PDF a Excelu;
+
+odstránenie reklám;
+
+prístup k prémiovým funkciám (predplatné alebo jednorazový nákup).
+Platby sa spracúvajú cez Google Play. Údaje o kartách neukladáme.
+
+6. Správa údajov
+Môžete:
+
+odstrániť uložené údaje v aplikácii alebo v nastaveniach systému Android;
+
+zrušiť povolenia v nastaveniach zariadenia;
+
+vypnúť reklamy nákupom;
+
+kedykoľvek zmeniť súhlas so zobrazovaním reklám;
+
+požiadať o odstránenie poskytnutých údajov e-mailom.
+
+7. Bezpečnosť
+Aplikácia neposiela dáta na vzdialené servery bez súhlasu.
+Všetky údaje sa ukladajú lokálne.
+Odporúčame zapnúť zámok obrazovky a ďalšie bezpečnostné opatrenia.
+
+8. Ochrana detí
+Aplikácia nie je určená pre deti mladšie ako 13 rokov. Ak máte podozrenie, že vaše dieťa poskytlo údaje, kontaktujte nás a my ich odstránime.
+
+9. Aktualizácie zásad
+Tieto zásady môžu byť aktualizované. Zmeny nadobúdajú účinnosť zverejnením.
+
+10. Kontaktné údaje
+DR.IT.Studio
+Kyjev, Ukrajina
+📧 support@dr-it.studio
+
+11. Súhlas používateľa
+Používaním aplikácie súhlasíte s touto politikou. Ak nesúhlasíte – aplikáciu nepoužívajte.

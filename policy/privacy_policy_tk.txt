@@ -1,0 +1,81 @@
+Gizlinlik syýasaty
+Herekli senesi: 2025-nji ýylyň maý aýynyň 6-y
+Programma ady: Forest Calculator
+Dörediji: DR.IT.Studio
+Ýerleşýän ýeri: Kiýew, Ukraina
+Habarlaşmak: support@dr-it.studio
+
+1. Giriş
+Forest Calculator — DR.IT.Studio tarapyndan agaç mukdaryny hasaplamak we beýleki hünär aýratynlyklary üçin döredilen programmady. Bu gizlinlik syýasaty biz haýsy maglumatlary ýygnap, nädip ulanýarys, saklaýarys, gorap we paýlaşýarys — baýrakly reklamalar (rewarded ads) bilen birlikde düşündirýär.
+
+2. Ýygnalýan maglumatlar
+2.1 Şahsy maglumatlar
+Biz şahsy maglumatlary awtomatiki ýygnamaýarys. Ulanyjy isleg boýunça berip biler:
+
+kömek hyzmatyna ýüz tutanda e-poçta salgysy;
+
+el bilen girizilen maglumatlar (hasaplamalar we ş.m.)
+
+2.2 Şahsy däl (tehniki) maglumatlar
+Hyzmaty gowulandyrmak we näsazlyklary düzetmek üçin:
+
+enjam görnüşi we operasion ulgam wersiýasy;
+
+interfeýs dili;
+
+ulanyş ýygylygy;
+
+näsazlyk ýazgylary (crash logs);
+
+reklamanyň ID belgisi
+
+3. Rugsatlar we girmäge mümkinçilik
+Rugsat	Maksat
+Saklaýyş girşi	Faýllary (PDF, Excel we ş.m.) açmak we saklamak
+Internet	Täzelenmeler, reklamalar we e-poçta ibermek üçin
+Beýleki programmalar bilen paýlaşmak	Hasaplamalary paýlaşmak
+Gurulan programmalar sanawy (islege bagly)	Eksport usullaryny görkezmek üçin
+
+4. Reklamalar we üçünji tarap hyzmatlary
+Programma Google AdMob ýaly hyzmatdaşlardan reklama görkezýär
+
+Baýrakly wideo reklamalar her wagt islege baglydyr
+
+Şahsy maglumatlar hiç haçan paýlaşylmaýar
+
+Google syýasaty: https://policies.google.com/technologies/ads
+
+5. Tölegli aýratynlyklar
+Giňişleýin hasaplama usullary
+
+PDF, Excel eksport
+
+Reklamalary aýyrmak
+
+Premium girşi (bir gezek ýa-da abuna)
+
+6. Maglumat gözegçiligi
+Programma ýa-da Android arkaly maglumatlary pozup bolýar
+
+Rugsatlary ýatyrmak mümkin
+
+Ulanyjy tarapyndan berlen maglumatlary pozmak üçin: support@dr-it.studio
+
+7. Howpsuzlyk
+Maglumat ulanyjynyň razylygy bolmazdan iberilmeýär
+
+Maglumat diňe ýerli enjamda saklanýar
+
+8. Çagalaryň gizlinligi
+Bu programma 13 ýaşdan kiçi çagalar üçin niýetlenilmedik
+
+9. Syýasaty täzeläp durmak
+Syýasat wagtal-wagtal täzelener, täze wersiýasy bilen güýje girýär
+
+10. Habarlaşmak
+DR.IT.Studio
+Kiýew, Ukraina
+📧 support@dr-it.studio
+
+11. Ulanyjy razylygy
+Programmany ulanmak bilen bu syýasata razy bolýarsyňyz.

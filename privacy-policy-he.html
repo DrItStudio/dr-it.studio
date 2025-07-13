@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Calculator - מדיניות פרטיות</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Arial', 'Helvetica', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 3rem;
+        }
+
+        .app-info {
+            background: #f8f9fa;
+            border-right: 4px solid #4a7c59;
+            border-left: none;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 8px 0 0 8px;
+        }
+
+        .app-info h3 {
+            color: #2d5016;
+            margin-bottom: 1rem;
+        }
+
+        .app-info p {
+            margin: 0.5rem 0;
+        }
+
+        .app-info strong {
+            color: #2d5016;
+        }
+
+        h2 {
+            color: #2d5016;
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #4a7c59;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #4a7c59;
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul {
+            margin: 1rem 0;
+            padding-right: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .permissions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .permissions-table th,
+        .permissions-table td {
+            padding: 12px 15px;
+            text-align: right;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .permissions-table th {
+            background: #4a7c59;
+            color: white;
+            font-weight: bold;
+        }
+
+        .permissions-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .permissions-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .important-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .important-box h4 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+
+        .important-box ul {
+            margin: 0;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #2d5016;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .date-updated {
+            background: #e8f5e8;
+            border: 1px solid #4a7c59;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .date-updated strong {
+            color: #2d5016;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .header {
+                padding: 2rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .permissions-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <div class="subtitle">מדיניות פרטיות</div>
+        </div>
+
+        <div class="content">
+            <div class="date-updated">
+                <strong>תאריך תחולה:</strong> 6 במאי 2025
+            </div>
+
+            <div class="app-info">
+                <h3>מידע על האפליקציה</h3>
+                <p><strong>שם האפליקציה:</strong> Forest Calculator</p>
+                <p><strong>מפתח:</strong> DR.IT.Studio</p>
+                <p><strong>מיקום:</strong> קייב, אוקראינה</p>
+                <p><strong>אימייל ליצירת קשר:</strong> <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>1. הקדמה</h2>
+            <p>Forest Calculator, שפותח על ידי DR.IT.Studio ("אנחנו"), הוא יישום לחישוב נפח עץ ותכונות מקצועיות נוספות. מדיניות פרטיות זו מסבירה אילו נתונים נאספים, כיצד אנו משתמשים בהם, שומרים עליהם, מגנים עליהם ומשתפים אותם — כולל מידע על פרסומות עם תגמול.</p>
+
+            <h2>2. מידע שנאסף</h2>
+            
+            <h3>2.1 מידע אישי</h3>
+            <p>אנחנו לא אוספים נתונים אישיים באופן אוטומטי. עם זאת, משתמשים עשויים לספק מרצונם:</p>
+            <ul>
+                <li>כתובת דוא"ל כאשר פונים לתמיכה;</li>
+                <li>תוכן והעדפות שהוזנו ידנית (כמו חישובים).</li>
+            </ul>
+
+            <h3>2.2 מידע טכני (לא אישי)</h3>
+            <p>למטרות אבחון, שיפור השירות והצגת פרסומות, ייתכן שייאסף מידע אנונימי:</p>
+            <ul>
+                <li>סוג המכשיר וגרסת מערכת ההפעלה;</li>
+                <li>שפת הממשק;</li>
+                <li>תדירות ואופן השימוש באפליקציה;</li>
+                <li>יומני קריסה (crash logs);</li>
+                <li>מזהה פרסום.</li>
+            </ul>
+
+            <h2>3. הרשאות וגישה למכשיר</h2>
+            <table class="permissions-table">
+                <thead>
+                    <tr>
+                        <th>מטרה</th>
+                        <th>הרשאה</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>שמירה ופתיחה של קבצים (PDF, Excel וכו')</td>
+                        <td>גישה לאחסון</td>
+                    </tr>
+                    <tr>
+                        <td>לעדכונים, פרסומות ושליחת מיילים</td>
+                        <td>אינטרנט</td>
+                    </tr>
+                    <tr>
+                        <td>ייצוא חישובים באמצעות מסנג'ר ודוא"ל</td>
+                        <td>שיתוף עם אפליקציות אחרות</td>
+                    </tr>
+                    <tr>
+                        <td>הצגת אפשרויות ייצוא זמינות</td>
+                        <td>רשימת אפליקציות מותקנות (אופציונלי)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>האפליקציה אינה עוקבת אחרי פעילות המשתמש באפליקציות אחרות.</p>
+
+            <h2>4. פרסומות ושירותי צד שלישי</h2>
+            
+            <h3>4.1 כללי</h3>
+            <p>האפליקציה עשויה להציג פרסומות מותאמות אישית או לא, מספקים כמו Google AdMob. המשתמש יכול לבחור את סוג הפרסום בהפעלה הראשונה ולשנותו בהמשך.</p>
+
+            <h3>4.2 פרסומות עם תגמול</h3>
+            <p>האפליקציה מאפשרת לצפות בפרסומות וידאו בתמורה לגישה זמנית לכלים מתקדמים.</p>
+
+            <div class="important-box">
+                <h4>חשוב:</h4>
+                <ul>
+                    <li>הצפייה בפרסומות היא תמיד רשות;</li>
+                    <li>מוסבר בבירור מה התגמול לפני הצגת הפרסומת;</li>
+                    <li>תגמול ניתן רק לאחר צפייה מלאה;</li>
+                    <li>אין שיתוף של מידע אישי עם צדדים שלישיים.</li>
+                </ul>
+            </div>
+
+            <h3>4.3 טכנולוגיות בשימוש</h3>
+            <p>ספקים (כולל Google) עשויים להשתמש ב:</p>
+            <ul>
+                <li>מזהי פרסום;</li>
+                <li>עוגיות או טכנולוגיות דומות;</li>
+                <li>נתונים מצרפיים להצגת פרסום ממוקד.</li>
+            </ul>
+            <p>מדיניות Google: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+
+            <h2>5. תכונות בתשלום ומנויים</h2>
+            <p>האפליקציה עשויה להציע:</p>
+            <ul>
+                <li>שיטות חישוב מתקדמות;</li>
+                <li>ייצוא ל-PDF ו-Excel;</li>
+                <li>הסרת פרסומות;</li>
+                <li>גישה פרימיום (חד פעמית או במנוי).</li>
+            </ul>
+            <p>כל התשלומים מתבצעים דרך Google Play. איננו שומרים מידע כרטיס אשראי.</p>
+
+            <h2>6. שליטה בנתונים</h2>
+            <p>באפשרותך:</p>
+            <ul>
+                <li>למחוק נתונים באפליקציה או דרך הגדרות אנדרואיד;</li>
+                <li>לבטל הרשאות דרך הגדרות המכשיר;</li>
+                <li>לבטל פרסומות באמצעות רכישה;</li>
+                <li>לשנות הסכמתך לפרסום;</li>
+                <li>לבקש מחיקת נתונים שנמסרו בהתנדבות על ידי יצירת קשר אל <a href="mailto:support@dr-it.studio">support@dr-it.studio</a>.</li>
+            </ul>
+
+            <h2>7. אבטחה</h2>
+            <ul>
+                <li>האפליקציה אינה מעבירה מידע לשרתים חיצוניים ללא אישור.</li>
+                <li>כל הנתונים נשמרים באופן מקומי.</li>
+                <li>אנו ממליצים להפעיל נעילת מסך והגנות נוספות.</li>
+            </ul>
+
+            <h2>8. פרטיות ילדים</h2>
+            <p>האפליקציה אינה מיועדת לילדים מתחת לגיל 13, ואינה אוספת מידע ביודעין מהם. אם נמסר מידע כזה – אנא צור קשר ונמחק אותו מיידית.</p>
+
+            <h2>9. עדכוני מדיניות</h2>
+            <p>ייתכנו עדכונים תקופתיים למדיניות זו. שינויים נכנסים לתוקף עם פרסום הגרסה החדשה.</p>
+
+            <h2>10. יצירת קשר</h2>
+            <div class="contact-info">
+                <h3>DR.IT.Studio</h3>
+                <p>קייב, אוקראינה</p>
+                <p>📧 <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>11. הסכמת משתמש</h2>
+            <p>בשימוש באפליקציה, אתה מאשר את תנאי מדיניות זו. אם אינך מסכים – נא להפסיק את השימוש.</p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 DR.IT.Studio. כל הזכויות שמורות.</p>
+        </div>
+    </div>
+</body>
+</html>

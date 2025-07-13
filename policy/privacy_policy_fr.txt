@@ -1,0 +1,111 @@
+Politique de confidentialité
+Date d’entrée en vigueur : 6 mai 2025
+Nom de l’application : Forest Calculator
+Développeur : DR.IT.Studio
+Localisation : Kyiv, Ukraine
+Contact : support@dr-it.studio
+
+1. Introduction
+Forest Calculator, développé par DR.IT.Studio (« nous », « notre », « nos »), est une application pour le calcul du volume de bois et d’autres fonctions professionnelles. Cette politique de confidentialité explique quelles données nous collectons, comment nous les utilisons, les stockons, les protégeons et les partageons, y compris en ce qui concerne les publicités avec récompense (rewarded video).
+
+2. Données collectées
+2.1 Données personnelles
+Aucune donnée personnelle n’est collectée automatiquement. L’utilisateur peut toutefois fournir volontairement :
+
+son adresse e-mail en contactant le support ;
+
+le contenu et les paramètres saisis manuellement (calculs, etc.).
+
+2.2 Données non personnelles (techniques)
+À des fins de diagnostic, d’amélioration du service et d’affichage publicitaire, nous collectons des données anonymes :
+
+type d’appareil et version du système d’exploitation ;
+
+langue de l’interface ;
+
+fréquence et mode d’utilisation de l’application ;
+
+journaux d’erreurs (crash logs) ;
+
+identifiant publicitaire (Advertising ID).
+
+3. Autorisations demandées
+Autorisation	Objectif
+Accès au stockage	Sauvegarde et ouverture de fichiers (PDF, Excel, etc.)
+Internet	Mises à jour, publicités, envoi d’e-mails
+Partage avec d'autres apps	Exportation via messageries ou e-mail
+Liste des applications installées (facultatif)	Affichage des options d’export disponibles
+
+Nous n'utilisons pas les autorisations pour suivre les activités dans d'autres applications.
+
+4. Publicité et services tiers
+4.1 Généralités
+L’application peut afficher des publicités personnalisées ou non personnalisées via des partenaires comme Google AdMob. L’utilisateur peut choisir le type de publicité au premier lancement et le modifier à tout moment dans les paramètres.
+
+4.2 Publicité avec récompense (Rewarded Video)
+L’application propose des vidéos publicitaires avec récompense, visionnées volontairement par l’utilisateur pour accéder à certaines fonctions (par exemple, un outil premium).
+
+Important :
+
+Le visionnage est toujours facultatif ;
+
+Une explication claire est fournie avant ;
+
+La récompense est donnée uniquement après un visionnage complet ;
+
+Aucune donnée personnelle n’est partagée avec les partenaires publicitaires.
+
+4.3 Technologies utilisées
+Les partenaires (dont Google) peuvent utiliser :
+
+des identifiants publicitaires ;
+
+cookies ou technologies similaires ;
+
+données agrégées pour le ciblage.
+Politique Google : https://policies.google.com/technologies/ads
+
+5. Fonctions payantes
+L’application propose des fonctions payantes :
+
+méthodes de calcul avancées ;
+
+export en PDF, Excel ;
+
+suppression des publicités ;
+
+accès premium (abonnement ou achat unique).
+
+Tous les paiements sont traités via Google Play. Nous ne stockons pas de données de carte bancaire.
+
+6. Contrôle des données
+Vous pouvez :
+
+supprimer les données depuis l’application ou Android ;
+
+retirer les autorisations dans les paramètres ;
+
+désactiver les pubs via achat ;
+
+modifier votre consentement publicitaire ;
+
+demander la suppression de données personnelles via support@dr-it.studio.
+
+7. Sécurité
+Aucune donnée n’est transmise à des serveurs distants sans votre accord.
+Tous les calculs et fichiers sont enregistrés localement sur l’appareil.
+Nous recommandons d’activer le verrouillage de l’écran et d'autres protections.
+
+8. Enfants
+L'application n'est pas destinée aux enfants de moins de 13 ans et ne collecte pas leurs données. En cas de doute, contactez-nous.
+
+9. Mises à jour
+Cette politique peut être mise à jour. Les changements prennent effet dès la publication. Vérifiez-la régulièrement.
+
+10. Contact
+DR.IT.Studio
+Kyiv, Ukraine
+📧 support@dr-it.studio
+
+11. Consentement
+En utilisant Forest Calculator, vous acceptez cette politique. Si vous êtes en désaccord, cessez d’utiliser l’application.

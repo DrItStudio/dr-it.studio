@@ -1,0 +1,82 @@
+Məxfilik Siyasəti
+Qüvvəyə minmə tarixi: 6 May 2025
+Tətbiqin adı: Forest Calculator
+Tərtibatçı: DR.IT.Studio
+Ünvan: Kiyev, Ukrayna
+Əlaqə: support@dr-it.studio
+
+1. Giriş
+Forest Calculator – DR.IT.Studio tərəfindən hazırlanmış, odun həcmi hesablamaları və digər peşəkar funksiyalar üçün tətbiqdir. Bu Məxfilik Siyasəti topladığımız məlumatları, onların necə istifadə edildiyini, saxlandığını, qorunduğunu və paylaşılmasını izah edir — mükafatlı reklamlar (rewarded video ads) daxil olmaqla.
+
+2. Topladığımız Məlumatlar
+2.1 Şəxsi Məlumatlar
+Avtomatik olaraq şəxsi məlumat toplamırıq. Lakin istifadəçi könüllü olaraq aşağıdakıları təqdim edə bilər:
+
+Dəstəyə müraciət zamanı e-poçt ünvanı
+
+Tətbiqdə əl ilə daxil edilmiş məzmun və parametrlər (hesablamalar və s.)
+
+2.2 Şəxsi Olmayan (Texniki) Məlumatlar
+Xidmətin təkmilləşdirilməsi və reklam məqsədləri ilə aşağıdakılar toplanıla bilər:
+
+Cihaz növü və əməliyyat sistemi versiyası
+
+İnterfeys dili
+
+İstifadə tezliyi və üsulu
+
+Çöküş qeydləri (crash logs)
+
+Reklam ID-si
+
+3. İcazələr və Cihaza Giriş
+İcazə	Məqsəd
+Yaddaşa giriş	Faylların (PDF, Excel və s.) saxlanması və açılması
+İnternet	Yeniləmələr, reklam və e-poçt göndərişi
+Digər tətbiqlərlə paylaşım	Hesablamaların mesajlaşma proqramları ilə göndərilməsi
+Quraşdırılmış tətbiqlər siyahısı (istəyə bağlı)	Mövcud ixrac üsullarını göstərmək üçün
+
+4. Reklam və Tərəfdaş Servislər
+Google AdMob kimi partnyorlar vasitəsilə fərdiləşdirilmiş və ya qeyri-fərdiləşdirilmiş reklamlar göstərilə bilər
+
+Mükafatlı videoreklamlar hər zaman könüllüdür
+
+Şəxsi məlumatlar reklam tərəfdaşlarına ötürülmür
+
+Google siyasəti: https://policies.google.com/technologies/ads
+
+5. Ödənişli Funksiyalar
+Təkmil hesablamalar
+
+PDF və Excel ixracı
+
+Reklamların deaktiv edilməsi
+
+Premium giriş (abunə və ya birdəfəlik ödəniş)
+
+6. Məlumatlara Nəzarət
+Saxlanmış məlumatları tətbiqdən və ya Android ayarlarından silmək
+
+İcazələri ləğv etmək
+
+Könüllü verilmiş məlumatları silmək üçün: support@dr-it.studio
+
+7. Təhlükəsizlik
+İstifadəçi razılığı olmadan məlumatlar uzaq serverə ötürülmür
+
+Bütün məlumatlar cihazda yerli şəkildə saxlanılır
+
+8. Uşaqların Məxfiliyi
+Tətbiq 13 yaşdan aşağı uşaqlar üçün nəzərdə tutulmayıb
+
+9. Siyasətin Yenilənməsi
+Siyasət dövri olaraq yenilənə bilər. Zəhmət olmasa dəyişiklikləri izləyin.
+
+10. Əlaqə Məlumatları
+DR.IT.Studio
+Kiyev, Ukrayna
+📧 support@dr-it.studio
+
+11. İstifadəçinin Razılığı
+Tətbiqdən istifadə etməklə bu siyasətlə razı olduğunuzu təsdiqləyirsiniz.
+

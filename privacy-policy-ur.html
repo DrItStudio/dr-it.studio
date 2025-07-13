@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ur" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Calculator - رازداری کی پالیسی</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Arial', 'Helvetica', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+            direction: rtl;
+            text-align: right;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 3rem;
+        }
+
+        .app-info {
+            background: #f8f9fa;
+            border-right: 4px solid #4a7c59;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 8px 0 0 8px;
+        }
+
+        .app-info h3 {
+            color: #2d5016;
+            margin-bottom: 1rem;
+        }
+
+        .app-info p {
+            margin: 0.5rem 0;
+        }
+
+        .app-info strong {
+            color: #2d5016;
+        }
+
+        h2 {
+            color: #2d5016;
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #4a7c59;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #4a7c59;
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul {
+            margin: 1rem 0;
+            padding-right: 2rem;
+            text-align: right;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .permissions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .permissions-table th,
+        .permissions-table td {
+            padding: 12px 15px;
+            text-align: right;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .permissions-table th {
+            background: #4a7c59;
+            color: white;
+            font-weight: bold;
+        }
+
+        .permissions-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .permissions-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .important-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .important-box h4 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+
+        .important-box ul {
+            margin: 0;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #2d5016;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .date-updated {
+            background: #e8f5e8;
+            border: 1px solid #4a7c59;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .date-updated strong {
+            color: #2d5016;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .header {
+                padding: 2rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .permissions-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <div class="subtitle">رازداری کی پالیسی</div>
+        </div>
+
+        <div class="content">
+            <div class="date-updated">
+                <strong>موثر تاریخ:</strong> 6 مئی 2025
+            </div>
+
+            <div class="app-info">
+                <h3>ایپ کی معلومات</h3>
+                <p><strong>ایپ کا نام:</strong> Forest Calculator</p>
+                <p><strong>ڈویلپر:</strong> DR.IT.Studio</p>
+                <p><strong>مقام:</strong> کیف، یوکرین</p>
+                <p><strong>رابطہ:</strong> <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>1. تعارف</h2>
+            <p>Forest Calculator ایک ایپ ہے جسے DR.IT.Studio نے تیار کیا ہے تاکہ لکڑی کے حجم اور دیگر پیشہ ورانہ خصوصیات کا حساب لگایا جا سکے۔ یہ رازداری کی پالیسی بتاتی ہے کہ ہم کون سا ڈیٹا جمع کرتے ہیں، کس طرح استعمال کرتے ہیں، محفوظ رکھتے ہیں اور اشتراک کرتے ہیں — انعامی ویڈیوز (Rewarded Ads) سمیت۔</p>
+
+            <h2>2. ہم کون سا ڈیٹا جمع کرتے ہیں</h2>
+            
+            <h3>2.1 ذاتی معلومات</h3>
+            <p>ہم خودکار طور پر ذاتی معلومات جمع نہیں کرتے۔ تاہم، صارف رضاکارانہ طور پر درج ذیل معلومات فراہم کر سکتا ہے:</p>
+            <ul>
+                <li>سپورٹ سے رابطے کے دوران ای میل ایڈریس</li>
+                <li>دستی طور پر ایپ میں داخل کردہ ڈیٹا (حسابات وغیرہ)</li>
+            </ul>
+
+            <h3>2.2 غیر ذاتی (تکنیکی) معلومات</h3>
+            <p>ہم درج ذیل گمنام ڈیٹا جمع کر سکتے ہیں:</p>
+            <ul>
+                <li>ڈیوائس کی قسم اور OS ورژن</li>
+                <li>انٹرفیس کی زبان</li>
+                <li>ایپ کے استعمال کی تعدد اور طریقہ</li>
+                <li>کریش لاگز</li>
+                <li>اشتہاری ID</li>
+            </ul>
+
+            <h2>3. اجازت نامے اور ڈیوائس تک رسائی</h2>
+            <table class="permissions-table">
+                <thead>
+                    <tr>
+                        <th>مقصد</th>
+                        <th>اجازت</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>فائلز کو محفوظ اور کھولنے کے لیے (PDF، Excel وغیرہ)</td>
+                        <td>اسٹوریج تک رسائی</td>
+                    </tr>
+                    <tr>
+                        <td>اپڈیٹس، اشتہارات اور ای میل کے لیے</td>
+                        <td>انٹرنیٹ</td>
+                    </tr>
+                    <tr>
+                        <td>میسنجر یا ای میل کے ذریعے ایکسپورٹ</td>
+                        <td>دیگر ایپس کے ساتھ اشتراک</td>
+                    </tr>
+                    <tr>
+                        <td>دستیاب ایکسپورٹ طریقے دکھانے کے لیے</td>
+                        <td>انسٹال کردہ ایپس کی فہرست (اختیاری)</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>ہم کبھی بھی ان اجازات کو آپ کی دیگر ایپس میں سرگرمیوں کو ٹریک کرنے کے لیے استعمال نہیں کرتے۔</p>
+
+            <h2>4. اشتہارات اور تھرڈ پارٹی سروسز</h2>
+            
+            <h3>4.1 عمومی معلومات</h3>
+            <p>ایپ میں Google AdMob جیسے پارٹنرز کے ذریعے ذاتی یا غیر ذاتی اشتہارات دکھائے جا سکتے ہیں۔ صارف پہلی بار استعمال کرتے وقت اشتہارات کی قسم منتخب کر سکتے ہیں اور بعد میں سیٹنگز میں تبدیل کر سکتے ہیں۔</p>
+
+            <h3>4.2 انعامی ویڈیو اشتہارات</h3>
+            <p>Forest Calculator میں انعامی ویڈیو اشتہارات استعمال ہوتے ہیں، جہاں صارف رضاکارانہ طور پر ویڈیو دیکھ کر مخصوص فیچرز کو غیر مقفل کر سکتے ہیں (جیسے پریمیم ٹولز کی عارضی رسائی)۔</p>
+
+            <div class="important-box">
+                <h4>اہم:</h4>
+                <ul>
+                    <li>اشتہارات دیکھنا ہمیشہ اختیاری ہوتا ہے</li>
+                    <li>اشتہار شروع کرنے سے پہلے واضح طور پر بتایا جاتا ہے کہ کون سا فیچر ملے گا</li>
+                    <li>انعام صرف مکمل اشتہار دیکھنے کے بعد ہی دیا جاتا ہے</li>
+                    <li>کوئی ذاتی ڈیٹا اشتہاری شراکت داروں کے ساتھ شیئر نہیں کیا جاتا</li>
+                </ul>
+            </div>
+
+            <h3>4.3 استعمال شدہ ٹیکنالوجی</h3>
+            <p>شراکت دار (Google سمیت) استعمال کر سکتے ہیں:</p>
+            <ul>
+                <li>اشتہاری ID</li>
+                <li>کوکیز یا اسی طرح کی ٹیکنالوجی</li>
+                <li>اشتہارات کو ہدف بنانے کے لیے مجموعی ڈیٹا</li>
+            </ul>
+            <p>Google پالیسی: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+
+            <h2>5. ادائیگی پر مبنی فیچرز اور سبسکرپشن</h2>
+            <p>ایپ میں درج ذیل ادائیگی پر مبنی فیچرز ہو سکتے ہیں:</p>
+            <ul>
+                <li>جدید حساب کتاب کے طریقے</li>
+                <li>PDF یا Excel میں ایکسپورٹ</li>
+                <li>اشتہارات کو ہٹانا</li>
+                <li>پریمیم رسائی (سبسکرپشن یا ایک بار خریداری)</li>
+            </ul>
+            <p>تمام پیمنٹس Google Play کے ذریعے عمل میں آتے ہیں۔ ہم کوئی کارڈ کی معلومات محفوظ یا عمل نہیں کرتے۔</p>
+
+            <h2>6. آپ کے ڈیٹا پر کنٹرول</h2>
+            <p>آپ کر سکتے ہیں:</p>
+            <ul>
+                <li>ایپ یا Android سیٹنگز سے محفوظ شدہ ڈیٹا کو حذف کریں</li>
+                <li>ڈیوائس سیٹنگز میں اجازات واپس لیں</li>
+                <li>ادائیگی پر مبنی فیچر خرید کر اشتہارات بند کریں</li>
+                <li>اشتہاری رضامندی کو کسی بھی وقت تبدیل کریں</li>
+                <li><a href="mailto:support@dr-it.studio">support@dr-it.studio</a> پر ای میل کر کے رضاکارانہ طور پر فراہم کردہ ڈیٹا حذف کرنے کی درخواست کریں</li>
+            </ul>
+
+            <h2>7. سیکیورٹی</h2>
+            <ul>
+                <li>ایپ آپ کی رضامندی کے بغیر کوئی ڈیٹا دور دراز کے سرورز پر نہیں بھیجتی۔</li>
+                <li>تمام حسابات اور دستاویزات مقامی طور پر ڈیوائس پر محفوظ کی جاتی ہیں۔</li>
+                <li>ہم اسکرین لاک اور دیگر ڈیوائس سیکیورٹی اقدامات کو فعال کرنے کی تجویز کرتے ہیں۔</li>
+            </ul>
+
+            <h2>8. بچوں کی رازداری</h2>
+            <p>Forest Calculator 13 سال سے کم عمر بچوں کے لیے نہیں ہے اور جانبوژ کر ان کے بارے میں کوئی ڈیٹا جمع نہیں کرتی۔ اگر آپ کو لگتا ہے کہ آپ کے بچے نے ذاتی معلومات فراہم کی ہیں، تو برائے کرم ہمیں بتائیں — ہم اسے فوری طور پر حذف کر دیں گے۔</p>
+
+            <h2>9. پالیسی کی اپڈیٹس</h2>
+            <p>ہم وقتاً فوقتاً اس رازداری کی پالیسی کو اپڈیٹ کر سکتے ہیں۔ تبدیلیاں اپڈیٹ کی تاریخ کے ساتھ نئے ورژن کی اشاعت کے فوراً بعد مؤثر ہو جائیں گی۔</p>
+
+            <h2>10. رابطہ</h2>
+            <div class="contact-info">
+                <h3>DR.IT.Studio</h3>
+                <p>کیف، یوکرین</p>
+                <p>📧 <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>11. صارف کی رضامندی</h2>
+            <p>Forest Calculator کا استعمال کرتے ہوئے، آپ اس رازداری کی پالیسی کی شرائط سے متفق ہیں۔ اگر آپ متفق نہیں ہیں — برائے کرم ایپ کا استعمال بند کر دیں۔</p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 DR.IT.Studio. تمام حقوق محفوظ ہیں۔</p>
+        </div>
+    </div>
+</body>
+</html>

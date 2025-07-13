@@ -1,0 +1,111 @@
+Poileasaidh Prìobhaideachd
+Ceann-latha Èifeachdach: 6 Cèitean, 2025
+Ainm an Aplacaid: Forest Calculator
+Leasaiche: DR.IT.Studio
+Suíomh: Kyiv, Ucràin
+Fios: support@dr-it.studio
+
+1. Ro-ràdh
+Tha Forest Calculator, air a leasachadh le DR.IT.Studio (“sinn”, “luchd-sgaoilidh”, “ar”), na aplacaid airson tomhas tomhas nan fiodha agus feartan proifeiseanta eile. Mìnichidh an Poileasaidh Prìobhaideachd seo dè na dàta a chruinnicheas sinn, mar a bhios sinn ga chleachdadh, ga stòradh, ga dhìon agus ga cho-roinn — a’ gabhail a-steach fiosrachadh mu na sanasan le duaisean (rewarded ads).
+
+2. Dàta a chruinnicheas sinn
+2.1 Fiosrachadh Pearsanta
+Chan eil sinn a’ cruinneachadh dàta pearsanta gu fèin-obrachail. Ach, faodaidh luchd-cleachdaidh fiosrachadh a thoirt seachad gu saor-thoileach:
+
+Seòladh post-d nuair a thig iad gu taic;
+
+Susbaint agus roghainnean a chuir iad a-steach gu làimhe (cunntasan, msaa).
+
+2.2 Fiosrachadh Neo-Phearsanta (Teicnigeach)
+Airson breithneachadh mhearachdan, leasachadh seirbheis agus taisbeanadh shanasan, faodaidh sinn fiosrachadh gun urra a chruinneachadh leithid:
+
+Seòrsa inneal agus dreach an t-siostaim obrachaidh;
+
+Cànan an eadar-aghaidh;
+
+Tricead agus dòigh cleachdaidh an aplacaid;
+
+Logaichean tuiteam (crash logs);
+
+ID sanasachd (Advertising ID).
+
+3. Ceadan agus ruigsinneachd air inneal
+Cead	Adhbhar
+Ruigsinneachd air stòradh	Gus faidhlichean a shàbhaladh agus a fosgladh (PDF, Excel, msaa)
+Eadar-lìon	Airson ùrachaidhean, sanasan, agus puist-d a chuir
+Roinn le aplacaidean eile	Gus cunntasan a chuir a-mach tro teachdaireachdan no post-d
+Liosta aplacaidean stàlaichte (roghnach)	Gus shealltainn na dòighean às-mhalairt
+
+Cha cleachd sinn ceadan gus giùlan luchd-cleachdaidh ann an aplacaidean eile a leantainn.
+
+4. Sanasan agus seirbheisean treas-phàrtaidh
+4.1 Fiosrachadh Coitcheann
+Faodaidh an aplacaid sanasan pearsanta no neo-phearsanta a thaisbeanadh tro chom-pàirtichean leithid Google AdMob. Faodaidh luchd-cleachdaidh an seòrsa sanas a thaghadh aig a’ chiad tòiseachadh agus atharrachadh anns na roghainnean.
+
+4.2 Sanasan Bhidio le Duaisean (Rewarded Video)
+Tha an aplacaid a’ cleachdadh sanasan bhidio far a bheil luchd-cleachdaidh a’ coimhead bhidio gu saor-thoileach gus cothrom fhaighinn air feartan sònraichte (mar eisimpleir, cothrom aon-ùine air innealan premium).
+
+Cudromach:
+
+Tha coimhead air sanasan le duaisean roghnach an-còmhnaidh;
+
+Thèid mìneachadh soilleir a thoirt mus tèid an sanas a thaisbeanadh;
+
+Thèid duaisean a thoirt seachad dìreach às dèidh coimhead gu tur air an sanas;
+
+Cha roinn sinn dàta pearsanta le com-pàirtichean sanasachd.
+
+4.3 Teicneòlasan a thathar a’ cleachdadh
+Faodaidh com-pàirtichean (a’ gabhail a-steach Google) cleachdadh:
+
+IDan sanasachd;
+
+Cookiean no teicneòlasan coltach ris;
+
+Dàta cruinnichte airson sanasan a thaisbeanadh.
+Polasaidh Google: https://policies.google.com/technologies/ads
+
+5. Feartan pàighte agus ballrachd
+Faodaidh an aplacaid na feartan pàighte a leanas a thabhann:
+
+Dòighean adhartach airson cunntas;
+
+Às-mhalairt gu PDF, Excel;
+
+Cuir às do shanasan;
+
+Cothrom premium (ballrachd no ceannach aon-ùine).
+
+Tha na pàighidhean air an giullachd tron Google Play. Chan eil sinn a’ stòradh no a’ giullachd fiosrachadh cairt.
+
+6. Smachd air do dàta
+Faodaidh tu:
+
+Dàta air a stòradh san aplacaid no ann an roghainnean Android a dhubhadh às;
+
+Ceadan a thoirt air falbh ann an roghainnean do inneil;
+
+Sanasan a dhì-cheadachadh le ceannach an roghainn;
+
+Do thoileachas mu shanasan atharrachadh;
+
+Iarrtas a dhèanamh airson dàta a dhubhadh às le bhith a’ sgrìobhadh thugainn aig support@dr-it.studio.
+
+7. Tèarainteachd
+Cha toir an aplacaid do dhàta gu frithealaichean iomallach às aonais cead an neach-cleachdaidh.
+Tha na h-obraichean agus na sgrìobhainnean uile air an stòradh gu ionadail air do inneal.
+Tha sinn a’ moladh cleachdadh glaodh-sgrìn agus dòighean eile airson dìon do inneil.
+
+8. Prìobhaideachd Chloinne
+Chan eilear a’ cur an aplacaid an dùil airson clann fo 13 bliadhna agus cha chruinnich e fiosrachadh pearsanta bhuapa gu mothachail. Ma tha thu den bheachd gun do chuir do chlann fiosrachadh thugainn, cuir fios thugainn agus bidh sinn ga dhubhadh às gu luath.
+
+9. Ùrachaidhean poileasaidh
+Faodaidh sinn an Poileasaidh Prìobhaideachd seo ùrachadh bho àm gu àm. Thèid atharrachaidhean a chur an gnìomh sa bhad nuair a thèid dreach ùr fhoillseachadh le ceann-latha ùraichte. Tha sinn a’ moladh do luchd-cleachdaidh an poileasaidh a sgrùdadh gu cunbhalach.
+
+10. Fiosrachadh conaltraidh
+DR.IT.Studio
+Kyiv, Ucràin
+📧 support@dr-it.studio
+
+11. Toilichte an neach-cleachdaidh
+Le bhith a’ cleachdadh Forest Calculator, tha thu a’ dearbhadh do thoilichte leis a’ Phoileasaidh Prìobhaideachd seo. Ma chan eil thu ag aontachadh, cuir stad air a’ chleachdadh.

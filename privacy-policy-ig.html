@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="ig">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Calculator - Ụkpụrụ Nzuzo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Arial', 'Helvetica', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 3rem;
+        }
+
+        .app-info {
+            background: #f8f9fa;
+            border-left: 4px solid #4a7c59;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .app-info h3 {
+            color: #2d5016;
+            margin-bottom: 1rem;
+        }
+
+        .app-info p {
+            margin: 0.5rem 0;
+        }
+
+        .app-info strong {
+            color: #2d5016;
+        }
+
+        h2 {
+            color: #2d5016;
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #4a7c59;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #4a7c59;
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .permissions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .permissions-table th,
+        .permissions-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .permissions-table th {
+            background: #4a7c59;
+            color: white;
+            font-weight: bold;
+        }
+
+        .permissions-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .permissions-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .important-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .important-box h4 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+
+        .important-box ul {
+            margin: 0;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #2d5016;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .date-updated {
+            background: #e8f5e8;
+            border: 1px solid #4a7c59;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .date-updated strong {
+            color: #2d5016;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .header {
+                padding: 2rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .permissions-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <div class="subtitle">Ụkpụrụ Nzuzo</div>
+        </div>
+
+        <div class="content">
+            <div class="date-updated">
+                <strong>Ụbọchị Mbido:</strong> Mee 6, 2025
+            </div>
+
+            <div class="app-info">
+                <h3>Ozi Ngwa</h3>
+                <p><strong>Aha Ngwa:</strong> Forest Calculator</p>
+                <p><strong>Onye Mepụta:</strong> DR.IT.Studio</p>
+                <p><strong>Ebe:</strong> Kyiv, Ukraine</p>
+                <p><strong>Kpọtụrụ:</strong> <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>1. Mmalite</h2>
+            <p>Forest Calculator bụ ngwa ruru e mepụtara site na DR.IT.Studio maka ịgbakọ olu osisi na ọrụ ndị ọzọ ọkachamara. Ụkpụrụ a na-akọwa ụdị data anyị na-anakọta, otu anyị si eji ya, chekwaa ya, chebe ya, ma kesaa ya — tinyere mgbasa ozi vidiyo nwere onyinye (rewarded ads).</p>
+
+            <h2>2. Data Anyị Na-anakọta</h2>
+            
+            <h3>2.1 Ozi Onwe Onye</h3>
+            <p>Anyị anaghị anakọta ozi onwe onye na-akpaghị aka. Mana onye ọrụ nwere ike inye ya n'ịbụ onye chọrọ:</p>
+            <ul>
+                <li>Adreesị email mgbe ị na-akpọtụrụ enyemaka;</li>
+                <li>Ihe edere na ngwa n'onwe gị (dịka ntụpọ na ọnụ ọgụgụ).</li>
+            </ul>
+
+            <h3>2.2 Ozi Nkịtị (Nke Ọ Bụghị Onwe Onye)</h3>
+            <p>Iji dozie nsogbu, melite ọrụ na gosipụta mgbasa ozi, anyị nwere ike anakọta ozi ndị a na-amaghị aha:</p>
+            <ul>
+                <li>Ụdị ngwaọrụ na ụdị OS;</li>
+                <li>Asụsụ interface;</li>
+                <li>Oge na ụzọ eji ngwa;</li>
+                <li>Crash logs;</li>
+                <li>Advertising ID.</li>
+            </ul>
+
+            <h2>3. Ikikere na Nweta ngwaọrụ</h2>
+            <table class="permissions-table">
+                <thead>
+                    <tr>
+                        <th>Ikikere</th>
+                        <th>Ebumnobi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Nweta ebe nchekwa</td>
+                        <td>Ichekwa na imeghe faịlụ (PDF, Excel, wdg)</td>
+                    </tr>
+                    <tr>
+                        <td>Ịntanetị</td>
+                        <td>Maka mmelite, mgbasa ozi, na zipu email</td>
+                    </tr>
+                    <tr>
+                        <td>Kesaa na ngwa ndị ọzọ</td>
+                        <td>Zipu ọnụ ọgụgụ site na email ma ọ bụ ozi</td>
+                    </tr>
+                    <tr>
+                        <td>Ndepụta ngwa arụnyere (nhọrọ)</td>
+                        <td>Igosi ụzọ mbupụ dị</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h2>4. Mgbasa ozi na ọrụ ndị ọzọ</h2>
+            
+            <h3>4.1 Ozi Izugbe</h3>
+            <p>A pụrụ igosipụta mgbasa ozi sitere n'aka ndị mmekọ dị ka Google AdMob. Onye ọrụ nwere ike ịhọrọ ụdị mgbasa ozi na mbido mbụ ma gbanwee ya na ntọala.</p>
+
+            <h3>4.2 Mgbasa Ozi Vidiyo Nwere Onyinye</h3>
+            <p>Ngwa ahụ na-enye mgbasa ozi vidiyo dị mfe ebe ndị ọrụ nwere ike ịhọrọ ikiri vidiyo iji nweta ụfọdụ atụmatụ (dịka ịnweta ohere nwa oge na ngwá ọrụ premium).</p>
+
+            <div class="important-box">
+                <h4>Dị mkpa:</h4>
+                <ul>
+                    <li>Ikiri mgbasa ozi onyinye bụ mgbe niile nhọrọ;</li>
+                    <li>A na-akọwa nke ọma ihe onyinye tupu egosi mgbasa ozi;</li>
+                    <li>A na-enye onyinye naanị mgbe ikiri zuru ezu;</li>
+                    <li>Anyị anaghị ekesa ozi onwe onye na ndị mmekọ mgbasa ozi.</li>
+                </ul>
+            </div>
+
+            <p>Google policy: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+
+            <h2>5. Njirimara a na-akwụ ụgwọ</h2>
+            <p>Ngwa ahụ nwere ike ịnye njirimara ndị a a na-akwụ ụgwọ:</p>
+            <ul>
+                <li>Ọnụ ụzọ mgbakọ dị elu;</li>
+                <li>Mbupụ na PDF, Excel;</li>
+                <li>Wepụ mgbasa ozi;</li>
+                <li>Nweta premium (site na ịkwụ ụgwọ otu ugboro ma ọ bụ ndenye aha).</li>
+            </ul>
+
+            <h2>6. Njikwa Data</h2>
+            <p>Ị nwere ike:</p>
+            <ul>
+                <li>Ihichapụ data n'ime ngwa ma ọ bụ na ntọala Android;</li>
+                <li>Wepu ikike;</li>
+                <li>Rịọ ka ehichapụ data n'ime email: <a href="mailto:support@dr-it.studio">support@dr-it.studio</a>.</li>
+            </ul>
+
+            <h2>7. Nchedo</h2>
+            <ul>
+                <li>Ngwa anaghị eziga data na sava dịpụrụ adịpụ n'enweghị nkwenye gị;</li>
+                <li>A na-echekwa ihe niile n'ụdị gị.</li>
+            </ul>
+
+            <h2>8. Nzuzo Ndị Nwa</h2>
+            <p>Ngwa a ezughi oke maka ụmụaka n'okpuru afọ 13 na anyị anaghị anakọta data ha n'ụma.</p>
+
+            <h2>9. Mmelite Ụkpụrụ</h2>
+            <p>A nwere ike imelite Ụkpụrụ Nzuzo a oge na oge. A na-adụ ọdụ ka ị lelee oge na oge.</p>
+
+            <h2>10. Kpọtụrụ</h2>
+            <div class="contact-info">
+                <h3>DR.IT.Studio</h3>
+                <p>Kyiv, Ukraine</p>
+                <p>📧 <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>11. Nkwenye Onye Ọrụ</h2>
+            <p>Site n'iji ngwa a, ị na-ekwenye na Ụkpụrụ Nzuzo a.</p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 DR.IT.Studio. E chebere ikike niile.</p>
+        </div>
+    </div>
+</body>
+</html>

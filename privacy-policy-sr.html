@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="sr" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politika privatnosti - Forest Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .policy-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2E7D32;
+        }
+
+        .policy-info h2 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .policy-info p {
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h3 {
+            color: #2E7D32;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E8F5E8;
+        }
+
+        .section p, .section li {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .permission-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .permission-table th,
+        .permission-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #E8F5E8;
+        }
+
+        .permission-table th {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .permission-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc8 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .contact p {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #2E7D32;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #2E7D32;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2E7D32;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .permission-table {
+                font-size: 0.9rem;
+            }
+
+            .permission-table th,
+            .permission-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <p>Politika privatnosti</p>
+        </div>
+
+        <div class="content">
+            <a href="privacy-policy.html" class="back-link">← Nazad na izbor jezika</a>
+
+            <div class="policy-info">
+                <h2>Informacije o politici</h2>
+                <p><strong>Datum stupanja na snagu:</strong> 6. maj 2025</p>
+                <p><strong>Naziv aplikacije:</strong> Forest Calculator</p>
+                <p><strong>Razvojni tim:</strong> DR.IT.Studio</p>
+                <p><strong>Lokacija:</strong> Kijev, Ukrajina</p>
+                <p><strong>Kontakt:</strong> support@dr-it.studio</p>
+            </div>
+
+            <div class="section">
+                <h3>1. Uvod</h3>
+                <p>Aplikacija Forest Calculator, razvijena od strane DR.IT.Studio („mi", „nas"), namenjena je za izračunavanje zapremine drveta i druge profesionalne funkcije. Ova Politika privatnosti objašnjava koje podatke prikupljamo, kako ih koristimo, čuvamo, štitimo i delimo – uključujući informacije o nagradnim reklamama (rewarded video).</p>
+            </div>
+
+            <div class="section">
+                <h3>2. Podaci koje prikupljamo</h3>
+                
+                <h4>2.1 Lični podaci</h4>
+                <p>Ne prikupljamo lične podatke automatski. Korisnik može dobrovoljno da unese:</p>
+                <ul>
+                    <li>adresu e-pošte prilikom kontakta sa podrškom;</li>
+                    <li>ručno unete podatke i podešavanja (npr. izračuni).</li>
+                </ul>
+
+                <h4>2.2 Tehnički (nelični) podaci</h4>
+                <p>Za dijagnostiku, unapređenje servisa i prikaz oglasa, možemo prikupljati anonimne informacije:</p>
+                <ul>
+                    <li>tip uređaja i verzija operativnog sistema;</li>
+                    <li>jezik interfejsa;</li>
+                    <li>učestalost i način korišćenja aplikacije;</li>
+                    <li>izveštaji o greškama (crash logovi);</li>
+                    <li>reklamni ID uređaja.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>3. Dozvole i pristup uređaju</h3>
+                <table class="permission-table">
+                    <thead>
+                        <tr>
+                            <th>Dozvola</th>
+                            <th>Svrha</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Pristup skladištu</td>
+                            <td>Čuvanje i otvaranje fajlova (PDF, Excel itd.)</td>
+                        </tr>
+                        <tr>
+                            <td>Internet</td>
+                            <td>Za ažuriranja, reklame i slanje e-pošte</td>
+                        </tr>
+                        <tr>
+                            <td>Deljenje sa drugim aplikacijama</td>
+                            <td>Izvoz izračuna putem poruka ili e-pošte</td>
+                        </tr>
+                        <tr>
+                            <td>Lista instaliranih aplikacija (opciono)</td>
+                            <td>Prikaz dostupnih opcija za izvoz</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Ne koristimo dozvole za praćenje aktivnosti u drugim aplikacijama.</p>
+            </div>
+
+            <div class="section">
+                <h3>4. Oglasi i servisi trećih strana</h3>
+                
+                <h4>4.1 Opšte informacije</h4>
+                <p>Aplikacija može prikazivati personalizovane ili nepersonalizovane oglase partnera kao što je Google AdMob. Korisnik može izabrati tip oglasa pri prvom pokretanju i kasnije ga promeniti u podešavanjima.</p>
+
+                <h4>4.2 Oglasi sa nagradom (Rewarded Video)</h4>
+                <div class="highlight">
+                    <p>Korisnik može dobrovoljno da gleda reklamni video u zamenu za pristup određenim funkcijama.</p>
+                    
+                    <p><strong>Važno:</strong></p>
+                    <ul>
+                        <li>Gledanje oglasa je uvek dobrovoljno;</li>
+                        <li>Jasno je navedeno šta korisnik dobija;</li>
+                        <li>Nagrada se dodeljuje samo nakon celog gledanja;</li>
+                        <li>Lični podaci se ne dele sa partnerima.</li>
+                    </ul>
+                </div>
+
+                <h4>4.3 Korišćene tehnologije</h4>
+                <p>Partneri (npr. Google) mogu koristiti:</p>
+                <ul>
+                    <li>reklamne identifikatore;</li>
+                    <li>kolačiće ili slične tehnologije;</li>
+                    <li>objedinjene podatke za ciljano oglašavanje.</li>
+                </ul>
+                <p>Google politika: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+            </div>
+
+            <div class="section">
+                <h3>5. Plaćene funkcije i pretplate</h3>
+                <p>Aplikacija može nuditi:</p>
+                <ul>
+                    <li>napredne metode izračuna;</li>
+                    <li>izvoz u PDF, Excel;</li>
+                    <li>uklanjanje oglasa;</li>
+                    <li>premium pristup (pretplata ili jednokratna uplata).</li>
+                </ul>
+                <p>Plaćanja se vrše putem Google Play-a. Ne čuvamo podatke o karticama.</p>
+            </div>
+
+            <div class="section">
+                <h3>6. Kontrola nad podacima</h3>
+                <p>Možete:</p>
+                <ul>
+                    <li>obrisati sačuvane podatke u aplikaciji ili Android podešavanjima;</li>
+                    <li>povući dozvole u podešavanjima uređaja;</li>
+                    <li>isključiti reklame kupovinom funkcije;</li>
+                    <li>promeniti saglasnost za oglase;</li>
+                    <li>zatražiti brisanje dobrovoljno unetih podataka putem e-pošte support@dr-it.studio.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>7. Bezbednost</h3>
+                <ul>
+                    <li>Aplikacija ne šalje podatke na udaljene servere bez pristanka.</li>
+                    <li>Svi podaci se čuvaju lokalno.</li>
+                    <li>Preporučujemo da koristite zaštitu ekrana i druge mere sigurnosti.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>8. Privatnost dece</h3>
+                <p>Aplikacija nije namenjena deci mlađoj od 13 godina. Ako mislite da nam je dete poslalo lične podatke, kontaktirajte nas da ih obrišemo.</p>
+            </div>
+
+            <div class="section">
+                <h3>9. Ažuriranja politike</h3>
+                <p>Politika može biti povremeno ažurirana. Promene stupaju na snagu od trenutka objavljivanja nove verzije.</p>
+            </div>
+
+            <div class="section">
+                <h3>11. Saglasnost korisnika</h3>
+                <p>Korišćenjem aplikacije prihvatate ovu Politiku privatnosti. Ako se ne slažete – prestanite koristiti aplikaciju.</p>
+            </div>
+
+            <div class="contact">
+                <h3>10. Kontakt</h3>
+                <p><strong>DR.IT.Studio</strong></p>
+                <p>Kijev, Ukrajina</p>
+                <p>📧 support@dr-it.studio</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

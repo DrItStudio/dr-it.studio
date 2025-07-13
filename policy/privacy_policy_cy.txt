@@ -1,0 +1,81 @@
+Polisi Preifatrwydd  
+Dyddiad Cychwyn: 6 Mai 2025  
+Enw’r Ap: Forest Calculator  
+Datblygwr: DR.IT.Studio  
+Lleoliad: Kyiv, Wcráin  
+Cyswllt: support@dr-it.studio  
+
+1. Cyflwyniad  
+Mae Forest Calculator yn ap a grëwyd gan DR.IT.Studio ar gyfer cyfrifo cyfaint pren a swyddogaethau proffesiynol eraill. Mae’r polisi preifatrwydd hwn yn egluro pa wybodaeth rydym yn ei chasglu, sut rydym yn ei defnyddio, ei storio, ei diogelu a’i rhannu – gan gynnwys gwybodaeth am hysbysebion â gwobr (rewarded ads).
+
+2. Pa wybodaeth rydym yn ei chasglu  
+2.1 Gwybodaeth bersonol  
+Nid ydym yn casglu gwybodaeth bersonol yn awtomatig. Fodd bynnag, gall y defnyddiwr ddarparu’r canlynol yn wirfoddol:
+
+Cyfeiriad e-bost wrth gysylltu â chefnogaeth
+
+Data a fewnosodwyd â llaw (e.e. cyfrifiadau)
+
+2.2 Gwybodaeth an-bersonol (dechnolegol)  
+Er mwyn gwella’r gwasanaeth a dangos hysbysebion, rydym yn casglu’r wybodaeth ddienw ganlynol:
+
+Math o ddyfais a fersiwn system weithredu
+
+Iaith y rhyngwyneb
+
+Dull a mynychder defnydd
+
+Logiau gwallau (crash logs)
+
+ID Hysbysebion
+
+3. Caniatâdau a swyddogaethau  
+Caniatâd	Pwrpas  
+Mynediad at storfa	Cadw ac agor ffeiliau PDF, Excel ac eraill  
+Rhyngrwyd	Diweddariadau, hysbysebion ac anfon negeseuon  
+Rhannu gyda apiau eraill	Rhannu cyfrifiadau trwy negeseuwyr  
+Rhestr o apiau wedi’u gosod (dewisol)	Dangos dulliau allforio  
+
+4. Hysbysebion a gwasanaethau trydydd parti  
+Mae’r ap yn dangos hysbysebion trwy bartneriaid fel Google AdMob
+
+Mae gwylio hysbysebion fideo â gwobr bob amser yn wirfoddol
+
+Nid yw gwybodaeth bersonol yn cael ei rhannu â thrydydd partïon
+
+Polisi Google: https://policies.google.com/technologies/ads
+
+5. Nodweddion taledig  
+Dulliau cyfrifo estynedig
+
+Allforio i fformat PDF/Excel
+
+Tynnu hysbysebion
+
+Nodweddion premiwm (tanysgrifiad neu un-tro)
+
+6. Rheoli gwybodaeth  
+Dileu gwybodaeth yn yr ap neu ar Android
+
+Tynnu caniatâdau
+
+Anfon cais i ddileu at support@dr-it.studio
+
+7. Diogelwch  
+Ni fydd gwybodaeth yn cael ei hanfon heb ganiatâd y defnyddiwr
+
+Cedwir yr holl ddata ar y ddyfais
+
+8. Preifatrwydd plant  
+Nid yw’r ap wedi’i fwriadu ar gyfer plant dan 13 oed ac nid yw’n casglu eu gwybodaeth
+
+9. Diweddaru’r polisi  
+Gall y polisi hwn gael ei ddiweddaru o bryd i’w gilydd. Argymhellir gwirio am ddiweddariadau
+
+10. Manylion cyswllt  
+DR.IT.Studio  
+Kyiv, Wcráin  
+📧 support@dr-it.studio
+
+11. Cydsyniad y defnyddiwr  
+Trwy ddefnyddio’r ap, rydych yn cadarnhau eich bod yn cytuno â’r polisi preifatrwydd hwn.

@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="mn" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нууцлалын бодлого - Forest Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Mongolian', 'Mongol', 'Arial Unicode MS', 'Segoe UI', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .policy-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2E7D32;
+        }
+
+        .policy-info h2 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .policy-info p {
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h3 {
+            color: #2E7D32;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E8F5E8;
+        }
+
+        .section p, .section li {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .permission-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .permission-table th,
+        .permission-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #E8F5E8;
+        }
+
+        .permission-table th {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .permission-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc8 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .contact p {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #2E7D32;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #2E7D32;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2E7D32;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .permission-table {
+                font-size: 0.9rem;
+            }
+
+            .permission-table th,
+            .permission-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <p>Нууцлалын бодлого</p>
+        </div>
+
+        <div class="content">
+            <a href="privacy-policy.html" class="back-link">← Хэлний сонголт руу буцах</a>
+
+            <div class="policy-info">
+                <h2>Бодлогын мэдээлэл</h2>
+                <p><strong>Хүчин төгөлдөр болох огноо:</strong> 2025 оны 5-р сарын 6</p>
+                <p><strong>Аппликейшний нэр:</strong> Forest Calculator</p>
+                <p><strong>Хөгжүүлэгч:</strong> DR.IT.Studio</p>
+                <p><strong>Байршил:</strong> Киев, Украин</p>
+                <p><strong>Холбоо барих:</strong> support@dr-it.studio</p>
+            </div>
+
+            <div class="section">
+                <h3>1. Танилцуулга</h3>
+                <p>Forest Calculator бол модны эзэлхүүн болон мэргэжлийн тооцооллууд хийхэд зориулагдсан, DR.IT.Studio компаниас хөгжүүлсэн апп юм. Энэхүү нууцлалын бодлого нь бид ямар мэдээлэл цуглуулдаг, хэрхэн ашигладаг, хадгалдаг, хамгаалдаг, хуваалцдагийг тайлбарлана — шагналт видео зар (rewarded ads) орсон болно.</p>
+            </div>
+
+            <div class="section">
+                <h3>2. Бидний цуглуулах мэдээлэл</h3>
+                
+                <h4>2.1 Хувийн мэдээлэл</h4>
+                <p>Бид таны хувийн мэдээллийг автоматаар цуглуулахгүй. Гэхдээ хэрэглэгч дараах байдлаар сайн дураараа мэдээлэл өгч болно:</p>
+                <ul>
+                    <li>Тусламжийн багтай холбогдох үед и-мэйл хаяг;</li>
+                    <li>Гараар оруулсан мэдээлэл (тооцоолол гэх мэт).</li>
+                </ul>
+
+                <h4>2.2 Техникийн (хувийн бус) мэдээлэл</h4>
+                <p>Үйлчилгээг сайжруулах, алдааг илрүүлэх, зар сурталчилгаа харуулах зорилгоор:</p>
+                <ul>
+                    <li>Төхөөрөмжийн төрөл, үйлдлийн системийн хувилбар;</li>
+                    <li>Интерфэйсийн хэл;</li>
+                    <li>Апп ашиглах давтамж ба арга;</li>
+                    <li>Алдааны тэмдэглэл (crash logs);</li>
+                    <li>Зар сурталчилгааны ID.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>3. Зөвшөөрөл ба хандалт</h3>
+                <table class="permission-table">
+                    <thead>
+                        <tr>
+                            <th>Зөвшөөрөл</th>
+                            <th>Зорилго</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Санах ойд хандалт</td>
+                            <td>PDF, Excel зэрэг файлууд хадгалах ба нээх</td>
+                        </tr>
+                        <tr>
+                            <td>Интернэт</td>
+                            <td>Шинэчлэлт, зар сурталчилгаа, имэйл илгээх</td>
+                        </tr>
+                        <tr>
+                            <td>Бусад апптай хуваалцах</td>
+                            <td>Тооцооллыг мессенжер эсвэл имэйлээр илгээх</td>
+                        </tr>
+                        <tr>
+                            <td>Суусан аппуудын жагсаалт (нэмэлт)</td>
+                            <td>Экспорт хийх боломжуудыг үзүүлэх</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h3>4. Зар сурталчилгаа ба гуравдагч этгээдүүд</h3>
+                <p>Google AdMob зэрэг гуравдагч талуудын зарыг харуулж болно.</p>
+                
+                <div class="highlight">
+                    <h4>Шагналт видео зар (Rewarded Ads):</h4>
+                    <ul>
+                        <li>Rewarded видео зар нь үргэлж сайн дурын</li>
+                        <li>Хувийн мэдээлэл гуравдагч этгээдэд дамжуулагдахгүй</li>
+                        <li>Премиум функцуудад түр хандах боломж олгоно</li>
+                    </ul>
+                </div>
+                
+                <p>Google бодлого: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+            </div>
+
+            <div class="section">
+                <h3>5. Төлбөртэй функцууд</h3>
+                <ul>
+                    <li>Нарийвчилсан тооцоолол</li>
+                    <li>PDF, Excel рүү экспортлох</li>
+                    <li>Зар устгах</li>
+                    <li>Premium эрх (нэг удаагийн эсвэл захиалгаар)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>6. Мэдээллийн хяналт</h3>
+                <p>Та дараах зүйлүүдийг хийж болно:</p>
+                <ul>
+                    <li>Аппаар эсвэл Android тохиргоогоор мэдээллийг устгах</li>
+                    <li>Зөвшөөрлийг цуцлах</li>
+                    <li>support@dr-it.studio руу бичиж өөрийн өгсөн мэдээллийг устгуулах</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>7. Аюулгүй байдал</h3>
+                <ul>
+                    <li>Хэрэглэгчийн зөвшөөрөлгүйгээр мэдээлэл илгээгдэхгүй</li>
+                    <li>Бүх тооцоо ба файлууд танай төхөөрөмж дээр хадгалагддаг</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>8. Хүүхдийн нууцлал</h3>
+                <p>13-аас доош насны хүүхдэд зориулсан апп биш.</p>
+            </div>
+
+            <div class="section">
+                <h3>9. Бодлогын шинэчлэлт</h3>
+                <p>Бид бодлогыг үе үе шинэчилж болно. Шинэчилсэн хувилбарыг тогтмол шалгаж байгаарай.</p>
+            </div>
+
+            <div class="section">
+                <h3>11. Хэрэглэгчийн зөвшөөрөл</h3>
+                <p>Апп ашигласнаар та энэхүү нууцлалын бодлогыг хүлээн зөвшөөрч байна.</p>
+            </div>
+
+            <div class="contact">
+                <h3>10. Холбоо барих</h3>
+                <p><strong>DR.IT.Studio</strong></p>
+                <p>Киев, Украин</p>
+                <p>📧 support@dr-it.studio</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="lt" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privatumo politika - Forest Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .policy-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2E7D32;
+        }
+
+        .policy-info h2 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .policy-info p {
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h3 {
+            color: #2E7D32;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E8F5E8;
+        }
+
+        .section p, .section li {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .permission-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .permission-table th,
+        .permission-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #E8F5E8;
+        }
+
+        .permission-table th {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .permission-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc8 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .contact p {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #2E7D32;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #2E7D32;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2E7D32;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .permission-table {
+                font-size: 0.9rem;
+            }
+
+            .permission-table th,
+            .permission-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <p>Privatumo politika</p>
+        </div>
+
+        <div class="content">
+            <a href="privacy-policy.html" class="back-link">← Grįžti į kalbų pasirinkimą</a>
+
+            <div class="policy-info">
+                <h2>Politikos informacija</h2>
+                <p><strong>Stājas spēkā:</strong> 2025 m. gegužės 6 d.</p>
+                <p><strong>Programėlės pavadinimas:</strong> Forest Calculator</p>
+                <p><strong>Kūrėjas:</strong> DR.IT.Studio</p>
+                <p><strong>Buveinė:</strong> Ukraina, Kijevas</p>
+                <p><strong>Kontaktai:</strong> support@dr-it.studio</p>
+            </div>
+
+            <div class="section">
+                <h3>1. Įvadas</h3>
+                <p>Forest Calculator yra programėlė, kurią sukūrė DR.IT.Studio („mes"), skirta medienos tūrio skaičiavimui ir kitoms profesionaliosioms funkcijoms. Ši privatumo politika paaiškina, kokius duomenis renkame, kaip juos naudojame, saugome, apsaugome ir dalinamės – įskaitant informaciją apie atlygintinas reklamas (rewarded ads).</p>
+            </div>
+
+            <div class="section">
+                <h3>2. Kokie duomenys renkami</h3>
+                
+                <h4>2.1 Asmeninė informacija</h4>
+                <p>Mes automatiškai nerenkame asmeninių duomenų. Tačiau vartotojas gali savanoriškai pateikti:</p>
+                <ul>
+                    <li>El. pašto adresą susisiekiant su palaikymu;</li>
+                    <li>Rankiniu būdu įvestą turinį ir nustatymus (pvz., skaičiavimus).</li>
+                </ul>
+
+                <h4>2.2 Ne asmeninė (techninė) informacija</h4>
+                <p>Diagnostikos, tobulinimo ir reklamos tikslais galime rinkti anoniminę informaciją:</p>
+                <ul>
+                    <li>Įrenginio tipas ir OS versija;</li>
+                    <li>Vartotojo sąsajos kalba;</li>
+                    <li>Naudojimo dažnumas ir būdas;</li>
+                    <li>Klaidų žurnalai (crash logs);</li>
+                    <li>Reklamos identifikatorius (Advertising ID).</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>3. Leidimai ir prieiga prie įrenginio</h3>
+                <table class="permission-table">
+                    <thead>
+                        <tr>
+                            <th>Leidimas</th>
+                            <th>Paskirtis</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Prieiga prie saugyklos</td>
+                            <td>Išsaugoti ir atidaryti failus (PDF, Excel ir kt.)</td>
+                        </tr>
+                        <tr>
+                            <td>Internetas</td>
+                            <td>Atnaujinimai, reklamos, el. laiškai</td>
+                        </tr>
+                        <tr>
+                            <td>Dalijimasis su programėlėmis</td>
+                            <td>Skaičiavimų eksportavimas</td>
+                        </tr>
+                        <tr>
+                            <td>Įdiegtų programėlių sąrašas (pasirinktinai)</td>
+                            <td>Rodyti galimus eksportavimo tipus</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Mes nenaudojame leidimų sekti veiklą kitose programėlėse.</p>
+            </div>
+
+            <div class="section">
+                <h3>4. Reklama ir trečiosios šalys</h3>
+                
+                <h4>4.1 Bendra informacija</h4>
+                <p>Programėlė gali rodyti personalizuotas ar nepersonalizuotas reklamas iš tokių partnerių kaip Google AdMob. Reklamos tipą galima pasirinkti pirmą kartą paleidžiant ir vėliau keisti nustatymuose.</p>
+
+                <h4>4.2 Atlygintos vaizdo reklamos</h4>
+                <div class="highlight">
+                    <p>Programėlėje naudojamos vaizdo reklamos su atlyginimais, kurias vartotojas gali savanoriškai žiūrėti, kad gautų prieigą prie tam tikrų funkcijų (pvz., laikinai prie premium įrankių).</p>
+                    
+                    <p><strong>Svarbu:</strong></p>
+                    <ul>
+                        <li>Žiūrėjimas yra pasirinktinis;</li>
+                        <li>Prieš atkūrimą aiškiai paaiškinima, ką gausite;</li>
+                        <li>Atlygis skiriamas tik po visiško peržiūrėjimo;</li>
+                        <li>Jokie asmeniniai duomenys nėra dalijami su reklamos partneriais.</li>
+                    </ul>
+                </div>
+
+                <h4>4.3 Technologijos</h4>
+                <p>Partneriai (įskaitant Google) gali naudoti:</p>
+                <ul>
+                    <li>Slapukus ar panašias technologijas;</li>
+                    <li>Apibendrintus duomenis reklamai rodyti.</li>
+                </ul>
+                <p>Google politika: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+            </div>
+
+            <div class="section">
+                <h3>5. Mokamos funkcijos ir prenumeratos</h3>
+                <p>Programėlė gali pasiūlyti:</p>
+                <ul>
+                    <li>Pažangūs skaičiavimo metodai;</li>
+                    <li>Eksportavimas į PDF, Excel;</li>
+                    <li>Reklamos išjungimas;</li>
+                    <li>Premium prieiga (vienkartinė arba prenumerata).</li>
+                </ul>
+                <p>Visi mokėjimai atliekami per Google Play. Mes nesaugome kortelių duomenų.</p>
+            </div>
+
+            <div class="section">
+                <h3>6. Duomenų valdymas</h3>
+                <p>Galite:</p>
+                <ul>
+                    <li>Ištrinti saugomus duomenis programėlėje ar Android nustatymuose;</li>
+                    <li>Atšaukti leidimus įrenginio nustatymuose;</li>
+                    <li>Išjungti reklamą įsigijus funkciją;</li>
+                    <li>Pakeisti sutikimą dėl reklamos bet kada;</li>
+                    <li>Paprašyti ištrinti pateiktus duomenis el. paštu support@dr-it.studio.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>7. Saugumas</h3>
+                <ul>
+                    <li>Programėlė nesiunčia duomenų į nuotolinius serverius be leidimo.</li>
+                    <li>Visi duomenys saugomi vietiniame įrenginyje.</li>
+                    <li>Rekomenduojame naudoti ekrano užraktą ir kitus apsaugos būdus.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>8. Vaikų privatumas</h3>
+                <p>Programėlė neskirta vaikams iki 13 metų ir nesiekia rinkti jų duomenų. Jei manote, kad vaikas pateikė duomenis – susisiekite, ir mes juos ištrinsime.</p>
+            </div>
+
+            <div class="section">
+                <h3>9. Politikos atnaujinimai</h3>
+                <p>Privatumo politika gali būti periodiškai atnaujinama. Atnaujinimai įsigalioja paskelbus naują versiją su pakeista data. Rekomenduojama reguliariai tikrinti.</p>
+            </div>
+
+            <div class="section">
+                <h3>11. Vartotojo sutikimas</h3>
+                <p>Naudodamiesi Forest Calculator, jūs patvirtinate savo sutikimą su šia privatumo politika. Jei nesutinkate – nutraukite naudojimąsi programėle.</p>
+            </div>
+
+            <div class="contact">
+                <h3>10. Kontaktinė informacija</h3>
+                <p><strong>DR.IT.Studio</strong></p>
+                <p>Ukraina, Kijevas</p>
+                <p>📧 support@dr-it.studio</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

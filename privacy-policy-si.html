@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="si" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>රහස්‍යතා ප්‍රතිපත්තිය - Forest Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Sinhala', 'Sinhala UI', 'Segoe UI', 'Arial Unicode MS', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .policy-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2E7D32;
+        }
+
+        .policy-info h2 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .policy-info p {
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h3 {
+            color: #2E7D32;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E8F5E8;
+        }
+
+        .section p, .section li {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .permission-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .permission-table th,
+        .permission-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #E8F5E8;
+        }
+
+        .permission-table th {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .permission-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc8 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .contact p {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #2E7D32;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #2E7D32;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2E7D32;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .permission-table {
+                font-size: 0.9rem;
+            }
+
+            .permission-table th,
+            .permission-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <p>රහස්‍යතා ප්‍රතිපත්තිය</p>
+        </div>
+
+        <div class="content">
+            <a href="privacy-policy.html" class="back-link">← භාෂා තේරීමට ආපසු</a>
+
+            <div class="policy-info">
+                <h2>ප්‍රතිපත්ති තොරතුරු</h2>
+                <p><strong>බලපැවැත්වෙන දිනය:</strong> 2025 මැයි 6</p>
+                <p><strong>යෙදුමේ නම:</strong> Forest Calculator</p>
+                <p><strong>සංවර්ධකයා:</strong> DR.IT.Studio</p>
+                <p><strong>ස්ථානය:</strong> කියෙව්, යුක්රේනය</p>
+                <p><strong>සම්බන්ධ වන්න:</strong> support@dr-it.studio</p>
+            </div>
+
+            <div class="section">
+                <h3>1. හැඳින්වීම</h3>
+                <p>Forest Calculator යනු DR.IT.Studio විසින් සංවර්ධනය කරන ලද, දැව පරිමාව සහ වෘත්තීය ගණනය සඳහා යෙදුමකි. මෙම රහස්‍යතා ප්‍රතිපත්තිය තුළ අපි එකතු කරන දත්ත, එය භාවිතා කරන ආකාරය, ගබඩා කිරීම, ආරක්ෂාව සහ බෙදාගැනීම — පිරිනමන දැන්වීම් (rewarded ads) ඇතුළුව — පැහැදිලි කරයි.</p>
+            </div>
+
+            <div class="section">
+                <h3>2. අපි එකතු කරන දත්ත</h3>
+                
+                <h4>2.1 පුද්ගලික තොරතුරු</h4>
+                <p>අපි ස්වයංක්‍රීයව පුද්ගලික තොරතුරු එකතු නොකරන්නෙමු. පරිශීලකයාට තමන් විසින් ස්වේච්ඡාවෙන් තොරතුරු ලබා දිය හැක:</p>
+                <ul>
+                    <li>සහාය ලබාගැනීමට විද්‍යුත් තැපෑල</li>
+                    <li>අතින් ඇතුළත් කරන ලද අන්තර්ගතය (උදාහරණයක් ලෙස ගණන්)</li>
+                </ul>
+
+                <h4>2.2 තාක්ෂණික තොරතුරු</h4>
+                <p>සේවාව වැඩිදියුණු කිරීම සඳහා:</p>
+                <ul>
+                    <li>උපාංග වර්ගය සහ මෙහෙයුම් පද්ධතිය</li>
+                    <li>අතුරුමුහුණත භාෂාව</li>
+                    <li>භාවිතා කිරීමේ අවස්ථාවන් සහ ආකාරය</li>
+                    <li>වැරදි ලඝු සටහන්</li>
+                    <li>දැන්වීම් ID</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>3. අවසර සහ ප්‍රවේශය</h3>
+                <table class="permission-table">
+                    <thead>
+                        <tr>
+                            <th>අවසරය</th>
+                            <th>අරමුණ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ගබඩා ප්‍රවේශය</td>
+                            <td>PDF, Excel වැනි ගොනු සුරැකීම සහ විවෘත කිරීම</td>
+                        </tr>
+                        <tr>
+                            <td>අන්තර්ජාලය</td>
+                            <td>යාවත්කාලීන කිරීම්, දැන්වීම්, විද්‍යුත් තැපැල්</td>
+                        </tr>
+                        <tr>
+                            <td>අනෙක් යෙදුම් සමඟ බෙදාගැනීම</td>
+                            <td>Messenger හෝ Email හරහා අපනයනය</td>
+                        </tr>
+                        <tr>
+                            <td>ස්ථාපිත යෙදුම් ලැයිස්තුව (විකල්ප)</td>
+                            <td>අපනයනය කිරීමේ ක්‍රම සඳහන් කිරීම</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h3>4. දැන්වීම් සහ තුන්වන පාර්ශ්ව</h3>
+                <p>Google AdMob මගින් දැන්වීම් පෙන්විය හැක.</p>
+                
+                <div class="highlight">
+                    <h4>පිරිනමන දැන්වීම්:</h4>
+                    <ul>
+                        <li>Rewarded වීඩියෝ හැමවිටම විකල්පයයි</li>
+                        <li>පුද්ගලික දත්ත බෙදාගන්නේ නැත</li>
+                        <li>ප්‍රිමියම් ලක්ෂණ සඳහා තාත්කාලික ප්‍රවේශය</li>
+                    </ul>
+                </div>
+                
+                <p>Google ප්‍රතිපත්තිය: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+            </div>
+
+            <div class="section">
+                <h3>5. ගෙවීම් විශේෂාංග</h3>
+                <ul>
+                    <li>උසස් ගණන් ක්‍රම</li>
+                    <li>PDF/Excel අපනයනය</li>
+                    <li>දැන්වීම් ඉවත් කිරීම</li>
+                    <li>Premium ප්‍රවේශය (එක්වරයක් හෝ දායකත්වය)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>6. දත්ත පාලනය</h3>
+                <p>ඔබට කළ හැක:</p>
+                <ul>
+                    <li>යෙදුම හෝ Android හරහා දත්ත මකා දැමිය හැක</li>
+                    <li>අවසර අවලංගු කළ හැක</li>
+                    <li>support@dr-it.studio වෙත විද්‍යුත් තැපෑලක් යවන්න</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>7. ආරක්ෂාව</h3>
+                <ul>
+                    <li>ඔබේ අනුමැතියකින් තොරව දත්ත මාරු නොවේ</li>
+                    <li>සියලුම දත්ත ඔබේ උපාංගයේම ගබඩා වේ</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>8. ළමුන්ගේ රහස්‍යතාවය</h3>
+                <p>මෙම යෙදුම වයස අවුරුදු 13 ට අඩු ළමුන් සඳහා නොවේ.</p>
+            </div>
+
+            <div class="section">
+                <h3>9. ප්‍රතිපත්ති යාවත්කාලීන</h3>
+                <p>අපි මෙම ප්‍රතිපත්තිය යාවත්කාලීන කළ හැක. නිතරම පරීක්ෂා කරන්න.</p>
+            </div>
+
+            <div class="section">
+                <h3>11. පරිශීලක අනුමැතිය</h3>
+                <p>යෙදුම භාවිතා කිරීමෙන්, ඔබ මෙම ප්‍රතිපත්තිය පිළිගන්නවාය.</p>
+            </div>
+
+            <div class="contact">
+                <h3>10. සම්බන්ධ වීම</h3>
+                <p><strong>DR.IT.Studio</strong></p>
+                <p>කියෙව්, යුක්රේනය</p>
+                <p>📧 support@dr-it.studio</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

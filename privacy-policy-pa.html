@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="pa" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ਗੁਪਤਤਾ ਨੀਤੀ - Forest Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Noto Sans Gurmukhi', 'Gurmukhi UI', 'Segoe UI', 'Arial Unicode MS', sans-serif;
+            line-height: 1.7;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .policy-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2E7D32;
+        }
+
+        .policy-info h2 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .policy-info p {
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h3 {
+            color: #2E7D32;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E8F5E8;
+        }
+
+        .section p, .section li {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .permission-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .permission-table th,
+        .permission-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #E8F5E8;
+        }
+
+        .permission-table th {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .permission-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc8 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .contact p {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #2E7D32;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #2E7D32;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2E7D32;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .permission-table {
+                font-size: 0.9rem;
+            }
+
+            .permission-table th,
+            .permission-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <p>ਗੁਪਤਤਾ ਨੀਤੀ</p>
+        </div>
+
+        <div class="content">
+            <a href="privacy-policy.html" class="back-link">← ਭਾਸ਼ਾ ਚੋਣ ਵਿੱਚ ਵਾਪਸ ਜਾਓ</a>
+
+            <div class="policy-info">
+                <h2>ਨੀਤੀ ਦੀ ਜਾਣਕਾਰੀ</h2>
+                <p><strong>ਲਾਗੂ ਹੋਣ ਦੀ ਤਾਰੀਖ:</strong> 6 ਮਈ 2025</p>
+                <p><strong>ਐਪ ਦਾ ਨਾਮ:</strong> Forest Calculator</p>
+                <p><strong>ਡਿਵੈਲਪਰ:</strong> DR.IT.Studio</p>
+                <p><strong>ਟਿਕਾਣਾ:</strong> ਕੀਵ, ਯੂਕਰੇਨ</p>
+                <p><strong>ਸੰਪਰਕ:</strong> support@dr-it.studio</p>
+            </div>
+
+            <div class="section">
+                <h3>1. ਪਰਿਚਯ</h3>
+                <p>Forest Calculator ਇੱਕ ਐਪ ਹੈ ਜੋ DR.IT.Studio ਵੱਲੋਂ ਵਿਕਸਿਤ ਕੀਤਾ ਗਿਆ ਹੈ, ਜੋ ਲੱਕੜ ਦੀ ਮਾਤਰਾ ਅਤੇ ਹੋਰ ਪੇਸ਼ੇਵਰ ਵਿਸ਼ੇਸ਼ਤਾਵਾਂ ਦੀ ਗਣਨਾ ਲਈ ਵਰਤਿਆ ਜਾਂਦਾ ਹੈ। ਇਹ ਗੋਪਨੀਯਤਾ ਨੀਤੀ ਇਹ ਦੱਸਦੀ ਹੈ ਕਿ ਅਸੀਂ ਕਿਹੜੇ ਡਾਟਾ ਨੂੰ ਇਕੱਠਾ ਕਰਦੇ ਹਾਂ, ਕਿਵੇਂ ਵਰਤਦੇ, ਸਾਂਭਦੇ, ਸੁਰੱਖਿਅਤ ਰੱਖਦੇ ਅਤੇ ਸਾਂਝਾ ਕਰਦੇ ਹਾਂ — ਇਨਾਮ ਵਾਲੀਆਂ ਵਿਡੀਓਜ਼ (rewarded ads) ਸਮੇਤ।</p>
+            </div>
+
+            <div class="section">
+                <h3>2. ਅਸੀਂ ਕੀ ਡਾਟਾ ਇਕੱਠਾ ਕਰਦੇ ਹਾਂ</h3>
+                
+                <h4>2.1 ਨਿੱਜੀ ਜਾਣਕਾਰੀ</h4>
+                <p>ਅਸੀਂ ਆਪਣੇ ਆਪ ਕੋਈ ਵੀ ਨਿੱਜੀ ਜਾਣਕਾਰੀ ਇਕੱਠੀ ਨਹੀਂ ਕਰਦੇ। ਪਰ, ਉਪਭੋਗਤਾ ਆਪਣੀ ਮਰਜ਼ੀ ਨਾਲ ਦਿੱਤਾ ਗਿਆ ਹੋ ਸਕਦਾ ਹੈ:</p>
+                <ul>
+                    <li>ਸਹਾਇਤਾ ਲਈ ਸੰਪਰਕ ਕਰਦੇ ਹੋਏ ਈਮੇਲ ਐਡਰੈੱਸ</li>
+                    <li>ਹੱਥੋਂ ਦਰਜ ਕੀਤੇ ਵਿਵਰਣ (ਗਣਨਾਵਾਂ ਆਦਿ)</li>
+                </ul>
+
+                <h4>2.2 ਗੈਰ-ਨਿੱਜੀ (ਤਕਨੀਕੀ) ਜਾਣਕਾਰੀ</h4>
+                <p>ਸੇਵਾ ਸੁਧਾਰ ਅਤੇ ਵਿਗਿਆਪਨ ਦਿਖਾਉਣ ਲਈ ਇਕੱਠੀ ਕੀਤੀ ਜਾਂਦੀ ਜਾਣਕਾਰੀ:</p>
+                <ul>
+                    <li>ਡਿਵਾਈਸ ਦੀ ਕਿਸਮ ਅਤੇ OS ਵਰਜਨ</li>
+                    <li>ਇੰਟਰਫੇਸ ਦੀ ਭਾਸ਼ਾ</li>
+                    <li>ਵਰਤੋਂ ਦੀ ਆਵਰਤੀ</li>
+                    <li>ਕਰੈਸ਼ ਲੌਗ</li>
+                    <li>ਵਿਗਿਆਪਨ ID</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>3. ਪਰਮਿਸ਼ਨਾਂ ਅਤੇ ਐਕਸੈੱਸ</h3>
+                <table class="permission-table">
+                    <thead>
+                        <tr>
+                            <th>ਪਰਮਿਸ਼ਨ</th>
+                            <th>ਮਕਸਦ</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>ਸਟੋਰੇਜ ਐਕਸੈੱਸ</td>
+                            <td>PDF, Excel ਆਦਿ ਨੂੰ ਸੇਵ ਤੇ ਖੋਲ੍ਹਣ ਲਈ</td>
+                        </tr>
+                        <tr>
+                            <td>ਇੰਟਰਨੈੱਟ</td>
+                            <td>ਅਪਡੇਟ, ਵਿਗਿਆਪਨ ਅਤੇ ਈਮੇਲ ਭੇਜਣ ਲਈ</td>
+                        </tr>
+                        <tr>
+                            <td>ਹੋਰ ਐਪਸ ਨਾਲ ਸਾਂਝਾ ਕਰੋ</td>
+                            <td>ਗਣਨਾਵਾਂ ਨੂੰ ਮੇਸੈਂਜਰ ਜਾਂ ਈਮੇਲ ਰਾਹੀਂ ਐਕਸਪੋਰਟ ਕਰਨ ਲਈ</td>
+                        </tr>
+                        <tr>
+                            <td>ਇੰਸਟਾਲ ਕੀਤੀਆਂ ਐਪਸ ਦੀ ਲਿਸਟ (ਚੋਣਵੀਂ)</td>
+                            <td>ਉਪਲਬਧ ਐਕਸਪੋਰਟ ਵਿਧੀਆਂ ਵਿਖਾਉਣ ਲਈ</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="section">
+                <h3>4. ਵਿਗਿਆਪਨ ਅਤੇ ਥਰਡ ਪਾਰਟੀ ਸੇਵਾਵਾਂ</h3>
+                <p>Google AdMob ਵਰਗੇ ਭਾਈਦਾਰਾਂ ਤੋਂ ਵਿਅਕਤੀਗਤ/ਗੈਰ ਵਿਅਕਤੀਗਤ ਵਿਗਿਆਪਨ ਦਿਖਾਏ ਜਾ ਸਕਦੇ ਹਨ।</p>
+                
+                <div class="highlight">
+                    <h4>ਇਨਾਮ ਵਾਲੀਆਂ ਵਿਡੀਓਜ਼:</h4>
+                    <ul>
+                        <li>ਇਨਾਮ ਵਾਲੀਆਂ ਵਿਡੀਓਜ਼ (ਚੋਣਵੀਂ)</li>
+                        <li>ਪੂਰੀ ਵਿਡੀਓ ਦੇਖਣ ਮਗਰੋਂ ਹੀ ਇਨਾਮ ਮਿਲਦਾ ਹੈ</li>
+                        <li>ਕੋਈ ਵੀ ਨਿੱਜੀ ਡਾਟਾ ਸਾਂਝਾ ਨਹੀਂ ਕੀਤਾ ਜਾਂਦਾ</li>
+                    </ul>
+                </div>
+                
+                <p>Google ਨੀਤੀ: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+            </div>
+
+            <div class="section">
+                <h3>5. ਭੁਗਤਾਨੀ ਫੀਚਰ</h3>
+                <ul>
+                    <li>ਉੱਨਤ ਗਣਨਾ ਵਿਧੀਆਂ</li>
+                    <li>PDF/Excel ਐਕਸਪੋਰਟ</li>
+                    <li>ਵਿਗਿਆਪਨ ਹਟਾਓ</li>
+                    <li>ਪ੍ਰੀਮੀਅਮ ਐਕਸੈੱਸ (ਇੱਕ ਵਾਰ ਜਾਂ ਸਬਸਕ੍ਰਿਪਸ਼ਨ)</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>6. ਡਾਟਾ ਕੰਟਰੋਲ</h3>
+                <p>ਤੁਸੀਂ ਕਰ ਸਕਦੇ ਹੋ:</p>
+                <ul>
+                    <li>ਐਪ ਜਾਂ Android ਸੈਟਿੰਗਜ਼ ਰਾਹੀਂ ਡਾਟਾ ਮਿਟਾਓ</li>
+                    <li>ਪਰਮਿਸ਼ਨਾਂ ਰੱਦ ਕਰੋ</li>
+                    <li>support@dr-it.studio ਉੱਤੇ ਸੰਪਰਕ ਕਰੋ</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>7. ਸੁਰੱਖਿਆ</h3>
+                <ul>
+                    <li>ਬਿਨਾਂ ਮਨਜ਼ੂਰੀ ਕਿਸੇ ਸਰਵਰ ਨੂੰ ਡਾਟਾ ਨਹੀਂ ਭੇਜਿਆ ਜਾਂਦਾ</li>
+                    <li>ਸਾਰੇ ਡਾਟਾ ਲੋਕਲ ਹੀ ਸਟੋਰ ਹੁੰਦੇ ਹਨ</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>8. ਬੱਚਿਆਂ ਦੀ ਗੋਪਨੀਯਤਾ</h3>
+                <p>ਐਪ 13 ਸਾਲ ਤੋਂ ਛੋਟੇ ਬੱਚਿਆਂ ਲਈ ਨਹੀਂ ਹੈ।</p>
+            </div>
+
+            <div class="section">
+                <h3>9. ਨੀਤੀ ਅਪਡੇਟ</h3>
+                <p>ਨੀਤੀ ਸਮੇਂ ਸਮੇਂ 'ਤੇ ਅਪਡੇਟ ਕੀਤੀ ਜਾ ਸਕਦੀ ਹੈ।</p>
+            </div>
+
+            <div class="section">
+                <h3>11. ਉਪਭੋਗਤਾ ਸਹਿਮਤੀ</h3>
+                <p>Forest Calculator ਦੀ ਵਰਤੋਂ ਕਰਕੇ ਤੁਸੀਂ ਇਸ ਗੋਪਨੀਯਤਾ ਨੀਤੀ ਨਾਲ ਸਹਿਮਤ ਹੋ।</p>
+            </div>
+
+            <div class="contact">
+                <h3>10. ਸੰਪਰਕ</h3>
+                <p><strong>DR.IT.Studio</strong></p>
+                <p>ਕੀਵ, ਯੂਕਰੇਨ</p>
+                <p>📧 support@dr-it.studio</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

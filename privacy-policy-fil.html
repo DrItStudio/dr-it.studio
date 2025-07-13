@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="fil">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Calculator - Patakaran sa Privacy</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Arial', 'Helvetica', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 3rem;
+        }
+
+        .app-info {
+            background: #f8f9fa;
+            border-left: 4px solid #4a7c59;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .app-info h3 {
+            color: #2d5016;
+            margin-bottom: 1rem;
+        }
+
+        .app-info p {
+            margin: 0.5rem 0;
+        }
+
+        .app-info strong {
+            color: #2d5016;
+        }
+
+        h2 {
+            color: #2d5016;
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #4a7c59;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #4a7c59;
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .permissions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .permissions-table th,
+        .permissions-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .permissions-table th {
+            background: #4a7c59;
+            color: white;
+            font-weight: bold;
+        }
+
+        .permissions-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .permissions-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .important-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .important-box h4 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+
+        .important-box ul {
+            margin: 0;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #2d5016;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .date-updated {
+            background: #e8f5e8;
+            border: 1px solid #4a7c59;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .date-updated strong {
+            color: #2d5016;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .header {
+                padding: 2rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .permissions-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <div class="subtitle">Patakaran sa Privacy</div>
+        </div>
+
+        <div class="content">
+            <div class="date-updated">
+                <strong>Petsa ng Pagkabisa:</strong> Mayo 6, 2025
+            </div>
+
+            <div class="app-info">
+                <h3>Impormasyon ng App</h3>
+                <p><strong>Pangalan ng App:</strong> Forest Calculator</p>
+                <p><strong>Developer:</strong> DR.IT.Studio</p>
+                <p><strong>Lokasyon:</strong> Kyiv, Ukraine</p>
+                <p><strong>Email:</strong> <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>1. Panimula</h2>
+            <p>Ang Forest Calculator ay isang app na ginawa ng DR.IT.Studio ("kami") para sa pagkalkula ng dami ng kahoy at iba pang propesyonal na gamit. Ipinapaliwanag ng patakaran sa privacy na ito kung anong impormasyon ang kinokolekta namin, paano ito ginagamit, iniimbak, pinoprotektahan, at ibinabahagi — kabilang ang tungkol sa rewarded video ads.</p>
+
+            <h2>2. Anong Datos ang Kinokolekta</h2>
+            
+            <h3>2.1 Personal na Impormasyon</h3>
+            <p>Hindi kami kusang kumokolekta ng personal na datos. Gayunpaman, maaaring boluntaryong magbigay ang user ng:</p>
+            <ul>
+                <li>Email address kapag kumokontak sa suporta;</li>
+                <li>Manwal na ipinasok na nilalaman at setting (tulad ng kalkulasyon).</li>
+            </ul>
+
+            <h3>2.2 Di-personal (Teknikal) na Impormasyon</h3>
+            <p>Para sa diagnostics, pagpapabuti ng serbisyo, at pagpapakita ng ads, maaaring kolektahin ang sumusunod na anonymous na datos:</p>
+            <ul>
+                <li>Uri ng device at bersyon ng OS;</li>
+                <li>Wika ng interface;</li>
+                <li>Dalas at paraan ng paggamit ng app;</li>
+                <li>Crash logs;</li>
+                <li>Advertising ID.</li>
+            </ul>
+
+            <h2>3. Pahintulot at Access ng Device</h2>
+            <table class="permissions-table">
+                <thead>
+                    <tr>
+                        <th>Pahintulot</th>
+                        <th>Layunin</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Access sa Storage</td>
+                        <td>Para i-save at buksan ang mga file (PDF, Excel)</td>
+                    </tr>
+                    <tr>
+                        <td>Internet</td>
+                        <td>Para sa update, ads, at email sending</td>
+                    </tr>
+                    <tr>
+                        <td>Pag-share sa ibang apps</td>
+                        <td>Para sa export ng kalkulasyon sa chat o email</td>
+                    </tr>
+                    <tr>
+                        <td>Listahan ng apps (opsyonal)</td>
+                        <td>Para ipakita ang available export methods</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Hindi namin ginagamit ang mga pahintulot para subaybayan ang aktibidad sa ibang apps.</p>
+
+            <h2>4. Ads at Mga Third-Party</h2>
+            
+            <h3>4.1 Pangkalahatang Impormasyon</h3>
+            <p>Ang app ay maaaring magpakita ng personalized o non-personalized na ads mula sa mga partner gaya ng Google AdMob. Pwedeng piliin ng user ang uri ng ad sa unang launch, at baguhin ito sa settings.</p>
+
+            <h3>4.2 Rewarded Video Ads</h3>
+            <p>Gumagamit ang app ng rewarded video ads kung saan boluntaryong nanonood ang user ng ad para makakuha ng access sa feature (hal. isang beses na access sa premium tools).</p>
+
+            <div class="important-box">
+                <h4>Mahalaga:</h4>
+                <ul>
+                    <li>Ang panonood ay opsyonal;</li>
+                    <li>May malinaw na paliwanag bago simulan ang ad;</li>
+                    <li>Ang reward ay ibinibigay lamang pagkatapos ng buong panonood;</li>
+                    <li>Walang personal na data ang ibinabahagi sa ad partners.</li>
+                </ul>
+            </div>
+
+            <h3>4.3 Ginagamit na Teknolohiya</h3>
+            <p>Maaaring gumamit ang mga partner (kasama ang Google) ng:</p>
+            <ul>
+                <li>Advertising ID;</li>
+                <li>Cookies o katulad na teknolohiya;</li>
+                <li>Aggregated data para sa ad targeting.</li>
+            </ul>
+            <p>Patakaran ng Google: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+
+            <h2>5. Bayad na Feature at Subscription</h2>
+            <p>Maaaring mag-alok ang app ng:</p>
+            <ul>
+                <li>Advanced na kalkulasyon;</li>
+                <li>Export sa PDF at Excel;</li>
+                <li>Pag-alis ng ads;</li>
+                <li>Premium access (subscription o one-time).</li>
+            </ul>
+            <p>Lahat ng bayad ay pinoproseso sa pamamagitan ng Google Play. Hindi kami nag-iimbak ng card information.</p>
+
+            <h2>6. Kontrol sa Inyong Datos</h2>
+            <p>Maari kayong:</p>
+            <ul>
+                <li>Magtanggal ng data sa app o Android settings;</li>
+                <li>Bawiin ang pahintulot sa settings ng device;</li>
+                <li>Patayin ang ads sa pamamagitan ng pagbili;</li>
+                <li>Baguhin ang ad consent anumang oras;</li>
+                <li>Humiling ng pagbura ng datos sa email: <a href="mailto:support@dr-it.studio">support@dr-it.studio</a>.</li>
+            </ul>
+
+            <h2>7. Seguridad</h2>
+            <ul>
+                <li>Hindi ipinapadala ng app ang datos sa remote server nang walang pahintulot.</li>
+                <li>Lahat ng datos ay naka-store lamang sa device ninyo.</li>
+                <li>Inirerekomenda namin ang paggamit ng screen lock at security features.</li>
+            </ul>
+
+            <h2>8. Privacy ng Bata</h2>
+            <p>Ang app ay hindi para sa mga batang wala pang 13 taon at hindi sadyang kumokolekta ng kanilang data. Kung sa palagay ninyo may ganitong kaso – kontakin kami para agad naming burahin ito.</p>
+
+            <h2>9. Pag-update ng Patakaran</h2>
+            <p>Maaaring i-update ang patakaran paminsan-minsan. Epektibo ito agad matapos ilabas ang bagong bersyon. Inirerekomenda naming regular na tingnan ito.</p>
+
+            <h2>10. Impormasyon sa Pakikipag-ugnayan</h2>
+            <div class="contact-info">
+                <h3>DR.IT.Studio</h3>
+                <p>Kyiv, Ukraine</p>
+                <p>📧 <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>11. Pahintulot ng User</h2>
+            <p>Sa paggamit ng Forest Calculator, kinukumpirma ninyong sumasang-ayon kayo sa patakaran sa privacy na ito. Kung hindi – itigil ang paggamit ng app.</p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 DR.IT.Studio. Lahat ng karapatan ay nakalaan.</p>
+        </div>
+    </div>
+</body>
+</html>

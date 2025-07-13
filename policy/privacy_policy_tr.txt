@@ -1,0 +1,111 @@
+Gizlilik Politikası
+Yürürlük tarihi: 6 Mayıs 2025
+Uygulama Adı: Forest Calculator
+Geliştirici: DR.IT.Studio
+Konum: Kiev, Ukrayna
+İletişim: support@dr-it.studio
+
+1. Giriş
+Forest Calculator, DR.IT.Studio ("biz") tarafından geliştirilmiş, odun hacmi hesaplama ve diğer profesyonel işlevler için tasarlanmış bir uygulamadır. Bu Gizlilik Politikası, hangi verileri topladığımızı, nasıl kullandığımızı, sakladığımızı, koruduğumuzu ve paylaştığımızı, ayrıca ödüllü videolu reklamlar (Rewarded Video) hakkındaki bilgileri açıklar.
+
+2. Topladığımız Veriler
+2.1 Kişisel Bilgiler
+Kişisel veriler otomatik olarak toplanmaz. Ancak kullanıcı şu verileri gönüllü olarak sağlayabilir:
+
+Destekle iletişime geçerken e-posta adresi;
+
+Uygulama içinde manuel olarak girilen içerik ve veriler (örneğin hesaplamalar).
+
+2.2 Kişisel Olmayan (Teknik) Bilgiler
+Tanılama, hizmet geliştirme ve reklam gösterimi amaçlarıyla anonim teknik veriler toplayabiliriz:
+
+Cihaz türü ve işletim sistemi sürümü;
+
+Arayüz dili;
+
+Uygulama kullanım sıklığı ve şekli;
+
+Hata günlükleri (çökme kayıtları);
+
+Reklam cihaz kimliği (Advertising ID).
+
+3. Erişim İzinleri
+İzin	Amaç
+Depolama erişimi	Dosyaların (PDF, Excel vb.) kaydedilmesi ve açılması
+İnternet	Güncellemeler, reklamlar ve e-posta gönderimi
+Diğer uygulamalarla paylaşım	Hesapların mesajlaşma uygulamalarıyla paylaşılması
+Yüklü uygulama listesi (isteğe bağlı)	İhracat seçeneklerinin gösterilmesi
+
+Diğer uygulamalardaki etkinliklerinizi izlemeyiz.
+
+4. Reklamlar ve Üçüncü Taraf Hizmetleri
+4.1 Genel Bilgi
+Uygulama, Google AdMob gibi iş ortakları tarafından sağlanan kişiselleştirilmiş veya kişiselleştirilmemiş reklamlar gösterebilir. Reklam türü ilk kullanımda seçilebilir ve ayarlardan değiştirilebilir.
+
+4.2 Ödüllü Video Reklamlar (Rewarded Video)
+Kullanıcılar bazı premium özelliklere erişmek için isteğe bağlı olarak reklam izleyebilirler.
+
+Önemli:
+
+Reklam izleme her zaman isteğe bağlıdır;
+
+Sağlanan özellik önceden açıklanır;
+
+Ödül sadece reklamın tamamen izlenmesi durumunda verilir;
+
+Kişisel veriler reklam ortaklarına aktarılmaz.
+
+4.3 Kullanılan Teknolojiler
+İş ortakları (Google dahil) şu teknolojileri kullanabilir:
+
+Reklam kimlikleri;
+
+Çerezler veya benzer teknolojiler;
+
+Toplu veriler ile hedefli reklamlar.
+Google politikası: https://policies.google.com/technologies/ads
+
+5. Ücretli Özellikler ve Abonelikler
+Uygulama, ücret karşılığında şu özellikleri sunabilir:
+
+Gelişmiş hesaplama yöntemleri;
+
+PDF ve Excel dışa aktarım;
+
+Reklamların kaldırılması;
+
+Premium erişim (abonelik veya tek seferlik satın alma).
+
+Tüm ödemeler Google Play aracılığıyla yapılır. Kart bilgileri tarafımızca saklanmaz.
+
+6. Veri Kontrolü
+Şunları yapabilirsiniz:
+
+Verileri uygulama veya Android ayarlarından silebilirsiniz;
+
+Cihaz ayarlarından izinleri iptal edebilirsiniz;
+
+Reklamları kapatmak için ilgili özelliği satın alabilirsiniz;
+
+Reklam izni tercihinizi değiştirebilirsiniz;
+
+Gönüllü sağladığınız verilerin silinmesini support@dr-it.studio adresine yazarak talep edebilirsiniz.
+
+7. Güvenlik
+Kullanıcı onayı olmadan hiçbir veri uzak sunuculara aktarılmaz.
+Tüm veriler cihazda yerel olarak saklanır.
+Ekran kilidi gibi güvenlik önlemleri önerilir.
+
+8. Çocukların Gizliliği
+Bu uygulama 13 yaş altı çocuklara yönelik değildir ve onların verilerini toplamaz. Yanlışlıkla veri sağlandığını düşünüyorsanız bizimle iletişime geçin.
+
+9. Politika Güncellemeleri
+Bu politika zaman zaman güncellenebilir. Değişiklikler yayımlandıktan sonra geçerli olur. Güncellemeleri düzenli olarak kontrol etmeniz önerilir.
+
+10. İletişim
+DR.IT.Studio
+Kiev, Ukrayna
+📧 support@dr-it.studio
+
+11. Kullanıcı Onayı
+Forest Calculator uygulamasını kullanarak bu gizlilik politikasını kabul etmiş olursunuz. Kabul etmiyorsanız uygulamayı kullanmayı bırakmalısınız.

@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Calculator - Adatvédelmi irányelvek</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', 'Arial', 'Helvetica', sans-serif;
+            line-height: 1.8;
+            color: #333;
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            min-height: 100vh;
+            padding: 20px 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            text-align: center;
+            padding: 3rem 2rem;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+
+        .header .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 3rem;
+        }
+
+        .app-info {
+            background: #f8f9fa;
+            border-left: 4px solid #4a7c59;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .app-info h3 {
+            color: #2d5016;
+            margin-bottom: 1rem;
+        }
+
+        .app-info p {
+            margin: 0.5rem 0;
+        }
+
+        .app-info strong {
+            color: #2d5016;
+        }
+
+        h2 {
+            color: #2d5016;
+            font-size: 1.8rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #4a7c59;
+            padding-bottom: 0.5rem;
+        }
+
+        h3 {
+            color: #4a7c59;
+            font-size: 1.3rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+            text-align: justify;
+        }
+
+        ul {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        .permissions-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1.5rem 0;
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .permissions-table th,
+        .permissions-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .permissions-table th {
+            background: #4a7c59;
+            color: white;
+            font-weight: bold;
+        }
+
+        .permissions-table tr:last-child td {
+            border-bottom: none;
+        }
+
+        .permissions-table tr:nth-child(even) {
+            background: #f8f9fa;
+        }
+
+        .important-box {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 1px solid #ffeaa7;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+        }
+
+        .important-box h4 {
+            color: #856404;
+            margin-bottom: 1rem;
+        }
+
+        .important-box ul {
+            margin: 0;
+        }
+
+        .contact-info {
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+
+        .contact-info h3 {
+            color: white;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info a {
+            color: #ffd700;
+            text-decoration: none;
+        }
+
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            background: #2d5016;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.9rem;
+        }
+
+        .date-updated {
+            background: #e8f5e8;
+            border: 1px solid #4a7c59;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .date-updated strong {
+            color: #2d5016;
+        }
+
+        @media (max-width: 768px) {
+            .content {
+                padding: 2rem 1.5rem;
+            }
+            
+            .header {
+                padding: 2rem 1rem;
+            }
+            
+            .header h1 {
+                font-size: 2rem;
+            }
+            
+            .permissions-table {
+                font-size: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <div class="subtitle">Adatvédelmi irányelvek</div>
+        </div>
+
+        <div class="content">
+            <div class="date-updated">
+                <strong>Hatályba lépés dátuma:</strong> 2025. május 6.
+            </div>
+
+            <div class="app-info">
+                <h3>Alkalmazás információk</h3>
+                <p><strong>Alkalmazás neve:</strong> Forest Calculator</p>
+                <p><strong>Fejlesztő:</strong> DR.IT.Studio</p>
+                <p><strong>Helyszín:</strong> Kijev, Ukrajna</p>
+                <p><strong>Kapcsolat:</strong> <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>1. Bevezetés</h2>
+            <p>A Forest Calculator a DR.IT.Studio ("mi") által fejlesztett alkalmazás fa térfogatának kiszámítására és egyéb szakmai funkciókra. Ez az adatvédelmi irányelv elmagyarázza, milyen adatokat gyűjtünk, hogyan használjuk, tároljuk, védjük és osztjuk meg — beleértve a jutalmazott videóhirdetéseket is (Rewarded Video).</p>
+
+            <h2>2. Gyűjtött adatok</h2>
+            
+            <h3>2.1 Személyes adatok</h3>
+            <p>Nem gyűjtünk személyes adatokat automatikusan. A felhasználó azonban önkéntesen megadhatja:</p>
+            <ul>
+                <li>E-mail címet ügyfélszolgálati kapcsolatfelvételkor</li>
+                <li>Az alkalmazásban manuálisan megadott tartalmakat és számításokat</li>
+            </ul>
+
+            <h3>2.2 Nem személyes (technikai) adatok</h3>
+            <p>Hibakeresés, fejlesztés és hirdetés céljából anonim technikai adatokat gyűjthetünk:</p>
+            <ul>
+                <li>Eszköztípus és operációs rendszer verziója</li>
+                <li>Felület nyelve</li>
+                <li>Funkciók használatának gyakorisága</li>
+                <li>Hibanaplók (crash log)</li>
+                <li>Hirdetési azonosító (Advertising ID)</li>
+            </ul>
+
+            <h2>3. Engedélyek</h2>
+            <table class="permissions-table">
+                <thead>
+                    <tr>
+                        <th>Engedély</th>
+                        <th>Cél</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Tárhely elérés</td>
+                        <td>Fájlok mentése és megnyitása (PDF, Excel stb.)</td>
+                    </tr>
+                    <tr>
+                        <td>Internetkapcsolat</td>
+                        <td>Frissítésekhez, reklámhoz, e-mailek küldéséhez</td>
+                    </tr>
+                    <tr>
+                        <td>Megosztás más alkalmazásokkal</td>
+                        <td>Exportálás üzenetküldőkkel vagy e-mailben</td>
+                    </tr>
+                    <tr>
+                        <td>Telepített alkalmazások listája (opcionális)</td>
+                        <td>Elérhető exportálási lehetőségek megjelenítése</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Nem követjük a felhasználó más alkalmazásokban végzett tevékenységét.</p>
+
+            <h2>4. Hirdetés és külső szolgáltatók</h2>
+            
+            <h3>4.1 Általános információk</h3>
+            <p>Az alkalmazás személyre szabott vagy nem személyre szabott hirdetéseket jeleníthet meg a Google AdMob és más partnereken keresztül. A felhasználó az első használatkor választhat, majd később módosíthatja.</p>
+
+            <h3>4.2 Jutalmazott videóhirdetések (Rewarded Video)</h3>
+            <p>A felhasználók önként nézhetnek reklámokat egyes prémium funkciók egyszeri eléréséhez (például ideiglenesen prémium eszközökhöz).</p>
+
+            <div class="important-box">
+                <h4>Fontos:</h4>
+                <ul>
+                    <li>A reklám megtekintése teljesen önkéntes</li>
+                    <li>A jutalom egyértelműen ismertetésre kerül</li>
+                    <li>Csak teljes megtekintés után jár a jutalom</li>
+                    <li>Személyes adatokat nem osztunk meg hirdetőkkel</li>
+                </ul>
+            </div>
+
+            <h3>4.3 Használt technológiák</h3>
+            <p>Partnerek (pl. Google) használhatják:</p>
+            <ul>
+                <li>Hirdetési azonosítók</li>
+                <li>Cookie-k és hasonló technológiák</li>
+                <li>Aggregált adatok a célzott hirdetésekhez</li>
+            </ul>
+            <p>Google irányelvek: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+
+            <h2>5. Fizetős funkciók és előfizetések</h2>
+            <p>Az alkalmazás a következő fizetős lehetőségeket kínálhatja:</p>
+            <ul>
+                <li>Fejlettebb számítási módszerek</li>
+                <li>PDF és Excel exportálás</li>
+                <li>Hirdetések eltávolítása</li>
+                <li>Prémium hozzáférés (előfizetés vagy egyszeri vásárlás)</li>
+            </ul>
+            <p>A fizetések a Google Play-en keresztül történnek. Nem tárolunk kártyaadatokat.</p>
+
+            <h2>6. Adatok kezelése</h2>
+            <p>Lehetőséged van:</p>
+            <ul>
+                <li>Az adatok törlésére az alkalmazásból vagy az Android beállításaiból</li>
+                <li>Engedélyek visszavonására</li>
+                <li>Hirdetések kikapcsolására vásárlással</li>
+                <li>Hozzájárulás módosítására</li>
+                <li>Adattörlési kérés küldésére: <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></li>
+            </ul>
+
+            <h2>7. Biztonság</h2>
+            <ul>
+                <li>Nem továbbítunk adatokat külső szerverekre a hozzájárulásod nélkül.</li>
+                <li>Minden adat helyileg tárolódik az eszközön.</li>
+                <li>Javasoljuk a képernyőzár használatát és egyéb biztonsági intézkedéseket.</li>
+            </ul>
+
+            <h2>8. Gyermekek védelme</h2>
+            <p>Az alkalmazás nem 13 év alatti gyermekek számára készült, és nem gyűjt szándékosan kiskorúaktól származó adatokat. Ha úgy gondolod, hogy gyermeked személyes adatokat adott meg, kérjük, értesíts minket — azonnal töröljük azokat.</p>
+
+            <h2>9. Irányelv frissítések</h2>
+            <p>Ezt az adatvédelmi irányelvet időről időre frissíthetjük. A módosítások azonnal hatályba lépnek a frissített verzió közzétételével.</p>
+
+            <h2>10. Kapcsolat</h2>
+            <div class="contact-info">
+                <h3>DR.IT.Studio</h3>
+                <p>Kijev, Ukrajna</p>
+                <p>📧 <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+            </div>
+
+            <h2>11. Felhasználói hozzájárulás</h2>
+            <p>A Forest Calculator használatával elfogadod ezt az adatvédelmi irányelvet. Ha nem értesz egyet — kérjük, ne használd tovább az alkalmazást.</p>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2025 DR.IT.Studio. Minden jog fenntartva.</p>
+        </div>
+    </div>
+</body>
+</html>

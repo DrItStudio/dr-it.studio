@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="ms" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dasar Privasi - Forest Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .content {
+            padding: 40px 30px;
+        }
+
+        .policy-info {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            border-left: 5px solid #2E7D32;
+        }
+
+        .policy-info h2 {
+            color: #2E7D32;
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .policy-info p {
+            margin-bottom: 8px;
+            font-size: 1rem;
+        }
+
+        .section {
+            margin-bottom: 35px;
+        }
+
+        .section h3 {
+            color: #2E7D32;
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            padding-bottom: 8px;
+            border-bottom: 2px solid #E8F5E8;
+        }
+
+        .section p, .section li {
+            margin-bottom: 10px;
+            text-align: justify;
+        }
+
+        .section ul, .section ol {
+            margin-left: 20px;
+            margin-bottom: 15px;
+        }
+
+        .permission-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .permission-table th,
+        .permission-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #E8F5E8;
+        }
+
+        .permission-table th {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+
+        .permission-table tr:hover {
+            background-color: #f8f9fa;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, #a8e6cf 0%, #dcedc8 100%);
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #4CAF50;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #2E7D32 0%, #4CAF50 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .contact h3 {
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+
+        .contact p {
+            margin-bottom: 8px;
+            font-size: 1.1rem;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #2E7D32;
+            text-decoration: none;
+            font-weight: 600;
+            padding: 10px 20px;
+            border: 2px solid #2E7D32;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            background: #2E7D32;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+
+            .container {
+                border-radius: 15px;
+            }
+
+            .header {
+                padding: 30px 20px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .content {
+                padding: 30px 20px;
+            }
+
+            .permission-table {
+                font-size: 0.9rem;
+            }
+
+            .permission-table th,
+            .permission-table td {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🌲 Forest Calculator</h1>
+            <p>Dasar Privasi</p>
+        </div>
+
+        <div class="content">
+            <a href="privacy-policy.html" class="back-link">← Kembali ke pemilihan bahasa</a>
+
+            <div class="policy-info">
+                <h2>Maklumat Dasar</h2>
+                <p><strong>Tarikh Kuat Kuasa:</strong> 6 Mei 2025</p>
+                <p><strong>Nama Aplikasi:</strong> Forest Calculator</p>
+                <p><strong>Pembangun:</strong> DR.IT.Studio</p>
+                <p><strong>Lokasi:</strong> Kyiv, Ukraine</p>
+                <p><strong>Hubungi:</strong> support@dr-it.studio</p>
+            </div>
+
+            <div class="section">
+                <h3>1. Pengenalan</h3>
+                <p>Forest Calculator, dibangunkan oleh DR.IT.Studio ("kami"), adalah aplikasi untuk pengiraan isipadu kayu dan ciri profesional lain. Dasar Privasi ini menerangkan data yang kami kumpul, cara kami menggunakannya, menyimpan, melindungi dan berkongsi — termasuk iklan ganjaran.</p>
+            </div>
+
+            <div class="section">
+                <h3>2. Data yang Kami Kumpulkan</h3>
+                
+                <h4>2.1 Maklumat Peribadi</h4>
+                <p>Kami tidak mengumpul data peribadi secara automatik. Namun, pengguna mungkin memberikan:</p>
+                <ul>
+                    <li>alamat emel semasa menghubungi sokongan;</li>
+                    <li>kandungan dan tetapan yang dimasukkan secara manual (contohnya, pengiraan).</li>
+                </ul>
+
+                <h4>2.2 Maklumat Bukan Peribadi (Teknikal)</h4>
+                <p>Kami mungkin mengumpul maklumat tanpa nama untuk diagnosis, penambahbaikan dan pengiklanan, termasuk:</p>
+                <ul>
+                    <li>jenis peranti dan versi OS;</li>
+                    <li>bahasa antara muka;</li>
+                    <li>kekerapan dan kaedah penggunaan aplikasi;</li>
+                    <li>log ralat;</li>
+                    <li>ID pengiklanan.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>3. Kebenaran & Akses Peranti</h3>
+                <table class="permission-table">
+                    <thead>
+                        <tr>
+                            <th>Kebenaran</th>
+                            <th>Tujuan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Akses storan</td>
+                            <td>Menyimpan dan membuka fail (PDF, Excel, dll.)</td>
+                        </tr>
+                        <tr>
+                            <td>Internet</td>
+                            <td>Kemas kini, iklan, dan penghantaran emel</td>
+                        </tr>
+                        <tr>
+                            <td>Perkongsian dengan aplikasi lain</td>
+                            <td>Eksport pengiraan melalui pemesej dan emel</td>
+                        </tr>
+                        <tr>
+                            <td>Senarai aplikasi terpasang (pilihan)</td>
+                            <td>Menunjukkan kaedah eksport tersedia</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Kami tidak menjejak tingkah laku pengguna dalam aplikasi lain.</p>
+            </div>
+
+            <div class="section">
+                <h3>4. Iklan dan Perkhidmatan Pihak Ketiga</h3>
+                
+                <h4>4.1 Umum</h4>
+                <p>Aplikasi ini mungkin memaparkan iklan diperibadikan atau tidak melalui rakan seperti Google AdMob. Pengguna boleh memilih jenis iklan semasa pelancaran pertama dan menukarnya dalam tetapan.</p>
+
+                <h4>4.2 Iklan Video Ganjaran</h4>
+                <div class="highlight">
+                    <p>Pengguna boleh menonton video secara sukarela untuk membuka akses ke ciri tertentu (seperti alat premium sekali sahaja).</p>
+                    
+                    <p><strong>Penting:</strong></p>
+                    <ul>
+                        <li>Menonton iklan adalah pilihan;</li>
+                        <li>Penjelasan yang jelas diberikan sebelum tayangan;</li>
+                        <li>Ganjaran hanya diberikan selepas tontonan penuh;</li>
+                        <li>Tiada data peribadi dikongsi dengan rakan iklan.</li>
+                    </ul>
+                </div>
+
+                <h4>4.3 Teknologi Digunakan</h4>
+                <p>Rakan kongsi (termasuk Google) boleh menggunakan:</p>
+                <ul>
+                    <li>ID pengiklanan;</li>
+                    <li>kuki atau teknologi serupa;</li>
+                    <li>data agregat untuk penyasaran iklan.</li>
+                </ul>
+                <p>Dasar Google: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></p>
+            </div>
+
+            <div class="section">
+                <h3>5. Ciri Berbayar & Langganan</h3>
+                <p>Aplikasi ini menawarkan:</p>
+                <ul>
+                    <li>kaedah pengiraan lanjutan;</li>
+                    <li>eksport ke PDF atau Excel;</li>
+                    <li>buang iklan;</li>
+                    <li>akses premium (berlangganan atau sekali sahaja).</li>
+                </ul>
+                <p>Pembayaran diproses oleh Google Play. Kami tidak menyimpan maklumat kad.</p>
+            </div>
+
+            <div class="section">
+                <h3>6. Kawalan Data Anda</h3>
+                <p>Anda boleh:</p>
+                <ul>
+                    <li>memadam data dari aplikasi atau tetapan Android;</li>
+                    <li>tarik balik kebenaran;</li>
+                    <li>nyahaktifkan iklan dengan pembelian;</li>
+                    <li>ubah kebenaran iklan bila-bila masa;</li>
+                    <li>minta pemadaman data peribadi melalui emel ke support@dr-it.studio.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>7. Keselamatan</h3>
+                <ul>
+                    <li>Tiada data dihantar ke pelayan tanpa kebenaran.</li>
+                    <li>Semua dokumen disimpan secara setempat.</li>
+                    <li>Gunakan kunci skrin atau perlindungan lain untuk keselamatan.</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h3>8. Privasi Kanak-kanak</h3>
+                <p>Aplikasi ini tidak ditujukan kepada kanak-kanak di bawah umur 13 tahun. Jika anak anda telah menghantar data, hubungi kami dan kami akan memadamkannya segera.</p>
+            </div>
+
+            <div class="section">
+                <h3>9. Kemas Kini Polisi</h3>
+                <p>Dasar ini mungkin dikemas kini dari semasa ke semasa. Tarikh berkuat kuasa baru akan ditunjukkan. Semak secara berkala.</p>
+            </div>
+
+            <div class="section">
+                <h3>11. Persetujuan Pengguna</h3>
+                <p>Dengan menggunakan Forest Calculator, anda bersetuju dengan dasar ini. Jika tidak bersetuju — sila berhenti menggunakan aplikasi.</p>
+            </div>
+
+            <div class="contact">
+                <h3>10. Hubungi</h3>
+                <p><strong>DR.IT.Studio</strong></p>
+                <p>Kyiv, Ukraine</p>
+                <p>📧 support@dr-it.studio</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
