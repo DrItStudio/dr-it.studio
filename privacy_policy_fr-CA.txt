@@ -1,0 +1,111 @@
+Politique de confidentialité
+Date d’entrée en vigueur : 6 mai 2025
+Nom de l’application : Forest Calculator
+Développeur : DR.IT.Studio
+Lieu : Kyiv, Ukraine
+Contact : support@dr-it.studio
+
+Introduction
+Forest Calculator, développé par DR.IT.Studio (« nous »), est une application permettant de calculer le volume de bois et d’utiliser d’autres fonctionnalités professionnelles. Cette politique de confidentialité explique les données que nous collectons, comment nous les utilisons, les stockons, les protégeons et les partageons — y compris les détails relatifs aux publicités récompensées.
+
+Données que nous collectons
+2.1 Informations personnelles
+Nous ne collectons pas automatiquement de données personnelles. Cependant, l’utilisateur peut fournir volontairement :
+
+son adresse courriel lors d’un contact avec le support ;
+
+du contenu et des préférences saisis manuellement (ex. : calculs).
+
+2.2 Informations techniques (non personnelles)
+À des fins de diagnostic, d’amélioration de service et d’affichage publicitaire, nous pouvons collecter des informations anonymes telles que :
+
+le type d’appareil et la version du système d’exploitation ;
+
+la langue de l’interface ;
+
+la fréquence et la manière d’utilisation de l’application ;
+
+les rapports de crash ;
+
+l’identifiant publicitaire.
+
+Autorisations et accès à l’appareil
+| Autorisation | But |
+|--------------|-----|
+| Accès au stockage | Sauvegarder et ouvrir des fichiers (PDF, Excel, etc.) |
+| Internet | Mises à jour, publicités, envoi d’e-mails |
+| Partage avec d’autres applications | Exporter des calculs via messagerie ou courriel |
+| Liste des applications installées (optionnel) | Afficher les options d’export disponibles |
+
+Nous n’utilisons pas ces autorisations pour suivre l’activité dans d’autres applications.
+
+Publicités et services tiers
+4.1 Informations générales
+L’application peut afficher des publicités personnalisées ou non personnalisées via des partenaires tels que Google AdMob. L’utilisateur choisit le type de publicité au premier lancement et peut le modifier dans les paramètres.
+
+4.2 Vidéos publicitaires récompensées
+L’application propose des publicités vidéo récompensées, que l’utilisateur peut regarder volontairement pour accéder à certaines fonctionnalités (ex. : outils premium temporaires).
+
+Important :
+
+Regarder les publicités est toujours optionnel ;
+
+Une explication claire est donnée avant diffusion ;
+
+La récompense est accordée uniquement après avoir visionné la vidéo entièrement ;
+
+Aucune donnée personnelle n’est partagée avec les partenaires publicitaires.
+
+4.3 Technologies utilisées
+Les partenaires (y compris Google) peuvent utiliser :
+
+des identifiants publicitaires ;
+
+des cookies ou technologies similaires ;
+
+des données agrégées pour le ciblage publicitaire.
+Politique Google : https://policies.google.com/technologies/ads
+
+Fonctionnalités payantes et abonnements
+L’application peut proposer :
+
+des méthodes de calcul avancées ;
+
+l’exportation vers PDF, Excel ;
+
+la suppression des publicités ;
+
+un accès premium (abonnement ou paiement unique).
+Tous les paiements sont traités via Google Play. Nous ne stockons pas les données de carte bancaire.
+
+Contrôle des données
+Vous pouvez :
+
+supprimer les données enregistrées via l’application ou les paramètres Android ;
+
+révoquer les autorisations dans les réglages de l’appareil ;
+
+désactiver les publicités en achetant l’option correspondante ;
+
+modifier à tout moment votre consentement publicitaire ;
+
+demander la suppression des données volontaires en contactant support@dr-it.studio.
+
+Sécurité
+Aucune donnée n’est transmise à des serveurs distants sans votre consentement.
+Tous les calculs et documents sont enregistrés localement sur votre appareil.
+Nous vous recommandons d’activer un verrouillage d’écran et d’autres mesures de sécurité.
+
+Confidentialité des enfants
+L’application n’est pas destinée aux enfants de moins de 13 ans et ne collecte pas sciemment leurs données. Si vous pensez qu’un enfant a fourni des informations personnelles, veuillez nous contacter — elles seront supprimées rapidement.
+
+Mises à jour de la politique
+Cette politique peut être mise à jour périodiquement. Les modifications prennent effet dès leur publication avec la nouvelle date. Il est conseillé de la consulter régulièrement.
+
+Coordonnées
+DR.IT.Studio
+Kyiv, Ukraine
+📧 support@dr-it.studio
+
+Consentement de l’utilisateur
+En utilisant Forest Calculator, vous acceptez cette politique de confidentialité. Si vous n’êtes pas d’accord, cessez d’utiliser l’application.

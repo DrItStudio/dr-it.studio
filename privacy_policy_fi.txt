@@ -1,0 +1,111 @@
+Tietosuojakäytäntö
+Voimaantulopäivä: 6. toukokuuta 2025
+Sovelluksen nimi: Forest Calculator
+Kehittäjä: DR.IT.Studio
+Sijainti: Kiova, Ukraina
+Yhteystiedot: support@dr-it.studio
+
+Johdanto
+Forest Calculator on DR.IT.Studion ("me") kehittämä sovellus puun tilavuuden laskentaan ja ammatillisiin tarkoituksiin. Tämä tietosuojakäytäntö selittää, mitä tietoja keräämme, miten niitä käytämme, säilytämme, suojaamme ja jaamme — mukaan lukien mainokset, joissa käyttäjä saa palkinnon.
+
+Kerättävät tiedot
+2.1 Henkilökohtaiset tiedot
+Emme kerää henkilökohtaisia tietoja automaattisesti. Käyttäjä voi kuitenkin vapaaehtoisesti antaa:
+
+sähköpostiosoitteen ottaessaan yhteyttä tukeen;
+
+manuaalisesti syötettyä sisältöä ja asetuksia (esim. laskelmat).
+
+2.2 Ei-henkilökohtaiset (tekniset) tiedot
+Vianmääritystä, palvelun parantamista ja mainosten näyttöä varten saatamme kerätä anonyymejä tietoja:
+
+laitetyyppi ja käyttöjärjestelmän versio;
+
+käyttöliittymän kieli;
+
+sovelluksen käyttötavat ja käyttötiheys;
+
+kaatumislokit;
+
+mainostunniste.
+
+Luvat ja laitteen käyttöoikeudet
+| Lupa | Tarkoitus |
+|------|-----------|
+| Tallennusoikeus | Tallentaa ja avata tiedostoja (PDF, Excel jne.) |
+| Internet | Päivityksiin, mainoksiin, sähköpostin lähettämiseen |
+| Jako muihin sovelluksiin | Laskelmien vienti viestien ja sähköpostin kautta |
+| Asennettujen sovellusten lista (valinnainen) | Näyttää vientimenetelmät |
+
+Emme käytä lupia muiden sovellusten käyttösi seurantaan.
+
+Mainokset ja kolmannen osapuolen palvelut
+4.1 Yleistä tietoa
+Sovellus voi näyttää personoituja tai ei-personoituja mainoksia esim. Google AdMobin kautta. Käyttäjä valitsee mainostyypin ensimmäisellä käynnistyskerralla ja voi vaihtaa sen asetuksissa.
+
+4.2 Palkitut videomainokset
+Sovelluksessa käytetään vapaaehtoisia videomainoksia, joita katsomalla käyttäjä saa pääsyn tiettyihin ominaisuuksiin (esim. premium-työkalut kerran).
+Tärkeää:
+
+Mainosten katsominen on aina vapaaehtoista;
+
+Ennen videon toistoa annetaan selkeä selitys;
+
+Palkinto annetaan vain täyden katselun jälkeen;
+
+Henkilötietoja ei jaeta mainoskumppaneiden kanssa.
+
+4.3 Käytetyt teknologiat
+Kumppanit (kuten Google) voivat käyttää:
+
+mainostunnisteita;
+
+evästeitä tai vastaavia tekniikoita;
+
+koottuja tietoja mainosten kohdentamiseen.
+Google: https://policies.google.com/technologies/ads
+
+Maksulliset ominaisuudet ja tilaukset
+Sovellus voi tarjota maksullisia ominaisuuksia kuten:
+
+laajennetut laskentamenetelmät;
+
+vienti PDF:ään, Exceliin;
+
+mainosten poistaminen;
+
+premium-käyttöoikeus (tilaus tai kertamaksu).
+Kaikki maksut käsitellään Google Playn kautta. Emme tallenna maksutietoja.
+
+Tietojen hallinta
+Voit:
+
+poistaa tallennetut tiedot sovelluksessa tai Androidin asetuksissa;
+
+peruuttaa käyttöluvat laiteasetuksista;
+
+poistaa mainokset ostamalla mainoksettoman version;
+
+muuttaa mainossuostumusta milloin tahansa;
+
+pyytää vapaaehtoisesti annettujen tietojen poistamista ottamalla yhteyttä: support@dr-it.studio.
+
+Turvallisuus
+Emme lähetä tietoja etäpalvelimille ilman suostumusta.
+Kaikki laskelmat ja dokumentit tallennetaan paikallisesti laitteellesi.
+Suosittelemme ruudun lukituksen ja muiden suojausmenetelmien käyttöä.
+
+Lasten yksityisyys
+Sovellus ei ole tarkoitettu alle 13-vuotiaille eikä kerää heidän tietojaan tietoisesti. Jos uskot, että lapsesi on antanut henkilötietoja, ota meihin yhteyttä — poistamme ne nopeasti.
+
+Tietosuojakäytännön päivitykset
+Saatamme päivittää tätä käytäntöä ajoittain. Muutokset tulevat voimaan, kun uusi versio julkaistaan päivitetyllä päivämäärällä. Suosittelemme tarkistamaan tämän säännöllisesti.
+
+Yhteystiedot
+DR.IT.Studio
+Kiova, Ukraina
+📧 support@dr-it.studio
+
+Käyttäjän suostumus
+Käyttämällä Forest Calculator -sovellusta hyväksyt tämän tietosuojakäytännön. Jos et hyväksy ehtoja, älä käytä sovellusta.
+

@@ -1,0 +1,111 @@
+Privacy Policy
+Effective Date: 6 May 2025
+App Name: Forest Calculator
+Developer: DR.IT.Studio
+Location: Kyiv, Ukraine
+Contact: support@dr-it.studio
+
+Introduction
+Forest Calculator, developed by DR.IT.Studio (“we”, “us”, “our”), is an app for wood volume calculations and other professional features. This Privacy Policy explains what data we collect, how we use, store, protect, and share it — including details regarding rewarded ads.
+
+Data We Collect
+2.1 Personal Information
+We do not collect personal data automatically. However, users may voluntarily provide:
+
+email address when contacting support;
+
+manually entered content and preferences (e.g. calculations).
+
+2.2 Non-Personal (Technical) Information
+To improve services, diagnostics, and ad display, we may collect anonymous information:
+
+device type and OS version;
+
+interface language;
+
+usage frequency and patterns;
+
+crash logs;
+
+advertising ID.
+
+Permissions and Device Access
+| Permission | Purpose |
+|------------|---------|
+| Storage access | Save and open files (PDF, Excel, etc.) |
+| Internet | For updates, ads, and sending emails |
+| Share with other apps | Export calculations via messaging or email |
+| Installed apps list (optional) | Show available export options |
+
+We do not use these permissions to track user behaviour in other apps.
+
+Ads and Third-Party Services
+4.1 General Information
+The app may show personalised or non-personalised ads from partners like Google AdMob. Users can choose the ad type on first launch and later change it in the settings.
+
+4.2 Rewarded Video Ads
+The app includes rewarded video ads, allowing users to voluntarily watch ads in exchange for accessing certain features (e.g. one-time access to premium tools).
+
+Important:
+
+Watching rewarded ads is always optional;
+
+A clear explanation is given before playback;
+
+Rewards are granted only after the ad is fully watched;
+
+No personal data is shared with ad providers.
+
+4.3 Technologies Used
+Partners (including Google) may use:
+
+advertising identifiers;
+
+cookies or similar technologies;
+
+aggregated data for targeting ads.
+Google's policy: https://policies.google.com/technologies/ads
+
+Paid Features and Subscriptions
+The app may offer paid features such as:
+
+advanced calculation methods;
+
+export to PDF, Excel;
+
+ad removal;
+
+premium access (subscription or one-time).
+All payments are handled via Google Play. We do not store or process card data.
+
+Data Control
+You can:
+
+delete stored data via the app or Android settings;
+
+revoke permissions in your device settings;
+
+disable ads by purchasing the appropriate option;
+
+change ad consent at any time;
+
+request deletion of voluntarily provided data by contacting us at support@dr-it.studio.
+
+Security
+We do not transmit data to remote servers without user consent.
+All calculations and documents are stored locally on your device.
+We recommend using screen lock and other security features.
+
+Children’s Privacy
+This app is not intended for children under 13 and does not knowingly collect their data. If you believe your child has provided personal data, please contact us — we will delete it promptly.
+
+Policy Updates
+We may occasionally update this Privacy Policy. Changes take effect once the new version is published with an updated date. We encourage users to review it regularly.
+
+Contact Information
+DR.IT.Studio
+Kyiv, Ukraine
+📧 support@dr-it.studio
+
+User Consent
+By using Forest Calculator, you agree to this Privacy Policy. If you do not agree, please discontinue use of the app.
