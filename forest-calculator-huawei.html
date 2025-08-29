@@ -5,6 +5,94 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forest Calculator — Huawei Market</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script>
+        // Store language translations
+        const translations = {
+            'ru': {
+                'title': 'Forest Calculator — Huawei Market',
+                'subtitle': 'Версия для пользователей Huawei',
+                'description': 'Forest Calculator — профессиональный калькулятор для лесной отрасли.',
+                'coming_soon': 'Скоро будет доступен для скачивания в Huawei AppGallery.',
+                'download': 'Скачать (скоро)',
+                'privacy_policy': 'Политика конфиденциальности',
+                'select_language': 'Выберите язык политики конфиденциальности из списка доступных ниже:',
+                'view_button': 'Просмотреть'
+            },
+            'en': {
+                'title': 'Forest Calculator — Huawei Market',
+                'subtitle': 'Version for Huawei Users',
+                'description': 'Forest Calculator — professional calculator for forestry industry.',
+                'coming_soon': 'Coming soon to Huawei AppGallery.',
+                'download': 'Download (coming soon)',
+                'privacy_policy': 'Privacy Policy',
+                'select_language': 'Select a privacy policy language from the list below:',
+                'view_button': 'View'
+            },
+            'es': {
+                'title': 'Forest Calculator — Huawei Market',
+                'subtitle': 'Versión para usuarios de Huawei',
+                'description': 'Forest Calculator — calculadora profesional para la industria forestal.',
+                'coming_soon': 'Próximamente en Huawei AppGallery.',
+                'download': 'Descargar (próximamente)',
+                'privacy_policy': 'Política de Privacidad',
+                'select_language': 'Seleccione un idioma de política de privacidad de la lista a continuación:',
+                'view_button': 'Ver'
+            },
+            'zh': {
+                'title': 'Forest Calculator — 华为应用市场',
+                'subtitle': '华为用户版本',
+                'description': 'Forest Calculator — 林业专业计算器。',
+                'coming_soon': '即将登陆华为应用市场。',
+                'download': '下载（即将推出）',
+                'privacy_policy': '隐私政策',
+                'select_language': '从下面的列表中选择隐私政策语言：',
+                'view_button': '查看'
+            }
+        };
+        
+        // Set default language
+        let currentLanguage = 'ru';
+        
+        // Function to change language
+        function changeLanguage(lang) {
+            if (translations[lang]) {
+                currentLanguage = lang;
+                document.documentElement.lang = lang;
+                
+                // Update all translatable elements
+                document.title = translations[lang].title;
+                document.getElementById('subtitle').textContent = translations[lang].subtitle;
+                document.getElementById('description').textContent = translations[lang].description;
+                document.getElementById('coming-soon').textContent = translations[lang].coming_soon;
+                document.getElementById('download-btn').textContent = translations[lang].download;
+                document.getElementById('privacy-title').textContent = translations[lang].privacy_policy;
+                document.getElementById('select-language').textContent = translations[lang].select_language;
+                
+                // Update view buttons
+                const viewButtons = document.querySelectorAll('.view-text');
+                viewButtons.forEach(button => {
+                    button.textContent = translations[lang].view_button;
+                });
+                
+                // Update active language button
+                document.querySelectorAll('.lang-selector').forEach(btn => {
+                    btn.classList.remove('active');
+                });
+                document.getElementById('lang-' + lang).classList.add('active');
+                
+                // Save user preference
+                localStorage.setItem('preferredLanguage', lang);
+            }
+        }
+        
+        // Load preferred language on page load
+        window.onload = function() {
+            const savedLang = localStorage.getItem('preferredLanguage');
+            if (savedLang && translations[savedLang]) {
+                changeLanguage(savedLang);
+            }
+        };
+    </script>
     <style>
         body {
             font-family: 'Montserrat', 'Segoe UI', 'Arial', sans-serif;
@@ -196,22 +284,52 @@
             font-size: 0.95rem;
             border-top: 1px solid rgba(44, 62, 80, 0.08);
         }
+        .language-bar {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 0;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        .lang-selector {
+            cursor: pointer;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 5px 10px;
+            font-size: 0.9rem;
+            transition: all 0.2s ease;
+            background: #f8f8f8;
+        }
+        .lang-selector:hover {
+            background: #f0f0f0;
+        }
+        .lang-selector.active {
+            background: #4a7c59;
+            color: white;
+            border-color: #4a7c59;
+        }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="language-bar">
+            <button class="lang-selector active" id="lang-ru" onclick="changeLanguage('ru')">RU</button>
+            <button class="lang-selector" id="lang-en" onclick="changeLanguage('en')">EN</button>
+            <button class="lang-selector" id="lang-es" onclick="changeLanguage('es')">ES</button>
+            <button class="lang-selector" id="lang-zh" onclick="changeLanguage('zh')">ZH</button>
+        </div>
         <div class="header">
             <div class="logo">🌲 Forest Calculator</div>
             <div class="huawei-badge">Huawei AppGallery</div>
-            <div class="subtitle">Версия для пользователей Huawei</div>
+            <div class="subtitle" id="subtitle">Версия для пользователей Huawei</div>
             <div class="desc">
-                <p>Forest Calculator — профессиональный калькулятор для лесной отрасли. <br>Скоро будет доступен для скачивания в Huawei AppGallery.</p>
+                <p><span id="description">Forest Calculator — профессиональный калькулятор для лесной отрасли.</span> <br><span id="coming-soon">Скоро будет доступен для скачивания в Huawei AppGallery.</span></p>
             </div>
-            <button class="btn btn-download" disabled>Скачать (скоро)</button>
+            <button class="btn btn-download" id="download-btn" disabled>Скачать (скоро)</button>
         </div>
         
-        <div class="section-title">Политика конфиденциальности</div>
-        <p>Выберите язык политики конфиденциальности из списка доступных ниже:</p>
+        <div class="section-title" id="privacy-title">Политика конфиденциальности</div>
+        <p id="select-language">Выберите язык политики конфиденциальности из списка доступных ниже:</p>
         
         <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.5rem;">
             <!-- BEGIN: Language Policy Links with Download/View -->
@@ -232,7 +350,7 @@
     <div class="lang-btns">
         <a class="btn btn-policy" href="policyHuavei/privacy_policy_af.txt" download onclick="event.stopPropagation();">TXT</a>
         <a class="btn btn-policy" href="policyHuavei/privacy_policy_af.pdf" download onclick="event.stopPropagation();">PDF</a>
-        <a class="btn btn-policy" href="policyHuavei/privacy_policy_af.html" onclick="event.stopPropagation();">Просмотреть</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_af.html" onclick="event.stopPropagation();"><span class="view-text">Просмотреть</span></a>
     </div>
 </div>
 <div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_am.html'" style="cursor:pointer;">
@@ -243,7 +361,7 @@
     <div class="lang-btns">
         <a class="btn btn-policy" href="policyHuavei/privacy_policy_am.txt" download onclick="event.stopPropagation();">TXT</a>
         <a class="btn btn-policy" href="policyHuavei/privacy_policy_am.pdf" download onclick="event.stopPropagation();">PDF</a>
-        <a class="btn btn-policy" href="policyHuavei/privacy_policy_am.html" onclick="event.stopPropagation();">Просмотреть</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_am.html" onclick="event.stopPropagation();"><span class="view-text">Просмотреть</span></a>
     </div>
 </div>
 <div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_ar.html'" style="cursor:pointer;">
@@ -254,7 +372,7 @@
     <div class="lang-btns">
         <a class="btn btn-policy" href="policyHuavei/privacy_policy_ar.txt" download onclick="event.stopPropagation();">TXT</a>
         <a class="btn btn-policy" href="policyHuavei/privacy_policy_ar.pdf" download onclick="event.stopPropagation();">PDF</a>
-        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ar.html" onclick="event.stopPropagation();">Просмотреть</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ar.html" onclick="event.stopPropagation();"><span class="view-text">Просмотреть</span></a>
     </div>
 </div>
 <div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_az.html'" style="cursor:pointer;">
@@ -1106,7 +1224,24 @@
     </div>
     </div>
     <footer>
-        &copy; 2025 DR.IT.Studio. Forest Calculator | Все права защищены
+        &copy; 2025 DR.IT.Studio. Forest Calculator | <span id="copyright-text">Все права защищены</span>
     </footer>
+
+    <script>
+        // Add additional translations for footer
+        translations['ru']['copyright'] = 'Все права защищены';
+        translations['en']['copyright'] = 'All rights reserved';
+        translations['es']['copyright'] = 'Todos los derechos reservados';
+        translations['zh']['copyright'] = '版权所有';
+        
+        // Update the changeLanguage function to handle footer text
+        const originalChangeLanguage = changeLanguage;
+        changeLanguage = function(lang) {
+            originalChangeLanguage(lang);
+            if (translations[lang] && translations[lang].copyright) {
+                document.getElementById('copyright-text').textContent = translations[lang].copyright;
+            }
+        };
+    </script>
 </body>
 </html>
