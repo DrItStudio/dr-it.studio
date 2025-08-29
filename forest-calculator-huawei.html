@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forest Calculator — Huawei Market</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
+            color: #333;
+            min-height: 100vh;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        .logo {
+            font-size: 2.5rem;
+            color: #2d5016;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        .subtitle {
+            color: #4a7c59;
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        .huawei-badge {
+            display: inline-block;
+            background: #e41f1f;
+            color: white;
+            font-weight: bold;
+            border-radius: 8px;
+            padding: 0.5rem 1.2rem;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        .btn {
+            display: inline-block;
+            margin: 1rem 1rem 0 1rem;
+            padding: 14px 32px;
+            font-size: 1.2rem;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        .btn-download {
+            background: #e41f1f;
+            color: white;
+            opacity: 0.6;
+            pointer-events: none;
+        }
+        .btn-policy {
+            background: #4a7c59;
+            color: white;
+        }
+        .btn-policy:hover {
+            background: #2d5016;
+        }
+        .desc {
+            margin: 2rem 0 1rem 0;
+            font-size: 1.1rem;
+            color: #333;
+        }
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            color: #888;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🌲 Forest Calculator</div>
+        <div class="huawei-badge">Huawei AppGallery</div>
+        <div class="subtitle">Версия для пользователей Huawei</div>
+        <div class="desc">
+            <p>Forest Calculator — профессиональный калькулятор для лесной отрасли. <br>Скоро будет доступен для скачивания в Huawei AppGallery.</p>
+        </div>
+        <button class="btn btn-download" disabled>Скачать (скоро)</button>
+    <div style="margin-top:2rem;">
+        <div style="font-weight:bold;margin-bottom:0.7rem;">Выберите язык политики конфиденциальности:</div>
+        <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.5rem;">
+            <a class="btn btn-policy" href="policy/privacy_policy_af-huawei.html">Afrikaans</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_am-huawei.html">Amharic</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_ar-huawei.html">Arabic</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_az-huawei.html">Azerbaijani</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_be-huawei.html">Belarusian</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_bg-huawei.html">Bulgarian</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_bn-huawei.html">Bengali</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_bs-huawei.html">Bosnian</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_cs-huawei.html">Czech</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_cy-huawei.html">Welsh</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_da-huawei.html">Danish</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_de-huawei.html">German</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_en-huawei.html">English</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_es-huawei.html">Spanish</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_et-huawei.html">Estonian</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_fa-huawei.html">Persian</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_fil-huawei.html">Filipino</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_fr-huawei.html">French</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_ga-huawei.html">Irish</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_gb-huawei.html">English (UK)</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_gu-huawei.html">Gujarati</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_ha-huawei.html">Hausa</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_he-huawei.html">Hebrew</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_hr-huawei.html">Croatian</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_hu-huawei.html">Hungarian</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_hy-huawei.html">Armenian</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_id-huawei.html">Indonesian</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_ig-huawei.html">Igbo</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_it-huawei.html">Italian</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_jp-huawei.html">Japanese</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_ka-huawei.html">Georgian</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_kn-huawei.html">Kannada</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_ko-huawei.html">Korean</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_lb-huawei.html">Luxembourgish</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_lt-huawei.html">Lithuanian</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_lv-huawei.html">Latvian</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_mk-huawei.html">Macedonian</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_ml-huawei.html">Malayalam</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_mn-huawei.html">Mongolian</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_ms-huawei.html">Malay</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_mt-huawei.html">Maltese</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_ne-huawei.html">Nepali</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_nl-huawei.html">Dutch</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_no-huawei.html">Norwegian</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_pa-huawei.html">Punjabi</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_pl-huawei.html">Polish</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_pt-huawei.html">Portuguese</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_ro-huawei.html">Romanian</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_ru-huawei.html">Russian</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_si-huawei.html">Sinhala</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_sk-huawei.html">Slovak</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_sl-huawei.html">Slovenian</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_sq-huawei.html">Albanian</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_sr-huawei.html">Serbian</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_sv-huawei.html">Swedish</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_sw-huawei.html">Swahili</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_ta-huawei.html">Tamil</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_te-huawei.html">Telugu</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_tg-huawei.html">Tajik</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_th-huawei.html">Thai</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_tk-huawei.html">Turkmen</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_tr-huawei.html">Turkish</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_uk-huawei.html">Ukrainian</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_ur-huawei.html">Urdu</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_uz-huawei.html">Uzbek</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_vi-huawei.html">Vietnamese</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_yo-huawei.html">Yoruba</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_zh_cn-huawei.html">Chinese (Simplified)</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_zh_tw-huawei.html">Chinese (Traditional)</a>
+            <a class="btn btn-policy" href="policy/privacy_policy_zu-huawei.html">Zulu</a>
+        </div>
+    </div>
+    </div>
+    <footer>
+        &copy; 2025 DR.IT.Studio. Forest Calculator.
+    </footer>
+</body>
+</html>
