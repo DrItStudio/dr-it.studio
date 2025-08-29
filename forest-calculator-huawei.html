@@ -4,136 +4,212 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forest Calculator — Huawei Market</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
-            font-family: 'Segoe UI', 'Arial', sans-serif;
-            background: linear-gradient(120deg, #e8f5e9 0%, #c8e6c9 100%);
+            font-family: 'Montserrat', 'Segoe UI', 'Arial', sans-serif;
+            background: linear-gradient(135deg, #e8f5e9 0%, #c8e6c9 100%);
             color: #333;
             min-height: 100vh;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
         }
         .container {
-            max-width: 900px;
+            max-width: 1080px;
             margin: 40px auto;
-            padding: 40px 30px;
+            padding: 50px 30px;
             background: #fff;
-            border-radius: 24px;
-            box-shadow: 0 8px 32px rgba(44, 62, 80, 0.12);
+            border-radius: 28px;
+            box-shadow: 0 12px 40px rgba(44, 62, 80, 0.15);
             text-align: center;
         }
+        .header {
+            position: relative;
+            padding-bottom: 2.5rem;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(44, 62, 80, 0.08);
+        }
         .logo {
-            font-size: 2.8rem;
-            color: #388e3c;
-            font-weight: bold;
-            margin-bottom: 1.2rem;
+            font-size: 3.2rem;
+            color: #2e7d32;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
             letter-spacing: 1px;
         }
         .subtitle {
             color: #e41f1f;
-            font-size: 1.25rem;
-            margin-bottom: 2.2rem;
-            font-weight: 500;
+            font-size: 1.35rem;
+            margin-bottom: 2.5rem;
+            font-weight: 600;
         }
         .huawei-badge {
             display: inline-block;
             background: linear-gradient(90deg, #e41f1f 60%, #ff7961 100%);
             color: white;
             font-weight: bold;
-            border-radius: 10px;
-            padding: 0.6rem 1.5rem;
-            margin-bottom: 2.2rem;
-            font-size: 1.15rem;
-            box-shadow: 0 2px 8px rgba(228,31,31,0.08);
+            border-radius: 14px;
+            padding: 0.8rem 2rem;
+            margin-bottom: 2.5rem;
+            font-size: 1.25rem;
+            box-shadow: 0 4px 12px rgba(228,31,31,0.18);
+            transform: translateY(0);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .huawei-badge:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(228,31,31,0.22);
         }
         .btn {
             display: inline-block;
-            margin: 0.4rem 0.2rem;
-            padding: 12px 28px;
-            font-size: 1.08rem;
-            border-radius: 24px;
+            margin: 0.5rem 0.3rem;
+            padding: 14px 32px;
+            font-size: 1.1rem;
+            border-radius: 28px;
             border: none;
             cursor: pointer;
-            font-weight: 500;
-            transition: background 0.2s, box-shadow 0.2s;
-            box-shadow: 0 2px 8px rgba(44,62,80,0.07);
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(44,62,80,0.1);
         }
         .btn-download {
-            background: #e41f1f;
+            background: linear-gradient(90deg, #e41f1f 0%, #ff5252 100%);
             color: white;
             opacity: 0.6;
             pointer-events: none;
         }
         .btn-policy {
-            background: #4a7c59;
+            background: linear-gradient(90deg, #4a7c59 0%, #388e3c 100%);
             color: white;
+            border: none;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
         .btn-policy:hover {
-            background: #388e3c;
-            box-shadow: 0 4px 16px rgba(44,62,80,0.13);
+            background: linear-gradient(90deg, #388e3c 0%, #2e7d32 100%);
+            box-shadow: 0 8px 20px rgba(56,142,60,0.25);
+            transform: translateY(-3px);
         }
         .desc {
-            margin: 2.2rem 0 1.2rem 0;
-            font-size: 1.13rem;
+            margin: 2.5rem 0 1.5rem 0;
+            font-size: 1.2rem;
             color: #444;
+            line-height: 1.8;
+        }
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 3rem 0 1.5rem 0;
+            color: #2e7d32;
         }
         .lang-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 1.2rem;
-            margin-top: 1.5rem;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
         }
         .lang-card {
-            background: #f7fafc;
-            border-radius: 18px;
-            box-shadow: 0 2px 12px rgba(44,62,80,0.07);
-            padding: 1.2rem 1rem 1.1rem 1rem;
+            background: linear-gradient(135deg, #f8fafc 0%, #e3f2fd 100%);
+            border-radius: 22px;
+            box-shadow: 0 4px 16px rgba(44,62,80,0.08);
+            padding: 1.8rem 1.2rem 1.5rem 1.2rem;
             display: flex;
             flex-direction: column;
             align-items: center;
             margin-bottom: 0.2rem;
-            min-height: 220px;
-            transition: box-shadow 0.2s;
+            min-height: 240px;
+            transition: all 0.35s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(56,142,60,0.08);
+        }
+        .lang-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #4a7c59 0%, #388e3c 100%);
+            opacity: 0;
+            transition: opacity 0.3s;
         }
         .lang-card:hover {
-            box-shadow: 0 6px 24px rgba(44,62,80,0.15);
+            box-shadow: 0 16px 32px rgba(44,62,80,0.18);
+            transform: translateY(-8px);
+        }
+        .lang-card:hover::before {
+            opacity: 1;
+        }
+        .lang-flag {
+            width: 40px;
+            height: 26px;
+            border-radius: 5px;
+            box-shadow: 0 2px 6px rgba(44,62,80,0.15);
+            object-fit: cover;
+            margin-right: 0.8rem;
         }
         .lang-title {
-            font-size: 1.15rem;
-            font-weight: 600;
-            color: #388e3c;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #2e7d32;
             margin-bottom: 0.7rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .lang-country {
+            font-size: 1rem;
+            color: #666;
+            margin-bottom: 1.2rem;
         }
         .lang-btns {
             width: 100%;
             display: flex;
-            flex-direction: column;
-            gap: 0.4rem;
+            flex-direction: row;
+            flex-wrap: wrap;
+            gap: 0.6rem;
             align-items: center;
+            justify-content: center;
+            margin-top: auto;
         }
         .lang-btns .btn {
-            width: 90%;
+            width: auto;
+            min-width: 100px;
+            font-size: 0.95rem;
+            padding: 10px 15px;
+            margin: 0.15rem;
         }
-        @media (max-width: 700px) {
-            .container { padding: 18px 4px; }
-            .lang-grid { grid-template-columns: 1fr; }
+        @media (max-width: 768px) {
+            .container { padding: 30px 15px; margin: 20px 10px; }
+            .lang-grid { grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); }
+            .logo { font-size: 2.5rem; }
+            .subtitle { font-size: 1.2rem; }
         }
         footer {
-            margin-top: 3rem;
+            margin-top: 4rem;
+            padding: 2rem 0;
             text-align: center;
-            color: #888;
+            color: #666;
+            font-size: 0.95rem;
+            border-top: 1px solid rgba(44, 62, 80, 0.08);
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="logo">🌲 Forest Calculator</div>
-        <div class="huawei-badge">Huawei AppGallery</div>
-        <div class="subtitle">Версия для пользователей Huawei</div>
-        <div class="desc">
-            <p>Forest Calculator — профессиональный калькулятор для лесной отрасли. <br>Скоро будет доступен для скачивания в Huawei AppGallery.</p>
+        <div class="header">
+            <div class="logo">🌲 Forest Calculator</div>
+            <div class="huawei-badge">Huawei AppGallery</div>
+            <div class="subtitle">Версия для пользователей Huawei</div>
+            <div class="desc">
+                <p>Forest Calculator — профессиональный калькулятор для лесной отрасли. <br>Скоро будет доступен для скачивания в Huawei AppGallery.</p>
+            </div>
+            <button class="btn btn-download" disabled>Скачать (скоро)</button>
         </div>
-        <button class="btn btn-download" disabled>Скачать (скоро)</button>
-    <div style="margin-top:2rem;">
-        <div style="font-weight:bold;margin-bottom:0.7rem;">Выберите язык политики конфиденциальности:</div>
+        
+        <div class="section-title">Политика конфиденциальности</div>
+        <p>Выберите язык политики конфиденциальности из списка доступных ниже:</p>
+        
         <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.5rem;">
             <!-- BEGIN: Language Policy Links with Download/View -->
             <div style="width:100%;display:flex;flex-wrap:wrap;justify-content:center;gap:0.5rem;">
@@ -143,81 +219,880 @@
                 <!-- Автоматически сгенерированные блоки для всех языков -->
                 <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.5rem;">
                 <!-- BEGIN GENERATED BLOCKS -->
-                                <div class="lang-grid">
-                                    <div class="lang-card">
-                                        <div class="lang-title">Afrikaans</div>
-                                        <div class="lang-btns">
-                                            <a class="btn btn-policy" href="policy/privacy_policy_af-huawei.html">Страница политики</a>
-                                            <a class="btn btn-policy" href="policyHuavei/privacy_policy_af.txt" download>Скачать TXT</a>
-                                            <a class="btn btn-policy" href="policyHuavei/privacy_policy_af.pdf" download>Скачать PDF</a>
-                                            <a class="btn btn-policy" href="policyHuavei/privacy_policy_af.html">Перейти к HTML</a>
-                                            <button class="btn btn-policy" onclick="showTxtPolicy('policyHuavei/privacy_policy_af.txt')">Показать TXT</button>
-                                        </div>
-                                    </div>
-                                    <div class="lang-card">
-                                        <div class="lang-title">Amharic</div>
-                                        <div class="lang-btns">
-                                            <a class="btn btn-policy" href="policy/privacy_policy_am-huawei.html">Страница политики</a>
-                                            <a class="btn btn-policy" href="policyHuavei/privacy_policy_am.txt" download>Скачать TXT</a>
-                                            <a class="btn btn-policy" href="policyHuavei/privacy_policy_am.pdf" download>Скачать PDF</a>
-                                            <a class="btn btn-policy" href="policyHuavei/privacy_policy_am.html">Перейти к HTML</a>
-                                            <button class="btn btn-policy" onclick="showTxtPolicy('policyHuavei/privacy_policy_am.txt')">Показать TXT</button>
-                                        </div>
-                                    </div>
-                                    <div class="lang-card">
-                                        <div class="lang-title">Arabic</div>
-                                        <div class="lang-btns">
-                                            <a class="btn btn-policy" href="policy/privacy_policy_ar-huawei.html">Страница политики</a>
-                                            <a class="btn btn-policy" href="policyHuavei/privacy_policy_ar.txt" download>Скачать TXT</a>
-                                            <a class="btn btn-policy" href="policyHuavei/privacy_policy_ar.pdf" download>Скачать PDF</a>
-                                            <a class="btn btn-policy" href="policyHuavei/privacy_policy_ar.html">Перейти к HTML</a>
-                                            <button class="btn btn-policy" onclick="showTxtPolicy('policyHuavei/privacy_policy_ar.txt')">Показать TXT</button>
-                                        </div>
-                                    </div>
-                                    <div class="lang-card">
-                                        <div class="lang-title">Azerbaijani</div>
-                                        <div class="lang-btns">
-                                            <a class="btn btn-policy" href="policy/privacy_policy_az-huawei.html">Страница политики</a>
-                                            <a class="btn btn-policy" href="policyHuavei/privacy_policy_az.txt" download>Скачать TXT</a>
-                                            <a class="btn btn-policy" href="policyHuavei/privacy_policy_az.pdf" download>Скачать PDF</a>
-                                            <a class="btn btn-policy" href="policyHuavei/privacy_policy_az.html">Перейти к HTML</a>
-                                            <button class="btn btn-policy" onclick="showTxtPolicy('policyHuavei/privacy_policy_az.txt')">Показать TXT</button>
-                                        </div>
-                                    </div>
-                                    <div class="lang-card">
-                                        <div class="lang-title">Belarusian</div>
-                                        <div class="lang-btns">
-                                            <a class="btn btn-policy" href="policy/privacy_policy_be-huawei.html">Страница политики</a>
-                                            <a class="btn btn-policy" href="policyHuavei/privacy_policy_be.txt" download>Скачать TXT</a>
-                                            <a class="btn btn-policy" href="policyHuavei/privacy_policy_be.pdf" download>Скачать PDF</a>
-                                            <a class="btn btn-policy" href="policyHuavei/privacy_policy_be.html">Перейти к HTML</a>
-                                            <button class="btn btn-policy" onclick="showTxtPolicy('policyHuavei/privacy_policy_be.txt')">Показать TXT</button>
-                                        </div>
-                                    </div>
-                                    <div class="lang-card">
-                                        <div class="lang-title">Bulgarian</div>
-                                        <div class="lang-btns">
-                                            <a class="btn btn-policy" href="policy/privacy_policy_bg-huawei.html">Страница политики</a>
-                                            <a class="btn btn-policy" href="policyHuavei/privacy_policy_bg.txt" download>Скачать TXT</a>
-                                            <a class="btn btn-policy" href="policyHuavei/privacy_policy_bg.pdf" download>Скачать PDF</a>
-                                            <a class="btn btn-policy" href="policyHuavei/privacy_policy_bg.html">Перейти к HTML</a>
-                                            <button class="btn btn-policy" onclick="showTxtPolicy('policyHuavei/privacy_policy_bg.txt')">Показать TXT</button>
-                                        </div>
-                                    </div>
-                                    <!-- ...и так далее для всех языков из policyHuavei... -->
+                                                                <div class="lang-grid">
+<!-- BEGIN AUTO-GENERATED LANGUAGE CARDS -->
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_af.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/za.svg" alt="Afrikaans flag" />Afrikaans
+    </div>
+    <div class="lang-country">Южная Африка</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_af.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_af.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_af.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_am.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/et.svg" alt="Amharic flag" />Amharic
+    </div>
+    <div class="lang-country">Эфиопия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_am.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_am.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_am.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_ar.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/sa.svg" alt="Arabic flag" />Arabic
+    </div>
+    <div class="lang-country">Арабские страны</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ar.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ar.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ar.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_az.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/az.svg" alt="Azerbaijani flag" />Azerbaijani
+    </div>
+    <div class="lang-country">Азербайджан</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_az.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_az.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_az.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_be.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/by.svg" alt="Belarusian flag" />Belarusian
+    </div>
+    <div class="lang-country">Беларусь</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_be.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_be.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_be.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_bg.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/bg.svg" alt="Bulgarian flag" />Bulgarian
+    </div>
+    <div class="lang-country">Болгария</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_bg.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_bg.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_bg.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_bn.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/bd.svg" alt="Bengali flag" />Bengali
+    </div>
+    <div class="lang-country">Бангладеш</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_bn.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_bn.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_bn.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_bs.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/ba.svg" alt="Bosnian flag" />Bosnian
+    </div>
+    <div class="lang-country">Босния и Герцеговина</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_bs.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_bs.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_bs.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_cs.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/cz.svg" alt="Czech flag" />Czech
+    </div>
+    <div class="lang-country">Чехия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_cs.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_cs.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_cs.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_cy.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/cy.svg" alt="Welsh flag" />Welsh
+    </div>
+    <div class="lang-country">Уэльс</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_cy.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_cy.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_cy.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_da.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/dk.svg" alt="Danish flag" />Danish
+    </div>
+    <div class="lang-country">Дания</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_da.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_da.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_da.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_de.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/de.svg" alt="German flag" />German
+    </div>
+    <div class="lang-country">Германия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_de.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_de.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_de.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_en-GB.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/gb.svg" alt="English (UK) flag" />English (UK)
+    </div>
+    <div class="lang-country">Великобритания</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_en-GB.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_en-GB.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_en-GB.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_en.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/us.svg" alt="English flag" />English (US)
+    </div>
+    <div class="lang-country">США</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_en.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_en.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_en.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_es-MX.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/mx.svg" alt="Spanish (Mexico) flag" />Spanish (MX)
+    </div>
+    <div class="lang-country">Мексика</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_es-MX.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_es-MX.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_es-MX.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_es.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/es.svg" alt="Spanish flag" />Spanish
+    </div>
+    <div class="lang-country">Испания</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_es.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_es.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_es.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_et.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/ee.svg" alt="Estonian flag" />Estonian
+    </div>
+    <div class="lang-country">Эстония</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_et.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_et.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_et.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_fa.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/ir.svg" alt="Persian flag" />Persian
+    </div>
+    <div class="lang-country">Иран</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_fa.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_fa.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_fa.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_fi.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/fi.svg" alt="Finnish flag" />Finnish
+    </div>
+    <div class="lang-country">Финляндия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_fi.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_fi.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_fi.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_fil.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/ph.svg" alt="Filipino flag" />Filipino
+    </div>
+    <div class="lang-country">Филиппины</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_fil.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_fil.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_fil.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_fr-CA.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/ca.svg" alt="French (Canada) flag" />French (CA)
+    </div>
+    <div class="lang-country">Канада</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_fr-CA.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_fr-CA.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_fr-CA.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_fr.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/fr.svg" alt="French flag" />French
+    </div>
+    <div class="lang-country">Франция</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_fr.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_fr.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_fr.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_ga.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/ie.svg" alt="Irish flag" />Irish
+    </div>
+    <div class="lang-country">Ирландия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ga.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ga.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ga.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_hi.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/in.svg" alt="Hindi flag" />Hindi
+    </div>
+    <div class="lang-country">Индия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_hi.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_hi.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_hi.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_hr.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/hr.svg" alt="Croatian flag" />Croatian
+    </div>
+    <div class="lang-country">Хорватия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_hr.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_hr.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_hr.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_hu.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/hu.svg" alt="Hungarian flag" />Hungarian
+    </div>
+    <div class="lang-country">Венгрия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_hu.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_hu.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_hu.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_id.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/id.svg" alt="Indonesian flag" />Indonesian
+    </div>
+    <div class="lang-country">Индонезия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_id.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_id.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_id.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_it.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/it.svg" alt="Italian flag" />Italian
+    </div>
+    <div class="lang-country">Италия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_it.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_it.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_it.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_jp.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/jp.svg" alt="Japanese flag" />Japanese
+    </div>
+    <div class="lang-country">Япония</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_jp.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_jp.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_jp.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_ko.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/kr.svg" alt="Korean flag" />Korean
+    </div>
+    <div class="lang-country">Южная Корея</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ko.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ko.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ko.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_nl.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/nl.svg" alt="Dutch flag" />Dutch
+    </div>
+    <div class="lang-country">Нидерланды</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_nl.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_nl.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_nl.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_no.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/no.svg" alt="Norwegian flag" />Norwegian
+    </div>
+    <div class="lang-country">Норвегия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_no.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_no.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_no.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_pl.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/pl.svg" alt="Polish flag" />Polish
+    </div>
+    <div class="lang-country">Польша</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_pl.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_pl.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_pl.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_pt-BR.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/br.svg" alt="Portuguese (Brazil) flag" />Portuguese (BR)
+    </div>
+    <div class="lang-country">Бразилия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_pt-BR.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_pt-BR.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_pt-BR.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_pt.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/pt.svg" alt="Portuguese flag" />Portuguese
+    </div>
+    <div class="lang-country">Португалия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_pt.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_pt.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_pt.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_ro.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/ro.svg" alt="Romanian flag" />Romanian
+    </div>
+    <div class="lang-country">Румыния</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ro.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ro.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ro.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_ru.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/ru.svg" alt="Russian flag" />Russian
+    </div>
+    <div class="lang-country">Россия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ru.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ru.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ru.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_sk.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/sk.svg" alt="Slovak flag" />Slovak
+    </div>
+    <div class="lang-country">Словакия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_sk.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_sk.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_sk.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_sl.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/si.svg" alt="Slovenian flag" />Slovenian
+    </div>
+    <div class="lang-country">Словения</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_sl.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_sl.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_sl.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_sv.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/se.svg" alt="Swedish flag" />Swedish
+    </div>
+    <div class="lang-country">Швеция</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_sv.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_sv.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_sv.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_tr.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/tr.svg" alt="Turkish flag" />Turkish
+    </div>
+    <div class="lang-country">Турция</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_tr.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_tr.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_tr.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_uk.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/ua.svg" alt="Ukrainian flag" />Ukrainian
+    </div>
+    <div class="lang-country">Украина</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_uk.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_uk.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_uk.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_zh-CN.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/cn.svg" alt="Chinese (Simplified) flag" />Chinese (CN)
+    </div>
+    <div class="lang-country">Китай</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_zh-CN.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_zh-CN.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_zh-CN.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_zh-HK.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/hk.svg" alt="Chinese (Hong Kong) flag" />Chinese (HK)
+    </div>
+    <div class="lang-country">Гонконг</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_zh-HK.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_zh-HK.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_zh-HK.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_zh-TW.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/tw.svg" alt="Chinese (Taiwan) flag" />Chinese (TW)
+    </div>
+    <div class="lang-country">Тайвань</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_zh-TW.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_zh-TW.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_zh-TW.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_gb.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/gb.svg" alt="British flag" />British
+    </div>
+    <div class="lang-country">Великобритания</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_gb.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_gb.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_gb.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_gu.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/in.svg" alt="Gujarati flag" />Gujarati
+    </div>
+    <div class="lang-country">Индия (Гуджарат)</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_gu.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_gu.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_gu.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_ha.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/ng.svg" alt="Hausa flag" />Hausa
+    </div>
+    <div class="lang-country">Нигерия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ha.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ha.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ha.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_he.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/il.svg" alt="Hebrew flag" />Hebrew
+    </div>
+    <div class="lang-country">Израиль</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_he.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_he.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_he.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_hy.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/am.svg" alt="Armenian flag" />Armenian
+    </div>
+    <div class="lang-country">Армения</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_hy.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_hy.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_hy.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_ig.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/ng.svg" alt="Igbo flag" />Igbo
+    </div>
+    <div class="lang-country">Нигерия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ig.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ig.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ig.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_ka.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/ge.svg" alt="Georgian flag" />Georgian
+    </div>
+    <div class="lang-country">Грузия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ka.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ka.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ka.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_kn.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/in.svg" alt="Kannada flag" />Kannada
+    </div>
+    <div class="lang-country">Индия (Карнатака)</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_kn.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_kn.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_kn.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_lb.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/lu.svg" alt="Luxembourgish flag" />Luxembourgish
+    </div>
+    <div class="lang-country">Люксембург</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_lb.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_lb.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_lb.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_lt.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/lt.svg" alt="Lithuanian flag" />Lithuanian
+    </div>
+    <div class="lang-country">Литва</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_lt.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_lt.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_lt.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_lv.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/lv.svg" alt="Latvian flag" />Latvian
+    </div>
+    <div class="lang-country">Латвия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_lv.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_lv.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_lv.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_mk.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/mk.svg" alt="Macedonian flag" />Macedonian
+    </div>
+    <div class="lang-country">Северная Македония</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_mk.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_mk.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_mk.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_ml.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/in.svg" alt="Malayalam flag" />Malayalam
+    </div>
+    <div class="lang-country">Индия (Керала)</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ml.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ml.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ml.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_mn.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/mn.svg" alt="Mongolian flag" />Mongolian
+    </div>
+    <div class="lang-country">Монголия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_mn.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_mn.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_mn.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_ms.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/my.svg" alt="Malay flag" />Malay
+    </div>
+    <div class="lang-country">Малайзия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ms.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ms.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ms.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_mt.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/mt.svg" alt="Maltese flag" />Maltese
+    </div>
+    <div class="lang-country">Мальта</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_mt.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_mt.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_mt.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_ne.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/np.svg" alt="Nepali flag" />Nepali
+    </div>
+    <div class="lang-country">Непал</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ne.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ne.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ne.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_pa.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/in.svg" alt="Punjabi flag" />Punjabi
+    </div>
+    <div class="lang-country">Индия (Пенджаб)</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_pa.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_pa.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_pa.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_si.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/lk.svg" alt="Sinhala flag" />Sinhala
+    </div>
+    <div class="lang-country">Шри-Ланка</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_si.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_si.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_si.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_sq.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/al.svg" alt="Albanian flag" />Albanian
+    </div>
+    <div class="lang-country">Албания</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_sq.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_sq.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_sq.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_sr.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/rs.svg" alt="Serbian flag" />Serbian
+    </div>
+    <div class="lang-country">Сербия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_sr.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_sr.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_sr.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_sw.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/ke.svg" alt="Swahili flag" />Swahili
+    </div>
+    <div class="lang-country">Восточная Африка</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_sw.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_sw.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_sw.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_ta.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/in.svg" alt="Tamil flag" />Tamil
+    </div>
+    <div class="lang-country">Индия (Тамил Наду)</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ta.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ta.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ta.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_te.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/in.svg" alt="Telugu flag" />Telugu
+    </div>
+    <div class="lang-country">Индия (Андхра-Прадеш)</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_te.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_te.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_te.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_tg.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/tj.svg" alt="Tajik flag" />Tajik
+    </div>
+    <div class="lang-country">Таджикистан</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_tg.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_tg.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_tg.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_th.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/th.svg" alt="Thai flag" />Thai
+    </div>
+    <div class="lang-country">Таиланд</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_th.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_th.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_th.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_tk.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/tm.svg" alt="Turkmen flag" />Turkmen
+    </div>
+    <div class="lang-country">Туркменистан</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_tk.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_tk.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_tk.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_uk.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_uk.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_uk.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_ur.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/pk.svg" alt="Urdu flag" />Urdu
+    </div>
+    <div class="lang-country">Пакистан</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ur.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ur.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ur.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_uz.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/uz.svg" alt="Uzbek flag" />Uzbek
+    </div>
+    <div class="lang-country">Узбекистан</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_uz.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_uz.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_uz.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_vi.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/vn.svg" alt="Vietnamese flag" />Vietnamese
+    </div>
+    <div class="lang-country">Вьетнам</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_vi.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_vi.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_vi.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_yo.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/ng.svg" alt="Yoruba flag" />Yoruba
+    </div>
+    <div class="lang-country">Нигерия</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_yo.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_yo.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_yo.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_zu.html'" style="cursor:pointer;">
+    <div class="lang-title">
+        <img class="lang-flag" src="https://flagcdn.com/za.svg" alt="Zulu flag" />Zulu
+    </div>
+    <div class="lang-country">Южная Африка</div>
+    <div class="lang-btns">
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_zu.txt" download onclick="event.stopPropagation();">TXT</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_zu.pdf" download onclick="event.stopPropagation();">PDF</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_zu.html" onclick="event.stopPropagation();">Просмотреть</a>
+    </div>
+</div>
+<!-- END AUTO-GENERATED LANGUAGE CARDS -->
                                 </div>
                 </div>
                 <!-- END LANG BLOCKS -->
                 </div>
             </div>
-            <pre id="txtPolicyBlock" style="display:none;background:#f4f4f4;padding:1rem;border-radius:10px;max-height:400px;overflow:auto;margin-top:1rem;"></pre>
+            <pre id="txtPolicyBlock" style="display:none;background:#f8f9fa;padding:1.5rem;border-radius:16px;max-height:500px;overflow:auto;margin-top:2rem;box-shadow: 0 4px 20px rgba(44,62,80,0.08);font-family: Consolas, monospace;"></pre>
             <script>
             function showTxtPolicy(txtPath) {
                 var block = document.getElementById('txtPolicyBlock');
                 if (block.style.display === 'none' || block.getAttribute('data-path') !== txtPath) {
                     fetch(txtPath)
                       .then(r => r.text())
-                      .then(t => { block.textContent = t; block.style.display = 'block'; block.setAttribute('data-path', txtPath); });
+                      .then(t => { 
+                        block.textContent = t; 
+                        block.style.display = 'block'; 
+                        block.setAttribute('data-path', txtPath);
+                        block.scrollIntoView({behavior: "smooth", block: "start"});
+                      });
                 } else {
                     block.style.display = 'none';
                 }
@@ -228,7 +1103,7 @@
     </div>
     </div>
     <footer>
-        &copy; 2025 DR.IT.Studio. Forest Calculator.
+        &copy; 2025 DR.IT.Studio. Forest Calculator | Все права защищены
     </footer>
 </body>
 </html>
