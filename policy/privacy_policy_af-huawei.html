@@ -13,7 +13,80 @@
         <a href="forest-calculator-huawei.html" class="back-btn">← Terug na Huawei Market</a>
         <h1>Privaatheidsbeleid</h1>
         <p>Hierdie bladsy bevat die spesiale weergawe van die privaatheidsbeleid vir Forest Calculator-gebruikers wat die app via Huawei AppGallery aflaai.</p>
-        <!-- Перевод политики на африкаанс -->
+        <div style="margin:2rem 0;">
+            <a href="../policyHuavei/privacy_policy_af.txt" download class="back-btn" style="margin-bottom:1rem;">Скачать политику (.txt)</a>
+            <button onclick="showTxtPolicy()" class="back-btn" style="background:#e41f1f;">Показать текст .txt</button>
+        </div>
+        <pre id="txtPolicyBlock" style="display:none;background:#f4f4f4;padding:1rem;border-radius:10px;max-height:400px;overflow:auto;"></pre>
+        <script>
+        function showTxtPolicy() {
+            var block = document.getElementById('txtPolicyBlock');
+            if (block.style.display === 'none') {
+                fetch('../policyHuavei/privacy_policy_af.txt')
+                  .then(r => r.text())
+                  .then(t => { block.textContent = t; block.style.display = 'block'; });
+            } else {
+                block.style.display = 'none';
+            }
+        }
+        </script>
+        <div style="margin:2rem 0;">
+            <a href="../policyHuavei/privacy_policy_af.txt" download class="back-btn" style="margin-bottom:1rem;">Скачать политику (.txt)</a>
+            <button onclick="showTxtPolicy()" class="back-btn" style="background:#e41f1f;">Показать текст .txt</button>
+        </div>
+        <pre id="txtPolicyBlock" style="display:none;background:#f4f4f4;padding:1rem;border-radius:10px;max-height:400px;overflow:auto;"></pre>
+        <script>
+        function showTxtPolicy() {
+            var block = document.getElementById('txtPolicyBlock');
+            if (block.style.display === 'none') {
+                fetch('../policyHuavei/privacy_policy_af.txt')
+                  .then(r => r.text())
+                  .then(t => { block.textContent = t; block.style.display = 'block'; });
+            } else {
+                block.style.display = 'none';
+            }
+        }
+        </script>
+        <h2>Ingangsdatum: 6 Mei 2025</h2>
+        <p><strong>Toepnaam:</strong> Forest Calculator<br>
+        <strong>Ontwikkelaar:</strong> DR.IT.Studio<br>
+        <strong>Ligging:</strong> Kyiv, Oekraïne<br>
+        <strong>Kontak:</strong> support@dr-it.studio</p>
+        <h2>1. Inleiding</h2>
+        <p>Forest Calculator is ‘n toepassing ontwikkel deur DR.IT.Studio vir die berekening van houtvolumes en ander professionele funksies. Hierdie privaatheidsbeleid verduidelik watter data ons insamel, hoe ons dit gebruik, stoor, beskerm en deel — insluitend inligting oor beloonde video-advertensies (rewarded ads).</p>
+        <h2>2. Data wat Ons Insamel</h2>
+        <h3>2.1 Persoonlike Inligting</h3>
+        <ul>
+            <li>Ons samel nie persoonlike data outomaties in nie. Gebruikers kan egter vrywillig voorsien:</li>
+            <li>E-posadres wanneer hulle ondersteuning kontak</li>
+            <li>Handmatig ingevoerde inhoud en instellings (bv. berekeninge)</li>
+        </ul>
+        <h3>2.2 Nie-persoonlike (Tegniese) Inligting</h3>
+        <ul>
+            <li>Vir foutopsporing, verbetering en advertensies:</li>
+            <li>Toesteltipe en OS-weergawe</li>
+            <li>Taal van die koppelvlak</li>
+            <li>Gebruikspatrone</li>
+            <li>Foutlogs</li>
+            <li>Advertensie-ID</li>
+        </ul>
+        <h2>3. Toestemmings en Toegang</h2>
+        <table style="width:100%;border-collapse:collapse;margin-bottom:1rem;">
+            <tr><th style="border:1px solid #ccc;padding:4px;">Toestemming</th><th style="border:1px solid #ccc;padding:4px;">Doel</th></tr>
+            <tr><td style="border:1px solid #ccc;padding:4px;">Stoor toegang</td><td style="border:1px solid #ccc;padding:4px;">Om lêers te stoor en oop te maak (PDF, Excel, ens.)</td></tr>
+            <tr><td style="border:1px solid #ccc;padding:4px;">Internet</td><td style="border:1px solid #ccc;padding:4px;">Vir opdaterings, advertensies en e-pos stuur</td></tr>
+            <tr><td style="border:1px solid #ccc;padding:4px;">Deel met ander toepassings</td><td style="border:1px solid #ccc;padding:4px;">Om berekeninge te deel via boodskappe of e-pos</td></tr>
+            <tr><td style="border:1px solid #ccc;padding:4px;">Lys van geïnstalleerde toepassings (opsioneel)</td><td style="border:1px solid #ccc;padding:4px;">Om uitvoeropsies te toon</td></tr>
+        </table>
+        <h2>4. Advertensies en Derdeparty-dienste</h2>
+        <ul>
+            <li>Persoonlike of nie-persoonlike advertensies deur bv. Google AdMob</li>
+            <li>Beloning-videoadvertensies is altyd opsioneel</li>
+            <li>Geen persoonlike data word met advertensievennote gedeel nie</li>
+            <li>Google beleid: <a href="https://policies.google.com/technologies/ads" target="_blank">https://policies.google.com/technologies/ads</a></li>
+        </ul>
+        <h2>5. Betaalde Kenmerke en Intekeninge</h2>
+        <p>Gevorderde berekeningsmetodes</p>
     </div>
     <footer>
         &copy; 2025 DR.IT.Studio. Forest Calculator.

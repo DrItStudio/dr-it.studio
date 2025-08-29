@@ -13,6 +13,23 @@
         <a href="forest-calculator-huawei.html" class="back-btn">← العودة إلى Huawei Market</a>
         <h1>سياسة الخصوصية</h1>
         <p>هذه الصفحة تحتوي على نسخة خاصة من سياسة الخصوصية لمستخدمي Forest Calculator الذين يقومون بتنزيل التطبيق عبر Huawei AppGallery.</p>
+            <div style="margin:2rem 0;">
+                <a href="../policyHuavei/privacy_policy_ar.txt" download class="back-btn" style="margin-bottom:1rem;">Скачать политику (.txt)</a>
+                <button onclick="showTxtPolicy()" class="back-btn" style="background:#e41f1f;">Показать текст .txt</button>
+            </div>
+            <pre id="txtPolicyBlock" style="display:none;background:#f4f4f4;padding:1rem;border-radius:10px;max-height:400px;overflow:auto;"></pre>
+            <script>
+            function showTxtPolicy() {
+                var block = document.getElementById('txtPolicyBlock');
+                if (block.style.display === 'none') {
+                    fetch('../policyHuavei/privacy_policy_ar.txt')
+                      .then(r => r.text())
+                      .then(t => { block.textContent = t; block.style.display = 'block'; });
+                } else {
+                    block.style.display = 'none';
+                }
+            }
+            </script>
         <!-- Перевод политики на арабский -->
     </div>
     <footer>
