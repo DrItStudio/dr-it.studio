@@ -13,7 +13,23 @@
         <a href="forest-calculator-huawei.html" class="back-btn">← Nazad na Huawei Market</a>
         <h1>Pravila privatnosti</h1>
         <p>Ova stranica sadrži posebnu verziju pravila privatnosti za korisnike Forest Calculator-a koji preuzimaju aplikaciju putem Huawei AppGallery.</p>
-        <!-- Перевод политики на хорватский -->
+        <div style="margin:2rem 0;">
+            <a href="../policyHuavei/privacy_policy_hr.txt" download class="back-btn" style="margin-bottom:1rem;">Preuzmi kao .txt</a>
+            <button onclick="showTxtPolicy()" class="back-btn" style="background:#e41f1f;">Prikaži .txt online</button>
+        </div>
+        <pre id="txtPolicyBlock" style="display:none;background:#f4f4f4;padding:1rem;border-radius:10px;max-height:400px;overflow:auto;"></pre>
+        <script>
+        function showTxtPolicy() {
+            var block = document.getElementById('txtPolicyBlock');
+            if (block.style.display === 'none') {
+                fetch('../policyHuavei/privacy_policy_hr.txt')
+                  .then(r => r.text())
+                  .then(t => { block.textContent = t; block.style.display = 'block'; });
+            } else {
+                block.style.display = 'none';
+            }
+        }
+        </script>
     </div>
     <footer>
         &copy; 2025 DR.IT.Studio. Forest Calculator.
