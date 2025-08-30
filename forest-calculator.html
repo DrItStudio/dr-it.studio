@@ -912,12 +912,8 @@
             <div id="modal-form-view" style="display: none;">
                 <p class="modal-description" id="form-description" data-en="Please fill out the form below to request deletion of your personal data from our systems. We will review your request in accordance with applicable data protection laws." data-ru="Заполните форму ниже, чтобы запросить удаление ваших личных данных из наших систем. Мы рассмотрим ваш запрос в соответствии с действующим законодательством о защите данных." data-uk="Заповніть форму нижче, щоб запитати видалення ваших особистих даних з наших систем. Ми розглянемо ваш запит відповідно до чинного законодавства про захист даних." data-es="Complete el siguiente formulario para solicitar la eliminación de sus datos personales de nuestros sistemas. Revisaremos su solicitud de acuerdo con las leyes de protección de datos aplicables." data-fr="Veuillez remplir le formulaire ci-dessous pour demander la suppression de vos données personnelles de nos systèmes. Nous examinerons votre demande conformément aux lois applicables sur la protection des données." data-de="Bitte füllen Sie das untenstehende Formular aus, um die Löschung Ihrer persönlichen Daten aus unseren Systemen zu beantragen. Wir werden Ihren Antrag gemäß den geltenden Datenschutzgesetzen prüfen." data-zh="请填写下面的表格，申请从我们的系统中删除您的个人数据。我们将根据适用的数据保护法律审核您的请求。">Please fill out the form below to request deletion of your personal data from our systems. We will review your request in accordance with applicable data protection laws.</p>
                 
-                <form id="deletion-form" action="https://formsubmit.co/support@dritstudio.com" method="POST">
-                    <!-- FormSubmit configuration -->
-                    <input type="hidden" name="_subject" value="Data Deletion Request">
-                    <input type="hidden" name="_captcha" value="false">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_next" value="https://dritstudio.com/deletion-success.html">
+                <form id="deletion-form">
+                    <!-- Using JavaScript to send via mailto instead of FormSubmit -->
                     
                     <div class="form-group">
                         <label for="user-name" class="required-field" id="name-label" data-en="Name" data-ru="Имя" data-uk="Ім'я" data-es="Nombre" data-fr="Nom" data-de="Name" data-zh="姓名">Name</label>
@@ -1010,11 +1006,14 @@
         
         // Initialize form validation
         document.getElementById('deletion-form').addEventListener('submit', function(event) {
-            // Client-side validation only - let the form submit naturally if valid
+            // Always prevent default submission since we're using mailto
+            event.preventDefault();
+            
             let isValid = true;
             const userName = document.getElementById('user-name');
             const userEmail = document.getElementById('user-email');
             const appSelection = document.getElementById('app-selection');
+            const userMessage = document.getElementById('user-message');
             
             // Validate name
             if (userName.value.trim() === '') {
@@ -1041,15 +1040,31 @@
                 document.getElementById('app-error').style.display = 'none';
             }
             
-            // If form is not valid, prevent submission
-            if (!isValid) {
-                event.preventDefault();
-            } else {
-                // If valid, let the form submit naturally to FormSubmit service
-                // No need for custom fetch logic anymore
+            // If form is valid, create and open mailto link
+            if (isValid) {
+                // Create email subject and body
+                const subject = encodeURIComponent(`Data Deletion Request - ${appSelection.value}`);
+                const body = encodeURIComponent(
+                    `Name: ${userName.value}\n` +
+                    `Email: ${userEmail.value}\n` +
+                    `Application: ${appSelection.value}\n` +
+                    `Message: ${userMessage.value || "No additional message"}\n\n` +
+                    `This is a request for personal data deletion in accordance with data protection regulations.`
+                );
                 
-                // Set a success message in localStorage so we can show it after redirect
-                localStorage.setItem('formSubmitSuccess', 'true');
+                // Open email client with prefilled data
+                window.location.href = `mailto:support@dritstudio.com?subject=${subject}&body=${body}`;
+                
+                // Hide the form view
+                document.getElementById('modal-form-view').style.display = 'none';
+                
+                // Show success message
+                document.getElementById('success-message').style.display = 'block';
+                
+                // Reset the form
+                setTimeout(() => {
+                    document.getElementById('deletion-form').reset();
+                }, 1000);
             }
         });
     </script>
