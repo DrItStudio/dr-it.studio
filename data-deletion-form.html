@@ -172,13 +172,7 @@
         }
     </style>
     <script src="js/language-manager.js" defer></script>
-    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-    <script type="text/javascript">
-        (function() {
-            // Замените значение user_id на ваш реальный EmailJS user_id после регистрации
-            emailjs.init("YOUR_USER_ID");
-        })();
-    </script>
+    <!-- Удаляем EmailJS, так как будем использовать FormSubmit -->
 </head>
 <body>
     <div class="container">
@@ -204,10 +198,17 @@
         
         <div class="email-notice" id="email-notice" style="background-color: #e3f2fd; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #2196F3;">
             <p style="margin: 0; font-weight: 500; color: #0D47A1;" id="notice-title" data-en="How this works" data-ru="Как это работает" data-uk="Як це працює" data-es="Cómo funciona" data-fr="Comment ça marche" data-de="Wie es funktioniert" data-zh="工作原理">How this works</p>
-            <p style="margin-top: 8px; font-size: 0.95rem;" id="notice-text" data-en="When you submit this form, an email will be sent directly to our support team from the email address you provide. You will be redirected to a confirmation page once your request is submitted." data-ru="Когда вы отправите эту форму, электронное письмо будет отправлено напрямую нашей команде поддержки с указанного вами адреса. После отправки запроса вы будете перенаправлены на страницу подтверждения." data-uk="Коли ви надішлете цю форму, електронний лист буде відправлено безпосередньо нашій команді підтримки з вказаної вами адреси. Після надсилання запиту вас буде перенаправлено на сторінку підтвердження." data-es="Cuando envíe este formulario, se enviará un correo electrónico directamente a nuestro equipo de soporte desde la dirección de correo electrónico que proporcione. Será redirigido a una página de confirmación una vez que se envíe su solicitud." data-fr="Lorsque vous soumettez ce formulaire, un e-mail sera envoyé directement à notre équipe d'assistance depuis l'adresse e-mail que vous fournissez. Vous serez redirigé vers une page de confirmation une fois votre demande soumise." data-de="Wenn Sie dieses Formular absenden, wird eine E-Mail direkt von der von Ihnen angegebenen E-Mail-Adresse an unser Support-Team gesendet. Nach dem Absenden Ihrer Anfrage werden Sie zu einer Bestätigungsseite weitergeleitet." data-zh="提交此表单后，系统将直接从您提供的电子邮件地址向我们的支持团队发送电子邮件。提交请求后，您将被重定向到确认页面。">When you submit this form, an email will be sent directly to our support team from the email address you provide. You will be redirected to a confirmation page once your request is submitted.</p>
+            <p style="margin-top: 8px; font-size: 0.95rem;" id="notice-text" data-en="When you submit this form, your request will be securely sent to our support team. You will automatically receive a confirmation email and be redirected to a success page." data-ru="Когда вы отправите эту форму, ваш запрос будет безопасно отправлен нашей команде поддержки. Вы автоматически получите электронное письмо с подтверждением и будете перенаправлены на страницу успешной отправки." data-uk="Коли ви надішлете цю форму, ваш запит буде безпечно відправлений нашій команді підтримки. Ви автоматично отримаєте електронний лист із підтвердженням та будете перенаправлені на сторінку успішного відправлення." data-es="Cuando envíe este formulario, su solicitud se enviará de forma segura a nuestro equipo de soporte. Automáticamente recibirá un correo electrónico de confirmación y será redirigido a una página de éxito." data-fr="Lorsque vous soumettez ce formulaire, votre demande sera envoyée en toute sécurité à notre équipe d'assistance. Vous recevrez automatiquement un e-mail de confirmation et serez redirigé vers une page de succès." data-de="Wenn Sie dieses Formular absenden, wird Ihre Anfrage sicher an unser Support-Team gesendet. Sie erhalten automatisch eine Bestätigungs-E-Mail und werden zu einer Erfolgsseite weitergeleitet." data-zh="提交此表单后，您的请求将安全地发送给我们的支持团队。您将自动收到确认电子邮件并被重定向到成功页面。">When you submit this form, your request will be securely sent to our support team. You will automatically receive a confirmation email and be redirected to a success page.</p>
         </div>
         
-        <form id="deletion-form">
+        <!-- Форма с использованием FormSubmit для прямой отправки -->
+        <form id="deletion-form" action="https://formsubmit.co/support@dr-it.studio" method="POST">
+            <!-- Скрытые поля FormSubmit для настройки -->
+            <input type="hidden" name="_subject" value="Data Deletion Request">
+            <input type="hidden" name="_next" value="https://dr-it.studio/deletion-success.html">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_captcha" value="false">
+            
             <div class="form-group">
                 <label for="user-name" class="required-field" id="name-label" data-en="Name" data-ru="Имя" data-uk="Ім'я" data-es="Nombre" data-fr="Nom" data-de="Name" data-zh="姓名">Name</label>
                 <input type="text" id="user-name" name="name" required>
@@ -234,6 +235,9 @@
                 <label for="user-message" id="message-label" data-en="Message (optional)" data-ru="Сообщение (необязательно)" data-uk="Повідомлення (необов'язково)" data-es="Mensaje (opcional)" data-fr="Message (facultatif)" data-de="Nachricht (optional)" data-zh="信息（可选）">Message (optional)</label>
                 <textarea id="user-message" name="message" data-en="Additional information about your request..." data-ru="Дополнительная информация о вашем запросе..." data-uk="Додаткова інформація про ваш запит..." data-es="Información adicional sobre su solicitud..." data-fr="Informations supplémentaires concernant votre demande..." data-de="Zusätzliche Informationen zu Ihrer Anfrage..." data-zh="有关您请求的其他信息..." placeholder="Additional information about your request..."></textarea>
             </div>
+            
+            <!-- Добавим скрытое поле для указания типа запроса -->
+            <input type="hidden" name="request_type" value="Data Deletion Request - GDPR">
             
             <button type="submit" class="btn-submit" id="submit-button" data-en="Submit Request" data-ru="Отправить запрос" data-uk="Надіслати запит" data-es="Enviar solicitud" data-fr="Envoyer la demande" data-de="Anfrage senden" data-zh="提交请求">Submit Request</button>
         </form>
@@ -303,7 +307,7 @@
 
         // Form validation and submission
         document.getElementById('deletion-form').addEventListener('submit', function(event) {
-            event.preventDefault();
+            // FormSubmit будет обрабатывать отправку, но мы всё равно сделаем валидацию на стороне клиента
             
             let isValid = true;
             const userName = document.getElementById('user-name');
@@ -315,6 +319,7 @@
             if (userName.value.trim() === '') {
                 document.getElementById('name-error').style.display = 'block';
                 isValid = false;
+                event.preventDefault();
             } else {
                 document.getElementById('name-error').style.display = 'none';
             }
@@ -324,6 +329,7 @@
             if (!emailPattern.test(userEmail.value)) {
                 document.getElementById('email-error').style.display = 'block';
                 isValid = false;
+                event.preventDefault();
             } else {
                 document.getElementById('email-error').style.display = 'none';
             }
@@ -332,36 +338,20 @@
             if (appSelection.value === '') {
                 document.getElementById('app-error').style.display = 'block';
                 isValid = false;
+                event.preventDefault();
             } else {
                 document.getElementById('app-error').style.display = 'none';
             }
             
-            // If form is valid, send email directly
+            // If form is valid, we'll allow the form to submit naturally to FormSubmit
             if (isValid) {
                 // Show loading indicator
                 document.getElementById('submit-button').disabled = true;
                 document.getElementById('submit-button').innerHTML = '<span id="loading-text" data-en="Sending..." data-ru="Отправка..." data-uk="Надсилання..." data-es="Enviando..." data-fr="Envoi en cours..." data-de="Senden..." data-zh="发送中...">Sending...</span>';
                 
-                // Prepare email template parameters
-                const templateParams = {
-                    from_name: userName.value,
-                    from_email: userEmail.value,
-                    application: appSelection.value,
-                    message: userMessage.value || "No additional message",
-                    reply_to: userEmail.value
-                };
-
-                // Send email using EmailJS
-                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
-                    .then(function(response) {
-                        console.log('SUCCESS!', response.status, response.text);
-                        window.location.href = "deletion-success.html";
-                    }, function(error) {
-                        console.log('FAILED...', error);
-                        alert('Failed to send email. Please try manually sending to support@dr-it.studio');
-                        document.getElementById('submit-button').disabled = false;
-                        document.getElementById('submit-button').innerHTML = document.getElementById('submit-button').getAttribute('data-' + (localStorage.getItem('selectedLanguage') || 'en')) || 'Submit Request';
-                    });
+                // FormSubmit обрабатывает отправку формы автоматически
+                // Форма отправится по методу POST на https://formsubmit.co/support@dr-it.studio
+                // После отправки пользователь будет перенаправлен на страницу успеха
             }
         });
     </script>
