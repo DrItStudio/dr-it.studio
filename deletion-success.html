@@ -160,6 +160,38 @@
                 // Initialize language manager if it exists
                 LanguageManager.initLanguage();
             }
+            
+            // Check if we came from a form submission or direct access
+            const formSubmitted = localStorage.getItem('formSubmitted') === 'true';
+            const directAccess = !document.referrer.includes('data-deletion-form.html');
+            
+            // Clear the submission flag
+            localStorage.removeItem('formSubmitted');
+            
+            // If accessed directly without form submission, show additional info
+            if (!formSubmitted && directAccess) {
+                const infoBox = document.createElement('div');
+                infoBox.style.backgroundColor = '#fff3cd';
+                infoBox.style.padding = '15px';
+                infoBox.style.borderRadius = '10px';
+                infoBox.style.marginBottom = '20px';
+                infoBox.style.borderLeft = '4px solid #ffc107';
+                infoBox.style.textAlign = 'left';
+                infoBox.innerHTML = `
+                    <p style="margin: 0; font-weight: 500; color: #856404;">Note</p>
+                    <p style="margin-top: 8px; font-size: 0.95rem;">
+                        You accessed this page directly. If you're trying to submit a data deletion request, 
+                        please go to the <a href="data-deletion-form.html" style="color: #856404; font-weight: 500;">data deletion form</a> first.
+                    </p>
+                `;
+                
+                // Insert after the success icon
+                const successContainer = document.querySelector('.success-container');
+                const successIcon = document.querySelector('.success-icon');
+                if (successContainer && successIcon) {
+                    successContainer.insertBefore(infoBox, successIcon.nextSibling);
+                }
+            }
         });
     </script>
 </body>

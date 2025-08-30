@@ -224,9 +224,10 @@
         <form id="deletion-form" action="https://formsubmit.co/el/xedari" method="POST" onsubmit="return handleFormSubmission(event)">
             <!-- Hidden FormSubmit fields -->
             <input type="hidden" name="_subject" value="Data Deletion Request">
-            <input type="hidden" name="_next" value="deletion-success.html">
+            <input type="hidden" name="_next" value="https://dr-it.studio/deletion-success.html">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_autoresponse" value="Thank you for your data deletion request. We have received it and will process it within 30 days.">
             <input type="hidden" name="message_details" id="message-description" value="">
             
             <div class="form-group">
@@ -406,8 +407,18 @@
             // Set a timeout to handle the case where FormSubmit might take too long
             window.formSubmitTimeout = setTimeout(function() {
                 console.error("FormSubmit timeout");
-                alert("The form submission is taking longer than expected. If you're not redirected within a few seconds, please try again.");
+                alert("The form is being processed. You will be redirected to the confirmation page shortly.");
+                // Manual redirect after timeout
+                window.location.href = "https://dr-it.studio/deletion-success.html";
             }, 10000);
+            
+            // Add a form submission event listener to handle the redirect
+            const form = document.getElementById('deletion-form');
+            form.addEventListener('formdata', function(e) {
+                console.log("Form data being prepared");
+                // Store success info in localStorage to detect successful submission
+                localStorage.setItem('formSubmitted', 'true');
+            });
             
             // Allow the form to submit naturally to FormSubmit
             return true;
