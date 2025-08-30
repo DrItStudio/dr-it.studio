@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Deletion Request - Forest Calculator</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            padding: 60px 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #ffffff;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 40px;
+        }
+
+        .logo-container {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .logo-img {
+            height: 60px;
+            width: auto;
+        }
+
+        h1 {
+            color: #27ae60;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 2rem;
+        }
+
+        .form-description {
+            margin-bottom: 30px;
+            color: #555;
+            text-align: center;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #444;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            font-family: inherit;
+            font-size: 1rem;
+            transition: border 0.3s;
+        }
+
+        .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+            outline: none;
+            border-color: #2196F3;
+        }
+
+        .form-group textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .required-field::after {
+            content: "*";
+            color: #e41f1f;
+            margin-left: 4px;
+        }
+
+        .error-text {
+            color: #e41f1f;
+            font-size: 0.9rem;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .btn-submit {
+            background: linear-gradient(90deg, #2196F3 0%, #0D47A1 100%);
+            color: white;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(44,62,80,0.1);
+            width: 100%;
+        }
+
+        .btn-submit:hover {
+            background: linear-gradient(90deg, #1E88E5 0%, #0D47A1 100%);
+            box-shadow: 0 8px 20px rgba(33, 150, 243, 0.25);
+            transform: translateY(-3px);
+        }
+
+        .btn-back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        .btn-back:hover {
+            text-decoration: underline;
+        }
+
+        .success-message {
+            display: none;
+            background-color: #e8f5e9;
+            color: #27ae60;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            text-align: center;
+            font-weight: 500;
+        }
+    </style>
+    <script src="js/language-manager.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="logo-container">
+            <img src="logo_light.png" alt="Forest Calculator Logo" class="logo-img">
+        </div>
+        
+        <h1 id="form-title" data-en="Personal Data Deletion Request" data-ru="Запрос на удаление личных данных" data-uk="Запит на видалення особистих даних" data-es="Solicitud de eliminación de datos personales" data-fr="Demande de suppression de données personnelles" data-de="Antrag auf Löschung personenbezogener Daten" data-zh="个人数据删除请求">Personal Data Deletion Request</h1>
+        
+        <p class="form-description" id="form-description" data-en="Please fill out the form below to request deletion of your personal data from our systems. We will review your request in accordance with applicable data protection laws." data-ru="Заполните форму ниже, чтобы запросить удаление ваших личных данных из наших систем. Мы рассмотрим ваш запрос в соответствии с действующим законодательством о защите данных." data-uk="Заповніть форму нижче, щоб запитати видалення ваших особистих даних з наших систем. Ми розглянемо ваш запит відповідно до чинного законодавства про захист даних." data-es="Complete el siguiente formulario para solicitar la eliminación de sus datos personales de nuestros sistemas. Revisaremos su solicitud de acuerdo con las leyes de protección de datos aplicables." data-fr="Veuillez remplir le formulaire ci-dessous pour demander la suppression de vos données personnelles de nos systèmes. Nous examinerons votre demande conformément aux lois applicables sur la protection des données." data-de="Bitte füllen Sie das untenstehende Formular aus, um die Löschung Ihrer persönlichen Daten aus unseren Systemen zu beantragen. Wir werden Ihren Antrag gemäß den geltenden Datenschutzgesetzen prüfen." data-zh="请填写下面的表格，申请从我们的系统中删除您的个人数据。我们将根据适用的数据保护法律审核您的请求。">Please fill out the form below to request deletion of your personal data from our systems. We will review your request in accordance with applicable data protection laws.</p>
+        
+        <form id="deletion-form">
+            <div class="form-group">
+                <label for="user-name" class="required-field" id="name-label" data-en="Name" data-ru="Имя" data-uk="Ім'я" data-es="Nombre" data-fr="Nom" data-de="Name" data-zh="姓名">Name</label>
+                <input type="text" id="user-name" name="name" required>
+                <p class="error-text" id="name-error" data-en="Please enter your name" data-ru="Пожалуйста, введите ваше имя" data-uk="Будь ласка, введіть ваше ім'я" data-es="Por favor ingrese su nombre" data-fr="Veuillez entrer votre nom" data-de="Bitte geben Sie Ihren Namen ein" data-zh="请输入您的姓名">Please enter your name</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="user-email" class="required-field" id="email-label" data-en="Email" data-ru="Электронная почта" data-uk="Електронна пошта" data-es="Correo electrónico" data-fr="Email" data-de="E-Mail" data-zh="电子邮件">Email</label>
+                <input type="email" id="user-email" name="email" required>
+                <p class="error-text" id="email-error" data-en="Please enter a valid email address" data-ru="Пожалуйста, введите действующий адрес электронной почты" data-uk="Будь ласка, введіть дійсну адресу електронної пошти" data-es="Por favor ingrese un correo electrónico válido" data-fr="Veuillez entrer une adresse e-mail valide" data-de="Bitte geben Sie eine gültige E-Mail-Adresse ein" data-zh="请输入有效的电子邮件地址">Please enter a valid email address</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="app-selection" class="required-field" id="app-label" data-en="Application" data-ru="Приложение" data-uk="Додаток" data-es="Aplicación" data-fr="Application" data-de="Anwendung" data-zh="应用程序">Application</label>
+                <select id="app-selection" name="application" required>
+                    <option value="" id="select-app" data-en="Select an application" data-ru="Выберите приложение" data-uk="Виберіть додаток" data-es="Seleccionar una aplicación" data-fr="Sélectionner une application" data-de="Wählen Sie eine Anwendung" data-zh="选择应用程序">Select an application</option>
+                    <option value="Forest Calculator" id="forest-calc" data-en="Forest Calculator" data-ru="Forest Calculator" data-uk="Forest Calculator" data-es="Forest Calculator" data-fr="Forest Calculator" data-de="Forest Calculator" data-zh="Forest Calculator">Forest Calculator</option>
+                    <option value="Forest Calculator Pro" id="forest-calc-pro" data-en="Forest Calculator Pro" data-ru="Forest Calculator Pro" data-uk="Forest Calculator Pro" data-es="Forest Calculator Pro" data-fr="Forest Calculator Pro" data-de="Forest Calculator Pro" data-zh="Forest Calculator Pro">Forest Calculator Pro</option>
+                </select>
+                <p class="error-text" id="app-error" data-en="Please select an application" data-ru="Пожалуйста, выберите приложение" data-uk="Будь ласка, виберіть додаток" data-es="Por favor seleccione una aplicación" data-fr="Veuillez sélectionner une application" data-de="Bitte wählen Sie eine Anwendung" data-zh="请选择一个应用程序">Please select an application</p>
+            </div>
+            
+            <div class="form-group">
+                <label for="user-message" id="message-label" data-en="Message (optional)" data-ru="Сообщение (необязательно)" data-uk="Повідомлення (необов'язково)" data-es="Mensaje (opcional)" data-fr="Message (facultatif)" data-de="Nachricht (optional)" data-zh="信息（可选）">Message (optional)</label>
+                <textarea id="user-message" name="message" data-en="Additional information about your request..." data-ru="Дополнительная информация о вашем запросе..." data-uk="Додаткова інформація про ваш запит..." data-es="Información adicional sobre su solicitud..." data-fr="Informations supplémentaires concernant votre demande..." data-de="Zusätzliche Informationen zu Ihrer Anfrage..." data-zh="有关您请求的其他信息..." placeholder="Additional information about your request..."></textarea>
+            </div>
+            
+            <button type="submit" class="btn-submit" id="submit-button" data-en="Submit Request" data-ru="Отправить запрос" data-uk="Надіслати запит" data-es="Enviar solicitud" data-fr="Envoyer la demande" data-de="Anfrage senden" data-zh="提交请求">Submit Request</button>
+        </form>
+        
+        <div class="success-message" id="success-message" data-en="Your email client has been opened with your data deletion request. Please send the email to complete your request. We will process it as soon as possible and contact you via the provided email address." data-ru="Ваш почтовый клиент был открыт с запросом на удаление данных. Пожалуйста, отправьте письмо для завершения запроса. Мы обработаем его как можно скорее и свяжемся с вами по указанному адресу электронной почты." data-uk="Ваш поштовий клієнт був відкритий із запитом на видалення даних. Будь ласка, відправте лист для завершення запиту. Ми обробимо його якомога швидше і зв'яжемося з вами за вказаною адресою електронної пошти." data-es="Su cliente de correo electrónico se ha abierto con su solicitud de eliminación de datos. Por favor, envíe el correo electrónico para completar su solicitud. Procesaremos su solicitud lo antes posible y nos pondremos en contacto con usted a través de la dirección de correo electrónico proporcionada." data-fr="Votre client de messagerie a été ouvert avec votre demande de suppression de données. Veuillez envoyer l'e-mail pour compléter votre demande. Nous la traiterons dès que possible et vous contacterons via l'adresse e-mail fournie." data-de="Ihr E-Mail-Client wurde mit Ihrer Datenlöschungsanfrage geöffnet. Bitte senden Sie die E-Mail, um Ihre Anfrage abzuschließen. Wir werden sie so schnell wie möglich bearbeiten und Sie über die angegebene E-Mail-Adresse kontaktieren." data-zh="您的电子邮件客户端已打开，其中包含您的数据删除请求。请发送电子邮件以完成您的请求。我们将尽快处理您的请求，并通过提供的电子邮件地址与您联系。">Your email client has been opened with your data deletion request. Please send the email to complete your request. We will process it as soon as possible and contact you via the provided email address.</div>
+        
+        <a href="forest-calculator.html" class="btn-back" id="back-button" data-en="Back to Forest Calculator" data-ru="Вернуться к Forest Calculator" data-uk="Повернутися до Forest Calculator" data-es="Volver a Forest Calculator" data-fr="Retour à Forest Calculator" data-de="Zurück zu Forest Calculator" data-zh="返回 Forest Calculator">Back to Forest Calculator</a>
+    </div>
+
+    <script>
+        // Initialization function for language manager
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof LanguageManager !== 'undefined') {
+                // Initialize language manager if it exists
+                LanguageManager.initLanguage();
+            }
+        });
+
+        // Form validation and submission
+        document.getElementById('deletion-form').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            let isValid = true;
+            const userName = document.getElementById('user-name');
+            const userEmail = document.getElementById('user-email');
+            const appSelection = document.getElementById('app-selection');
+            const userMessage = document.getElementById('user-message');
+            
+            // Validate name
+            if (userName.value.trim() === '') {
+                document.getElementById('name-error').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('name-error').style.display = 'none';
+            }
+            
+            // Validate email
+            const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(userEmail.value)) {
+                document.getElementById('email-error').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('email-error').style.display = 'none';
+            }
+            
+            // Validate app selection
+            if (appSelection.value === '') {
+                document.getElementById('app-error').style.display = 'block';
+                isValid = false;
+            } else {
+                document.getElementById('app-error').style.display = 'none';
+            }
+            
+            // If form is valid, send via mailto
+            if (isValid) {
+                // Create email subject and body
+                const subject = encodeURIComponent(`Data Deletion Request - ${appSelection.value}`);
+                const body = encodeURIComponent(
+                    `Name: ${userName.value}\n` +
+                    `Email: ${userEmail.value}\n` +
+                    `Application: ${appSelection.value}\n` +
+                    `Message: ${userMessage.value || "No additional message"}\n\n` +
+                    `This is a request for personal data deletion in accordance with data protection regulations.`
+                );
+                
+                // Open email client with prefilled data
+                window.location.href = `mailto:support@dritstudio.com?subject=${subject}&body=${body}`;
+                
+                // Hide the form
+                document.getElementById('deletion-form').style.display = 'none';
+                
+                // Show success message
+                document.getElementById('success-message').style.display = 'block';
+            }
+        });
+    </script>
+</body>
+</html>
