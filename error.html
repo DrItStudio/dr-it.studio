@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error - Forest Calculator</title>
+    <script src="js/language-manager.js" defer></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            z-index: 100;
+        }
+        
+        @media (max-width: 768px) {
+            .language-selector {
+                position: relative;
+                top: 0;
+                right: 0;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
+        }
+
+        .error-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 20px;
+            max-width: 600px;
+            width: 90%;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        .error-icon {
+            color: #e74c3c;
+            font-size: 60px;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+
+        p {
+            margin-bottom: 20px;
+            color: #555;
+        }
+
+        .btn-home {
+            background: linear-gradient(90deg, #2196F3 0%, #0D47A1 100%);
+            color: white;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 1rem;
+            border-radius: 30px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(44,62,80,0.1);
+            text-decoration: none;
+            margin-top: 20px;
+        }
+        
+        .btn-home:hover {
+            background: linear-gradient(90deg, #1E88E5 0%, #0D47A1 100%);
+            box-shadow: 0 8px 20px rgba(33, 150, 243, 0.25);
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+<body>
+    <div class="error-container">
+        <div class="error-icon">❌</div>
+        <h1 id="error-title" data-en="Server Error" data-ru="Ошибка сервера" data-uk="Помилка сервера" data-es="Error del servidor" data-fr="Erreur du serveur" data-de="Serverfehler" data-zh="服务器错误">Server Error</h1>
+        <p id="error-text" data-en="We're experiencing some technical difficulties. This could be due to maintenance or server issues." data-ru="У нас возникли технические трудности. Это может быть связано с техническим обслуживанием или проблемами сервера." data-uk="У нас виникли технічні труднощі. Це може бути пов'язано з технічним обслуговуванням або проблемами сервера." data-es="Estamos experimentando algunas dificultades técnicas. Esto podría deberse a mantenimiento o problemas del servidor." data-fr="Nous rencontrons des difficultés techniques. Cela pourrait être dû à la maintenance ou à des problèmes de serveur." data-de="Wir haben technische Schwierigkeiten. Dies könnte auf Wartung oder Serverprobleme zurückzuführen sein." data-zh="我们遇到了一些技术困难。这可能是由于维护或服务器问题造成的。">We're experiencing some technical difficulties. This could be due to maintenance or server issues.</p>
+        <p id="solution-text" data-en="Please try again later or contact us at <strong>support@dr-it.studio</strong> if the problem persists." data-ru="Пожалуйста, повторите попытку позже или свяжитесь с нами по адресу <strong>support@dr-it.studio</strong>, если проблема не устранится." data-uk="Будь ласка, спробуйте пізніше або зв'яжіться з нами за адресою <strong>support@dr-it.studio</strong>, якщо проблема не зникне." data-es="Por favor, inténtelo de nuevo más tarde o contáctenos en <strong>support@dr-it.studio</strong> si el problema persiste." data-fr="Veuillez réessayer plus tard ou nous contacter à <strong>support@dr-it.studio</strong> si le problème persiste." data-de="Bitte versuchen Sie es später erneut oder kontaktieren Sie uns unter <strong>support@dr-it.studio</strong>, wenn das Problem weiterhin besteht." data-zh="请稍后再试，或者如果问题仍然存在，请通过 <strong>support@dr-it.studio</strong> 联系我们。">Please try again later or contact us at <strong>support@dr-it.studio</strong> if the problem persists.</p>
+        
+        <div class="alternative" style="background-color: #f8f9fa; padding: 15px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #2196F3; text-align: left;">
+            <p style="margin: 0; font-weight: 500;" id="alternative-header" data-en="Alternative Method" data-ru="Альтернативный метод" data-uk="Альтернативний метод" data-es="Método alternativo" data-fr="Méthode alternative" data-de="Alternative Methode" data-zh="替代方法">Alternative Method</p>
+            <p style="margin-top: 8px; font-size: 0.9rem;" id="alternative-text" data-en="You can also send your data deletion request directly to <strong>support@dr-it.studio</strong> with the following information:" data-ru="Вы также можете отправить запрос на удаление данных напрямую на <strong>support@dr-it.studio</strong> со следующей информацией:" data-uk="Ви також можете надіслати запит на видалення даних безпосередньо на <strong>support@dr-it.studio</strong> з наступною інформацією:" data-es="También puede enviar su solicitud de eliminación de datos directamente a <strong>support@dr-it.studio</strong> con la siguiente información:" data-fr="Vous pouvez également envoyer votre demande de suppression de données directement à <strong>support@dr-it.studio</strong> avec les informations suivantes:" data-de="Sie können Ihre Datenlöschungsanfrage auch direkt an <strong>support@dr-it.studio</strong> senden mit den folgenden Informationen:" data-zh="您也可以直接将数据删除请求发送至 <strong>support@dr-it.studio</strong>，并附上以下信息：">You can also send your data deletion request directly to <strong>support@dr-it.studio</strong> with the following information:</p>
+            <ul style="margin-top: 8px; font-size: 0.9rem; padding-left: 20px;">
+                <li id="info-name" data-en="Your full name" data-ru="Ваше полное имя" data-uk="Ваше повне ім'я" data-es="Su nombre completo" data-fr="Votre nom complet" data-de="Ihr vollständiger Name" data-zh="您的全名">Your full name</li>
+                <li id="info-email" data-en="Your email address" data-ru="Ваш адрес электронной почты" data-uk="Ваша електронна адреса" data-es="Su dirección de correo electrónico" data-fr="Votre adresse e-mail" data-de="Ihre E-Mail-Adresse" data-zh="您的电子邮件地址">Your email address</li>
+                <li id="info-app" data-en="The application name" data-ru="Название приложения" data-uk="Назва додатка" data-es="El nombre de la aplicación" data-fr="Le nom de l'application" data-de="Der Name der Anwendung" data-zh="应用程序名称">The application name</li>
+                <li id="info-request" data-en="A statement that you're requesting data deletion" data-ru="Заявление о том, что вы запрашиваете удаление данных" data-uk="Заява про те, що ви запитуєте видалення даних" data-es="Una declaración de que está solicitando la eliminación de datos" data-fr="Une déclaration indiquant que vous demandez la suppression des données" data-de="Eine Erklärung, dass Sie die Datenlöschung beantragen" data-zh="一份声明，表示您正在请求删除数据">A statement that you're requesting data deletion</li>
+            </ul>
+        </div>
+        
+        <a href="index.html" class="btn-home" id="return-button" data-en="Return to Homepage" data-ru="Вернуться на главную" data-uk="Повернутися на головну" data-es="Volver a la página principal" data-fr="Retour à la page d'accueil" data-de="Zurück zur Startseite" data-zh="返回主页">Return to Homepage</a>
+    </div>
+    
+    <script>
+        // Initialization function for language manager
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create language selector
+            const languageSelector = document.createElement('div');
+            languageSelector.className = 'language-selector';
+            
+            const languages = [
+                { code: 'en', name: 'English' },
+                { code: 'ru', name: 'Русский' },
+                { code: 'uk', name: 'Українська' },
+                { code: 'es', name: 'Español' },
+                { code: 'fr', name: 'Français' },
+                { code: 'de', name: 'Deutsch' },
+                { code: 'zh', name: 'Chinese' }
+            ];
+            
+            languages.forEach(function(lang) {
+                const langButton = document.createElement('button');
+                langButton.textContent = lang.name;
+                langButton.dataset.lang = lang.code;
+                langButton.style.margin = '0 5px';
+                langButton.style.padding = '5px 10px';
+                langButton.style.border = '1px solid #ccc';
+                langButton.style.borderRadius = '3px';
+                langButton.style.background = '#fff';
+                langButton.style.cursor = 'pointer';
+                
+                langButton.addEventListener('click', function() {
+                    localStorage.setItem('selectedLanguage', lang.code);
+                    if (typeof LanguageManager !== 'undefined') {
+                        LanguageManager.switchLanguage(lang.code);
+                    }
+                });
+                
+                languageSelector.appendChild(langButton);
+            });
+            
+            document.body.appendChild(languageSelector);
+            
+            if (typeof LanguageManager !== 'undefined') {
+                // Initialize language manager if it exists
+                LanguageManager.initLanguage();
+            }
+        });
+    </script>
+</body>
+</html>
