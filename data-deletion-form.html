@@ -221,13 +221,15 @@
         </div>
         
         <!-- Using FormSubmit for direct email submission -->
-        <form id="deletion-form" action="https://formsubmit.co/el/xedari" method="POST" onsubmit="return handleFormSubmission(event)">
+        <form id="deletion-form" action="https://formsubmit.co/support@dr-it.studio" method="POST" onsubmit="return handleFormSubmission(event)">
             <!-- Hidden FormSubmit fields -->
             <input type="hidden" name="_subject" value="Data Deletion Request">
-            <input type="hidden" name="_next" value="https://dr-it.studio/deletion-success.html">
+            <input type="hidden" name="_next" value="deletion-success.html">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="false">
             <input type="hidden" name="_autoresponse" value="Thank you for your data deletion request. We have received it and will process it within 30 days.">
+            <input type="hidden" name="_format" value="plain">
+            <input type="hidden" name="_honey" style="display:none">
             <input type="hidden" name="message_details" id="message-description" value="">
             
             <div class="form-group">
@@ -343,10 +345,30 @@
             return false;
         }
         
-        // Check for error on load
+        // Check for error on load and configure the form properly
         window.addEventListener('DOMContentLoaded', function() {
             if (handle500Error()) {
                 console.log('Redirected due to 500 error detection');
+                return;
+            }
+            
+            // Ensure form is correctly configured
+            const form = document.getElementById('deletion-form');
+            if (form) {
+                // Make sure we have the right action
+                if (!form.action || form.action.trim() === '') {
+                    form.action = 'https://formsubmit.co/support@dr-it.studio';
+                }
+                
+                // Double-check the next URL
+                const nextInput = form.querySelector('input[name="_next"]');
+                if (nextInput) {
+                    nextInput.value = window.location.origin + '/deletion-success.html';
+                    // Fallback if origin isn't available
+                    if (nextInput.value.includes('null')) {
+                        nextInput.value = 'deletion-success.html';
+                    }
+                }
             }
         });
         
@@ -404,23 +426,33 @@
                 `Message: ${userMessage.value || "No additional message"}\n\n` +
                 `This is a request for personal data deletion in accordance with data protection regulations.`;
             
-            // Set a timeout to handle the case where FormSubmit might take too long
-            window.formSubmitTimeout = setTimeout(function() {
-                console.error("FormSubmit timeout");
-                alert("The form is being processed. You will be redirected to the confirmation page shortly.");
-                // Manual redirect after timeout
-                window.location.href = "https://dr-it.studio/deletion-success.html";
-            }, 10000);
+            // Save submission state to localStorage
+            localStorage.setItem('formSubmitted', 'true');
+            localStorage.setItem('submitterName', userName.value);
+            localStorage.setItem('submitterApp', appSelection.value);
             
-            // Add a form submission event listener to handle the redirect
-            const form = document.getElementById('deletion-form');
-            form.addEventListener('formdata', function(e) {
-                console.log("Form data being prepared");
-                // Store success info in localStorage to detect successful submission
-                localStorage.setItem('formSubmitted', 'true');
-            });
+            // Create a success notification that will appear after submission
+            const successNotification = document.createElement('div');
+            successNotification.id = 'submission-notification';
+            successNotification.style.position = 'fixed';
+            successNotification.style.top = '20px';
+            successNotification.style.left = '50%';
+            successNotification.style.transform = 'translateX(-50%)';
+            successNotification.style.backgroundColor = '#4CAF50';
+            successNotification.style.color = 'white';
+            successNotification.style.padding = '15px 20px';
+            successNotification.style.borderRadius = '5px';
+            successNotification.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+            successNotification.style.zIndex = '1000';
+            successNotification.innerHTML = 'Form submitted successfully! Redirecting to confirmation page...';
+            document.body.appendChild(successNotification);
             
-            // Allow the form to submit naturally to FormSubmit
+            // Set timeout for redirection with notification
+            setTimeout(function() {
+                window.location.href = "deletion-success.html";
+            }, 2000);
+            
+            // Allow form to submit to FormSubmit
             return true;
         }
     </script>

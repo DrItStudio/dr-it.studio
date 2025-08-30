@@ -163,13 +163,61 @@
             
             // Check if we came from a form submission or direct access
             const formSubmitted = localStorage.getItem('formSubmitted') === 'true';
-            const directAccess = !document.referrer.includes('data-deletion-form.html');
+            const submitterName = localStorage.getItem('submitterName');
+            const submitterApp = localStorage.getItem('submitterApp');
             
-            // Clear the submission flag
-            localStorage.removeItem('formSubmitted');
-            
-            // If accessed directly without form submission, show additional info
-            if (!formSubmitted && directAccess) {
+            // Create custom success message if we have the submission data
+            if (formSubmitted && submitterName) {
+                // Update thank you text with user's name
+                const thankYouText = document.getElementById('thank-you-text');
+                if (thankYouText) {
+                    const currentLang = localStorage.getItem('selectedLanguage') || 'en';
+                    let personalizedText;
+                    
+                    if (currentLang === 'en') {
+                        personalizedText = `Thank you, <strong>${submitterName}</strong>! Your data deletion request for <strong>${submitterApp}</strong> has been received and will be processed within 30 days.`;
+                    } else {
+                        // Keep the original translated text
+                        personalizedText = thankYouText.innerHTML;
+                    }
+                    
+                    thankYouText.innerHTML = personalizedText;
+                }
+                
+                // Create a success notification that appears on page load
+                const successNotification = document.createElement('div');
+                successNotification.id = 'success-notification';
+                successNotification.style.position = 'fixed';
+                successNotification.style.top = '20px';
+                successNotification.style.left = '50%';
+                successNotification.style.transform = 'translateX(-50%)';
+                successNotification.style.backgroundColor = '#4CAF50';
+                successNotification.style.color = 'white';
+                successNotification.style.padding = '15px 20px';
+                successNotification.style.borderRadius = '5px';
+                successNotification.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
+                successNotification.style.zIndex = '1000';
+                successNotification.innerHTML = 'Form submitted successfully!';
+                document.body.appendChild(successNotification);
+                
+                // Remove notification after 5 seconds
+                setTimeout(function() {
+                    successNotification.style.opacity = '0';
+                    successNotification.style.transition = 'opacity 0.5s ease-out';
+                    
+                    setTimeout(function() {
+                        if (successNotification.parentNode) {
+                            successNotification.parentNode.removeChild(successNotification);
+                        }
+                    }, 500);
+                }, 5000);
+                
+                // Clear localStorage
+                localStorage.removeItem('formSubmitted');
+                localStorage.removeItem('submitterName');
+                localStorage.removeItem('submitterApp');
+            } else {
+                // If accessed directly without form submission, show additional info
                 const infoBox = document.createElement('div');
                 infoBox.style.backgroundColor = '#fff3cd';
                 infoBox.style.padding = '15px';
