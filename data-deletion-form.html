@@ -201,13 +201,20 @@
             <p style="margin-top: 8px; font-size: 0.95rem;" id="notice-text" data-en="When you submit this form, your request will be securely sent to our support team. You will automatically receive a confirmation email and be redirected to a success page." data-ru="Когда вы отправите эту форму, ваш запрос будет безопасно отправлен нашей команде поддержки. Вы автоматически получите электронное письмо с подтверждением и будете перенаправлены на страницу успешной отправки." data-uk="Коли ви надішлете цю форму, ваш запит буде безпечно відправлений нашій команді підтримки. Ви автоматично отримаєте електронний лист із підтвердженням та будете перенаправлені на сторінку успішного відправлення." data-es="Cuando envíe este formulario, su solicitud se enviará de forma segura a nuestro equipo de soporte. Automáticamente recibirá un correo electrónico de confirmación y será redirigido a una página de éxito." data-fr="Lorsque vous soumettez ce formulaire, votre demande sera envoyée en toute sécurité à notre équipe d'assistance. Vous recevrez automatiquement un e-mail de confirmation et serez redirigé vers une page de succès." data-de="Wenn Sie dieses Formular absenden, wird Ihre Anfrage sicher an unser Support-Team gesendet. Sie erhalten automatisch eine Bestätigungs-E-Mail und werden zu einer Erfolgsseite weitergeleitet." data-zh="提交此表单后，您的请求将安全地发送给我们的支持团队。您将自动收到确认电子邮件并被重定向到成功页面。">When you submit this form, your request will be securely sent to our support team. You will automatically receive a confirmation email and be redirected to a success page.</p>
         </div>
         
+        <!-- Уведомление о резервном методе отправки (показывается только при использовании резервного метода) -->
+        <div id="form-notice" style="background-color: #fff3cd; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #ffc107; display: none;">
+            <p style="margin: 0; font-weight: 500; color: #856404;" id="backup-title" data-en="Using Backup Sending Method" data-ru="Используется резервный способ отправки" data-uk="Використовується резервний спосіб відправлення" data-es="Usando método de envío de respaldo" data-fr="Utilisation de la méthode d'envoi de secours" data-de="Verwendung der Backup-Sendemethode" data-zh="使用备用发送方法">Using Backup Sending Method</p>
+            <p style="margin-top: 8px; font-size: 0.95rem;" id="backup-text" data-en="The primary form submission service is currently unavailable. When you click Submit, your email client will open with a pre-filled message. Please send the email to complete your request." data-ru="Основной сервис отправки форм в настоящее время недоступен. Когда вы нажмете Отправить, ваш почтовый клиент откроется с предварительно заполненным сообщением. Пожалуйста, отправьте письмо, чтобы завершить ваш запрос." data-uk="Основний сервіс відправлення форм наразі недоступний. Коли ви натиснете Надіслати, ваш поштовий клієнт відкриється з попередньо заповненим повідомленням. Будь ласка, надішліть лист, щоб завершити ваш запит." data-es="El servicio principal de envío de formularios no está disponible actualmente. Cuando haga clic en Enviar, su cliente de correo electrónico se abrirá con un mensaje prellenado. Envíe el correo electrónico para completar su solicitud." data-fr="Le service principal de soumission de formulaire est actuellement indisponible. Lorsque vous cliquerez sur Envoyer, votre client de messagerie s'ouvrira avec un message pré-rempli. Veuillez envoyer l'e-mail pour compléter votre demande." data-de="Der primäre Formularübermittlungsdienst ist derzeit nicht verfügbar. Wenn Sie auf Absenden klicken, öffnet sich Ihr E-Mail-Programm mit einer vorgefertigten Nachricht. Bitte senden Sie die E-Mail, um Ihre Anfrage abzuschließen." data-zh="主要表单提交服务目前不可用。点击提交后，您的电子邮件客户端将打开并预填充消息。请发送电子邮件以完成您的请求。">The primary form submission service is currently unavailable. When you click Submit, your email client will open with a pre-filled message. Please send the email to complete your request.</p>
+        </div>
+        
         <!-- Форма с использованием FormSubmit для прямой отправки -->
-        <form id="deletion-form" action="https://formsubmit.co/support@dr-it.studio" method="POST">
+        <form id="deletion-form" action="https://formsubmit.co/support@dr-it.studio" method="POST" onsubmit="return validateAndBackupFormSubmission(event)">
             <!-- Скрытые поля FormSubmit для настройки -->
             <input type="hidden" name="_subject" value="Data Deletion Request">
             <input type="hidden" name="_next" value="https://dr-it.studio/deletion-success.html">
             <input type="hidden" name="_template" value="table">
             <input type="hidden" name="_captcha" value="false">
+            <input type="hidden" name="_cc" value=""> <!-- Пустой CC для подстраховки -->
             
             <div class="form-group">
                 <label for="user-name" class="required-field" id="name-label" data-en="Name" data-ru="Имя" data-uk="Ім'я" data-es="Nombre" data-fr="Nom" data-de="Name" data-zh="姓名">Name</label>
@@ -303,23 +310,55 @@
                 // Initialize language manager if it exists
                 LanguageManager.initLanguage();
             }
+            
+            // Check if form submission should use backup method
+            const urlParams = new URLSearchParams(window.location.search);
+            if (urlParams.get('useBackup') === 'true') {
+                document.getElementById('form-notice').style.display = 'block';
+            }
         });
 
-        // Form validation and submission
-        document.getElementById('deletion-form').addEventListener('submit', function(event) {
-            // FormSubmit будет обрабатывать отправку, но мы всё равно сделаем валидацию на стороне клиента
+        // Функция для резервной отправки через mailto в случае проблем с FormSubmit
+        function sendViaMailto() {
+            const userName = document.getElementById('user-name').value;
+            const userEmail = document.getElementById('user-email').value;
+            const appSelection = document.getElementById('app-selection').value;
+            const userMessage = document.getElementById('user-message').value || "No additional message";
             
+            // Create email subject and body
+            const subject = encodeURIComponent(`Data Deletion Request - ${appSelection}`);
+            const body = encodeURIComponent(
+                `Name: ${userName}\n` +
+                `Email: ${userEmail}\n` +
+                `Application: ${appSelection}\n` +
+                `Message: ${userMessage}\n\n` +
+                `This is a request for personal data deletion in accordance with data protection regulations.`
+            );
+            
+            // Open email client with prefilled data
+            window.location.href = `mailto:support@dr-it.studio?subject=${subject}&body=${body}`;
+            
+            // Redirect to success page after a short delay
+            setTimeout(function() {
+                window.location.href = "deletion-success.html";
+            }, 2000);
+            
+            return false; // Prevent form submission
+        }
+
+        // Функция для проверки формы и использования резервного метода при необходимости
+        function validateAndBackupFormSubmission(event) {
             let isValid = true;
             const userName = document.getElementById('user-name');
             const userEmail = document.getElementById('user-email');
             const appSelection = document.getElementById('app-selection');
-            const userMessage = document.getElementById('user-message');
             
             // Validate name
             if (userName.value.trim() === '') {
                 document.getElementById('name-error').style.display = 'block';
                 isValid = false;
                 event.preventDefault();
+                return false;
             } else {
                 document.getElementById('name-error').style.display = 'none';
             }
@@ -330,6 +369,7 @@
                 document.getElementById('email-error').style.display = 'block';
                 isValid = false;
                 event.preventDefault();
+                return false;
             } else {
                 document.getElementById('email-error').style.display = 'none';
             }
@@ -339,21 +379,43 @@
                 document.getElementById('app-error').style.display = 'block';
                 isValid = false;
                 event.preventDefault();
+                return false;
             } else {
                 document.getElementById('app-error').style.display = 'none';
             }
             
-            // If form is valid, we'll allow the form to submit naturally to FormSubmit
+            // If form is valid, check if we should use the backup method
             if (isValid) {
                 // Show loading indicator
                 document.getElementById('submit-button').disabled = true;
                 document.getElementById('submit-button').innerHTML = '<span id="loading-text" data-en="Sending..." data-ru="Отправка..." data-uk="Надсилання..." data-es="Enviando..." data-fr="Envoi en cours..." data-de="Senden..." data-zh="发送中...">Sending...</span>';
                 
-                // FormSubmit обрабатывает отправку формы автоматически
-                // Форма отправится по методу POST на https://formsubmit.co/support@dr-it.studio
-                // После отправки пользователь будет перенаправлен на страницу успеха
+                // Check if we should use the backup method
+                const urlParams = new URLSearchParams(window.location.search);
+                if (urlParams.get('useBackup') === 'true') {
+                    // Use mailto as a backup
+                    return sendViaMailto();
+                }
+                
+                // Try to submit using FormSubmit
+                try {
+                    // Use a timeout to detect if FormSubmit doesn't work (5 seconds)
+                    window.formSubmitTimeout = setTimeout(function() {
+                        // If we're still here after 5 seconds, FormSubmit might have failed
+                        alert('The form submission service seems to be experiencing delays. Redirecting to a backup method...');
+                        window.location.href = 'data-deletion-form.html?useBackup=true';
+                    }, 5000);
+                    
+                    return true; // Allow the form to submit
+                } catch (e) {
+                    // If there's an error, use mailto as a backup
+                    console.error("Error submitting form:", e);
+                    return sendViaMailto();
+                }
             }
-        });
+            
+            return false; // Don't submit if validation failed
+        }
     </script>
 </body>
 </html>
