@@ -138,10 +138,47 @@
             border-radius: 10px;
             margin-top: 20px;
             text-align: center;
+        }
+        
+        .success-message h3 {
+            color: #2e7d32;
+            margin-bottom: 15px;
+            font-weight: 600;
+        }
+        
+        .success-message p {
+            color: #27ae60;
             font-weight: 500;
+            margin-bottom: 10px;
+        }
+        
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+        }
+        
+        @media (max-width: 768px) {
+            .language-selector {
+                position: relative;
+                top: 0;
+                right: 0;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
         }
     </style>
     <script src="js/language-manager.js" defer></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        (function() {
+            // Замените значение user_id на ваш реальный EmailJS user_id после регистрации
+            emailjs.init("YOUR_USER_ID");
+        })();
+    </script>
 </head>
 <body>
     <div class="container">
@@ -152,6 +189,23 @@
         <h1 id="form-title" data-en="Personal Data Deletion Request" data-ru="Запрос на удаление личных данных" data-uk="Запит на видалення особистих даних" data-es="Solicitud de eliminación de datos personales" data-fr="Demande de suppression de données personnelles" data-de="Antrag auf Löschung personenbezogener Daten" data-zh="个人数据删除请求">Personal Data Deletion Request</h1>
         
         <p class="form-description" id="form-description" data-en="Please fill out the form below to request deletion of your personal data from our systems. We will review your request in accordance with applicable data protection laws." data-ru="Заполните форму ниже, чтобы запросить удаление ваших личных данных из наших систем. Мы рассмотрим ваш запрос в соответствии с действующим законодательством о защите данных." data-uk="Заповніть форму нижче, щоб запитати видалення ваших особистих даних з наших систем. Ми розглянемо ваш запит відповідно до чинного законодавства про захист даних." data-es="Complete el siguiente formulario para solicitar la eliminación de sus datos personales de nuestros sistemas. Revisaremos su solicitud de acuerdo con las leyes de protección de datos aplicables." data-fr="Veuillez remplir le formulaire ci-dessous pour demander la suppression de vos données personnelles de nos systèmes. Nous examinerons votre demande conformément aux lois applicables sur la protection des données." data-de="Bitte füllen Sie das untenstehende Formular aus, um die Löschung Ihrer persönlichen Daten aus unseren Systemen zu beantragen. Wir werden Ihren Antrag gemäß den geltenden Datenschutzgesetzen prüfen." data-zh="请填写下面的表格，申请从我们的系统中删除您的个人数据。我们将根据适用的数据保护法律审核您的请求。">Please fill out the form below to request deletion of your personal data from our systems. We will review your request in accordance with applicable data protection laws.</p>
+        
+        <div class="data-collection-notice" style="background-color: #f8f9fa; padding: 15px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #6c757d;">
+            <p style="margin: 0; font-weight: 500;" id="notice-header" data-en="Data Collection Notice" data-ru="Уведомление о сборе данных" data-uk="Повідомлення про збір даних" data-es="Aviso de recopilación de datos" data-fr="Avis de collecte de données" data-de="Hinweis zur Datenerhebung" data-zh="数据收集通知">Data Collection Notice</p>
+            <p style="margin-top: 8px; font-size: 0.95rem;" id="notice-current" data-en="Currently, our application does not collect personal user data. However, if future updates include data collection, you can request deletion of your data using this form." data-ru="В настоящее время наше приложение не собирает личные данные пользователей. Однако, если будущие обновления будут включать сбор данных, вы можете запросить удаление ваших данных, используя эту форму." data-uk="На даний момент наш додаток не збирає особисті дані користувачів. Проте, якщо майбутні оновлення включатимуть збір даних, ви можете запросити видалення своїх даних за допомогою цієї форми." data-es="Actualmente, nuestra aplicación no recopila datos personales de usuarios. Sin embargo, si las actualizaciones futuras incluyen la recopilación de datos, puede solicitar la eliminación de sus datos utilizando este formulario." data-fr="Actuellement, notre application ne collecte pas de données personnelles des utilisateurs. Cependant, si les mises à jour futures incluent la collecte de données, vous pouvez demander la suppression de vos données en utilisant ce formulaire." data-de="Derzeit sammelt unsere Anwendung keine persönlichen Benutzerdaten. Wenn zukünftige Updates jedoch Datenerfassung beinhalten, können Sie die Löschung Ihrer Daten über dieses Formular beantragen." data-zh="目前，我们的应用程序不收集个人用户数据。但是，如果未来的更新包括数据收集，您可以使用此表格申请删除您的数据。">Currently, our application does not collect personal user data. However, if future updates include data collection, you can request deletion of your data using this form.</p>
+            <p style="margin-top: 8px; font-size: 0.95rem;" id="notice-third-party" data-en="Please note that third-party services used in our applications may collect data according to their own privacy policies:" data-ru="Обратите внимание, что сторонние сервисы, используемые в наших приложениях, могут собирать данные в соответствии с их собственными политиками конфиденциальности:" data-uk="Зверніть увагу, що сторонні сервіси, які використовуються в наших додатках, можуть збирати дані відповідно до їх власних політик конфіденційності:" data-es="Tenga en cuenta que los servicios de terceros utilizados en nuestras aplicaciones pueden recopilar datos de acuerdo con sus propias políticas de privacidad:" data-fr="Veuillez noter que les services tiers utilisés dans nos applications peuvent collecter des données conformément à leurs propres politiques de confidentialité:" data-de="Bitte beachten Sie, dass von uns verwendete Drittanbieterdienste gemäß ihren eigenen Datenschutzrichtlinien Daten sammeln können:" data-zh="请注意，我们应用程序中使用的第三方服务可能会根据其自己的隐私政策收集数据：">Please note that third-party services used in our applications may collect data according to their own privacy policies:</p>
+            <ul style="margin-top: 8px; font-size: 0.95rem; padding-left: 20px;">
+                <li id="huawei-link" data-en="Huawei Ads Privacy Policy: <a href='https://consumer.huawei.com/en/privacy/privacy-policy/' target='_blank'>link</a>" data-ru="Политика конфиденциальности Huawei Ads: <a href='https://consumer.huawei.com/ru/privacy/privacy-policy/' target='_blank'>ссылка</a>" data-uk="Політика конфіденційності Huawei Ads: <a href='https://consumer.huawei.com/ua/privacy/privacy-policy/' target='_blank'>посилання</a>" data-es="Política de privacidad de Huawei Ads: <a href='https://consumer.huawei.com/es/privacy/privacy-policy/' target='_blank'>enlace</a>" data-fr="Politique de confidentialité de Huawei Ads: <a href='https://consumer.huawei.com/fr/privacy/privacy-policy/' target='_blank'>lien</a>" data-de="Datenschutzrichtlinie für Huawei Ads: <a href='https://consumer.huawei.com/de/privacy/privacy-policy/' target='_blank'>Link</a>" data-zh="华为广告隐私政策：<a href='https://consumer.huawei.com/cn/privacy/privacy-policy/' target='_blank'>链接</a>">Huawei Ads Privacy Policy: <a href='https://consumer.huawei.com/en/privacy/privacy-policy/' target='_blank'>link</a></li>
+                <li id="admob-link" data-en="Google AdMob Privacy Policy: <a href='https://policies.google.com/privacy' target='_blank'>link</a>" data-ru="Политика конфиденциальности Google AdMob: <a href='https://policies.google.com/privacy?hl=ru' target='_blank'>ссылка</a>" data-uk="Політика конфіденційності Google AdMob: <a href='https://policies.google.com/privacy?hl=uk' target='_blank'>посилання</a>" data-es="Política de privacidad de Google AdMob: <a href='https://policies.google.com/privacy?hl=es' target='_blank'>enlace</a>" data-fr="Politique de confidentialité de Google AdMob: <a href='https://policies.google.com/privacy?hl=fr' target='_blank'>lien</a>" data-de="Datenschutzrichtlinie für Google AdMob: <a href='https://policies.google.com/privacy?hl=de' target='_blank'>Link</a>" data-zh="Google AdMob隐私政策：<a href='https://policies.google.com/privacy?hl=zh-CN' target='_blank'>链接</a>">Google AdMob Privacy Policy: <a href='https://policies.google.com/privacy' target='_blank'>link</a></li>
+                <li id="unity-link" data-en="Unity Ads Privacy Policy: <a href='https://unity.com/legal/privacy-policy' target='_blank'>link</a>" data-ru="Политика конфиденциальности Unity Ads: <a href='https://unity.com/legal/privacy-policy' target='_blank'>ссылка</a>" data-uk="Політика конфіденційності Unity Ads: <a href='https://unity.com/legal/privacy-policy' target='_blank'>посилання</a>" data-es="Política de privacidad de Unity Ads: <a href='https://unity.com/legal/privacy-policy' target='_blank'>enlace</a>" data-fr="Politique de confidentialité de Unity Ads: <a href='https://unity.com/legal/privacy-policy' target='_blank'>lien</a>" data-de="Datenschutzrichtlinie für Unity Ads: <a href='https://unity.com/legal/privacy-policy' target='_blank'>Link</a>" data-zh="Unity Ads隐私政策：<a href='https://unity.com/legal/privacy-policy' target='_blank'>链接</a>">Unity Ads Privacy Policy: <a href='https://unity.com/legal/privacy-policy' target='_blank'>link</a></li>
+                <li id="applovin-link" data-en="AppLovin Privacy Policy: <a href='https://www.applovin.com/privacy/' target='_blank'>link</a>" data-ru="Политика конфиденциальности AppLovin: <a href='https://www.applovin.com/privacy/' target='_blank'>ссылка</a>" data-uk="Політика конфіденційності AppLovin: <a href='https://www.applovin.com/privacy/' target='_blank'>посилання</a>" data-es="Política de privacidad de AppLovin: <a href='https://www.applovin.com/privacy/' target='_blank'>enlace</a>" data-fr="Politique de confidentialité d'AppLovin: <a href='https://www.applovin.com/privacy/' target='_blank'>lien</a>" data-de="Datenschutzrichtlinie für AppLovin: <a href='https://www.applovin.com/privacy/' target='_blank'>Link</a>" data-zh="AppLovin隐私政策：<a href='https://www.applovin.com/privacy/' target='_blank'>链接</a>">AppLovin Privacy Policy: <a href='https://www.applovin.com/privacy/' target='_blank'>link</a></li>
+            </ul>
+        </div>
+        
+        <div class="email-notice" id="email-notice" style="background-color: #e3f2fd; padding: 15px; border-radius: 10px; margin-bottom: 20px; border-left: 4px solid #2196F3;">
+            <p style="margin: 0; font-weight: 500; color: #0D47A1;" id="notice-title" data-en="How this works" data-ru="Как это работает" data-uk="Як це працює" data-es="Cómo funciona" data-fr="Comment ça marche" data-de="Wie es funktioniert" data-zh="工作原理">How this works</p>
+            <p style="margin-top: 8px; font-size: 0.95rem;" id="notice-text" data-en="When you submit this form, an email will be sent directly to our support team from the email address you provide. You will be redirected to a confirmation page once your request is submitted." data-ru="Когда вы отправите эту форму, электронное письмо будет отправлено напрямую нашей команде поддержки с указанного вами адреса. После отправки запроса вы будете перенаправлены на страницу подтверждения." data-uk="Коли ви надішлете цю форму, електронний лист буде відправлено безпосередньо нашій команді підтримки з вказаної вами адреси. Після надсилання запиту вас буде перенаправлено на сторінку підтвердження." data-es="Cuando envíe este formulario, se enviará un correo electrónico directamente a nuestro equipo de soporte desde la dirección de correo electrónico que proporcione. Será redirigido a una página de confirmación una vez que se envíe su solicitud." data-fr="Lorsque vous soumettez ce formulaire, un e-mail sera envoyé directement à notre équipe d'assistance depuis l'adresse e-mail que vous fournissez. Vous serez redirigé vers une page de confirmation une fois votre demande soumise." data-de="Wenn Sie dieses Formular absenden, wird eine E-Mail direkt von der von Ihnen angegebenen E-Mail-Adresse an unser Support-Team gesendet. Nach dem Absenden Ihrer Anfrage werden Sie zu einer Bestätigungsseite weitergeleitet." data-zh="提交此表单后，系统将直接从您提供的电子邮件地址向我们的支持团队发送电子邮件。提交请求后，您将被重定向到确认页面。">When you submit this form, an email will be sent directly to our support team from the email address you provide. You will be redirected to a confirmation page once your request is submitted.</p>
+        </div>
         
         <form id="deletion-form">
             <div class="form-group">
@@ -184,7 +238,12 @@
             <button type="submit" class="btn-submit" id="submit-button" data-en="Submit Request" data-ru="Отправить запрос" data-uk="Надіслати запит" data-es="Enviar solicitud" data-fr="Envoyer la demande" data-de="Anfrage senden" data-zh="提交请求">Submit Request</button>
         </form>
         
-        <div class="success-message" id="success-message" data-en="Your email client has been opened with your data deletion request. Please send the email to complete your request. We will process it as soon as possible and contact you via the provided email address." data-ru="Ваш почтовый клиент был открыт с запросом на удаление данных. Пожалуйста, отправьте письмо для завершения запроса. Мы обработаем его как можно скорее и свяжемся с вами по указанному адресу электронной почты." data-uk="Ваш поштовий клієнт був відкритий із запитом на видалення даних. Будь ласка, відправте лист для завершення запиту. Ми обробимо його якомога швидше і зв'яжемося з вами за вказаною адресою електронної пошти." data-es="Su cliente de correo electrónico se ha abierto con su solicitud de eliminación de datos. Por favor, envíe el correo electrónico para completar su solicitud. Procesaremos su solicitud lo antes posible y nos pondremos en contacto con usted a través de la dirección de correo electrónico proporcionada." data-fr="Votre client de messagerie a été ouvert avec votre demande de suppression de données. Veuillez envoyer l'e-mail pour compléter votre demande. Nous la traiterons dès que possible et vous contacterons via l'adresse e-mail fournie." data-de="Ihr E-Mail-Client wurde mit Ihrer Datenlöschungsanfrage geöffnet. Bitte senden Sie die E-Mail, um Ihre Anfrage abzuschließen. Wir werden sie so schnell wie möglich bearbeiten und Sie über die angegebene E-Mail-Adresse kontaktieren." data-zh="您的电子邮件客户端已打开，其中包含您的数据删除请求。请发送电子邮件以完成您的请求。我们将尽快处理您的请求，并通过提供的电子邮件地址与您联系。">Your email client has been opened with your data deletion request. Please send the email to complete your request. We will process it as soon as possible and contact you via the provided email address.</div>
+        <div class="success-message" id="success-message">
+            <h3 id="success-title" data-en="Email Client Opened" data-ru="Почтовый клиент открыт" data-uk="Поштовий клієнт відкрито" data-es="Cliente de correo abierto" data-fr="Client de messagerie ouvert" data-de="E-Mail-Client geöffnet" data-zh="电子邮件客户端已打开">Email Client Opened</h3>
+            <p data-en="Your email client has been opened with your data deletion request. Please send the email to complete your request. We will process it as soon as possible and contact you via the provided email address." data-ru="Ваш почтовый клиент был открыт с запросом на удаление данных. Пожалуйста, отправьте письмо для завершения запроса. Мы обработаем его как можно скорее и свяжемся с вами по указанному адресу электронной почты." data-uk="Ваш поштовий клієнт був відкритий із запитом на видалення даних. Будь ласка, відправте лист для завершення запиту. Ми обробимо його якомога швидше і зв'яжемося з вами за вказаною адресою електронної пошти." data-es="Su cliente de correo electrónico se ha abierto con su solicitud de eliminación de datos. Por favor, envíe el correo electrónico para completar su solicitud. Procesaremos su solicitud lo antes posible y nos pondremos en contacto con usted a través de la dirección de correo electrónico proporcionada." data-fr="Votre client de messagerie a été ouvert avec votre demande de suppression de données. Veuillez envoyer l'e-mail pour compléter votre demande. Nous la traiterons dès que possible et vous contacterons via l'adresse e-mail fournie." data-de="Ihr E-Mail-Client wurde mit Ihrer Datenlöschungsanfrage geöffnet. Bitte senden Sie die E-Mail, um Ihre Anfrage abzuschließen. Wir werden sie so schnell wie möglich bearbeiten und Sie über die angegebene E-Mail-Adresse kontaktieren." data-zh="您的电子邮件客户端已打开，其中包含您的数据删除请求。请发送电子邮件以完成您的请求。我们将尽快处理您的请求，并通过提供的电子邮件地址与您联系。">Your email client has been opened with your data deletion request. Please send the email to complete your request. We will process it as soon as possible and contact you via the provided email address.</p>
+            <p style="margin-top: 10px; font-weight: bold;" id="manual-note" data-en="If your email client didn't open, please manually send an email to support@dr-it.studio with your request details." data-ru="Если ваш почтовый клиент не открылся, пожалуйста, отправьте электронное письмо вручную на адрес support@dr-it.studio с деталями вашего запроса." data-uk="Якщо ваш поштовий клієнт не відкрився, будь ласка, надішліть електронний лист вручну на адресу support@dr-it.studio з деталями вашого запиту." data-es="Si su cliente de correo electrónico no se abrió, envíe un correo electrónico manualmente a support@dr-it.studio con los detalles de su solicitud." data-fr="Si votre client de messagerie ne s'est pas ouvert, veuillez envoyer manuellement un email à support@dr-it.studio avec les détails de votre demande." data-de="Wenn sich Ihr E-Mail-Client nicht geöffnet hat, senden Sie bitte manuell eine E-Mail an support@dr-it.studio mit den Details Ihrer Anfrage." data-zh="如果您的电子邮件客户端未打开，请手动发送电子邮件至support@dr-it.studio，并附上您的请求详情。">If your email client didn't open, please manually send an email to support@dr-it.studio with your request details.</p>
+            <p style="margin-top: 10px;" id="redirect-note" data-en="You will be redirected to the success page in a moment..." data-ru="Вы будете перенаправлены на страницу успешной отправки через мгновение..." data-uk="Ви будете перенаправлені на сторінку успішного відправлення через мить..." data-es="Será redirigido a la página de éxito en un momento..." data-fr="Vous serez redirigé vers la page de succès dans un instant..." data-de="Sie werden in Kürze zur Erfolgsseite weitergeleitet..." data-zh="您将在片刻后被重定向到成功页面...">You will be redirected to the success page in a moment...</p>
+        </div>
         
         <a href="forest-calculator.html" class="btn-back" id="back-button" data-en="Back to Forest Calculator" data-ru="Вернуться к Forest Calculator" data-uk="Повернутися до Forest Calculator" data-es="Volver a Forest Calculator" data-fr="Retour à Forest Calculator" data-de="Zurück zu Forest Calculator" data-zh="返回 Forest Calculator">Back to Forest Calculator</a>
     </div>
@@ -192,6 +251,50 @@
     <script>
         // Initialization function for language manager
         document.addEventListener('DOMContentLoaded', function() {
+            // Create language selector if not exists
+            if (!document.querySelector('.language-selector')) {
+                const languageSelector = document.createElement('div');
+                languageSelector.className = 'language-selector';
+                languageSelector.style.position = 'absolute';
+                languageSelector.style.top = '20px';
+                languageSelector.style.right = '20px';
+                languageSelector.style.zIndex = '100';
+                
+                const languages = [
+                    { code: 'en', name: 'English' },
+                    { code: 'ru', name: 'Русский' },
+                    { code: 'uk', name: 'Українська' },
+                    { code: 'es', name: 'Español' },
+                    { code: 'fr', name: 'Français' },
+                    { code: 'de', name: 'Deutsch' },
+                    { code: 'zh', name: '中文' }
+                ];
+                
+                languages.forEach(lang => {
+                    const langButton = document.createElement('button');
+                    langButton.textContent = lang.name;
+                    langButton.className = 'lang-btn';
+                    langButton.dataset.lang = lang.code;
+                    langButton.style.margin = '0 5px';
+                    langButton.style.padding = '5px 10px';
+                    langButton.style.border = '1px solid #ccc';
+                    langButton.style.borderRadius = '3px';
+                    langButton.style.background = '#fff';
+                    langButton.style.cursor = 'pointer';
+                    
+                    langButton.addEventListener('click', function() {
+                        localStorage.setItem('selectedLanguage', lang.code);
+                        if (typeof LanguageManager !== 'undefined') {
+                            LanguageManager.switchLanguage(lang.code);
+                        }
+                    });
+                    
+                    languageSelector.appendChild(langButton);
+                });
+                
+                document.body.appendChild(languageSelector);
+            }
+            
             if (typeof LanguageManager !== 'undefined') {
                 // Initialize language manager if it exists
                 LanguageManager.initLanguage();
@@ -233,26 +336,32 @@
                 document.getElementById('app-error').style.display = 'none';
             }
             
-            // If form is valid, send via mailto
+            // If form is valid, send email directly
             if (isValid) {
-                // Create email subject and body
-                const subject = encodeURIComponent(`Data Deletion Request - ${appSelection.value}`);
-                const body = encodeURIComponent(
-                    `Name: ${userName.value}\n` +
-                    `Email: ${userEmail.value}\n` +
-                    `Application: ${appSelection.value}\n` +
-                    `Message: ${userMessage.value || "No additional message"}\n\n` +
-                    `This is a request for personal data deletion in accordance with data protection regulations.`
-                );
+                // Show loading indicator
+                document.getElementById('submit-button').disabled = true;
+                document.getElementById('submit-button').innerHTML = '<span id="loading-text" data-en="Sending..." data-ru="Отправка..." data-uk="Надсилання..." data-es="Enviando..." data-fr="Envoi en cours..." data-de="Senden..." data-zh="发送中...">Sending...</span>';
                 
-                // Open email client with prefilled data
-                window.location.href = `mailto:support@dr-it.studio?subject=${subject}&body=${body}`;
-                
-                // Hide the form
-                document.getElementById('deletion-form').style.display = 'none';
-                
-                // Show success message
-                document.getElementById('success-message').style.display = 'block';
+                // Prepare email template parameters
+                const templateParams = {
+                    from_name: userName.value,
+                    from_email: userEmail.value,
+                    application: appSelection.value,
+                    message: userMessage.value || "No additional message",
+                    reply_to: userEmail.value
+                };
+
+                // Send email using EmailJS
+                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', templateParams)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        window.location.href = "deletion-success.html";
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                        alert('Failed to send email. Please try manually sending to support@dr-it.studio');
+                        document.getElementById('submit-button').disabled = false;
+                        document.getElementById('submit-button').innerHTML = document.getElementById('submit-button').getAttribute('data-' + (localStorage.getItem('selectedLanguage') || 'en')) || 'Submit Request';
+                    });
             }
         });
     </script>

@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Request Submitted - Forest Calculator</title>
+    <script src="js/language-manager.js" defer></script>
     <style>
         * {
             margin: 0;
@@ -20,6 +21,27 @@
             display: flex;
             align-items: center;
             justify-content: center;
+            position: relative;
+        }
+        
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: flex-end;
+            z-index: 100;
+        }
+        
+        @media (max-width: 768px) {
+            .language-selector {
+                position: relative;
+                top: 0;
+                right: 0;
+                justify-content: center;
+                margin-bottom: 20px;
+            }
         }
 
         .success-container {
@@ -74,10 +96,71 @@
 <body>
     <div class="success-container">
         <div class="success-icon">✓</div>
-        <h1>Request Submitted Successfully</h1>
-        <p>Thank you for submitting your data deletion request. We have received your information and will process your request as soon as possible.</p>
-        <p>We will contact you via the provided email address if we need any additional information.</p>
-        <a href="forest-calculator.html" class="btn-home">Return to Forest Calculator</a>
+        <h1 id="success-title" data-en="Request Submitted Successfully" data-ru="Запрос успешно отправлен" data-uk="Запит успішно надіслано" data-es="Solicitud enviada con éxito" data-fr="Demande soumise avec succès" data-de="Anfrage erfolgreich übermittelt" data-zh="请求提交成功">Request Submitted Successfully</h1>
+        <p id="thank-you-text" data-en="Thank you for submitting your data deletion request. Your request has been sent directly to our support team." data-ru="Благодарим вас за отправку запроса на удаление данных. Ваш запрос был отправлен напрямую нашей команде поддержки." data-uk="Дякуємо за надсилання запиту на видалення даних. Ваш запит було надіслано безпосередньо нашій команді підтримки." data-es="Gracias por enviar su solicitud de eliminación de datos. Su solicitud ha sido enviada directamente a nuestro equipo de soporte." data-fr="Merci d'avoir soumis votre demande de suppression de données. Votre demande a été envoyée directement à notre équipe d'assistance." data-de="Vielen Dank für die Übermittlung Ihrer Datenlöschungsanfrage. Ihre Anfrage wurde direkt an unser Support-Team gesendet." data-zh="感谢您提交数据删除请求。您的请求已直接发送给我们的支持团队。">Thank you for submitting your data deletion request. Your request has been sent directly to our support team.</p>
+        <p id="important-text" data-en="<strong>Confirmation:</strong> We have received your data deletion request and will process it within 30 days as required by data protection regulations." data-ru="<strong>Подтверждение:</strong> Мы получили ваш запрос на удаление данных и обработаем его в течение 30 дней в соответствии с требованиями законодательства о защите данных." data-uk="<strong>Підтвердження:</strong> Ми отримали ваш запит на видалення даних і обробимо його протягом 30 днів відповідно до вимог законодавства про захист даних." data-es="<strong>Confirmación:</strong> Hemos recibido su solicitud de eliminación de datos y la procesaremos dentro de los 30 días según lo exigen las regulaciones de protección de datos." data-fr="<strong>Confirmation:</strong> Nous avons reçu votre demande de suppression de données et la traiterons dans les 30 jours conformément aux réglementations sur la protection des données." data-de="<strong>Bestätigung:</strong> Wir haben Ihre Anfrage zur Datenlöschung erhalten und werden sie innerhalb von 30 Tagen gemäß den Datenschutzbestimmungen bearbeiten." data-zh="<strong>确认：</strong>我们已收到您的数据删除请求，将按照数据保护法规要求在30天内处理。"><strong>Confirmation:</strong> We have received your data deletion request and will process it within 30 days as required by data protection regulations.</p>
+        <p id="process-text" data-en="We will review your request and may contact you for additional information if needed. Your privacy is important to us." data-ru="Мы рассмотрим ваш запрос и свяжемся с вами для получения дополнительной информации, если это потребуется. Ваша конфиденциальность важна для нас." data-uk="Ми розглянемо ваш запит і зв'яжемося з вами для отримання додаткової інформації, якщо це потрібно. Ваша конфіденційність важлива для нас." data-es="Revisaremos su solicitud y podemos contactarlo para obtener información adicional si es necesario. Su privacidad es importante para nosotros." data-fr="Nous examinerons votre demande et pourrons vous contacter pour des informations supplémentaires si nécessaire. Votre vie privée est importante pour nous." data-de="Wir werden Ihre Anfrage prüfen und Sie bei Bedarf für zusätzliche Informationen kontaktieren. Ihre Privatsphäre ist uns wichtig." data-zh="我们将审核您的请求，如有需要，可能会联系您获取更多信息。您的隐私对我们很重要。">We will review your request and may contact you for additional information if needed. Your privacy is important to us.</p>
+        <p id="manual-text" data-en="If you don't receive a confirmation email within 24 hours, please contact us directly at <strong>support@dr-it.studio</strong> with your name, email, and app name." data-ru="Если вы не получите электронное письмо с подтверждением в течение 24 часов, пожалуйста, свяжитесь с нами напрямую по адресу <strong>support@dr-it.studio</strong>, указав ваше имя, электронную почту и название приложения." data-uk="Якщо ви не отримаєте електронний лист із підтвердженням протягом 24 годин, будь ласка, зв'яжіться з нами безпосередньо за адресою <strong>support@dr-it.studio</strong>, вказавши ваше ім'я, електронну пошту та назву додатка." data-es="Si no recibe un correo electrónico de confirmación dentro de las 24 horas, contáctenos directamente a <strong>support@dr-it.studio</strong> con su nombre, correo electrónico y nombre de la aplicación." data-fr="Si vous ne recevez pas d'e-mail de confirmation dans les 24 heures, veuillez nous contacter directement à <strong>support@dr-it.studio</strong> en indiquant votre nom, votre e-mail et le nom de l'application." data-de="Wenn Sie innerhalb von 24 Stunden keine Bestätigungs-E-Mail erhalten, kontaktieren Sie uns bitte direkt unter <strong>support@dr-it.studio</strong> mit Ihrem Namen, Ihrer E-Mail-Adresse und dem Namen der Anwendung." data-zh="如果您在24小时内没有收到确认电子邮件，请直接通过<strong>support@dr-it.studio</strong>联系我们，并提供您的姓名、电子邮件和应用名称。">If you don't receive a confirmation email within 24 hours, please contact us directly at <strong>support@dr-it.studio</strong> with your name, email, and app name.</p>
+
+        <div class="data-notice" style="background-color: #f8f9fa; padding: 15px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #6c757d; text-align: left;">
+            <p style="margin: 0; font-weight: 500;" id="data-notice-header" data-en="Important Information" data-ru="Важная информация" data-uk="Важлива інформація" data-es="Información importante" data-fr="Information importante" data-de="Wichtige Information" data-zh="重要信息">Important Information</p>
+            <p style="margin-top: 8px; font-size: 0.9rem;" id="data-notice-text" data-en="Currently, our application does not collect personal user data. This request will be processed if future versions include data collection." data-ru="В настоящее время наше приложение не собирает личные данные пользователей. Этот запрос будет обработан, если будущие версии будут включать сбор данных." data-uk="На даний момент наш додаток не збирає особисті дані користувачів. Цей запит буде оброблений, якщо майбутні версії включатимуть збір даних." data-es="Actualmente, nuestra aplicación no recopila datos personales de usuarios. Esta solicitud se procesará si las versiones futuras incluyen recopilación de datos." data-fr="Actuellement, notre application ne collecte pas de données personnelles des utilisateurs. Cette demande sera traitée si les versions futures incluent la collecte de données." data-de="Derzeit sammelt unsere Anwendung keine persönlichen Benutzerdaten. Diese Anfrage wird bearbeitet, wenn zukünftige Versionen Datenerfassung beinhalten." data-zh="目前，我们的应用程序不收集个人用户数据。如果未来版本包括数据收集，此请求将被处理。">Currently, our application does not collect personal user data. This request will be processed if future versions include data collection.</p>
+            <p style="margin-top: 8px; font-size: 0.9rem;" id="third-party-text" data-en="Third-party services in our apps may collect data according to their own privacy policies." data-ru="Сторонние сервисы в наших приложениях могут собирать данные в соответствии с их собственными политиками конфиденциальности." data-uk="Сторонні сервіси в наших додатках можуть збирати дані відповідно до їх власних політик конфіденційності." data-es="Los servicios de terceros en nuestras aplicaciones pueden recopilar datos según sus propias políticas de privacidad." data-fr="Les services tiers de nos applications peuvent collecter des données selon leurs propres politiques de confidentialité." data-de="Drittanbieterdienste in unseren Apps können gemäß ihren eigenen Datenschutzrichtlinien Daten sammeln." data-zh="我们应用中的第三方服务可能会根据其自己的隐私政策收集数据。">Third-party services in our apps may collect data according to their own privacy policies.</p>
+        </div>
+        
+        <a href="forest-calculator.html" class="btn-home" id="return-button" data-en="Return to Forest Calculator" data-ru="Вернуться к Forest Calculator" data-uk="Повернутися до Forest Calculator" data-es="Volver a Forest Calculator" data-fr="Retour à Forest Calculator" data-de="Zurück zu Forest Calculator" data-zh="返回 Forest Calculator">Return to Forest Calculator</a>
     </div>
+    
+    <script>
+        // Initialization function for language manager
+        document.addEventListener('DOMContentLoaded', function() {
+            // Create language selector
+            const languageSelector = document.createElement('div');
+            languageSelector.className = 'language-selector';
+            languageSelector.style.position = 'absolute';
+            languageSelector.style.top = '20px';
+            languageSelector.style.right = '20px';
+            languageSelector.style.zIndex = '100';
+            
+            const languages = [
+                { code: 'en', name: 'English' },
+                { code: 'ru', name: 'Русский' },
+                { code: 'uk', name: 'Українська' },
+                { code: 'es', name: 'Español' },
+                { code: 'fr', name: 'Français' },
+                { code: 'de', name: 'Deutsch' },
+                { code: 'zh', name: '中文' }
+            ];
+            
+            languages.forEach(lang => {
+                const langButton = document.createElement('button');
+                langButton.textContent = lang.name;
+                langButton.className = 'lang-btn';
+                langButton.dataset.lang = lang.code;
+                langButton.style.margin = '0 5px';
+                langButton.style.padding = '5px 10px';
+                langButton.style.border = '1px solid #ccc';
+                langButton.style.borderRadius = '3px';
+                langButton.style.background = '#fff';
+                langButton.style.cursor = 'pointer';
+                
+                langButton.addEventListener('click', function() {
+                    localStorage.setItem('selectedLanguage', lang.code);
+                    if (typeof LanguageManager !== 'undefined') {
+                        LanguageManager.switchLanguage(lang.code);
+                    }
+                });
+                
+                languageSelector.appendChild(langButton);
+            });
+            
+            document.body.appendChild(languageSelector);
+            
+            if (typeof LanguageManager !== 'undefined') {
+                // Initialize language manager if it exists
+                LanguageManager.initLanguage();
+            }
+        });
+    </script>
 </body>
 </html>
