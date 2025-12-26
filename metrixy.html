@@ -1,0 +1,816 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metrixy - Your Everyday Toolkit</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #667eea;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #667eea;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .language-dropdown {
+            position: relative;
+        }
+
+        .language-current {
+            padding: 8px 15px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .language-current:hover {
+            opacity: 0.9;
+        }
+
+        .language-options {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 10px 0;
+            min-width: 120px;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .language-options.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .language-option:hover {
+            background: #f8f9fa;
+        }
+
+        .language-option.active {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .btn-privacy {
+            background: linear-gradient(90deg, #2196F3 0%, #0D47A1 100%);
+            color: white;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: inline-block;
+            padding: 8px 16px;
+            font-size: 0.9rem;
+            border-radius: 20px;
+            border: none;
+            cursor: pointer;
+            font-weight: 500;
+            box-shadow: 0 4px 12px rgba(44,62,80,0.1);
+            margin-left: 15px;
+            text-decoration: none;
+        }
+
+        .btn-privacy:hover {
+            background: linear-gradient(90deg, #1E88E5 0%, #0D47A1 100%);
+            box-shadow: 0 8px 20px rgba(33, 150, 243, 0.25);
+            transform: translateY(-3px);
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.95) 0%, rgba(118, 75, 162, 0.95) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .product-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            background: white;
+            border-radius: 25px;
+            padding: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease;
+        }
+
+        .product-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            animation: fadeInUp 1s ease 0.2s both;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.6s both;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.8s both;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        .section {
+            padding: 6rem 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .section:nth-child(even) {
+            background: rgba(248, 249, 250, 0.95);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(102, 126, 234, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 45px rgba(102, 126, 234, 0.15);
+            border-color: rgba(102, 126, 234, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            color: #667eea;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        .metrixy-theme {
+            background: linear-gradient(135deg, rgba(102, 126, 234, 0.1) 0%, rgba(118, 75, 162, 0.1) 100%);
+            border: 2px solid rgba(102, 126, 234, 0.3);
+        }
+
+        .metrixy-theme .feature-icon {
+            color: #764ba2;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .contact h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-item h3 {
+            color: #f8bbd9;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-item p {
+            opacity: 0.9;
+        }
+
+        .contact-item a {
+            color: #f8bbd9;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #fff;
+        }
+
+        footer {
+            background: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: #667eea;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #667eea;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .language-selector {
+                margin-left: auto;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .product-logo {
+                width: 80px;
+                height: 80px;
+            }
+        }
+
+        /* Modal styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.5);
+        }
+        .modal-content {
+            background-color: #ffffff;
+            margin: 5% auto;
+            padding: 30px;
+            border: 1px solid #ddd;
+            border-radius: 20px;
+            width: 80%;
+            max-width: 700px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            animation: modalFadeIn 0.4s;
+        }
+        @keyframes modalFadeIn {
+            from {opacity: 0; transform: translateY(-30px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+        .close-modal {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+        .close-modal:hover {
+            color: #333;
+        }
+        .modal-title {
+            color: #667eea;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-size: 1.8rem;
+            font-weight: 600;
+        }
+        .modal-description {
+            margin-bottom: 25px;
+            color: #555;
+            line-height: 1.6;
+        }
+        .form-submit {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .additional-links {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+        }
+        .additional-links h4 {
+            color: #555;
+            margin-bottom: 15px;
+        }
+        .additional-links ul {
+            padding-left: 20px;
+            list-style-type: none;
+        }
+        .additional-links li {
+            margin-bottom: 8px;
+        }
+        .additional-links a {
+            color: #667eea;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .additional-links a:hover {
+            color: #764ba2;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <div style="margin-top:32px;display:flex;justify-content:center;">
+        <a href="https://appgallery.huawei.com/" style="font-size:16px;color:#1a73e8;display:inline-flex;align-items:center;text-decoration:none;gap:8px;background:#fff;padding:8px 16px;border-radius:8px;box-shadow:0 2px 8px rgba(26,115,232,0.08);" target="_blank">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/2/29/AppGallery_icon.png" alt="Huawei AppGallery" style="width:28px;height:28px;vertical-align:middle;"> 
+            <span data-en="Available on Huawei AppGallery" data-ru="Доступно в Huawei AppGallery" data-uk="Доступно в Huawei AppGallery" data-es="Disponible en Huawei AppGallery" data-fr="Disponible sur Huawei AppGallery" data-de="Verfügbar in Huawei AppGallery" data-zh="可在华为应用市场获取">Available on Huawei AppGallery</span>
+        </a>
+    </div>
+    
+    <header>
+        <nav class="container">
+            <div class="logo-container">
+                <img src="logo_light.png" alt="DR.IT.Studio" class="logo-img">
+                <a href="index.html" class="logo-text">DR.IT.Studio</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-en="Home" data-ru="Главная" data-uk="Головна" data-es="Inicio" data-fr="Accueil" data-de="Startseite" data-zh="首页">Home</a></li>
+                <li><a href="#features" data-en="Features" data-ru="Возможности" data-uk="Можливості" data-es="Características" data-fr="Fonctionnalités" data-de="Funktionen" data-zh="功能">Features</a></li>
+                <li><a href="#about" data-en="About" data-ru="О продукте" data-uk="Про продукт" data-es="Acerca del Producto" data-fr="À propos du Produit" data-de="Über das Produkt" data-zh="关于产品">About</a></li>
+                <li><a href="#contact" data-en="Contact" data-ru="Контакты" data-uk="Контакти" data-es="Contacto" data-fr="Contact" data-de="Kontakt" data-zh="联系">Contact</a></li>
+            </ul>
+            <div class="language-selector">
+                <button class="btn-privacy" id="delete-data-btn" onclick="openDeletionModal()" data-en="Data Deletion Request" data-ru="Запрос на удаление данных" data-uk="Запит на видалення даних" data-es="Solicitud de eliminación de datos" data-fr="Demande de suppression de données" data-de="Antrag auf Datenlöschung" data-zh="数据删除请求">Data Deletion Request</button>
+                <div class="language-dropdown">
+                    <button class="language-current">
+                        <span id="current-lang">🇺🇸 EN</span>
+                        <span>▼</span>
+                    </button>
+                    <div class="language-options" id="language-options">
+                        <div class="language-option active" data-lang="en">🇺🇸 English</div>
+                        <div class="language-option" data-lang="ru">🇷🇺 Русский</div>
+                        <div class="language-option" data-lang="uk">🇺🇦 Українська</div>
+                        <div class="language-option" data-lang="es">🇪🇸 Español</div>
+                        <div class="language-option" data-lang="fr">🇫🇷 Français</div>
+                        <div class="language-option" data-lang="de">🇩🇪 Deutsch</div>
+                        <div class="language-option" data-lang="zh">🇨🇳 中文</div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="product-logo">
+                <img src="metrixy_logo.png" alt="Metrixy">
+            </div>
+            <h1 data-en="Metrixy" data-ru="Metrixy" data-uk="Metrixy" data-es="Metrixy" data-fr="Metrixy" data-de="Metrixy" data-zh="Metrixy">Metrixy</h1>
+            <div class="subtitle" data-en="Your Everyday Toolkit" data-ru="Ваш ежедневный инструментарий" data-uk="Ваш щоденний інструмент" data-es="Tu kit de herramientas diario" data-fr="Votre boîte à outils quotidienne" data-de="Ihr tägliches Toolkit" data-zh="您的日常工具包">Your Everyday Toolkit</div>
+            <p data-en="Notes, Calculator, Unit Converter, and Fuel Calculator — all in one beautiful app. Multi-functional utility designed for your everyday needs." data-ru="Заметки, Калькулятор, Конвертер единиц и Расчёт топлива — всё в одном красивом приложении. Многофункциональная утилита для ваших повседневных нужд." data-uk="Нотатки, Калькулятор, Конвертер одиниць та Розрахунок пального — все в одному красивому додатку. Багатофункціональна утиліта для ваших щоденних потреб." data-es="Notas, Calculadora, Convertidor de unidades y Calculadora de combustible — todo en una hermosa aplicación. Utilidad multifuncional diseñada para tus necesidades diarias." data-fr="Notes, Calculatrice, Convertisseur d'unités et Calculateur de carburant — tout dans une belle application. Utilitaire multifonctionnel conçu pour vos besoins quotidiens." data-de="Notizen, Rechner, Einheitenkonverter und Kraftstoffrechner — alles in einer schönen App. Multifunktionales Dienstprogramm für Ihre täglichen Bedürfnisse." data-zh="笔记、计算器、单位转换器和燃油计算器——所有功能集于一款精美应用。专为您的日常需求设计的多功能工具。">Notes, Calculator, Unit Converter, and Fuel Calculator — all in one beautiful app. Multi-functional utility designed for your everyday needs.</p>
+            <div>
+                <a href="#features" class="btn" data-en="Explore Features" data-ru="Изучить возможности" data-uk="Дослідити можливості" data-es="Explorar Características" data-fr="Explorer les Fonctionnalités" data-de="Funktionen Erkunden" data-zh="探索功能">Explore Features</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="market-downloads" class="section" style="background:rgba(255,255,255,0.97);padding:2.5rem 0 2rem 0;">
+        <div class="container">
+            <h2 class="section-title" style="font-size:2rem;margin-bottom:1.2rem;" data-en="Download Metrixy" data-ru="Скачать Metrixy" data-uk="Завантажити Metrixy" data-es="Descargar Metrixy" data-fr="Télécharger Metrixy" data-de="Metrixy herunterladen" data-zh="下载 Metrixy">Download Metrixy</h2>
+            <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:32px;margin-bottom:18px;">
+                <div style="min-width:220px;text-align:center;">
+                    <a href="https://appgallery.huawei.com/" target="_blank" style="color:#111;font-size:1.1rem;font-weight:600;text-decoration:underline;" data-en="Download on Huawei AppGallery" data-ru="Скачать в Huawei AppGallery" data-uk="Завантажити в Huawei AppGallery" data-es="Descargar en Huawei AppGallery" data-fr="Télécharger sur Huawei AppGallery" data-de="Im Huawei AppGallery herunterladen" data-zh="在华为应用市场下载">Download on Huawei AppGallery</a><br>
+                    <div style="margin-top:8px;">
+                        <a href="metrixy-privacy.html" style="color:#111;font-size:0.98rem;text-decoration:underline;" data-en="Privacy Policy" data-ru="Политика конфиденциальности" data-uk="Політика конфіденційності" data-es="Política de Privacidad" data-fr="Politique de Confidentialité" data-de="Datenschutzrichtlinie" data-zh="隐私政策">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section">
+        <div class="container">
+            <h2 class="section-title" data-en="Key Features" data-ru="Ключевые возможности" data-uk="Ключові можливості" data-es="Características Clave" data-fr="Fonctionnalités Clés" data-de="Hauptfunktionen" data-zh="主要功能">Key Features</h2>
+            <p class="section-subtitle" data-en="Four powerful tools designed for your everyday needs" data-ru="Четыре мощных инструмента для ваших повседневных нужд" data-uk="Чотири потужні інструменти для ваших щоденних потреб" data-es="Cuatro herramientas poderosas diseñadas para tus necesidades diarias" data-fr="Quatre outils puissants conçus pour vos besoins quotidiens" data-de="Vier leistungsstarke Tools für Ihre täglichen Bedürfnisse" data-zh="四款强大工具，满足您的日常需求">Four powerful tools designed for your everyday needs</p>
+            <div class="features">
+                <div class="feature-card metrixy-theme">
+                    <div class="feature-icon">📝</div>
+                    <h3 data-en="Notes" data-ru="Заметки" data-uk="Нотатки" data-es="Notas" data-fr="Notes" data-de="Notizen" data-zh="笔记">Notes</h3>
+                    <p data-en="Create and organize notes with reminders, priorities, and color coding. Filter by date and keep your thoughts organized." data-ru="Создавайте и организуйте заметки с напоминаниями, приоритетами и цветовой кодировкой. Фильтрация по дате для поддержания порядка." data-uk="Створюйте та організовуйте нотатки з нагадуваннями, пріоритетами та кольоровим кодуванням. Фільтрація за датою для підтримання порядку." data-es="Crea y organiza notas con recordatorios, prioridades y código de colores. Filtra por fecha y mantén tus pensamientos organizados." data-fr="Créez et organisez des notes avec rappels, priorités et code couleur. Filtrez par date et gardez vos pensées organisées." data-de="Erstellen und organisieren Sie Notizen mit Erinnerungen, Prioritäten und Farbcodierung. Filtern Sie nach Datum und halten Sie Ihre Gedanken geordnet." data-zh="创建和整理带有提醒、优先级和颜色编码的笔记。按日期筛选，保持思路有序。">Create and organize notes with reminders, priorities, and color coding. Filter by date and keep your thoughts organized.</p>
+                </div>
+                <div class="feature-card metrixy-theme">
+                    <div class="feature-icon">🧮</div>
+                    <h3 data-en="Calculator" data-ru="Калькулятор" data-uk="Калькулятор" data-es="Calculadora" data-fr="Calculatrice" data-de="Rechner" data-zh="计算器">Calculator</h3>
+                    <p data-en="Powerful calculator with history, saved calculations, and labels. Save your results for future reference with custom labels." data-ru="Мощный калькулятор с историей, сохранёнными вычислениями и метками. Сохраняйте результаты с пользовательскими метками." data-uk="Потужний калькулятор з історією, збереженими обчисленнями та мітками. Зберігайте результати з користувацькими мітками." data-es="Calculadora potente con historial, cálculos guardados y etiquetas. Guarda tus resultados para referencia futura con etiquetas personalizadas." data-fr="Calculatrice puissante avec historique, calculs enregistrés et libellés. Enregistrez vos résultats pour référence future avec des libellés personnalisés." data-de="Leistungsstarker Rechner mit Verlauf, gespeicherten Berechnungen und Labels. Speichern Sie Ihre Ergebnisse für zukünftige Referenz mit benutzerdefinierten Labels." data-zh="强大的计算器，带有历史记录、保存的计算和标签。使用自定义标签保存结果以供将来参考。">Powerful calculator with history, saved calculations, and labels. Save your results for future reference with custom labels.</p>
+                </div>
+                <div class="feature-card metrixy-theme">
+                    <div class="feature-icon">📐</div>
+                    <h3 data-en="Unit Converter" data-ru="Конвертер единиц" data-uk="Конвертер одиниць" data-es="Convertidor de Unidades" data-fr="Convertisseur d'Unités" data-de="Einheitenkonverter" data-zh="单位转换器">Unit Converter</h3>
+                    <p data-en="Convert length, weight, temperature, area, volume, speed, time, data size, pressure, and energy. Quick conversions at your fingertips." data-ru="Конвертируйте длину, вес, температуру, площадь, объём, скорость, время, размер данных, давление и энергию. Быстрые конвертации под рукой." data-uk="Конвертуйте довжину, вагу, температуру, площу, об'єм, швидкість, час, розмір даних, тиск та енергію. Швидкі перетворення під рукою." data-es="Convierte longitud, peso, temperatura, área, volumen, velocidad, tiempo, tamaño de datos, presión y energía. Conversiones rápidas al alcance de tu mano." data-fr="Convertissez longueur, poids, température, surface, volume, vitesse, temps, taille de données, pression et énergie. Conversions rapides à portée de main." data-de="Konvertieren Sie Länge, Gewicht, Temperatur, Fläche, Volumen, Geschwindigkeit, Zeit, Datengröße, Druck und Energie. Schnelle Umrechnungen griffbereit." data-zh="转换长度、重量、温度、面积、体积、速度、时间、数据大小、压力和能量。快速转换触手可及。">Convert length, weight, temperature, area, volume, speed, time, data size, pressure, and energy. Quick conversions at your fingertips.</p>
+                </div>
+                <div class="feature-card metrixy-theme">
+                    <div class="feature-icon">⛽</div>
+                    <h3 data-en="Fuel Calculator" data-ru="Расчёт топлива" data-uk="Розрахунок пального" data-es="Calculadora de Combustible" data-fr="Calculateur de Carburant" data-de="Kraftstoffrechner" data-zh="燃油计算器">Fuel Calculator</h3>
+                    <p data-en="Calculate fuel consumption, distance, fuel needed, and trip cost. Track your fuel records with statistics and average consumption." data-ru="Рассчитывайте расход топлива, расстояние, необходимое топливо и стоимость поездки. Отслеживайте записи о топливе со статистикой и средним расходом." data-uk="Розраховуйте витрату пального, відстань, необхідне паливо та вартість поїздки. Відстежуйте записи про паливо зі статистикою та середньою витратою." data-es="Calcula el consumo de combustible, distancia, combustible necesario y costo del viaje. Realiza un seguimiento de tus registros de combustible con estadísticas y consumo promedio." data-fr="Calculez la consommation de carburant, la distance, le carburant nécessaire et le coût du trajet. Suivez vos enregistrements de carburant avec statistiques et consommation moyenne." data-de="Berechnen Sie Kraftstoffverbrauch, Entfernung, benötigten Kraftstoff und Reisekosten. Verfolgen Sie Ihre Kraftstoffaufzeichnungen mit Statistiken und Durchschnittsverbrauch." data-zh="计算燃油消耗、距离、所需燃油和行程费用。使用统计数据和平均消耗跟踪您的燃油记录。">Calculate fuel consumption, distance, fuel needed, and trip cost. Track your fuel records with statistics and average consumption.</p>
+                </div>
+                <div class="feature-card metrixy-theme">
+                    <div class="feature-icon">🎨</div>
+                    <h3 data-en="Beautiful Themes" data-ru="Красивые темы" data-uk="Красиві теми" data-es="Temas Hermosos" data-fr="Beaux Thèmes" data-de="Schöne Themes" data-zh="精美主题">Beautiful Themes</h3>
+                    <p data-en="Personalize your experience with multiple themes. Choose the look that suits your style and preferences." data-ru="Персонализируйте свой опыт с помощью нескольких тем. Выберите внешний вид, который соответствует вашему стилю и предпочтениям." data-uk="Персоналізуйте свій досвід за допомогою кількох тем. Оберіть вигляд, який відповідає вашому стилю та вподобанням." data-es="Personaliza tu experiencia con múltiples temas. Elige el aspecto que se adapte a tu estilo y preferencias." data-fr="Personnalisez votre expérience avec plusieurs thèmes. Choisissez l'apparence qui correspond à votre style et à vos préférences." data-de="Personalisieren Sie Ihre Erfahrung mit mehreren Themes. Wählen Sie das Aussehen, das zu Ihrem Stil und Ihren Vorlieben passt." data-zh="使用多种主题个性化您的体验。选择适合您风格和偏好的外观。">Personalize your experience with multiple themes. Choose the look that suits your style and preferences.</p>
+                </div>
+                <div class="feature-card metrixy-theme">
+                    <div class="feature-icon">🌍</div>
+                    <h3 data-en="70+ Languages" data-ru="70+ языков" data-uk="70+ мов" data-es="70+ Idiomas" data-fr="70+ Langues" data-de="70+ Sprachen" data-zh="70+种语言">70+ Languages</h3>
+                    <p data-en="Interface translated into 70+ languages with automatic system language detection. Use the app in your native language." data-ru="Интерфейс переведён на 70+ языков с автоматическим определением языка системы. Используйте приложение на родном языке." data-uk="Інтерфейс перекладено на 70+ мов з автоматичним визначенням мови системи. Використовуйте додаток рідною мовою." data-es="Interfaz traducida a 70+ idiomas con detección automática del idioma del sistema. Usa la aplicación en tu idioma nativo." data-fr="Interface traduite en 70+ langues avec détection automatique de la langue du système. Utilisez l'application dans votre langue maternelle." data-de="Benutzeroberfläche in 70+ Sprachen übersetzt mit automatischer Systemsprachenerkennung. Verwenden Sie die App in Ihrer Muttersprache." data-zh="界面翻译成70+种语言，具有自动系统语言检测功能。使用您的母语使用应用程序。">Interface translated into 70+ languages with automatic system language detection. Use the app in your native language.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title" data-en="About Metrixy" data-ru="О Metrixy" data-uk="Про Metrixy" data-es="Acerca de Metrixy" data-fr="À propos de Metrixy" data-de="Über Metrixy" data-zh="关于Metrixy">About Metrixy</h2>
+            <p class="section-subtitle" data-en="Your trusted everyday companion for calculations, notes, and conversions" data-ru="Ваш надёжный ежедневный помощник для расчётов, заметок и конвертаций" data-uk="Ваш надійний щоденний помічник для розрахунків, нотаток та конвертацій" data-es="Tu compañero de confianza para cálculos, notas y conversiones" data-fr="Votre compagnon de confiance pour les calculs, notes et conversions" data-de="Ihr vertrauenswürdiger täglicher Begleiter für Berechnungen, Notizen und Umrechnungen" data-zh="您值得信赖的日常计算、笔记和转换伙伴">Your trusted everyday companion for calculations, notes, and conversions</p>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 data-en="Local Storage" data-ru="Локальное хранение" data-uk="Локальне зберігання" data-es="Almacenamiento Local" data-fr="Stockage Local" data-de="Lokaler Speicher" data-zh="本地存储">Local Storage</h3>
+                    <p data-en="All your data is stored locally on your device. Your notes, calculations, and records remain private and secure." data-ru="Все ваши данные хранятся локально на устройстве. Ваши заметки, расчёты и записи остаются приватными и защищёнными." data-uk="Всі ваші дані зберігаються локально на пристрої. Ваші нотатки, розрахунки та записи залишаються приватними та захищеними." data-es="Todos tus datos se almacenan localmente en tu dispositivo. Tus notas, cálculos y registros permanecen privados y seguros." data-fr="Toutes vos données sont stockées localement sur votre appareil. Vos notes, calculs et enregistrements restent privés et sécurisés." data-de="Alle Ihre Daten werden lokal auf Ihrem Gerät gespeichert. Ihre Notizen, Berechnungen und Aufzeichnungen bleiben privat und sicher." data-zh="您所有的数据都存储在本地设备上。您的笔记、计算和记录保持私密和安全。">All your data is stored locally on your device. Your notes, calculations, and records remain private and secure.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">💎</div>
+                    <h3 data-en="Flexible Pricing" data-ru="Гибкое ценообразование" data-uk="Гнучке ціноутворення" data-es="Precios Flexibles" data-fr="Tarification Flexible" data-de="Flexible Preisgestaltung" data-zh="灵活定价">Flexible Pricing</h3>
+                    <p data-en="Watch optional reward videos to unlock premium features or upgrade to Pro version. No forced advertising, transparent pricing." data-ru="Смотрите опциональные видео за вознаграждение для разблокировки премиум функций или перейдите на Pro версию. Без принудительной рекламы, прозрачное ценообразование." data-uk="Дивіться опціональні відео за винагороду для розблокування преміум функцій або перейдіть на Pro версію. Без примусової реклами, прозоре ціноутворення." data-es="Mira videos de recompensa opcionales para desbloquear funciones premium o actualiza a la versión Pro. Sin publicidad forzada, precios transparentes." data-fr="Regardez des vidéos de récompense optionnelles pour débloquer les fonctionnalités premium ou passez à la version Pro. Pas de publicité forcée, tarification transparente." data-de="Schauen Sie optionale Belohnungsvideos, um Premium-Funktionen freizuschalten, oder upgraden Sie auf die Pro-Version. Keine Zwangswerbung, transparente Preise." data-zh="观看可选奖励视频以解锁高级功能或升级到Pro版本。无强制广告，价格透明。">Watch optional reward videos to unlock premium features or upgrade to Pro version. No forced advertising, transparent pricing.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🔒</div>
+                    <h3 data-en="Privacy & Security" data-ru="Конфиденциальность и безопасность" data-uk="Конфіденційність та безпека" data-es="Privacidad y Seguridad" data-fr="Confidentialité et Sécurité" data-de="Datenschutz & Sicherheit" data-zh="隐私与安全">Privacy & Security</h3>
+                    <p data-en="We collect minimal data for diagnostics and advertising. Your personal content stays on your device. No tracking of your activities." data-ru="Мы собираем минимум данных для диагностики и рекламы. Ваш личный контент остаётся на устройстве. Без отслеживания вашей активности." data-uk="Ми збираємо мінімум даних для діагностики та реклами. Ваш особистий контент залишається на пристрої. Без відстеження вашої активності." data-es="Recopilamos datos mínimos para diagnósticos y publicidad. Tu contenido personal permanece en tu dispositivo. Sin seguimiento de tus actividades." data-fr="Nous collectons des données minimales pour les diagnostics et la publicité. Votre contenu personnel reste sur votre appareil. Pas de suivi de vos activités." data-de="Wir sammeln minimale Daten für Diagnose und Werbung. Ihre persönlichen Inhalte bleiben auf Ihrem Gerät. Kein Tracking Ihrer Aktivitäten." data-zh="我们收集最少的数据用于诊断和广告。您的个人内容保留在您的设备上。不跟踪您的活动。">We collect minimal data for diagnostics and advertising. Your personal content stays on your device. No tracking of your activities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-en="Contact & Support" data-ru="Контакты и поддержка" data-uk="Контакти та підтримка" data-es="Contacto y Soporte" data-fr="Contact et Support" data-de="Kontakt & Support" data-zh="联系与支持">Contact & Support</h2>
+            <p data-en="Questions about Metrixy? Need help? We're here to assist you!" data-ru="Вопросы о Metrixy? Нужна помощь? Мы готовы помочь!" data-uk="Питання щодо Metrixy? Потрібна допомога? Ми готові допомогти!" data-es="¿Preguntas sobre Metrixy? ¿Necesitas ayuda? ¡Estamos aquí para asistirte!" data-fr="Questions sur Metrixy? Besoin d'aide? Nous sommes là pour vous aider!" data-de="Fragen zu Metrixy? Brauchen Sie Hilfe? Wir sind hier, um Ihnen zu helfen!" data-zh="对Metrixy有疑问？需要帮助？我们在这里为您服务！">Questions about Metrixy? Need help? We're here to assist you!</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3 data-en="Email Support" data-ru="Поддержка по Email" data-uk="Підтримка по Email" data-es="Soporte por Email" data-fr="Support Email" data-de="E-Mail-Support" data-zh="邮件支持">Email Support</h3>
+                    <p><a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+                    <p data-en="Technical support, feature requests, and general inquiries" data-ru="Техническая поддержка, запросы функций и общие вопросы" data-uk="Технічна підтримка, запити функцій та загальні питання" data-es="Soporte técnico, solicitudes de funciones y consultas generales" data-fr="Support technique, demandes de fonctionnalités et demandes générales" data-de="Technischer Support, Feature-Anfragen und allgemeine Anfragen" data-zh="技术支持、功能请求和一般咨询">Technical support, feature requests, and general inquiries</p>
+                </div>
+                <div class="contact-item">
+                    <h3 data-en="Privacy Policy" data-ru="Политика конфиденциальности" data-uk="Політика конфіденційності" data-es="Política de Privacidad" data-fr="Politique de Confidentialité" data-de="Datenschutzrichtlinie" data-zh="隐私政策">Privacy Policy</h3>
+                    <p><a href="metrixy-privacy.html" data-en="View Privacy Policy" data-ru="Посмотреть политику конфиденциальности" data-uk="Переглянути політику конфіденційності" data-es="Ver Política de Privacidad" data-fr="Voir la Politique de Confidentialité" data-de="Datenschutzrichtlinie anzeigen" data-zh="查看隐私政策">View Privacy Policy</a></p>
+                    <p data-en="Learn how we protect your data and privacy" data-ru="Узнайте, как мы защищаем ваши данные и конфиденциальность" data-uk="Дізнайтеся, як ми захищаємо ваші дані та конфіденційність" data-es="Aprenda cómo protegemos sus datos y privacidad" data-fr="Découvrez comment nous protégeons vos données et votre vie privée" data-de="Erfahren Sie, wie wir Ihre Daten und Privatsphäre schützen" data-zh="了解我们如何保护您的数据和隐私">Learn how we protect your data and privacy</p>
+                </div>
+                <div class="contact-item">
+                    <h3 data-en="Developer" data-ru="Разработчик" data-uk="Розробник" data-es="Desarrollador" data-fr="Développeur" data-de="Entwickler" data-zh="开发者">Developer</h3>
+                    <p>DR.IT.Studio</p>
+                    <p data-en="Kyiv, Ukraine" data-ru="Киев, Украина" data-uk="Київ, Україна" data-es="Kiev, Ucrania" data-fr="Kiev, Ukraine" data-de="Kiew, Ukraine" data-zh="基辅，乌克兰">Kyiv, Ukraine</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Metrixy</h4>
+                    <a href="#features" data-en="Features" data-ru="Возможности" data-uk="Можливості" data-es="Características" data-fr="Fonctionnalités" data-de="Funktionen" data-zh="功能">Features</a>
+                    <a href="metrixy-privacy.html" data-en="Privacy Policy" data-ru="Политика конфиденциальности" data-uk="Політика конфіденційності" data-es="Política de Privacidad" data-fr="Politique de Confidentialité" data-de="Datenschutzrichtlinie" data-zh="隐私政策">Privacy Policy</a>
+                </div>
+                <div class="footer-section">
+                    <h4 data-en="Support" data-ru="Поддержка" data-uk="Підтримка" data-es="Soporte" data-fr="Support" data-de="Support" data-zh="支持">Support</h4>
+                    <a href="mailto:support@dr-it.studio" data-en="Contact Support" data-ru="Связаться с поддержкой" data-uk="Зв'язатися з підтримкою" data-es="Contactar Soporte" data-fr="Contacter le Support" data-de="Support kontaktieren" data-zh="联系支持">Contact Support</a>
+                </div>
+                <div class="footer-section">
+                    <h4 data-en="Company" data-ru="Компания" data-uk="Компанія" data-es="Empresa" data-fr="Entreprise" data-de="Unternehmen" data-zh="公司">Company</h4>
+                    <a href="index.html">DR.IT.Studio</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DR.IT.Studio. <span data-en="All rights reserved." data-ru="Все права защищены." data-uk="Всі права захищені." data-es="Todos los derechos reservados." data-fr="Tous droits réservés." data-de="Alle Rechte vorbehalten." data-zh="版权所有。">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Data Deletion Modal -->
+    <div id="deletion-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" id="close-modal">&times;</span>
+            <h2 class="modal-title" data-en="Personal Data Deletion Request" data-ru="Запрос на удаление личных данных" data-uk="Запит на видалення особистих даних" data-es="Solicitud de eliminación de datos personales" data-fr="Demande de suppression de données personnelles" data-de="Antrag auf Löschung personenbezogener Daten" data-zh="个人数据删除请求">Personal Data Deletion Request</h2>
+            
+            <p class="modal-description" data-en="To request deletion of your personal data from our systems, please click the button below to proceed to the data deletion request form." data-ru="Чтобы запросить удаление ваших личных данных из наших систем, нажмите кнопку ниже, чтобы перейти к форме запроса удаления данных." data-uk="Щоб запросити видалення ваших особистих даних із наших систем, натисніть кнопку нижче, щоб перейти до форми запиту на видалення даних." data-es="Para solicitar la eliminación de sus datos personales de nuestros sistemas, haga clic en el botón a continuación." data-fr="Pour demander la suppression de vos données personnelles de nos systèmes, veuillez cliquer sur le bouton ci-dessous." data-de="Um die Löschung Ihrer persönlichen Daten aus unseren Systemen zu beantragen, klicken Sie bitte auf die Schaltfläche unten." data-zh="要请求从我们的系统中删除您的个人数据，请点击下面的按钮。">To request deletion of your personal data from our systems, please click the button below to proceed to the data deletion request form.</p>
+                
+            <div class="form-submit">
+                <a href="data-deletion-form.html" class="btn-privacy" data-en="Delete My Data" data-ru="Удалить мои данные" data-uk="Видалити мої дані" data-es="Eliminar mis datos" data-fr="Supprimer mes données" data-de="Meine Daten löschen" data-zh="删除我的数据">Delete My Data</a>
+            </div>
+            
+            <div class="additional-links">
+                <h4 data-en="Additional Information" data-ru="Дополнительная информация" data-uk="Додаткова інформація" data-es="Información adicional" data-fr="Informations supplémentaires" data-de="Zusätzliche Informationen" data-zh="附加信息">Additional Information</h4>
+                <ul>
+                    <li><a href="metrixy-privacy.html" data-en="Privacy Policy" data-ru="Политика конфиденциальности" data-uk="Політика конфіденційності" data-es="Política de privacidad" data-fr="Politique de confidentialité" data-de="Datenschutzrichtlinie" data-zh="隐私政策">Privacy Policy</a></li>
+                    <li><a href="mailto:support@dr-it.studio" data-en="Contact Support" data-ru="Связаться с поддержкой" data-uk="Зв'язатися з підтримкою" data-es="Contactar con soporte" data-fr="Contacter le support" data-de="Support kontaktieren" data-zh="联系支持">Contact Support</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/language-manager.js"></script>
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .contact-item').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+
+        // Modal functions
+        function openDeletionModal() {
+            document.getElementById('deletion-modal').style.display = 'block';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        document.getElementById('close-modal').addEventListener('click', function() {
+            document.getElementById('deletion-modal').style.display = 'none';
+            document.body.style.overflow = 'auto';
+        });
+        
+        window.addEventListener('click', function(event) {
+            const modal = document.getElementById('deletion-modal');
+            if (event.target === modal) {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+            }
+        });
+    </script>
+</body>
+</html>

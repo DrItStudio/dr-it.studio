@@ -37,6 +37,7 @@
             background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             min-height: 100vh;
             padding: 60px 20px;
+            position: relative;
         }
 
         .container {
@@ -98,55 +99,58 @@
         }
 
         .form-group textarea {
-            min-height: 120px;
             resize: vertical;
-        }
-
-        .required-field::after {
-            content: "*";
-            color: #e41f1f;
-            margin-left: 4px;
+            min-height: 100px;
         }
 
         .error-text {
-            color: #e41f1f;
-            font-size: 0.9rem;
+            color: #e74c3c;
+            font-size: 0.85rem;
             margin-top: 5px;
             display: none;
         }
 
+        .required-field::after {
+            content: ' *';
+            color: #e74c3c;
+        }
+
         .btn-submit {
-            background: linear-gradient(90deg, #2196F3 0%, #0D47A1 100%);
+            background: linear-gradient(90deg, #27ae60 0%, #2ecc71 100%);
             color: white;
-            transition: transform 0.3s, box-shadow 0.3s;
-            display: inline-block;
             padding: 12px 24px;
-            font-size: 1rem;
-            border-radius: 30px;
             border: none;
+            border-radius: 30px;
+            font-size: 1rem;
             cursor: pointer;
-            font-weight: 500;
-            box-shadow: 0 4px 12px rgba(44,62,80,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: block;
             width: 100%;
+            max-width: 300px;
+            margin: 20px auto 0 auto;
+            box-shadow: 0 4px 12px rgba(44,62,80,0.1);
         }
 
         .btn-submit:hover {
-            background: linear-gradient(90deg, #1E88E5 0%, #0D47A1 100%);
-            box-shadow: 0 8px 20px rgba(33, 150, 243, 0.25);
+            background: linear-gradient(90deg, #229954 0%, #27ae60 100%);
             transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(46, 204, 113, 0.25);
+        }
+        
+        .btn-submit:disabled {
+            background: #ccc;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
         }
 
-        .btn-back {
-            display: block;
-            text-align: center;
-            margin-top: 20px;
-            color: #ffffff;
-            text-decoration: none;
-            font-size: 0.9rem;
-        }
-
-        .btn-back:hover {
-            text-decoration: underline;
+        @media (max-width: 768px) {
+            .container {
+                padding: 25px;
+            }
+            body {
+                padding: 30px 15px;
+            }
         }
 
         .success-message {
@@ -175,9 +179,55 @@
             position: absolute;
             top: 20px;
             right: 20px;
+            z-index: 100;
+        }
+        
+        .language-dropdown {
+            position: relative;
+        }
+        
+        .language-current {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
             display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-end;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .language-options {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 180px;
+            z-index: 101;
+            margin-top: 5px;
+        }
+        
+        .language-options.show {
+            display: block;
+        }
+        
+        .language-option {
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .language-option:hover {
+            background: #f5f5f5;
+        }
+        
+        .language-option.active {
+            background: #e9f5ff;
+            font-weight: bold;
         }
         
         @media (max-width: 768px) {
@@ -185,8 +235,11 @@
                 position: relative;
                 top: 0;
                 right: 0;
-                justify-content: center;
                 margin-bottom: 20px;
+                text-align: center;
+            }
+            .language-dropdown {
+                display: inline-block;
             }
         }
     </style>
@@ -194,6 +247,89 @@
     <!-- Удаляем EmailJS, так как будем использовать FormSubmit -->
 </head>
 <body>
+    <div class="language-selector">
+        <div class="language-dropdown">
+            <button class="language-current">
+                <span id="current-lang">🇺🇸 EN</span>
+                <span>▼</span>
+            </button>
+            <div class="language-options" id="language-options" style="max-height: 400px; overflow-y: auto;">
+                <div class="language-option active" data-lang="en">🇺🇸 English</div>
+                <div class="language-option" data-lang="af">🇿🇦 Afrikaans</div>
+                <div class="language-option" data-lang="am">🇪🇹 አማርኛ</div>
+                <div class="language-option" data-lang="ar">🇸🇦 العربية</div>
+                <div class="language-option" data-lang="az">🇦🇿 Azərbaycan</div>
+                <div class="language-option" data-lang="be">🇧🇾 Беларуская</div>
+                <div class="language-option" data-lang="bg">🇧🇬 Български</div>
+                <div class="language-option" data-lang="bn">🇧🇩 বাংলা</div>
+                <div class="language-option" data-lang="bs">🇧🇦 Bosanski</div>
+                <div class="language-option" data-lang="ca">🇪🇸 Català</div>
+                <div class="language-option" data-lang="cs">🇨🇿 Čeština</div>
+                <div class="language-option" data-lang="cy">🏴󠁧󠁢󠁷󠁬󠁳󠁿 Cymraeg</div>
+                <div class="language-option" data-lang="da">🇩🇰 Dansk</div>
+                <div class="language-option" data-lang="de">🇩🇪 Deutsch</div>
+                <div class="language-option" data-lang="el">🇬🇷 Ελληνικά</div>
+                <div class="language-option" data-lang="es">🇪🇸 Español</div>
+                <div class="language-option" data-lang="et">🇪🇪 Eesti</div>
+                <div class="language-option" data-lang="eu">🇪🇸 Euskara</div>
+                <div class="language-option" data-lang="fa">🇮🇷 فارسی</div>
+                <div class="language-option" data-lang="fi">🇫🇮 Suomi</div>
+                <div class="language-option" data-lang="fil">🇵🇭 Filipino</div>
+                <div class="language-option" data-lang="fr">🇫🇷 Français</div>
+                <div class="language-option" data-lang="gl">🇪🇸 Galego</div>
+                <div class="language-option" data-lang="gu">🇮🇳 ગુજરાતી</div>
+                <div class="language-option" data-lang="he">🇮🇱 עברית</div>
+                <div class="language-option" data-lang="hi">🇮🇳 हिन्दी</div>
+                <div class="language-option" data-lang="hr">🇭🇷 Hrvatski</div>
+                <div class="language-option" data-lang="hu">🇭🇺 Magyar</div>
+                <div class="language-option" data-lang="hy">🇦🇲 Հայերադdelays</div>v>
+                <div class="language-option" data-lang="id">🇮🇩 Indonesia</div>
+                <div class="language-option" data-lang="is">🇮🇸 Íslenska</div>
+                <div class="language-option" data-lang="it">🇮🇹 Italiano</div>
+                <div class="language-option" data-lang="ja">🇯🇵 日本語</div>
+                <div class="language-option" data-lang="ka">🇬🇪 ქართული</div>
+                <div class="language-option" data-lang="kk">🇰🇿 Қазақша</div>
+                <div class="language-option" data-lang="km">🇰🇭 ខ្មែរ</div>
+                <div class="language-option" data-lang="kn">🇮🇳 ಕನ್ನಡ</div>
+                <div class="language-option" data-lang="ko">🇰🇷 한국어</div>
+                <div class="language-option" data-lang="lo">🇱🇦 ລາວ</div>
+                <div class="language-option" data-lang="lt">🇱🇹 Lietuvių</div>
+                <div class="language-option" data-lang="lv">🇱🇻 Latviešu</div>
+                <div class="language-option" data-lang="mk">🇲🇰 Македонски</div>
+                <div class="language-option" data-lang="ml">🇮🇳 മലയാളം</div>
+                <div class="language-option" data-lang="mn">🇲🇳 Монгол</div>
+                <div class="language-option" data-lang="mr">🇮🇳 मराठी</div>
+                <div class="language-option" data-lang="ms">🇲🇾 Melayu</div>
+                <div class="language-option" data-lang="my">🇲🇲 မြန်မာ</div>
+                <div class="language-option" data-lang="ne">🇳🇵 नेपाली</div>
+                <div class="language-option" data-lang="nl">🇳🇱 Nederlands</div>
+                <div class="language-option" data-lang="no">🇳🇴 Norsk</div>
+                <div class="language-option" data-lang="pa">🇮🇳 ਪੰਜਾਬੀ</div>
+                <div class="language-option" data-lang="pl">🇵🇱 Polski</div>
+                <div class="language-option" data-lang="pt">🇵🇹 Português</div>
+                <div class="language-option" data-lang="ro">🇷🇴 Română</div>
+                <div class="language-option" data-lang="ru">🇷🇺 Русский</div>
+                <div class="language-option" data-lang="si">🇱🇰 සිංහල</div>
+                <div class="language-option" data-lang="sk">🇸🇰 Slovenčina</div>
+                <div class="language-option" data-lang="sl">🇸🇮 Slovenščina</div>
+                <div class="language-option" data-lang="sq">🇦🇱 Shqip</div>
+                <div class="language-option" data-lang="sr">🇷🇸 Српски</div>
+                <div class="language-option" data-lang="sv">🇸🇪 Svenska</div>
+                <div class="language-option" data-lang="sw">🇹🇿 Kiswahili</div>
+                <div class="language-option" data-lang="ta">🇮🇳 தமிழ்</div>
+                <div class="language-option" data-lang="te">🇮🇳 తెలుగు</div>
+                <div class="language-option" data-lang="th">🇹🇭 ไทย</div>
+                <div class="language-option" data-lang="tr">🇹🇷 Türkçe</div>
+                <div class="language-option" data-lang="uk">🇺🇦 Українська</div>
+                <div class="language-option" data-lang="ur">🇵🇰 اردو</div>
+                <div class="language-option" data-lang="uz">🇺🇿 O'zbek</div>
+                <div class="language-option" data-lang="vi">🇻🇳 Tiếng Việt</div>
+                <div class="language-option" data-lang="zh">🇨🇳 中文</div>
+                <div class="language-option" data-lang="zu">🇿🇦 isiZulu</div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="logo-container">
             <img src="logo_light.png" alt="Forest Calculator Logo" class="logo-img">
@@ -248,149 +384,68 @@
                 <label for="app-selection" class="required-field" id="app-label" data-en="Application" data-ru="Приложение" data-uk="Додаток" data-es="Aplicación" data-fr="Application" data-de="Anwendung" data-zh="应用程序">Application</label>
                 <select id="app-selection" name="application" required>
                     <option value="" id="select-app" data-en="Select an application" data-ru="Выберите приложение" data-uk="Виберіть додаток" data-es="Seleccionar una aplicación" data-fr="Sélectionner une application" data-de="Wählen Sie eine Anwendung" data-zh="选择应用程序">Select an application</option>
-                    <option value="Forest Calculator" id="forest-calc" data-en="Forest Calculator" data-ru="Forest Calculator" data-uk="Forest Calculator" data-es="Forest Calculator" data-fr="Forest Calculator" data-de="Forest Calculator" data-zh="Forest Calculator">Forest Calculator</option>
-                    <option value="Forest Calculator Pro" id="forest-calc-pro" data-en="Forest Calculator Pro" data-ru="Forest Calculator Pro" data-uk="Forest Calculator Pro" data-es="Forest Calculator Pro" data-fr="Forest Calculator Pro" data-de="Forest Calculator Pro" data-zh="Forest Calculator Pro">Forest Calculator Pro</option>
+                    <option value="Forest Calculator" data-en="Forest Calculator" data-ru="Лесной Калькулятор" data-uk="Лісовий Калькулятор" data-es="Calculadora Forestal" data-fr="Calculateur Forestier" data-de="Wald-Rechner" data-zh="森林计算器">Forest Calculator</option>
+                    <option value="Metrixy" data-en="Metrixy" data-ru="Metrixy" data-uk="Metrixy" data-es="Metrixy" data-fr="Metrixy" data-de="Metrixy" data-zh="Metrixy">Metrixy</option>
+                    <option value="Other" data-en="Other" data-ru="Другое" data-uk="Інше" data-es="Otro" data-fr="Autre" data-de="Andere" data-zh="其他">Other</option>
                 </select>
                 <p class="error-text" id="app-error" data-en="Please select an application" data-ru="Пожалуйста, выберите приложение" data-uk="Будь ласка, виберіть додаток" data-es="Por favor seleccione una aplicación" data-fr="Veuillez sélectionner une application" data-de="Bitte wählen Sie eine Anwendung" data-zh="请选择一个应用程序">Please select an application</p>
             </div>
             
-            <div class="form-group">
-                <label for="user-message" id="message-label" data-en="Message (optional)" data-ru="Сообщение (необязательно)" data-uk="Повідомлення (необов'язково)" data-es="Mensaje (opcional)" data-fr="Message (facultatif)" data-de="Nachricht (optional)" data-zh="信息（可选）">Message (optional)</label>
-                <textarea id="user-message" name="message" data-en="Additional information about your request..." data-ru="Дополнительная информация о вашем запросе..." data-uk="Додаткова інформація про ваш запит..." data-es="Información adicional sobre su solicitud..." data-fr="Informations supplémentaires concernant votre demande..." data-de="Zusätzliche Informationen zu Ihrer Anfrage..." data-zh="有关您请求的其他信息..." placeholder="Additional information about your request..."></textarea>
+            <div class="form-group" id="other-app-group" style="display: none;">
+                <label for="other-app" class="required-field" id="other-app-label" data-en="Other Application Name" data-ru="Название другого приложения" data-uk="Назва іншого додатку" data-es="Nombre de otra aplicación" data-fr="Nom d'une autre application" data-de="Name einer anderen Anwendung" data-zh="其他应用程序名称">Other Application Name</label>
+                <input type="text" id="other-app" name="other_app">
+                <p class="error-text" id="other-app-error" data-en="Please enter the application name" data-ru="Пожалуйста, введите название приложения" data-uk="Будь ласка, введіть назву додатку" data-es="Por favor ingrese el nombre de la aplicación" data-fr="Veuillez entrer le nom de l'application" data-de="Bitte geben Sie den Namen der Anwendung ein" data-zh="请输入应用程序名称">Please enter the application name</p>
             </div>
             
-            <!-- Добавим скрытое поле для указания типа запроса -->
-            <input type="hidden" name="request_type" value="Data Deletion Request - GDPR">
+            <div class="form-group">
+                <label for="identifier" class="required-field" id="identifier-label" data-en="Identifier (User ID, Device ID, or Email used in the app)" data-ru="Идентификатор (ID пользователя, ID устройства или Email, используемый в приложении)" data-uk="Ідентифікатор (ID користувача, ID пристрою або Email, що використовується у додатку)" data-es="Identificador (ID de usuario, ID de dispositivo o correo electrónico utilizado en la aplicación)" data-fr="Identifiant (ID utilisateur, ID de l'appareil ou e-mail utilisé dans l'application)" data-de="Kennung (Benutzer-ID, Geräte-ID oder in der App verwendete E-Mail)" data-zh="标识符（应用中使用的用户ID、设备ID或电子邮件）">Identifier (User ID, Device ID, or Email used in the app)</label>
+                <input type="text" id="identifier" name="identifier" required>
+                <p class="error-text" id="identifier-error" data-en="Please provide an identifier" data-ru="Пожалуйста, укажите идентификатор" data-uk="Будь ласка, вкажіть ідентифікатор" data-es="Por favor proporcione un identificador" data-fr="Veuillez fournir un identifiant" data-de="Bitte geben Sie eine Kennung an" data-zh="请提供标识符">Please provide an identifier</p>
+            </div>
             
-            <button type="submit" class="btn-submit" id="submit-button" data-en="Submit Request" data-ru="Отправить запрос" data-uk="Надіслати запит" data-es="Enviar solicitud" data-fr="Envoyer la demande" data-de="Anfrage senden" data-zh="提交请求">Submit Request</button>
+            <div class="form-group">
+                <label for="additional-info" id="additional-info-label" data-en="Additional Information (optional)" data-ru="Дополнительная информация (необязательно)" data-uk="Додаткова інформація (необов'язково)" data-es="Información adicional (opcional)" data-fr="Informations supplémentaires (facultatif)" data-de="Zusätzliche Informationen (optional)" data-zh="附加信息（可选）">Additional Information (optional)</label>
+                <textarea id="additional-info" name="additional_info" placeholder="" data-en="Any additional details that might help us identify your data" data-ru="Любые дополнительные детали, которые могут помочь нам идентифицировать ваши данные" data-uk="Будь-які додаткові деталі, які можуть допомогти нам ідентифікувати ваші дані" data-es="Cualquier detalle adicional que pueda ayudarnos a identificar sus datos" data-fr="Tout détail supplémentaire qui pourrait nous aider à identifier vos données" data-de="Alle zusätzlichen Details, die uns helfen könnten, Ihre Daten zu identifizieren" data-zh="任何可能帮助我们识别您数据的其他详细信息"></textarea>
+            </div>
+            
+            <button type="submit" class="btn-submit" id="submit-button" data-en="Submit Request" data-ru="Отправить запрос" data-uk="Надіслати запит" data-es="Enviar solicitud" data-fr="Soumettre la demande" data-de="Anfrage absenden" data-zh="提交请求">Submit Request</button>
         </form>
-        
-        <div class="success-message" id="success-message">
-            <h3 id="success-title" data-en="Email Client Opened" data-ru="Почтовый клиент открыт" data-uk="Поштовий клієнт відкрито" data-es="Cliente de correo abierto" data-fr="Client de messagerie ouvert" data-de="E-Mail-Client geöffnet" data-zh="电子邮件客户端已打开">Email Client Opened</h3>
-            <p data-en="Your email client has been opened with your data deletion request. Please send the email to complete your request. We will process it as soon as possible and contact you via the provided email address." data-ru="Ваш почтовый клиент был открыт с запросом на удаление данных. Пожалуйста, отправьте письмо для завершения запроса. Мы обработаем его как можно скорее и свяжемся с вами по указанному адресу электронной почты." data-uk="Ваш поштовий клієнт був відкритий із запитом на видалення даних. Будь ласка, відправте лист для завершення запиту. Ми обробимо його якомога швидше і зв'яжемося з вами за вказаною адресою електронної пошти." data-es="Su cliente de correo electrónico se ha abierto con su solicitud de eliminación de datos. Por favor, envíe el correo electrónico para completar su solicitud. Procesaremos su solicitud lo antes posible y nos pondremos en contacto con usted a través de la dirección de correo electrónico proporcionada." data-fr="Votre client de messagerie a été ouvert avec votre demande de suppression de données. Veuillez envoyer l'e-mail pour compléter votre demande. Nous la traiterons dès que possible et vous contacterons via l'adresse e-mail fournie." data-de="Ihr E-Mail-Client wurde mit Ihrer Datenlöschungsanfrage geöffnet. Bitte senden Sie die E-Mail, um Ihre Anfrage abzuschließen. Wir werden sie so schnell wie möglich bearbeiten und Sie über die angegebene E-Mail-Adresse kontaktieren." data-zh="您的电子邮件客户端已打开，其中包含您的数据删除请求。请发送电子邮件以完成您的请求。我们将尽快处理您的请求，并通过提供的电子邮件地址与您联系。">Your email client has been opened with your data deletion request. Please send the email to complete your request. We will process it as soon as possible and contact you via the provided email address.</p>
-            <p style="margin-top: 10px; font-weight: bold;" id="manual-note" data-en="If your email client didn't open, please manually send an email to support@dr-it.studio with your request details." data-ru="Если ваш почтовый клиент не открылся, пожалуйста, отправьте электронное письмо вручную на адрес support@dr-it.studio с деталями вашего запроса." data-uk="Якщо ваш поштовий клієнт не відкрився, будь ласка, надішліть електронний лист вручну на адресу support@dr-it.studio з деталями вашого запиту." data-es="Si su cliente de correo electrónico no se abrió, envíe un correo electrónico manualmente a support@dr-it.studio con los detalles de su solicitud." data-fr="Si votre client de messagerie ne s'est pas ouvert, veuillez envoyer manuellement un email à support@dr-it.studio avec les détails de votre demande." data-de="Wenn sich Ihr E-Mail-Client nicht geöffnet hat, senden Sie bitte manuell eine E-Mail an support@dr-it.studio mit den Details Ihrer Anfrage." data-zh="如果您的电子邮件客户端未打开，请手动发送电子邮件至support@dr-it.studio，并附上您的请求详情。">If your email client didn't open, please manually send an email to support@dr-it.studio with your request details.</p>
-            <p style="margin-top: 10px;" id="redirect-note" data-en="You will be redirected to the success page in a moment..." data-ru="Вы будете перенаправлены на страницу успешной отправки через мгновение..." data-uk="Ви будете перенаправлені на сторінку успішного відправлення через мить..." data-es="Será redirigido a la página de éxito en un momento..." data-fr="Vous serez redirigé vers la page de succès dans un instant..." data-de="Sie werden in Kürze zur Erfolgsseite weitergeleitet..." data-zh="您将在片刻后被重定向到成功页面...">You will be redirected to the success page in a moment...</p>
-        </div>
-        
-        <a href="forest-calculator.html" class="btn-back" id="back-button" data-en="Back to Forest Calculator" data-ru="Вернуться к Forest Calculator" data-uk="Повернутися до Forest Calculator" data-es="Volver a Forest Calculator" data-fr="Retour à Forest Calculator" data-de="Zurück zu Forest Calculator" data-zh="返回 Forest Calculator">Back to Forest Calculator</a>
     </div>
 
     <script>
-        // Initialization function for language manager
-        document.addEventListener('DOMContentLoaded', function() {
-            // Create language selector if not exists
-            if (!document.querySelector('.language-selector')) {
-                const languageSelector = document.createElement('div');
-                languageSelector.className = 'language-selector';
-                languageSelector.style.position = 'absolute';
-                languageSelector.style.top = '20px';
-                languageSelector.style.right = '20px';
-                languageSelector.style.zIndex = '100';
-                
-                const languages = [
-                    { code: 'en', name: 'English' },
-                    { code: 'ru', name: 'Русский' },
-                    { code: 'uk', name: 'Українська' },
-                    { code: 'es', name: 'Español' },
-                    { code: 'fr', name: 'Français' },
-                    { code: 'de', name: 'Deutsch' },
-                    { code: 'zh', name: '中文' }
-                ];
-                
-                languages.forEach(lang => {
-                    const langButton = document.createElement('button');
-                    langButton.textContent = lang.name;
-                    langButton.className = 'lang-btn';
-                    langButton.dataset.lang = lang.code;
-                    langButton.style.margin = '0 5px';
-                    langButton.style.padding = '5px 10px';
-                    langButton.style.border = '1px solid #ccc';
-                    langButton.style.borderRadius = '3px';
-                    langButton.style.background = '#fff';
-                    langButton.style.cursor = 'pointer';
-                    
-                    langButton.addEventListener('click', function() {
-                        localStorage.setItem('selectedLanguage', lang.code);
-                        if (typeof LanguageManager !== 'undefined') {
-                            LanguageManager.switchLanguage(lang.code);
-                        }
-                    });
-                    
-                    languageSelector.appendChild(langButton);
-                });
-                
-                document.body.appendChild(languageSelector);
-            }
+        // Show "Other App" field if "Other" is selected
+        document.getElementById('app-selection').addEventListener('change', function() {
+            const otherAppGroup = document.getElementById('other-app-group');
+            const otherAppInput = document.getElementById('other-app');
             
-            if (typeof LanguageManager !== 'undefined') {
-                // Initialize language manager if it exists
-                LanguageManager.initLanguage();
-            }
-            
-            // No need to check for backup mode anymore as we're using mailto directly
-        });
-
-        // Функция для отправки через mailto
-        // Handle the 500 error message
-        function handle500Error() {
-            // Check if there's a 500 error message in the page content
-            const bodyText = document.body.innerText || '';
-            if (bodyText.includes('500') && 
-                bodyText.includes('server issues') && 
-                bodyText.includes('Looks like we are having some server issues')) {
-                
-                window.location.href = 'error.html';
-                return true;
-            }
-            return false;
-        }
-        
-        // Check for error on load and configure the form properly
-        window.addEventListener('DOMContentLoaded', function() {
-            if (handle500Error()) {
-                console.log('Redirected due to 500 error detection');
-                return;
-            }
-            
-            // Ensure form is correctly configured
-            const form = document.getElementById('deletion-form');
-            if (form) {
-                // Make sure we have the right action
-                if (!form.action || form.action.trim() === '') {
-                    form.action = 'https://formsubmit.co/support@dr-it.studio';
-                }
-                
-                // Double-check the next URL
-                const nextInput = form.querySelector('input[name="_next"]');
-                if (nextInput) {
-                    nextInput.value = window.location.origin + '/deletion-success.html';
-                    // Fallback if origin isn't available
-                    if (nextInput.value.includes('null')) {
-                        nextInput.value = 'deletion-success.html';
-                    }
-                }
+            if (this.value === 'Other') {
+                otherAppGroup.style.display = 'block';
+                otherAppInput.setAttribute('required', 'required');
+            } else {
+                otherAppGroup.style.display = 'none';
+                otherAppInput.removeAttribute('required');
             }
         });
         
+        // Form validation and submission
         function handleFormSubmission(event) {
-            // First check for 500 error
-            if (handle500Error()) {
-                event.preventDefault();
-                return false;
-            }
-            
             let isValid = true;
+            
+            // Get form elements
             const userName = document.getElementById('user-name');
             const userEmail = document.getElementById('user-email');
             const appSelection = document.getElementById('app-selection');
-            const userMessage = document.getElementById('user-message');
+            const otherApp = document.getElementById('other-app');
+            const identifier = document.getElementById('identifier');
+            const additionalInfo = document.getElementById('additional-info');
+            
+            // Reset error messages
+            document.querySelectorAll('.error-text').forEach(el => el.style.display = 'none');
             
             // Validate name
-            if (userName.value.trim() === '') {
+            if (!userName.value.trim()) {
                 document.getElementById('name-error').style.display = 'block';
                 isValid = false;
-            } else {
-                document.getElementById('name-error').style.display = 'none';
             }
             
             // Validate email
@@ -398,38 +453,46 @@
             if (!emailPattern.test(userEmail.value)) {
                 document.getElementById('email-error').style.display = 'block';
                 isValid = false;
-            } else {
-                document.getElementById('email-error').style.display = 'none';
             }
             
             // Validate app selection
-            if (appSelection.value === '') {
+            if (!appSelection.value) {
                 document.getElementById('app-error').style.display = 'block';
                 isValid = false;
-            } else {
-                document.getElementById('app-error').style.display = 'none';
             }
             
+            // Validate other app if "Other" is selected
+            if (appSelection.value === 'Other' && !otherApp.value.trim()) {
+                document.getElementById('other-app-error').style.display = 'block';
+                isValid = false;
+            }
+            
+            // Validate identifier
+            if (!identifier.value.trim()) {
+                document.getElementById('identifier-error').style.display = 'block';
+                isValid = false;
+            }
+            
+            // If validation fails, prevent form submission
             if (!isValid) {
                 event.preventDefault();
                 return false;
             }
             
-            // If form is valid, prepare for FormSubmit submission
-            // Show loading indicator
-            document.getElementById('submit-button').disabled = true;
-            document.getElementById('submit-button').innerHTML = '<span id="loading-text" data-en="Submitting..." data-ru="Отправка..." data-uk="Надсилання..." data-es="Enviando..." data-fr="Envoi en cours..." data-de="Senden..." data-zh="提交中...">Submitting...</span>';
+            // Create a detailed message for the hidden field
+            const appName = appSelection.value === 'Other' ? otherApp.value : appSelection.value;
+            const messageDetails = `
+Application: ${appName}
+Identifier: ${identifier.value}
+Additional Info: ${additionalInfo.value || 'None provided'}
+            `;
             
-            // Add more detailed information for the FormSubmit email
-            document.getElementById('message-description').value = 
-                `Application: ${appSelection.value}\n` +
-                `Message: ${userMessage.value || "No additional message"}\n\n` +
-                `This is a request for personal data deletion in accordance with data protection regulations.`;
+            document.getElementById('message-description').value = messageDetails;
             
-            // Save submission state to localStorage
+            // Store user data for the success page
             localStorage.setItem('formSubmitted', 'true');
             localStorage.setItem('submitterName', userName.value);
-            localStorage.setItem('submitterApp', appSelection.value);
+            localStorage.setItem('submitterApp', appSelection.value === 'Other' ? otherApp.value : appSelection.value);
             
             // Create a success notification that will appear after submission
             const successNotification = document.createElement('div');
