@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +16,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #2c3e50;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(135deg, #2d5016 0%, #4a7c59 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -28,10 +28,55 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-end;
             z-index: 100;
+        }
+        
+        .language-dropdown {
+            position: relative;
+        }
+        
+        .language-current {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .language-options {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 180px;
+            z-index: 101;
+            margin-top: 5px;
+        }
+        
+        .language-options.show {
+            display: block;
+        }
+        
+        .language-option {
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .language-option:hover {
+            background: #f5f5f5;
+        }
+        
+        .language-option.active {
+            background: #e9f5ff;
+            font-weight: bold;
         }
         
         @media (max-width: 768px) {
@@ -39,8 +84,11 @@
                 position: relative;
                 top: 0;
                 right: 0;
-                justify-content: center;
                 margin-bottom: 20px;
+                text-align: center;
+            }
+            .language-dropdown {
+                display: inline-block;
             }
         }
 
@@ -55,13 +103,13 @@
         }
 
         .success-icon {
-            color: #27ae60;
+            color: #2ecc71;
             font-size: 60px;
             margin-bottom: 20px;
         }
 
         h1 {
-            color: #27ae60;
+            color: #2ecc71;
             margin-bottom: 20px;
         }
 
@@ -71,7 +119,7 @@
         }
 
         .btn-home {
-            background: linear-gradient(90deg, #2196F3 0%, #0D47A1 100%);
+            background: linear-gradient(90deg, #27ae60 0%, #2ecc71 100%);
             color: white;
             transition: transform 0.3s, box-shadow 0.3s;
             display: inline-block;
@@ -87,22 +135,49 @@
         }
         
         .btn-home:hover {
-            background: linear-gradient(90deg, #1E88E5 0%, #0D47A1 100%);
-            box-shadow: 0 8px 20px rgba(33, 150, 243, 0.25);
+            background: linear-gradient(90deg, #229954 0%, #27ae60 100%);
+            box-shadow: 0 8px 20px rgba(46, 204, 113, 0.25);
             transform: translateY(-3px);
+        }
+        
+        .data-notice {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #6c757d;
+            text-align: left;
         }
     </style>
 </head>
 <body>
+    <div class="language-selector">
+        <div class="language-dropdown">
+            <button class="language-current">
+                <span id="current-lang">🇺🇸 EN</span>
+                <span>▼</span>
+            </button>
+            <div class="language-options" id="language-options">
+                <div class="language-option active" data-lang="en">🇺🇸 English</div>
+                <div class="language-option" data-lang="ru">🇷🇺 Русский</div>
+                <div class="language-option" data-lang="uk">🇺🇦 Українська</div>
+                <div class="language-option" data-lang="es">🇪🇸 Español</div>
+                <div class="language-option" data-lang="fr">🇫🇷 Français</div>
+                <div class="language-option" data-lang="de">🇩🇪 Deutsch</div>
+                <div class="language-option" data-lang="zh">🇨🇳 中文</div>
+            </div>
+        </div>
+    </div>
+
     <div class="success-container">
-        <div class="success-icon">✓</div>
-        <h1 id="success-title" data-en="Request Submitted Successfully" data-ru="Запрос успешно отправлен" data-uk="Запит успішно надіслано" data-es="Solicitud enviada con éxito" data-fr="Demande soumise avec succès" data-de="Anfrage erfolgreich übermittelt" data-zh="请求提交成功">Request Submitted Successfully</h1>
+        <div class="success-icon">✅</div>
+        <h1 id="success-title" data-en="Request Submitted Successfully" data-ru="Запрос успешно отправлен" data-uk="Запит успішно надіслано" data-es="Solicitud enviada con éxito" data-fr="Demande soumise avec succès" data-de="Anfrage erfolgreich eingereicht" data-zh="请求已成功提交">Request Submitted Successfully</h1>
         <p id="thank-you-text" data-en="Thank you for submitting your data deletion request. Our support team has received your request and will process it accordingly." data-ru="Благодарим вас за отправку запроса на удаление данных. Наша служба поддержки получила ваш запрос и обработает его соответствующим образом." data-uk="Дякуємо за надсилання запиту на видалення даних. Наша служба підтримки отримала ваш запит і обробить його відповідним чином." data-es="Gracias por enviar su solicitud de eliminación de datos. Nuestro equipo de soporte ha recibido su solicitud y la procesará en consecuencia." data-fr="Merci d'avoir soumis votre demande de suppression de données. Notre équipe d'assistance a reçu votre demande et la traitera en conséquence." data-de="Vielen Dank für die Übermittlung Ihrer Datenlöschungsanfrage. Unser Support-Team hat Ihre Anfrage erhalten und wird sie entsprechend bearbeiten." data-zh="感谢您提交数据删除请求。我们的支持团队已收到您的请求，并将相应处理。">Thank you for submitting your data deletion request. Our support team has received your request and will process it accordingly.</p>
         <p id="important-text" data-en="<strong>Confirmation:</strong> We will process your data deletion request within 30 days as required by data protection regulations." data-ru="<strong>Подтверждение:</strong> Мы обработаем ваш запрос на удаление данных в течение 30 дней в соответствии с требованиями законодательства о защите данных." data-uk="<strong>Підтвердження:</strong> Ми обробимо ваш запит на видалення даних протягом 30 днів відповідно до вимог законодавства про захист даних." data-es="<strong>Confirmación:</strong> Procesaremos su solicitud de eliminación de datos dentro de los 30 días según lo exigen las regulaciones de protección de datos." data-fr="<strong>Confirmation:</strong> Nous traiterons votre demande de suppression de données dans les 30 jours conformément aux réglementations sur la protection des données." data-de="<strong>Bestätigung:</strong> Wir werden Ihre Anfrage zur Datenlöschung innerhalb von 30 Tagen gemäß den Datenschutzbestimmungen bearbeiten." data-zh="<strong>确认：</strong>我们将按照数据保护法规要求在30天内处理您的数据删除请求。"><strong>Confirmation:</strong> We will process your data deletion request within 30 days as required by data protection regulations.</p>
         <p id="process-text" data-en="We will review your request and may contact you for additional information if needed. Your privacy is important to us." data-ru="Мы рассмотрим ваш запрос и свяжемся с вами для получения дополнительной информации, если это потребуется. Ваша конфиденциальность важна для нас." data-uk="Ми розглянемо ваш запит і зв'яжемося з вами для отримання додаткової інформації, якщо це потрібно. Ваша конфіденційність важлива для нас." data-es="Revisaremos su solicitud y podemos contactarlo para obtener información adicional si es necesario. Su privacidad es importante para nosotros." data-fr="Nous examinerons votre demande et pourrons vous contacter pour des informations supplémentaires si nécessaire. Votre vie privée est importante pour nous." data-de="Wir werden Ihre Anfrage prüfen und Sie bei Bedarf für zusätzliche Informationen kontaktieren. Ihre Privatsphäre ist uns wichtig." data-zh="我们将审核您的请求，如有需要，可能会联系您获取更多信息。您的隐私对我们很重要。">We will review your request and may contact you for additional information if needed. Your privacy is important to us.</p>
         <p id="manual-text" data-en="You should receive an email confirmation shortly. If you don't receive it within 24 hours, please contact us directly at <strong>support@dr-it.studio</strong> with your name, email, and app name." data-ru="Вскоре вы должны получить подтверждение по электронной почте. Если вы не получите его в течение 24 часов, пожалуйста, свяжитесь с нами напрямую по адресу <strong>support@dr-it.studio</strong>, указав ваше имя, электронную почту и название приложения." data-uk="Незабаром ви маєте отримати підтвердження електронною поштою. Якщо ви не отримаєте його протягом 24 годин, будь ласка, зв'яжіться з нами безпосередньо за адресою <strong>support@dr-it.studio</strong>, вказавши ваше ім'я, електронну пошту та назву додатка." data-es="Debería recibir una confirmación por correo electrónico en breve. Si no la recibe dentro de las 24 horas, contáctenos directamente a <strong>support@dr-it.studio</strong> con su nombre, correo electrónico y nombre de la aplicación." data-fr="Vous devriez recevoir un email de confirmation sous peu. Si vous ne le recevez pas dans les 24 heures, veuillez nous contacter directement à <strong>support@dr-it.studio</strong> en indiquant votre nom, votre e-mail et le nom de l'application." data-de="Sie sollten in Kürze eine E-Mail-Bestätigung erhalten. Wenn Sie diese nicht innerhalb von 24 Stunden erhalten, kontaktieren Sie uns bitte direkt unter <strong>support@dr-it.studio</strong> mit Ihrem Namen, Ihrer E-Mail-Adresse und dem Namen der Anwendung." data-zh="您应该很快收到电子邮件确认。如果您在24小时内没有收到，请直接通过<strong>support@dr-it.studio</strong>联系我们，并提供您的姓名、电子邮件和应用名称。">You should receive an email confirmation shortly. If you don't receive it within 24 hours, please contact us directly at <strong>support@dr-it.studio</strong> with your name, email, and app name.</p>
 
-        <div class="data-notice" style="background-color: #f8f9fa; padding: 15px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #6c757d; text-align: left;">
+        <div class="data-notice">
             <p style="margin: 0; font-weight: 500;" id="data-notice-header" data-en="Important Information" data-ru="Важная информация" data-uk="Важлива інформація" data-es="Información importante" data-fr="Information importante" data-de="Wichtige Information" data-zh="重要信息">Important Information</p>
             <p style="margin-top: 8px; font-size: 0.9rem;" id="data-notice-text" data-en="Currently, our application does not collect personal user data. This request will be processed if future versions include data collection." data-ru="В настоящее время наше приложение не собирает личные данные пользователей. Этот запрос будет обработан, если будущие версии будут включать сбор данных." data-uk="На даний момент наш додаток не збирає особисті дані користувачів. Цей запит буде оброблений, якщо майбутні версії включатимуть збір даних." data-es="Actualmente, nuestra aplicación no recopila datos personales de usuarios. Esta solicitud se procesará si las versiones futuras incluyen recopilación de datos." data-fr="Actuellement, notre application ne collecte pas de données personnelles des utilisateurs. Cette demande sera traitée si les versions futures incluent la collecte de données." data-de="Derzeit sammelt unsere Anwendung keine persönlichen Benutzerdaten. Diese Anfrage wird bearbeitet, wenn zukünftige Versionen Datenerfassung beinhalten." data-zh="目前，我们的应用程序不收集个人用户数据。如果未来版本包括数据收集，此请求将被处理。">Currently, our application does not collect personal user data. This request will be processed if future versions include data collection.</p>
             <p style="margin-top: 8px; font-size: 0.9rem;" id="third-party-text" data-en="Third-party services in our apps may collect data according to their own privacy policies." data-ru="Сторонние сервисы в наших приложениях могут собирать данные в соответствии с их собственными политиками конфиденциальности." data-uk="Сторонні сервіси в наших додатках можуть збирати дані відповідно до їх власних політик конфіденційності." data-es="Los servicios de terceros en nuestras aplicaciones pueden recopilar datos según sus propias políticas de privacidad." data-fr="Les services tiers de nos applications peuvent collecter des données selon leurs propres politiques de confidentialité." data-de="Drittanbieterdienste in unseren Apps können gemäß ihren eigenen Datenschutzrichtlinien Daten sammeln." data-zh="我们应用中的第三方服务可能会根据其自己的隐私政策收集数据。">Third-party services in our apps may collect data according to their own privacy policies.</p>
@@ -110,58 +185,10 @@
         
         <a href="forest-calculator.html" class="btn-home" id="return-button" data-en="Return to Forest Calculator" data-ru="Вернуться к Forest Calculator" data-uk="Повернутися до Forest Calculator" data-es="Volver a Forest Calculator" data-fr="Retour à Forest Calculator" data-de="Zurück zu Forest Calculator" data-zh="返回 Forest Calculator">Return to Forest Calculator</a>
     </div>
-    
+
     <script>
-        // Initialization function for language manager
+        // Check if we came from a form submission or direct access
         document.addEventListener('DOMContentLoaded', function() {
-            // Create language selector
-            const languageSelector = document.createElement('div');
-            languageSelector.className = 'language-selector';
-            languageSelector.style.position = 'absolute';
-            languageSelector.style.top = '20px';
-            languageSelector.style.right = '20px';
-            languageSelector.style.zIndex = '100';
-            
-            const languages = [
-                { code: 'en', name: 'English' },
-                { code: 'ru', name: 'Русский' },
-                { code: 'uk', name: 'Українська' },
-                { code: 'es', name: 'Español' },
-                { code: 'fr', name: 'Français' },
-                { code: 'de', name: 'Deutsch' },
-                { code: 'zh', name: '中文' }
-            ];
-            
-            languages.forEach(lang => {
-                const langButton = document.createElement('button');
-                langButton.textContent = lang.name;
-                langButton.className = 'lang-btn';
-                langButton.dataset.lang = lang.code;
-                langButton.style.margin = '0 5px';
-                langButton.style.padding = '5px 10px';
-                langButton.style.border = '1px solid #ccc';
-                langButton.style.borderRadius = '3px';
-                langButton.style.background = '#fff';
-                langButton.style.cursor = 'pointer';
-                
-                langButton.addEventListener('click', function() {
-                    localStorage.setItem('selectedLanguage', lang.code);
-                    if (typeof LanguageManager !== 'undefined') {
-                        LanguageManager.switchLanguage(lang.code);
-                    }
-                });
-                
-                languageSelector.appendChild(langButton);
-            });
-            
-            document.body.appendChild(languageSelector);
-            
-            if (typeof LanguageManager !== 'undefined') {
-                // Initialize language manager if it exists
-                LanguageManager.initLanguage();
-            }
-            
-            // Check if we came from a form submission or direct access
             const formSubmitted = localStorage.getItem('formSubmitted') === 'true';
             const submitterName = localStorage.getItem('submitterName');
             const submitterApp = localStorage.getItem('submitterApp');
@@ -169,78 +196,34 @@
             // Create custom success message if we have the submission data
             if (formSubmitted && submitterName) {
                 // Update thank you text with user's name
-                const thankYouText = document.getElementById('thank-you-text');
-                if (thankYouText) {
-                    const currentLang = localStorage.getItem('selectedLanguage') || 'en';
-                    let personalizedText;
+                const thankYouElement = document.getElementById('thank-you-text');
+                if (thankYouElement) {
+                    // Create personalized messages for each language
+                    thankYouElement.setAttribute('data-en', `Thank you, ${submitterName}, for submitting your data deletion request for ${submitterApp || 'our application'}. Our support team has received your request and will process it accordingly.`);
+                    thankYouElement.setAttribute('data-ru', `Спасибо, ${submitterName}, за отправку запроса на удаление данных для ${submitterApp || 'нашего приложения'}. Наша служба поддержки получила ваш запрос и обработает его соответствующим образом.`);
+                    thankYouElement.setAttribute('data-uk', `Дякуємо, ${submitterName}, за надсилання запиту на видалення даних для ${submitterApp || 'нашого додатку'}. Наша служба підтримки отримала ваш запит і обробить його відповідним чином.`);
+                    thankYouElement.setAttribute('data-es', `Gracias, ${submitterName}, por enviar su solicitud de eliminación de datos para ${submitterApp || 'nuestra aplicación'}. Nuestro equipo de soporte ha recibido su solicitud y la procesará en consecuencia.`);
+                    thankYouElement.setAttribute('data-fr', `Merci, ${submitterName}, d'avoir soumis votre demande de suppression de données pour ${submitterApp || 'notre application'}. Notre équipe d'assistance a reçu votre demande et la traitera en conséquence.`);
+                    thankYouElement.setAttribute('data-de', `Vielen Dank, ${submitterName}, für die Übermittlung Ihrer Datenlöschungsanfrage für ${submitterApp || 'unsere Anwendung'}. Unser Support-Team hat Ihre Anfrage erhalten und wird sie entsprechend bearbeiten.`);
+                    thankYouElement.setAttribute('data-zh', `感谢您，${submitterName}，提交${submitterApp || '我们应用程序'}的数据删除请求。我们的支持团队已收到您的请求，并将相应处理。`);
                     
-                    if (currentLang === 'en') {
-                        personalizedText = `Thank you, <strong>${submitterName}</strong>! Your data deletion request for <strong>${submitterApp}</strong> has been received and will be processed within 30 days.`;
+                    // Apply current language
+                    if (typeof window.globalLangManager !== 'undefined') {
+                        const lang = window.globalLangManager.currentLanguage;
+                        thankYouElement.textContent = thankYouElement.getAttribute(`data-${lang}`) || thankYouElement.getAttribute('data-en');
                     } else {
-                        // Keep the original translated text
-                        personalizedText = thankYouText.innerHTML;
+                        // Fallback to English if language manager not available
+                        thankYouElement.textContent = thankYouElement.getAttribute('data-en');
                     }
-                    
-                    thankYouText.innerHTML = personalizedText;
                 }
                 
-                // Create a success notification that appears on page load
-                const successNotification = document.createElement('div');
-                successNotification.id = 'success-notification';
-                successNotification.style.position = 'fixed';
-                successNotification.style.top = '20px';
-                successNotification.style.left = '50%';
-                successNotification.style.transform = 'translateX(-50%)';
-                successNotification.style.backgroundColor = '#4CAF50';
-                successNotification.style.color = 'white';
-                successNotification.style.padding = '15px 20px';
-                successNotification.style.borderRadius = '5px';
-                successNotification.style.boxShadow = '0 4px 8px rgba(0,0,0,0.2)';
-                successNotification.style.zIndex = '1000';
-                successNotification.innerHTML = 'Form submitted successfully!';
-                document.body.appendChild(successNotification);
-                
-                // Remove notification after 5 seconds
-                setTimeout(function() {
-                    successNotification.style.opacity = '0';
-                    successNotification.style.transition = 'opacity 0.5s ease-out';
-                    
-                    setTimeout(function() {
-                        if (successNotification.parentNode) {
-                            successNotification.parentNode.removeChild(successNotification);
-                        }
-                    }, 500);
-                }, 5000);
-                
-                // Clear localStorage
+                // Clear form submission data after using it
                 localStorage.removeItem('formSubmitted');
                 localStorage.removeItem('submitterName');
                 localStorage.removeItem('submitterApp');
-            } else {
-                // If accessed directly without form submission, show additional info
-                const infoBox = document.createElement('div');
-                infoBox.style.backgroundColor = '#fff3cd';
-                infoBox.style.padding = '15px';
-                infoBox.style.borderRadius = '10px';
-                infoBox.style.marginBottom = '20px';
-                infoBox.style.borderLeft = '4px solid #ffc107';
-                infoBox.style.textAlign = 'left';
-                infoBox.innerHTML = `
-                    <p style="margin: 0; font-weight: 500; color: #856404;">Note</p>
-                    <p style="margin-top: 8px; font-size: 0.95rem;">
-                        You accessed this page directly. If you're trying to submit a data deletion request, 
-                        please go to the <a href="data-deletion-form.html" style="color: #856404; font-weight: 500;">data deletion form</a> first.
-                    </p>
-                `;
-                
-                // Insert after the success icon
-                const successContainer = document.querySelector('.success-container');
-                const successIcon = document.querySelector('.success-icon');
-                if (successContainer && successIcon) {
-                    successContainer.insertBefore(infoBox, successIcon.nextSibling);
-                }
             }
         });
     </script>
 </body>
 </html>
+

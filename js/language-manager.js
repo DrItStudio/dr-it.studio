@@ -1,7 +1,7 @@
 // Global Language Management System for DR.IT.Studio
 class GlobalLanguageManager {
     constructor() {
-        this.currentLanguage = 'en';
+        this.currentLanguage = 'en'; // English is default
         this.storageKey = 'dritstudio_language';
         this.supportedLanguages = ['en', 'ru', 'uk', 'es', 'fr', 'de', 'zh'];
         this.languageMap = {
@@ -27,9 +27,12 @@ class GlobalLanguageManager {
         if (savedLang && this.supportedLanguages.includes(savedLang)) {
             this.currentLanguage = savedLang;
         } else {
-            // Auto-detect browser language
-            const browserLang = navigator.language.split('-')[0];
-            this.currentLanguage = this.supportedLanguages.includes(browserLang) ? browserLang : 'en';
+            // Default to English, with optional browser language detection if requested
+            // For now, we always default to English as requested
+            this.currentLanguage = 'en';
+            
+            // Store the default language
+            localStorage.setItem(this.storageKey, 'en');
         }
     }
 

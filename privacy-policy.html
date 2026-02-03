@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-<html lang="ru">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Forest Calculator - Политика конфиденциальности</title>
+    <title>Forest Calculator - Privacy Policy</title>
+    <script src="js/language-manager.js" defer></script>
     <style>
         * {
             margin: 0;
@@ -236,17 +237,52 @@
     </style>
 </head>
 <body>
+    <div class="language-selector" style="position: absolute; top: 20px; right: 20px; z-index: 1000;">
+        <div class="language-dropdown">
+            <button class="language-current" style="background: rgba(255, 255, 255, 0.9); border: 1px solid #ccc; border-radius: 4px; padding: 8px 12px; cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                <span id="current-lang">🇺🇸 EN</span>
+                <span>▼</span>
+            </button>
+            <div class="language-options" id="language-options" style="display: none; position: absolute; top: 100%; right: 0; background: white; border: 1px solid #ccc; border-radius: 4px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); width: 180px; z-index: 101; margin-top: 5px;">
+                <div class="language-option active" data-lang="en" style="padding: 8px 16px; cursor: pointer;">🇺🇸 English</div>
+                <div class="language-option" data-lang="ru" style="padding: 8px 16px; cursor: pointer;">�🇺 Русский</div>
+                <div class="language-option" data-lang="uk" style="padding: 8px 16px; cursor: pointer;">🇺🇦 Українська</div>
+                <div class="language-option" data-lang="es" style="padding: 8px 16px; cursor: pointer;">🇪🇸 Español</div>
+                <div class="language-option" data-lang="fr" style="padding: 8px 16px; cursor: pointer;">🇫🇷 Français</div>
+                <div class="language-option" data-lang="de" style="padding: 8px 16px; cursor: pointer;">🇩🇪 Deutsch</div>
+                <div class="language-option" data-lang="zh" style="padding: 8px 16px; cursor: pointer;">🇨🇳 中文</div>
+            </div>
+        </div>
+    </div>
+    
     <header>
         <div class="container">
-            <div class="logo">🌲 Forest Calculator</div>
-            <div class="subtitle">Политика конфиденциальности</div>
+            <div class="logo">�🌲 Forest Calculator</div>
+            <div class="subtitle" 
+                 data-en="Privacy Policy" 
+                 data-ru="Политика конфиденциальности" 
+                 data-uk="Політика конфіденційності" 
+                 data-es="Política de Privacidad" 
+                 data-fr="Politique de Confidentialité" 
+                 data-de="Datenschutzrichtlinie" 
+                 data-zh="隐私政策">
+                Privacy Policy
+            </div>
         </div>
     </header>
 
     <div class="container">
         <div id="language-selector" class="language-selector">
-            <h2>Выберите язык / Choose Language</h2>
-            <p>Пожалуйста, выберите язык для просмотра политики конфиденциальности</p>
+            <h2 data-en="Choose Language" data-ru="Выберите язык" data-uk="Виберіть мову" data-es="Elija un idioma" data-fr="Choisir la langue" data-de="Sprache wählen" data-zh="选择语言">Choose Language</h2>
+            <p data-en="Please select a language to view the privacy policy" 
+               data-ru="Пожалуйста, выберите язык для просмотра политики конфиденциальности" 
+               data-uk="Будь ласка, виберіть мову для перегляду політики конфіденційності" 
+               data-es="Por favor, seleccione un idioma para ver la política de privacidad" 
+               data-fr="Veuillez sélectionner une langue pour consulter la politique de confidentialité" 
+               data-de="Bitte wählen Sie eine Sprache, um die Datenschutzrichtlinie anzuzeigen" 
+               data-zh="请选择一种语言查看隐私政策">
+                Please select a language to view the privacy policy
+            </p>
             
             <div class="language-grid">
                 <a href="privacy-policy-ru.html" class="language-card">
@@ -791,3 +827,4 @@
     </script>
 </body>
 </html>
+

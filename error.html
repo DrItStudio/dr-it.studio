@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -16,7 +16,7 @@
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #2c3e50;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+            background: linear-gradient(135deg, #892626 0%, #b56969 100%);
             min-height: 100vh;
             display: flex;
             align-items: center;
@@ -28,10 +28,55 @@
             position: absolute;
             top: 20px;
             right: 20px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: flex-end;
             z-index: 100;
+        }
+        
+        .language-dropdown {
+            position: relative;
+        }
+        
+        .language-current {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .language-options {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 180px;
+            z-index: 101;
+            margin-top: 5px;
+        }
+        
+        .language-options.show {
+            display: block;
+        }
+        
+        .language-option {
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        
+        .language-option:hover {
+            background: #f5f5f5;
+        }
+        
+        .language-option.active {
+            background: #e9f5ff;
+            font-weight: bold;
         }
         
         @media (max-width: 768px) {
@@ -39,8 +84,11 @@
                 position: relative;
                 top: 0;
                 right: 0;
-                justify-content: center;
                 margin-bottom: 20px;
+                text-align: center;
+            }
+            .language-dropdown {
+                display: inline-block;
             }
         }
 
@@ -71,7 +119,7 @@
         }
 
         .btn-home {
-            background: linear-gradient(90deg, #2196F3 0%, #0D47A1 100%);
+            background: linear-gradient(90deg, #c0392b 0%, #e74c3c 100%);
             color: white;
             transition: transform 0.3s, box-shadow 0.3s;
             display: inline-block;
@@ -87,78 +135,110 @@
         }
         
         .btn-home:hover {
-            background: linear-gradient(90deg, #1E88E5 0%, #0D47A1 100%);
-            box-shadow: 0 8px 20px rgba(33, 150, 243, 0.25);
+            background: linear-gradient(90deg, #a93226 0%, #c0392b 100%);
+            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.25);
             transform: translateY(-3px);
+        }
+        
+        .troubleshooting {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 10px;
+            margin: 20px 0;
+            border-left: 4px solid #e74c3c;
+            text-align: left;
+        }
+
+        .troubleshooting ul {
+            margin-left: 20px;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
+    <div class="language-selector">
+        <div class="language-dropdown">
+            <button class="language-current">
+                <span id="current-lang">🇺🇸 EN</span>
+                <span>▼</span>
+            </button>
+            <div class="language-options" id="language-options">
+                <div class="language-option active" data-lang="en">🇺🇸 English</div>
+                <div class="language-option" data-lang="ru">🇷🇺 Русский</div>
+                <div class="language-option" data-lang="uk">🇺🇦 Українська</div>
+                <div class="language-option" data-lang="es">🇪🇸 Español</div>
+                <div class="language-option" data-lang="fr">🇫🇷 Français</div>
+                <div class="language-option" data-lang="de">🇩🇪 Deutsch</div>
+                <div class="language-option" data-lang="zh">🇨🇳 中文</div>
+            </div>
+        </div>
+    </div>
+
     <div class="error-container">
         <div class="error-icon">❌</div>
-        <h1 id="error-title" data-en="Server Error" data-ru="Ошибка сервера" data-uk="Помилка сервера" data-es="Error del servidor" data-fr="Erreur du serveur" data-de="Serverfehler" data-zh="服务器错误">Server Error</h1>
-        <p id="error-text" data-en="We're experiencing some technical difficulties. This could be due to maintenance or server issues." data-ru="У нас возникли технические трудности. Это может быть связано с техническим обслуживанием или проблемами сервера." data-uk="У нас виникли технічні труднощі. Це може бути пов'язано з технічним обслуговуванням або проблемами сервера." data-es="Estamos experimentando algunas dificultades técnicas. Esto podría deberse a mantenimiento o problemas del servidor." data-fr="Nous rencontrons des difficultés techniques. Cela pourrait être dû à la maintenance ou à des problèmes de serveur." data-de="Wir haben technische Schwierigkeiten. Dies könnte auf Wartung oder Serverprobleme zurückzuführen sein." data-zh="我们遇到了一些技术困难。这可能是由于维护或服务器问题造成的。">We're experiencing some technical difficulties. This could be due to maintenance or server issues.</p>
-        <p id="solution-text" data-en="Please try again later or contact us at <strong>support@dr-it.studio</strong> if the problem persists." data-ru="Пожалуйста, повторите попытку позже или свяжитесь с нами по адресу <strong>support@dr-it.studio</strong>, если проблема не устранится." data-uk="Будь ласка, спробуйте пізніше або зв'яжіться з нами за адресою <strong>support@dr-it.studio</strong>, якщо проблема не зникне." data-es="Por favor, inténtelo de nuevo más tarde o contáctenos en <strong>support@dr-it.studio</strong> si el problema persiste." data-fr="Veuillez réessayer plus tard ou nous contacter à <strong>support@dr-it.studio</strong> si le problème persiste." data-de="Bitte versuchen Sie es später erneut oder kontaktieren Sie uns unter <strong>support@dr-it.studio</strong>, wenn das Problem weiterhin besteht." data-zh="请稍后再试，或者如果问题仍然存在，请通过 <strong>support@dr-it.studio</strong> 联系我们。">Please try again later or contact us at <strong>support@dr-it.studio</strong> if the problem persists.</p>
+        <h1 id="error-title" data-en="Error Occurred" data-ru="Произошла ошибка" data-uk="Сталася помилка" data-es="Ha ocurrido un error" data-fr="Une erreur s'est produite" data-de="Ein Fehler ist aufgetreten" data-zh="发生错误">Error Occurred</h1>
+        <p id="error-text" data-en="We encountered an error while processing your request. This could be due to a temporary system issue or invalid form submission." data-ru="Мы столкнулись с ошибкой при обработке вашего запроса. Это может быть связано с временной системной проблемой или недопустимой отправкой формы." data-uk="Ми зіткнулися з помилкою під час обробки вашого запиту. Це може бути пов'язано з тимчасовою системною проблемою або недійсним надсиланням форми." data-es="Encontramos un error al procesar su solicitud. Esto podría deberse a un problema temporal del sistema o a un envío de formulario no válido." data-fr="Nous avons rencontré une erreur lors du traitement de votre demande. Cela pourrait être dû à un problème système temporaire ou à une soumission de formulaire invalide." data-de="Bei der Verarbeitung Ihrer Anfrage ist ein Fehler aufgetreten. Dies könnte auf ein vorübergehendes Systemproblem oder eine ungültige Formularübermittlung zurückzuführen sein." data-zh="处理您的请求时遇到错误。这可能是由于临时系统问题或表单提交无效造成的。">We encountered an error while processing your request. This could be due to a temporary system issue or invalid form submission.</p>
         
-        <div class="alternative" style="background-color: #f8f9fa; padding: 15px; border-radius: 10px; margin: 20px 0; border-left: 4px solid #2196F3; text-align: left;">
-            <p style="margin: 0; font-weight: 500;" id="alternative-header" data-en="Alternative Method" data-ru="Альтернативный метод" data-uk="Альтернативний метод" data-es="Método alternativo" data-fr="Méthode alternative" data-de="Alternative Methode" data-zh="替代方法">Alternative Method</p>
-            <p style="margin-top: 8px; font-size: 0.9rem;" id="alternative-text" data-en="You can also send your data deletion request directly to <strong>support@dr-it.studio</strong> with the following information:" data-ru="Вы также можете отправить запрос на удаление данных напрямую на <strong>support@dr-it.studio</strong> со следующей информацией:" data-uk="Ви також можете надіслати запит на видалення даних безпосередньо на <strong>support@dr-it.studio</strong> з наступною інформацією:" data-es="También puede enviar su solicitud de eliminación de datos directamente a <strong>support@dr-it.studio</strong> con la siguiente información:" data-fr="Vous pouvez également envoyer votre demande de suppression de données directement à <strong>support@dr-it.studio</strong> avec les informations suivantes:" data-de="Sie können Ihre Datenlöschungsanfrage auch direkt an <strong>support@dr-it.studio</strong> senden mit den folgenden Informationen:" data-zh="您也可以直接将数据删除请求发送至 <strong>support@dr-it.studio</strong>，并附上以下信息：">You can also send your data deletion request directly to <strong>support@dr-it.studio</strong> with the following information:</p>
-            <ul style="margin-top: 8px; font-size: 0.9rem; padding-left: 20px;">
-                <li id="info-name" data-en="Your full name" data-ru="Ваше полное имя" data-uk="Ваше повне ім'я" data-es="Su nombre completo" data-fr="Votre nom complet" data-de="Ihr vollständiger Name" data-zh="您的全名">Your full name</li>
-                <li id="info-email" data-en="Your email address" data-ru="Ваш адрес электронной почты" data-uk="Ваша електронна адреса" data-es="Su dirección de correo electrónico" data-fr="Votre adresse e-mail" data-de="Ihre E-Mail-Adresse" data-zh="您的电子邮件地址">Your email address</li>
-                <li id="info-app" data-en="The application name" data-ru="Название приложения" data-uk="Назва додатка" data-es="El nombre de la aplicación" data-fr="Le nom de l'application" data-de="Der Name der Anwendung" data-zh="应用程序名称">The application name</li>
-                <li id="info-request" data-en="A statement that you're requesting data deletion" data-ru="Заявление о том, что вы запрашиваете удаление данных" data-uk="Заява про те, що ви запитуєте видалення даних" data-es="Una declaración de que está solicitando la eliminación de datos" data-fr="Une déclaration indiquant que vous demandez la suppression des données" data-de="Eine Erklärung, dass Sie die Datenlöschung beantragen" data-zh="一份声明，表示您正在请求删除数据">A statement that you're requesting data deletion</li>
+        <div class="troubleshooting">
+            <p style="margin: 0; font-weight: 500;" id="troubleshooting-header" data-en="Troubleshooting Steps" data-ru="Шаги по устранению неполадок" data-uk="Кроки з усунення несправностей" data-es="Pasos para solucionar problemas" data-fr="Étapes de dépannage" data-de="Fehlerbehebungsschritte" data-zh="故障排除步骤">Troubleshooting Steps</p>
+            <ul>
+                <li id="troubleshooting-1" data-en="Check your internet connection and try again" data-ru="Проверьте подключение к интернету и попробуйте снова" data-uk="Перевірте підключення до інтернету та спробуйте знову" data-es="Verifique su conexión a Internet e inténtelo de nuevo" data-fr="Vérifiez votre connexion internet et réessayez" data-de="Überprüfen Sie Ihre Internetverbindung und versuchen Sie es erneut" data-zh="检查您的互联网连接并重试">Check your internet connection and try again</li>
+                <li id="troubleshooting-2" data-en="Ensure all required form fields are completed correctly" data-ru="Убедитесь, что все обязательные поля формы заполнены правильно" data-uk="Переконайтесь, що всі обов'язкові поля форми заповнені правильно" data-es="Asegúrese de que todos los campos obligatorios del formulario estén completos correctamente" data-fr="Assurez-vous que tous les champs obligatoires du formulaire sont correctement remplis" data-de="Stellen Sie sicher, dass alle erforderlichen Formularfelder korrekt ausgefüllt sind" data-zh="确保所有必填表单字段均已正确填写">Ensure all required form fields are completed correctly</li>
+                <li id="troubleshooting-3" data-en="If the problem persists, please try again later" data-ru="Если проблема сохраняется, пожалуйста, повторите попытку позже" data-uk="Якщо проблема не зникає, спробуйте пізніше" data-es="Si el problema persiste, inténtelo de nuevo más tarde" data-fr="Si le problème persiste, veuillez réessayer plus tard" data-de="Wenn das Problem weiterhin besteht, versuchen Sie es später erneut" data-zh="如果问题仍然存在，请稍后再试">If the problem persists, please try again later</li>
             </ul>
         </div>
+
+        <p id="contact-text" data-en="If you continue to experience issues, please contact our support team at <strong>support@dr-it.studio</strong> with details of the error." data-ru="Если вы продолжаете испытывать проблемы, пожалуйста, свяжитесь с нашей службой поддержки по адресу <strong>support@dr-it.studio</strong> с подробностями ошибки." data-uk="Якщо ви продовжуєте стикатися з проблемами, будь ласка, зв'яжіться з нашою службою підтримки за адресою <strong>support@dr-it.studio</strong> з деталями помилки." data-es="Si continúa experimentando problemas, póngase en contacto con nuestro equipo de soporte en <strong>support@dr-it.studio</strong> con los detalles del error." data-fr="Si vous continuez à rencontrer des problèmes, veuillez contacter notre équipe d'assistance à <strong>support@dr-it.studio</strong> avec les détails de l'erreur." data-de="Wenn Sie weiterhin Probleme haben, kontaktieren Sie bitte unser Support-Team unter <strong>support@dr-it.studio</strong> mit Details zum Fehler." data-zh="如果您继续遇到问题，请通过<strong>support@dr-it.studio</strong>联系我们的支持团队，并提供错误详情。">If you continue to experience issues, please contact our support team at <strong>support@dr-it.studio</strong> with details of the error.</p>
         
-        <a href="index.html" class="btn-home" id="return-button" data-en="Return to Homepage" data-ru="Вернуться на главную" data-uk="Повернутися на головну" data-es="Volver a la página principal" data-fr="Retour à la page d'accueil" data-de="Zurück zur Startseite" data-zh="返回主页">Return to Homepage</a>
+        <a href="forest-calculator.html" class="btn-home" id="return-button" data-en="Return to Forest Calculator" data-ru="Вернуться к Forest Calculator" data-uk="Повернутися до Forest Calculator" data-es="Volver a Forest Calculator" data-fr="Retour à Forest Calculator" data-de="Zurück zu Forest Calculator" data-zh="返回 Forest Calculator">Return to Forest Calculator</a>
     </div>
-    
+
     <script>
-        // Initialization function for language manager
         document.addEventListener('DOMContentLoaded', function() {
-            // Create language selector
-            const languageSelector = document.createElement('div');
-            languageSelector.className = 'language-selector';
+            // Toggle language dropdown
+            const langCurrent = document.querySelector('.language-current');
+            const langOptions = document.getElementById('language-options');
             
-            const languages = [
-                { code: 'en', name: 'English' },
-                { code: 'ru', name: 'Русский' },
-                { code: 'uk', name: 'Українська' },
-                { code: 'es', name: 'Español' },
-                { code: 'fr', name: 'Français' },
-                { code: 'de', name: 'Deutsch' },
-                { code: 'zh', name: 'Chinese' }
-            ];
-            
-            languages.forEach(function(lang) {
-                const langButton = document.createElement('button');
-                langButton.textContent = lang.name;
-                langButton.dataset.lang = lang.code;
-                langButton.style.margin = '0 5px';
-                langButton.style.padding = '5px 10px';
-                langButton.style.border = '1px solid #ccc';
-                langButton.style.borderRadius = '3px';
-                langButton.style.background = '#fff';
-                langButton.style.cursor = 'pointer';
-                
-                langButton.addEventListener('click', function() {
-                    localStorage.setItem('selectedLanguage', lang.code);
-                    if (typeof LanguageManager !== 'undefined') {
-                        LanguageManager.switchLanguage(lang.code);
-                    }
-                });
-                
-                languageSelector.appendChild(langButton);
+            langCurrent.addEventListener('click', function(e) {
+                e.stopPropagation();
+                langOptions.classList.toggle('show');
             });
             
-            document.body.appendChild(languageSelector);
+            // Close the dropdown when clicking outside
+            document.addEventListener('click', function() {
+                langOptions.classList.remove('show');
+            });
             
-            if (typeof LanguageManager !== 'undefined') {
-                // Initialize language manager if it exists
-                LanguageManager.initLanguage();
-            }
+            // Prevent closing when clicking inside the dropdown
+            langOptions.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+            
+            // Language option selection
+            const langOptionElements = document.querySelectorAll('.language-option');
+            langOptionElements.forEach(function(option) {
+                option.addEventListener('click', function() {
+                    const lang = this.getAttribute('data-lang');
+                    if (window.globalLangManager) {
+                        window.globalLangManager.setLanguage(lang);
+                        
+                        // Update current language display
+                        const currentLangElement = document.getElementById('current-lang');
+                        const langEmoji = this.textContent.split(' ')[0];
+                        const langCode = lang.toUpperCase();
+                        currentLangElement.textContent = `${langEmoji} ${langCode}`;
+                        
+                        // Update active state
+                        document.querySelectorAll('.language-option').forEach(opt => {
+                            opt.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                    }
+                    langOptions.classList.remove('show');
+                });
+            });
         });
     </script>
 </body>
 </html>
+

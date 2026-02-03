@@ -1,97 +1,79 @@
-<!DOCTYPE html>
-<html lang="ru">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forest Calculator — Huawei Market</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script>
-        // Store language translations
-        const translations = {
-            'ru': {
-                'title': 'Forest Calculator — Huawei Market',
-                'subtitle': 'Версия для пользователей Huawei',
-                'description': 'Forest Calculator — профессиональный калькулятор для лесной отрасли.',
-                'coming_soon': 'Скоро будет доступен для скачивания в Huawei AppGallery.',
-                'download': 'Скачать (скоро)',
-                'privacy_policy': 'Политика конфиденциальности',
-                'select_language': 'Выберите язык политики конфиденциальности из списка доступных ниже:',
-                'view_button': 'Просмотреть'
-            },
-            'en': {
-                'title': 'Forest Calculator — Huawei Market',
-                'subtitle': 'Version for Huawei Users',
-                'description': 'Forest Calculator — professional calculator for forestry industry.',
-                'coming_soon': 'Coming soon to Huawei AppGallery.',
-                'download': 'Download (coming soon)',
-                'privacy_policy': 'Privacy Policy',
-                'select_language': 'Select a privacy policy language from the list below:',
-                'view_button': 'View'
-            },
-            'es': {
-                'title': 'Forest Calculator — Huawei Market',
-                'subtitle': 'Versión para usuarios de Huawei',
-                'description': 'Forest Calculator — calculadora profesional para la industria forestal.',
-                'coming_soon': 'Próximamente en Huawei AppGallery.',
-                'download': 'Descargar (próximamente)',
-                'privacy_policy': 'Política de Privacidad',
-                'select_language': 'Seleccione un idioma de política de privacidad de la lista a continuación:',
-                'view_button': 'Ver'
-            },
-            'zh': {
-                'title': 'Forest Calculator — 华为应用市场',
-                'subtitle': '华为用户版本',
-                'description': 'Forest Calculator — 林业专业计算器。',
-                'coming_soon': '即将登陆华为应用市场。',
-                'download': '下载（即将推出）',
-                'privacy_policy': '隐私政策',
-                'select_language': '从下面的列表中选择隐私政策语言：',
-                'view_button': '查看'
+    <script src="js/language-manager.js" defer></script>
+    <style>
+        /* Language selector styles */
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        .language-dropdown {
+            position: relative;
+        }
+        .language-current {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .language-options {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 180px;
+            z-index: 101;
+            margin-top: 5px;
+        }
+        .language-options.show {
+            display: block;
+        }
+        .language-option {
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .language-option:hover {
+            background: #f5f5f5;
+        }
+        .language-option.active {
+            background: #e9f5ff;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .language-selector {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin-bottom: 20px;
+                text-align: center;
             }
+            .language-dropdown {
+                display: inline-block;
+            }
+        }
+    </style>
         };
         
         // Set default language
         let currentLanguage = 'ru';
-        
-        // Function to change language
-        function changeLanguage(lang) {
-            if (translations[lang]) {
-                currentLanguage = lang;
-                document.documentElement.lang = lang;
-                
-                // Update all translatable elements
-                document.title = translations[lang].title;
-                document.getElementById('subtitle').textContent = translations[lang].subtitle;
-                document.getElementById('description').textContent = translations[lang].description;
-                document.getElementById('coming-soon').textContent = translations[lang].coming_soon;
-                document.getElementById('download-btn').textContent = translations[lang].download;
-                document.getElementById('privacy-title').textContent = translations[lang].privacy_policy;
-                document.getElementById('select-language').textContent = translations[lang].select_language;
-                
-                // Update view buttons
-                const viewButtons = document.querySelectorAll('.view-text');
-                viewButtons.forEach(button => {
-                    button.textContent = translations[lang].view_button;
-                });
-                
-                // Update active language button
-                document.querySelectorAll('.lang-selector').forEach(btn => {
-                    btn.classList.remove('active');
-                });
-                document.getElementById('lang-' + lang).classList.add('active');
-                
-                // Save user preference
-                localStorage.setItem('preferredLanguage', lang);
-            }
-        }
-        
-        // Load preferred language on page load
-        window.onload = function() {
-            const savedLang = localStorage.getItem('preferredLanguage');
-            if (savedLang && translations[savedLang]) {
-                changeLanguage(savedLang);
-            }
-        };
+        // We're now using the GlobalLanguageManager class from language-manager.js
+        // No custom language functions needed here
     </script>
     <style>
         body {
@@ -311,25 +293,92 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="language-bar">
-            <button class="lang-selector active" id="lang-ru" onclick="changeLanguage('ru')">RU</button>
-            <button class="lang-selector" id="lang-en" onclick="changeLanguage('en')">EN</button>
-            <button class="lang-selector" id="lang-es" onclick="changeLanguage('es')">ES</button>
-            <button class="lang-selector" id="lang-zh" onclick="changeLanguage('zh')">ZH</button>
+    <div class="language-selector">
+        <div class="language-dropdown">
+            <button class="language-current">
+                <span id="current-lang">🇺🇸 EN</span>
+                <span>▼</span>
+            </button>
+            <div class="language-options" id="language-options">
+                <div class="language-option active" data-lang="en">🇺🇸 English</div>
+                <div class="language-option" data-lang="ru">🇷🇺 Русский</div>
+                <div class="language-option" data-lang="uk">🇺🇦 Українська</div>
+                <div class="language-option" data-lang="es">🇪🇸 Español</div>
+                <div class="language-option" data-lang="fr">🇫🇷 Français</div>
+                <div class="language-option" data-lang="de">🇩🇪 Deutsch</div>
+                <div class="language-option" data-lang="zh">🇨🇳 中文</div>
+            </div>
         </div>
+    </div>
+    
+    <div class="container">
         <div class="header">
             <div class="logo">🌲 Forest Calculator</div>
             <div class="huawei-badge">Huawei AppGallery</div>
-            <div class="subtitle" id="subtitle">Версия для пользователей Huawei</div>
-            <div class="desc">
-                <p><span id="description">Forest Calculator — профессиональный калькулятор для лесной отрасли.</span> <br><span id="coming-soon">Скоро будет доступен для скачивания в Huawei AppGallery.</span></p>
+            <div class="subtitle"
+                 data-en="Version for Huawei Users"
+                 data-ru="Версия для пользователей Huawei"
+                 data-uk="Версія для користувачів Huawei"
+                 data-es="Versión para usuarios de Huawei"
+                 data-fr="Version pour les utilisateurs de Huawei"
+                 data-de="Version für Huawei-Nutzer"
+                 data-zh="华为用户版本">
+                Version for Huawei Users
             </div>
-            <button class="btn btn-download" id="download-btn" disabled>Скачать (скоро)</button>
+            <div class="desc">
+                <p>
+                    <span data-en="Forest Calculator — professional calculator for forestry industry."
+                          data-ru="Forest Calculator — профессиональный калькулятор для лесной отрасли."
+                          data-uk="Forest Calculator — професійний калькулятор для лісової галузі."
+                          data-es="Forest Calculator — calculadora profesional para la industria forestal."
+                          data-fr="Forest Calculator — calculatrice professionnelle pour l'industrie forestière."
+                          data-de="Forest Calculator — professioneller Rechner für die Forstindustrie."
+                          data-zh="Forest Calculator — 林业专业计算器。">
+                        Forest Calculator — professional calculator for forestry industry.
+                    </span>
+                    <br>
+                    <span data-en="Coming soon to Huawei AppGallery."
+                          data-ru="Скоро будет доступен для скачивания в Huawei AppGallery."
+                          data-uk="Скоро буде доступний для завантаження в Huawei AppGallery."
+                          data-es="Próximamente en Huawei AppGallery."
+                          data-fr="Bientôt disponible sur Huawei AppGallery."
+                          data-de="Bald verfügbar im Huawei AppGallery."
+                          data-zh="即将登陆华为应用市场。">
+                        Coming soon to Huawei AppGallery.
+                    </span>
+                </p>
+            </div>
+            <button class="btn btn-download" disabled
+                    data-en="Download (coming soon)"
+                    data-ru="Скачать (скоро)"
+                    data-uk="Завантажити (скоро)"
+                    data-es="Descargar (próximamente)"
+                    data-fr="Télécharger (bientôt)"
+                    data-de="Herunterladen (in Kürze)"
+                    data-zh="下载（即将推出）">
+                Download (coming soon)
+            </button>
         </div>
         
-        <div class="section-title" id="privacy-title">Политика конфиденциальности</div>
-        <p id="select-language">Выберите язык политики конфиденциальности из списка доступных ниже:</p>
+        <div class="section-title"
+             data-en="Privacy Policy"
+             data-ru="Политика конфиденциальности"
+             data-uk="Політика конфіденційності"
+             data-es="Política de Privacidad"
+             data-fr="Politique de Confidentialité"
+             data-de="Datenschutzrichtlinie"
+             data-zh="隐私政策">
+            Privacy Policy
+        </div>
+        <p data-en="Select a privacy policy language from the list below:"
+           data-ru="Выберите язык политики конфиденциальности из списка доступных ниже:"
+           data-uk="Виберіть мову політики конфіденційності зі списку нижче:"
+           data-es="Seleccione un idioma de política de privacidad de la lista a continuación:"
+           data-fr="Sélectionnez une langue de politique de confidentialité dans la liste ci-dessous:"
+           data-de="Wählen Sie eine Sprache für die Datenschutzrichtlinie aus der Liste unten aus:"
+           data-zh="从下面的列表中选择隐私政策语言：">
+            Select a privacy policy language from the list below:
+        </p>
         
         <div style="display:flex;flex-wrap:wrap;justify-content:center;gap:0.5rem;">
             <!-- BEGIN: Language Policy Links with Download/View -->
@@ -350,7 +399,18 @@
     <div class="lang-btns">
         <a class="btn btn-policy" href="policyHuavei/privacy_policy_af.txt" download onclick="event.stopPropagation();">TXT</a>
         <a class="btn btn-policy" href="policyHuavei/privacy_policy_af.pdf" download onclick="event.stopPropagation();">PDF</a>
-        <a class="btn btn-policy" href="policyHuavei/privacy_policy_af.html" onclick="event.stopPropagation();"><span class="view-text">Просмотреть</span></a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_af.html" onclick="event.stopPropagation();">
+            <span class="view-text"
+                  data-en="View"
+                  data-ru="Просмотреть"
+                  data-uk="Переглянути"
+                  data-es="Ver"
+                  data-fr="Voir"
+                  data-de="Ansehen"
+                  data-zh="查看">
+                View
+            </span>
+        </a>
     </div>
 </div>
 <div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_am.html'" style="cursor:pointer;">
@@ -361,7 +421,18 @@
     <div class="lang-btns">
         <a class="btn btn-policy" href="policyHuavei/privacy_policy_am.txt" download onclick="event.stopPropagation();">TXT</a>
         <a class="btn btn-policy" href="policyHuavei/privacy_policy_am.pdf" download onclick="event.stopPropagation();">PDF</a>
-        <a class="btn btn-policy" href="policyHuavei/privacy_policy_am.html" onclick="event.stopPropagation();"><span class="view-text">Просмотреть</span></a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_am.html" onclick="event.stopPropagation();">
+            <span class="view-text"
+                  data-en="View"
+                  data-ru="Просмотреть"
+                  data-uk="Переглянути"
+                  data-es="Ver"
+                  data-fr="Voir"
+                  data-de="Ansehen"
+                  data-zh="查看">
+                View
+            </span>
+        </a>
     </div>
 </div>
 <div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_ar.html'" style="cursor:pointer;">
@@ -372,7 +443,18 @@
     <div class="lang-btns">
         <a class="btn btn-policy" href="policyHuavei/privacy_policy_ar.txt" download onclick="event.stopPropagation();">TXT</a>
         <a class="btn btn-policy" href="policyHuavei/privacy_policy_ar.pdf" download onclick="event.stopPropagation();">PDF</a>
-        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ar.html" onclick="event.stopPropagation();"><span class="view-text">Просмотреть</span></a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_ar.html" onclick="event.stopPropagation();">
+            <span class="view-text"
+                  data-en="View"
+                  data-ru="Просмотреть"
+                  data-uk="Переглянути"
+                  data-es="Ver"
+                  data-fr="Voir"
+                  data-de="Ansehen"
+                  data-zh="查看">
+                View
+            </span>
+        </a>
     </div>
 </div>
 <div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_az.html'" style="cursor:pointer;">
@@ -383,7 +465,18 @@
     <div class="lang-btns">
         <a class="btn btn-policy" href="policyHuavei/privacy_policy_az.txt" download onclick="event.stopPropagation();">TXT</a>
         <a class="btn btn-policy" href="policyHuavei/privacy_policy_az.pdf" download onclick="event.stopPropagation();">PDF</a>
-        <a class="btn btn-policy" href="policyHuavei/privacy_policy_az.html" onclick="event.stopPropagation();">Просмотреть</a>
+        <a class="btn btn-policy" href="policyHuavei/privacy_policy_az.html" onclick="event.stopPropagation();">
+            <span class="view-text"
+                  data-en="View"
+                  data-ru="Просмотреть"
+                  data-uk="Переглянути"
+                  data-es="Ver"
+                  data-fr="Voir"
+                  data-de="Ansehen"
+                  data-zh="查看">
+                View
+            </span>
+        </a>
     </div>
 </div>
 <div class="lang-card" onclick="window.location.href='policyHuavei/privacy_policy_be.html'" style="cursor:pointer;">
@@ -1245,3 +1338,4 @@
     </script>
 </body>
 </html>
+

@@ -1,0 +1,86 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FormSubmit Activation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            line-height: 1.6;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        form {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #2980b9;
+        }
+        .note {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-left: 4px solid #3498db;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>FormSubmit Activation Form</h1>
+    <p>Используйте эту форму для активации сервиса FormSubmit для адреса support@dr-it.studio. После отправки формы проверьте почту на этом адресе для подтверждения.</p>
+    
+    <form action="https://formsubmit.co/support@dr-it.studio" method="POST">
+        <!-- Настройка FormSubmit -->
+        <input type="hidden" name="_subject" value="FormSubmit Activation">
+        <input type="hidden" name="_captcha" value="false">
+        
+        <label for="name">Ваше имя</label>
+        <input type="text" name="name" required value="FormSubmit Activation">
+        
+        <label for="email">Ваш email</label>
+        <input type="email" name="email" required value="activation@example.com">
+        
+        <label for="message">Сообщение</label>
+        <textarea name="message" rows="4">Это тестовое сообщение для активации сервиса FormSubmit. После получения этого письма, пожалуйста, перейдите по ссылке активации в письме от FormSubmit.</textarea>
+        
+        <button type="submit">Отправить для активации</button>
+    </form>
+    
+    <div class="note">
+        <h3>Что произойдет дальше:</h3>
+        <ol>
+            <li>После отправки этой формы, на адрес support@dr-it.studio придет письмо от FormSubmit.</li>
+            <li>В этом письме будет ссылка для активации сервиса.</li>
+            <li>Перейдите по этой ссылке для подтверждения адреса электронной почты.</li>
+            <li>После активации все формы на вашем сайте, использующие FormSubmit с этим адресом, будут работать правильно.</li>
+        </ol>
+    </div>
+</body>
+</html>
+

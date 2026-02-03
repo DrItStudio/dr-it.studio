@@ -1,9 +1,10 @@
-<!DOCTYPE html>
-<html lang="ru">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Forest Calculator — Samsung Store</title>
+    <script src="js/language-manager.js" defer></script>
     <style>
         body { font-family: 'Arial', sans-serif; background: #f5f5f5; color: #333; }
         .container { max-width: 600px; margin: 0 auto; padding: 40px 20px; background: white; border-radius: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; }
@@ -14,19 +15,133 @@
         .back-btn { display:inline-block; background:#333; color:white; padding:12px 25px; border-radius:25px; text-decoration:none; margin-top:2rem; transition:background 0.3s ease; }
         .back-btn:hover { background:#1428A0; }
         footer { margin-top: 3rem; text-align: center; color: #888; }
+        /* Language selector styles */
+        .language-selector {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            z-index: 100;
+        }
+        .language-dropdown {
+            position: relative;
+        }
+        .language-current {
+            background: rgba(255, 255, 255, 0.9);
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            padding: 8px 12px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .language-options {
+            display: none;
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            width: 180px;
+            z-index: 101;
+            margin-top: 5px;
+        }
+        .language-options.show {
+            display: block;
+        }
+        .language-option {
+            padding: 8px 16px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .language-option:hover {
+            background: #f5f5f5;
+        }
+        .language-option.active {
+            background: #e9f5ff;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .language-selector {
+                position: relative;
+                top: 0;
+                right: 0;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+            .language-dropdown {
+                display: inline-block;
+            }
+        }
     </style>
 </head>
 <body>
+    <div class="language-selector">
+        <div class="language-dropdown">
+            <button class="language-current">
+                <span id="current-lang">🇺🇸 EN</span>
+                <span>▼</span>
+            </button>
+            <div class="language-options" id="language-options">
+                <div class="language-option active" data-lang="en">🇺🇸 English</div>
+                <div class="language-option" data-lang="ru">🇷🇺 Русский</div>
+                <div class="language-option" data-lang="uk">🇺🇦 Українська</div>
+                <div class="language-option" data-lang="es">🇪🇸 Español</div>
+                <div class="language-option" data-lang="fr">🇫🇷 Français</div>
+                <div class="language-option" data-lang="de">🇩🇪 Deutsch</div>
+                <div class="language-option" data-lang="zh">🇨🇳 中文</div>
+            </div>
+        </div>
+    </div>
+
     <div class="container">
         <div class="logo">🌲 Forest Calculator</div>
         <div class="samsung-badge">Samsung Store</div>
-        <div class="subtitle">Версия для пользователей Samsung Store</div>
-        <p>Forest Calculator — профессиональный калькулятор для лесной отрасли.<br>Скоро будет доступен для скачивания в Samsung Store.</p>
-        <button class="btn-download" disabled>Скачать (скоро)</button>
-        <a href="forest-calculator.html" class="back-btn">← Назад к Forest Calculator</a>
+        <div class="subtitle" 
+            data-en="Version for Samsung Store users" 
+            data-ru="Версия для пользователей Samsung Store" 
+            data-uk="Версія для користувачів Samsung Store"
+            data-es="Versión para usuarios de Samsung Store"
+            data-fr="Version pour les utilisateurs de Samsung Store"
+            data-de="Version für Samsung Store-Nutzer"
+            data-zh="三星应用商店用户版本">
+            Version for Samsung Store users
+        </div>
+        <p data-en="Forest Calculator — professional calculator for the forestry industry.<br>Will be available for download on Samsung Store soon."
+           data-ru="Forest Calculator — профессиональный калькулятор для лесной отрасли.<br>Скоро будет доступен для скачивания в Samsung Store."
+           data-uk="Forest Calculator — професійний калькулятор для лісової галузі.<br>Скоро буде доступний для завантаження в Samsung Store."
+           data-es="Forest Calculator — calculadora profesional para la industria forestal.<br>Estará disponible para descargar en Samsung Store pronto."
+           data-fr="Forest Calculator — calculatrice professionnelle pour l'industrie forestière.<br>Sera bientôt disponible au téléchargement sur Samsung Store."
+           data-de="Forest Calculator — professioneller Rechner für die Forstindustrie.<br>Wird bald im Samsung Store zum Download verfügbar sein."
+           data-zh="Forest Calculator — 专业的林业行业计算器。<br>即将在Samsung Store上提供下载。">
+            Forest Calculator — professional calculator for the forestry industry.<br>Will be available for download on Samsung Store soon.
+        </p>
+        <button class="btn-download" disabled
+               data-en="Download (coming soon)"
+               data-ru="Скачать (скоро)"
+               data-uk="Завантажити (скоро)"
+               data-es="Descargar (próximamente)"
+               data-fr="Télécharger (bientôt)"
+               data-de="Herunterladen (in Kürze)"
+               data-zh="下载（即将推出）">
+            Download (coming soon)
+        </button>
+        <a href="forest-calculator.html" class="back-btn"
+           data-en="← Back to Forest Calculator"
+           data-ru="← Назад к Forest Calculator"
+           data-uk="← Назад до Forest Calculator"
+           data-es="← Volver a Forest Calculator"
+           data-fr="← Retour à Forest Calculator"
+           data-de="← Zurück zu Forest Calculator"
+           data-zh="← 返回到 Forest Calculator">
+            ← Back to Forest Calculator
+        </a>
     </div>
     <footer>
         &copy; 2025 DR.IT.Studio. Forest Calculator.
     </footer>
 </body>
 </html>
+
