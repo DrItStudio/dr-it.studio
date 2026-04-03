@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FuleoMX - Fuel Calculator, Unit Converter & More</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #1A6B8A 0%, #2E7D6B 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(15px);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo-img {
+            height: 45px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: #2c3e50;
+            text-decoration: none;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.5rem;
+        }
+
+        .nav-links a {
+            color: #2c3e50;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+
+        .nav-links a:hover {
+            color: #1A6B8A;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: #1A6B8A;
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .language-selector {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .language-dropdown {
+            position: relative;
+        }
+
+        .language-current {
+            padding: 8px 15px;
+            background: linear-gradient(135deg, #1A6B8A 0%, #2E7D6B 100%);
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .language-current:hover {
+            opacity: 0.9;
+        }
+
+        .language-options {
+            position: absolute;
+            top: 100%;
+            right: 0;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            padding: 10px 0;
+            min-width: 120px;
+            z-index: 1001;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        .language-options.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .language-option {
+            padding: 8px 15px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            color: #2c3e50;
+            font-weight: 500;
+        }
+
+        .language-option:hover {
+            background: #f8f9fa;
+        }
+
+        .language-option.active {
+            background: linear-gradient(135deg, #1A6B8A 0%, #2E7D6B 100%);
+            color: white;
+        }
+
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, rgba(26, 107, 138, 0.95) 0%, rgba(46, 125, 107, 0.95) 100%);
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+        }
+
+        .product-logo {
+            width: 120px;
+            height: 120px;
+            margin: 0 auto 2rem;
+            background: white;
+            border-radius: 25px;
+            padding: 15px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+            animation: fadeInUp 1s ease;
+        }
+
+        .product-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+            animation: fadeInUp 1s ease 0.2s both;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+            animation: fadeInUp 1s ease 0.4s both;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.6s both;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 35px;
+            background: linear-gradient(135deg, #1A6B8A 0%, #2E7D6B 100%);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            animation: fadeInUp 1s ease 0.8s both;
+            box-shadow: 0 8px 25px rgba(26, 107, 138, 0.3);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 35px rgba(26, 107, 138, 0.4);
+        }
+
+        .section {
+            padding: 6rem 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+        }
+
+        .section:nth-child(even) {
+            background: rgba(248, 249, 250, 0.95);
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.8rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            margin-top: 4rem;
+        }
+
+        .feature-card {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 2.5rem;
+            border-radius: 15px;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(26, 107, 138, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .feature-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 45px rgba(26, 107, 138, 0.15);
+            border-color: rgba(26, 107, 138, 0.3);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: block;
+            color: #1A6B8A;
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #2c3e50;
+            font-weight: 600;
+        }
+
+        .feature-card p {
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+
+        .fuleomx-theme {
+            background: linear-gradient(135deg, rgba(26, 107, 138, 0.1) 0%, rgba(46, 125, 107, 0.1) 100%);
+            border: 2px solid rgba(26, 107, 138, 0.3);
+        }
+
+        .fuleomx-theme .feature-icon {
+            color: #2E7D6B;
+        }
+
+        .contact {
+            background: linear-gradient(135deg, #1A6B8A 0%, #2E7D6B 100%);
+            color: white;
+            text-align: center;
+            padding: 6rem 0;
+        }
+
+        .contact h2 {
+            color: white;
+            margin-bottom: 2rem;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            margin-top: 3rem;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 2.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-item h3 {
+            color: #a8e6cf;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        .contact-item p {
+            opacity: 0.9;
+        }
+
+        .contact-item a {
+            color: #a8e6cf;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item a:hover {
+            color: #fff;
+        }
+
+        footer {
+            background: #1a252f;
+            color: white;
+            text-align: center;
+            padding: 3rem 0;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h4 {
+            color: #1A6B8A;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section a {
+            color: #bdc3c7;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 0.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #1A6B8A;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #34495e;
+            padding-top: 2rem;
+            margin-top: 2rem;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .language-selector {
+                margin-left: auto;
+            }
+
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+
+            .features {
+                grid-template-columns: 1fr;
+            }
+
+            .product-logo {
+                width: 80px;
+                height: 80px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <div class="logo-container">
+                <img src="logo_light.png" alt="DR.IT.Studio" class="logo-img">
+                <a href="index.html" class="logo-text">DR.IT.Studio</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html" data-en="Home" data-ru="Главная" data-uk="Головна" data-es="Inicio" data-fr="Accueil" data-de="Startseite" data-zh="首页">Home</a></li>
+                <li><a href="#features" data-en="Features" data-ru="Возможности" data-uk="Можливості" data-es="Características" data-fr="Fonctionnalités" data-de="Funktionen" data-zh="功能">Features</a></li>
+                <li><a href="#about" data-en="About" data-ru="О продукте" data-uk="Про продукт" data-es="Acerca del Producto" data-fr="À propos du Produit" data-de="Über das Produkt" data-zh="关于产品">About</a></li>
+                <li><a href="#contact" data-en="Contact" data-ru="Контакты" data-uk="Контакти" data-es="Contacto" data-fr="Contact" data-de="Kontakt" data-zh="联系">Contact</a></li>
+            </ul>
+            <div class="language-selector">
+                <div class="language-dropdown">
+                    <button class="language-current">
+                        <span id="current-lang">🇺🇸 EN</span>
+                        <span>▼</span>
+                    </button>
+                    <div class="language-options" id="language-options">
+                        <div class="language-option active" data-lang="en">🇺🇸 English</div>
+                        <div class="language-option" data-lang="ru">🇷🇺 Русский</div>
+                        <div class="language-option" data-lang="uk">🇺🇦 Українська</div>
+                        <div class="language-option" data-lang="es">🇪🇸 Español</div>
+                        <div class="language-option" data-lang="fr">🇫🇷 Français</div>
+                        <div class="language-option" data-lang="de">🇩🇪 Deutsch</div>
+                        <div class="language-option" data-lang="zh">🇨🇳 中文</div>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="product-logo">
+                <img src="fuleomx_icon.png" alt="FuleoMX">
+            </div>
+            <h1>FuleoMX</h1>
+            <div class="subtitle" data-en="Fuel Calculator, Converter & Toolkit" data-ru="Калькулятор топлива, конвертер и инструменты" data-uk="Калькулятор палива, конвертер та інструменти" data-es="Calculadora de combustible, conversor y herramientas" data-fr="Calculateur de carburant, convertisseur et outils" data-de="Kraftstoffrechner, Konverter & Toolkit" data-zh="燃油计算器、转换器和工具包">Fuel Calculator, Converter & Toolkit</div>
+            <p data-en="Fuel calculator, scientific calculator, and unit converter — all in one clean, offline app. No ads, no tracking, no internet required." data-ru="Расчёт топлива, научный калькулятор и конвертер единиц — всё в одном элегантном офлайн-приложении. Без рекламы, без отслеживания, без интернета." data-uk="Калькулятор палива, науковий калькулятор та конвертер одиниць — все в одному елегантному офлайн-додатку. Без реклами, без відстеження, без інтернету." data-es="Calculadora de combustible, calculadora científica y convertidor de unidades — todo en una app limpia y sin conexión. Sin anuncios, sin rastreo, sin internet." data-fr="Calculateur de carburant, calculatrice scientifique et convertisseur d'unités — tout dans une app propre et hors ligne. Sans pub, sans suivi, sans internet." data-de="Kraftstoffrechner, wissenschaftlicher Taschenrechner und Einheitenkonverter — alles in einer sauberen Offline-App. Keine Werbung, kein Tracking, kein Internet." data-zh="燃油计算器、科学计算器和单位转换器 - 一款简洁的离线应用。无广告、无追踪、无需互联网。">Fuel calculator, scientific calculator, and unit converter — all in one clean, offline app. No ads, no tracking, no internet required.</p>
+            <div>
+                <a href="#features" class="btn" data-en="Explore Features" data-ru="Изучить возможности" data-uk="Дослідити можливості" data-es="Explorar Características" data-fr="Explorer les Fonctionnalités" data-de="Funktionen Erkunden" data-zh="探索功能">Explore Features</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section">
+        <div class="container">
+            <h2 class="section-title" data-en="Key Features" data-ru="Ключевые возможности" data-uk="Ключові можливості" data-es="Características Clave" data-fr="Fonctionnalités Clés" data-de="Hauptfunktionen" data-zh="主要功能">Key Features</h2>
+            <p class="section-subtitle" data-en="Three powerful tools in one lightweight app" data-ru="Три мощных инструмента в одном лёгком приложении" data-uk="Три потужні інструменти в одному легкому додатку" data-es="Tres herramientas poderosas en una app ligera" data-fr="Trois outils puissants dans une app légère" data-de="Drei leistungsstarke Tools in einer leichten App" data-zh="三款强大工具集于一款轻量应用">Three powerful tools in one lightweight app</p>
+            <div class="features">
+                <div class="feature-card fuleomx-theme">
+                    <div class="feature-icon">⛽</div>
+                    <h3 data-en="Fuel Calculator" data-ru="Расчёт топлива" data-uk="Калькулятор палива" data-es="Calculadora de Combustible" data-fr="Calculateur de Carburant" data-de="Kraftstoffrechner" data-zh="燃油计算器">Fuel Calculator</h3>
+                    <p data-en="4 calculation modes: consumption, distance, fuel needed, and trip cost. Save fuel records with statistics and track your average consumption over time." data-ru="4 режима расчёта: расход, расстояние, необходимое топливо и стоимость поездки. Сохраняйте записи о заправках со статистикой и отслеживайте средний расход." data-uk="4 режими розрахунку: витрата, відстань, потрібне паливо та вартість поїздки. Зберігайте записи про заправки зі статистикою та відстежуйте середню витрату." data-es="4 modos de cálculo: consumo, distancia, combustible necesario y costo del viaje. Guarda registros de combustible con estadísticas." data-fr="4 modes de calcul : consommation, distance, carburant nécessaire et coût du trajet. Sauvegardez les enregistrements avec des statistiques." data-de="4 Berechnungsmodi: Verbrauch, Entfernung, benötigter Kraftstoff und Reisekosten. Speichern Sie Tankaufzeichnungen mit Statistiken." data-zh="4种计算模式：油耗、距离、所需燃油和行程费用。保存加油记录并跟踪平均油耗。">4 calculation modes: consumption, distance, fuel needed, and trip cost. Save fuel records with statistics and track your average consumption over time.</p>
+                </div>
+                <div class="feature-card fuleomx-theme">
+                    <div class="feature-icon">🧮</div>
+                    <h3 data-en="Calculator" data-ru="Калькулятор" data-uk="Калькулятор" data-es="Calculadora" data-fr="Calculatrice" data-de="Rechner" data-zh="计算器">Calculator</h3>
+                    <p data-en="Full-featured calculator with calculation history. Save important results with custom labels for future reference." data-ru="Полнофункциональный калькулятор с историей вычислений. Сохраняйте важные результаты с пользовательскими метками." data-uk="Повнофункціональний калькулятор з історією обчислень. Зберігайте важливі результати з користувацькими мітками." data-es="Calculadora completa con historial de cálculos. Guarda resultados importantes con etiquetas personalizadas." data-fr="Calculatrice complète avec historique des calculs. Enregistrez les résultats importants avec des libellés personnalisés." data-de="Vollwertiger Rechner mit Berechnungsverlauf. Speichern Sie wichtige Ergebnisse mit benutzerdefinierten Labels." data-zh="功能齐全的计算器，带有计算历史记录。使用自定义标签保存重要结果。">Full-featured calculator with calculation history. Save important results with custom labels for future reference.</p>
+                </div>
+                <div class="feature-card fuleomx-theme">
+                    <div class="feature-icon">📐</div>
+                    <h3 data-en="Unit Converter" data-ru="Конвертер единиц" data-uk="Конвертер одиниць" data-es="Convertidor de Unidades" data-fr="Convertisseur d'Unités" data-de="Einheitenkonverter" data-zh="单位转换器">Unit Converter</h3>
+                    <p data-en="10 categories: length, weight, temperature, area, volume, speed, time, data size, pressure, and energy. Quick conversions at your fingertips." data-ru="10 категорий: длина, вес, температура, площадь, объём, скорость, время, размер данных, давление и энергия. Быстрые конвертации под рукой." data-uk="10 категорій: довжина, вага, температура, площа, об'єм, швидкість, час, розмір даних, тиск та енергія. Швидкі перетворення під рукою." data-es="10 categorías: longitud, peso, temperatura, área, volumen, velocidad, tiempo, tamaño de datos, presión y energía." data-fr="10 catégories : longueur, poids, température, surface, volume, vitesse, temps, taille de données, pression et énergie." data-de="10 Kategorien: Länge, Gewicht, Temperatur, Fläche, Volumen, Geschwindigkeit, Zeit, Datengröße, Druck und Energie." data-zh="10个类别：长度、重量、温度、面积、体积、速度、时间、数据大小、压力和能量。">10 categories: length, weight, temperature, area, volume, speed, time, data size, pressure, and energy. Quick conversions at your fingertips.</p>
+                </div>
+                <div class="feature-card fuleomx-theme">
+                    <div class="feature-icon">🎨</div>
+                    <h3 data-en="7 Beautiful Themes" data-ru="7 красивых тем" data-uk="7 красивих тем" data-es="7 Temas Hermosos" data-fr="7 Beaux Thèmes" data-de="7 Schöne Themes" data-zh="7款精美主题">7 Beautiful Themes</h3>
+                    <p data-en="Ocean, Forest, Sunset, Lavender, Midnight, Rose, and Aurora. Choose light or dark mode, or follow your system preference." data-ru="Ocean, Forest, Sunset, Lavender, Midnight, Rose и Aurora. Выберите светлую или тёмную тему, или следуйте настройкам системы." data-uk="Ocean, Forest, Sunset, Lavender, Midnight, Rose та Aurora. Оберіть світлу чи темну тему, або слідуйте за налаштуваннями системи." data-es="Ocean, Forest, Sunset, Lavender, Midnight, Rose y Aurora. Elige modo claro u oscuro, o sigue la preferencia del sistema." data-fr="Ocean, Forest, Sunset, Lavender, Midnight, Rose et Aurora. Choisissez le mode clair ou sombre, ou suivez les préférences du système." data-de="Ocean, Forest, Sunset, Lavender, Midnight, Rose und Aurora. Wählen Sie hell oder dunkel, oder folgen Sie der Systemeinstellung." data-zh="Ocean、Forest、Sunset、Lavender、Midnight、Rose和Aurora。选择浅色或深色模式，或跟随系统偏好。">Ocean, Forest, Sunset, Lavender, Midnight, Rose, and Aurora. Choose light or dark mode, or follow your system preference.</p>
+                </div>
+                <div class="feature-card fuleomx-theme">
+                    <div class="feature-icon">🔒</div>
+                    <h3 data-en="100% Private & Offline" data-ru="100% приватность и офлайн" data-uk="100% приватність та офлайн" data-es="100% Privado y Sin Conexión" data-fr="100% Privé et Hors Ligne" data-de="100% Privat & Offline" data-zh="100% 隐私与离线">100% Private & Offline</h3>
+                    <p data-en="No internet permission, no ads, no analytics, no tracking. All data stays on your device. Zero data collection — your privacy is guaranteed." data-ru="Нет разрешения на интернет, нет рекламы, нет аналитики, нет отслеживания. Все данные остаются на устройстве. Нулевой сбор данных." data-uk="Немає дозволу на інтернет, немає реклами, немає аналітики, немає відстеження. Всі дані залишаються на пристрої. Нульовий збір даних." data-es="Sin permiso de internet, sin anuncios, sin analíticas, sin rastreo. Todos los datos permanecen en tu dispositivo." data-fr="Pas de permission internet, pas de pub, pas d'analytique, pas de suivi. Toutes les données restent sur votre appareil." data-de="Keine Internet-Berechtigung, keine Werbung, keine Analytik, kein Tracking. Alle Daten bleiben auf Ihrem Gerät." data-zh="无互联网权限、无广告、无分析、无追踪。所有数据保留在您的设备上。">No internet permission, no ads, no analytics, no tracking. All data stays on your device. Zero data collection — your privacy is guaranteed.</p>
+                </div>
+                <div class="feature-card fuleomx-theme">
+                    <div class="feature-icon">🌍</div>
+                    <h3 data-en="Multilingual" data-ru="Многоязычность" data-uk="Багатомовність" data-es="Multilingüe" data-fr="Multilingue" data-de="Mehrsprachig" data-zh="多语言">Multilingual</h3>
+                    <p data-en="Available in English and Ukrainian. Simple and clean interface designed for ease of use." data-ru="Доступно на английском и украинском языках. Простой и чистый интерфейс, разработанный для удобства использования." data-uk="Доступно англійською та українською мовами. Простий та чистий інтерфейс, розроблений для зручності використання." data-es="Disponible en inglés y ucraniano. Interfaz simple y limpia diseñada para facilidad de uso." data-fr="Disponible en anglais et ukrainien. Interface simple et propre conçue pour la facilité d'utilisation." data-de="Verfügbar in Englisch und Ukrainisch. Einfache und saubere Benutzeroberfläche für einfache Bedienung." data-zh="提供英语和乌克兰语。简洁干净的界面，设计易于使用。">Available in English and Ukrainian. Simple and clean interface designed for ease of use.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section about">
+        <div class="container">
+            <h2 class="section-title" data-en="About FuleoMX" data-ru="О FuleoMX" data-uk="Про FuleoMX" data-es="Acerca de FuleoMX" data-fr="À propos de FuleoMX" data-de="Über FuleoMX" data-zh="关于FuleoMX">About FuleoMX</h2>
+            <p class="section-subtitle" data-en="A lightweight, privacy-first utility for everyday calculations" data-ru="Лёгкая утилита с приоритетом приватности для ежедневных расчётов" data-uk="Легка утиліта з пріоритетом приватності для щоденних розрахунків" data-es="Una utilidad ligera y centrada en la privacidad para cálculos diarios" data-fr="Un utilitaire léger axé sur la confidentialité pour les calculs quotidiens" data-de="Ein leichtgewichtiges, datenschutzorientiertes Tool für tägliche Berechnungen" data-zh="一款轻量级、隐私优先的日常计算工具">A lightweight, privacy-first utility for everyday calculations</p>
+            <div class="features">
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3 data-en="100% Local Storage" data-ru="100% локальное хранение" data-uk="100% локальне зберігання" data-es="100% Almacenamiento Local" data-fr="100% Stockage Local" data-de="100% Lokaler Speicher" data-zh="100% 本地存储">100% Local Storage</h3>
+                    <p data-en="All your data — fuel records, calculations, and settings — is stored only on your device. Nothing is ever sent anywhere." data-ru="Все ваши данные — записи о топливе, расчёты и настройки — хранятся только на вашем устройстве. Ничего никогда не отправляется." data-uk="Всі ваші дані — записи про паливо, обчислення та налаштування — зберігаються тільки на вашому пристрої. Нічого ніколи не відправляється." data-es="Todos tus datos — registros de combustible, cálculos y configuraciones — se almacenan solo en tu dispositivo." data-fr="Toutes vos données — enregistrements de carburant, calculs et paramètres — sont stockées uniquement sur votre appareil." data-de="Alle Ihre Daten — Tankaufzeichnungen, Berechnungen und Einstellungen — werden nur auf Ihrem Gerät gespeichert." data-zh="您所有的数据 - 燃油记录、计算和设置 - 仅存储在您的设备上。">All your data — fuel records, calculations, and settings — is stored only on your device. Nothing is ever sent anywhere.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 data-en="No Permissions Required" data-ru="Без разрешений" data-uk="Без дозволів" data-es="Sin Permisos Requeridos" data-fr="Aucune Permission Requise" data-de="Keine Berechtigungen Erforderlich" data-zh="无需权限">No Permissions Required</h3>
+                    <p data-en="FuleoMX doesn't request any special permissions. No access to camera, contacts, location, or any other sensitive data." data-ru="FuleoMX не запрашивает никаких специальных разрешений. Нет доступа к камере, контактам, местоположению или другим конфиденциальным данным." data-uk="FuleoMX не запитує жодних спеціальних дозволів. Немає доступу до камери, контактів, розташування чи іншої конфіденційної інформації." data-es="FuleoMX no solicita permisos especiales. Sin acceso a cámara, contactos, ubicación ni otros datos sensibles." data-fr="FuleoMX ne demande aucune permission spéciale. Pas d'accès à la caméra, aux contacts, à la localisation ou à d'autres données sensibles." data-de="FuleoMX verlangt keine speziellen Berechtigungen. Kein Zugriff auf Kamera, Kontakte, Standort oder andere sensible Daten." data-zh="FuleoMX不需要任何特殊权限。不访问相机、联系人、位置或任何其他敏感数据。">FuleoMX doesn't request any special permissions. No access to camera, contacts, location, or any other sensitive data.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🎯</div>
+                    <h3 data-en="Built with Modern Tech" data-ru="Современные технологии" data-uk="Сучасні технології" data-es="Construido con Tecnología Moderna" data-fr="Construit avec des Technologies Modernes" data-de="Mit Moderner Technologie Gebaut" data-zh="采用现代技术构建">Built with Modern Tech</h3>
+                    <p data-en="Native Android app built with Jetpack Compose and Material 3. Supports Android 7.0+ with smooth animations and responsive design." data-ru="Нативное Android-приложение на Jetpack Compose и Material 3. Поддерживает Android 7.0+ с плавными анимациями и адаптивным дизайном." data-uk="Нативний Android-додаток на Jetpack Compose та Material 3. Підтримує Android 7.0+ з плавними анімаціями та адаптивним дизайном." data-es="App nativa de Android construida con Jetpack Compose y Material 3. Soporta Android 7.0+ con animaciones suaves y diseño responsivo." data-fr="Application Android native construite avec Jetpack Compose et Material 3. Supporte Android 7.0+ avec animations fluides et design responsive." data-de="Native Android-App mit Jetpack Compose und Material 3. Unterstützt Android 7.0+ mit flüssigen Animationen und responsivem Design." data-zh="使用Jetpack Compose和Material 3构建的原生Android应用。支持Android 7.0+，具有流畅的动画和响应式设计。">Native Android app built with Jetpack Compose and Material 3. Supports Android 7.0+ with smooth animations and responsive design.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title" data-en="Contact & Support" data-ru="Контакты и поддержка" data-uk="Контакти та підтримка" data-es="Contacto y Soporte" data-fr="Contact et Support" data-de="Kontakt & Support" data-zh="联系与支持">Contact & Support</h2>
+            <p data-en="Questions about FuleoMX? Need help? We're here to assist you!" data-ru="Вопросы о FuleoMX? Нужна помощь? Мы готовы помочь!" data-uk="Питання щодо FuleoMX? Потрібна допомога? Ми готові допомогти!" data-es="¿Preguntas sobre FuleoMX? ¿Necesitas ayuda? ¡Estamos aquí para asistirte!" data-fr="Questions sur FuleoMX? Besoin d'aide? Nous sommes là pour vous aider!" data-de="Fragen zu FuleoMX? Brauchen Sie Hilfe? Wir sind hier, um Ihnen zu helfen!" data-zh="对FuleoMX有疑问？需要帮助？我们在这里为您服务！">Questions about FuleoMX? Need help? We're here to assist you!</p>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3 data-en="Email Support" data-ru="Поддержка по Email" data-uk="Підтримка по Email" data-es="Soporte por Email" data-fr="Support Email" data-de="E-Mail-Support" data-zh="邮件支持">Email Support</h3>
+                    <p><a href="mailto:support@dr-it.studio">support@dr-it.studio</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3 data-en="Privacy Policy" data-ru="Политика конфиденциальности" data-uk="Політика конфіденційності" data-es="Política de Privacidad" data-fr="Politique de Confidentialité" data-de="Datenschutzrichtlinie" data-zh="隐私政策">Privacy Policy</h3>
+                    <p><a href="fuleomx-privacy.html" data-en="View Privacy Policy" data-ru="Посмотреть политику конфиденциальности" data-uk="Переглянути політику конфіденційності" data-es="Ver Política de Privacidad" data-fr="Voir la Politique de Confidentialité" data-de="Datenschutzrichtlinie anzeigen" data-zh="查看隐私政策">View Privacy Policy</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3 data-en="Developer" data-ru="Разработчик" data-uk="Розробник" data-es="Desarrollador" data-fr="Développeur" data-de="Entwickler" data-zh="开发者">Developer</h3>
+                    <p>DR.IT.Studio</p>
+                    <p data-en="Kyiv, Ukraine" data-ru="Киев, Украина" data-uk="Київ, Україна" data-es="Kiev, Ucrania" data-fr="Kiev, Ukraine" data-de="Kiew, Ukraine" data-zh="基辅，乌克兰">Kyiv, Ukraine</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>FuleoMX</h4>
+                    <a href="#features" data-en="Features" data-ru="Возможности" data-uk="Можливості" data-es="Características" data-fr="Fonctionnalités" data-de="Funktionen" data-zh="功能">Features</a>
+                    <a href="fuleomx-privacy.html" data-en="Privacy Policy" data-ru="Политика конфиденциальности" data-uk="Політика конфіденційності" data-es="Política de Privacidad" data-fr="Politique de Confidentialité" data-de="Datenschutzrichtlinie" data-zh="隐私政策">Privacy Policy</a>
+                </div>
+                <div class="footer-section">
+                    <h4 data-en="Support" data-ru="Поддержка" data-uk="Підтримка" data-es="Soporte" data-fr="Support" data-de="Support" data-zh="支持">Support</h4>
+                    <a href="mailto:support@dr-it.studio" data-en="Contact Support" data-ru="Связаться с поддержкой" data-uk="Зв'язатися з підтримкою" data-es="Contactar Soporte" data-fr="Contacter le Support" data-de="Support kontaktieren" data-zh="联系支持">Contact Support</a>
+                </div>
+                <div class="footer-section">
+                    <h4 data-en="Company" data-ru="Компания" data-uk="Компанія" data-es="Empresa" data-fr="Entreprise" data-de="Unternehmen" data-zh="公司">Company</h4>
+                    <a href="index.html">DR.IT.Studio</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 DR.IT.Studio. <span data-en="All rights reserved." data-ru="Все права защищены." data-uk="Всі права захищені." data-es="Todos los derechos reservados." data-fr="Tous droits réservés." data-de="Alle Rechte vorbehalten." data-zh="版权所有。">All rights reserved.</span></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/language-manager.js"></script>
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.feature-card, .contact-item').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(30px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>
