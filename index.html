@@ -378,6 +378,30 @@
             align-self: center;
         }
 
+        .product-actions {
+            margin-top: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            align-items: center;
+        }
+
+        .product-actions .product-btn {
+            margin-top: 0;
+        }
+
+        .play-store-btn {
+            background: linear-gradient(135deg, #0f1116 0%, #1f2937 100%);
+            box-shadow: 0 8px 25px rgba(15, 17, 22, 0.35);
+            min-width: 215px;
+            text-align: center;
+        }
+
+        .play-store-btn:hover {
+            background: linear-gradient(135deg, #1f2937 0%, #0f1116 100%);
+            box-shadow: 0 12px 35px rgba(15, 17, 22, 0.45);
+        }
+
         .coming-soon {
             opacity: 0.8;
         }
@@ -756,7 +780,10 @@
                         <span class="feature-tag" data-en="No Ads" data-ru="Без рекламы" data-uk="Без реклами" data-es="Sin anuncios" data-fr="Sans pub" data-de="Keine Werbung" data-zh="无广告">No Ads</span>
                         <span class="feature-tag" data-en="7 Themes" data-ru="7 тем" data-uk="7 тем" data-es="7 temas" data-fr="7 thèmes" data-de="7 Themes" data-zh="7个主题">7 Themes</span>
                     </div>
-                    <a href="fuleomx.html" class="btn product-btn" data-en="Learn More" data-ru="Подробнее" data-uk="Детальніше" data-es="Saber Más" data-fr="En Savoir Plus" data-de="Mehr Erfahren" data-zh="了解更多">Learn More</a>
+                    <div class="product-actions">
+                        <a href="fuleomx.html" class="btn product-btn" data-en="Learn More" data-ru="Подробнее" data-uk="Детальніше" data-es="Saber Más" data-fr="En Savoir Plus" data-de="Mehr Erfahren" data-zh="了解更多">Learn More</a>
+                        <a href="https://play.google.com/store/apps/details?id=com.drit.mxfuelconv" class="btn product-btn play-store-btn" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
+                    </div>
                 </div>
             </div>
         </div>

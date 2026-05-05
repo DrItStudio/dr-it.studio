@@ -242,6 +242,25 @@
             box-shadow: 0 12px 35px rgba(26, 107, 138, 0.4);
         }
 
+        .hero-actions {
+            display: flex;
+            gap: 12px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .store-btn {
+            background: linear-gradient(135deg, #0f1116 0%, #1f2937 100%);
+            box-shadow: 0 8px 25px rgba(15, 17, 22, 0.35);
+            min-width: 230px;
+            text-align: center;
+        }
+
+        .store-btn:hover {
+            background: linear-gradient(135deg, #1f2937 0%, #0f1116 100%);
+            box-shadow: 0 12px 35px rgba(15, 17, 22, 0.45);
+        }
+
         .section {
             padding: 6rem 0;
             background: rgba(255, 255, 255, 0.95);
@@ -449,6 +468,16 @@
                 width: 80px;
                 height: 80px;
             }
+
+            .hero-actions {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .hero-actions .btn {
+                width: 100%;
+                max-width: 320px;
+            }
         }
     </style>
 </head>
@@ -493,8 +522,9 @@
             <h1>FuleoMX</h1>
             <div class="subtitle" data-en="Fuel Calculator, Converter & Toolkit" data-ru="Калькулятор топлива, конвертер и инструменты" data-uk="Калькулятор палива, конвертер та інструменти" data-es="Calculadora de combustible, conversor y herramientas" data-fr="Calculateur de carburant, convertisseur et outils" data-de="Kraftstoffrechner, Konverter & Toolkit" data-zh="燃油计算器、转换器和工具包">Fuel Calculator, Converter & Toolkit</div>
             <p data-en="Fuel calculator, scientific calculator, and unit converter — all in one clean, offline app. No ads, no tracking, no internet required." data-ru="Расчёт топлива, научный калькулятор и конвертер единиц — всё в одном элегантном офлайн-приложении. Без рекламы, без отслеживания, без интернета." data-uk="Калькулятор палива, науковий калькулятор та конвертер одиниць — все в одному елегантному офлайн-додатку. Без реклами, без відстеження, без інтернету." data-es="Calculadora de combustible, calculadora científica y convertidor de unidades — todo en una app limpia y sin conexión. Sin anuncios, sin rastreo, sin internet." data-fr="Calculateur de carburant, calculatrice scientifique et convertisseur d'unités — tout dans une app propre et hors ligne. Sans pub, sans suivi, sans internet." data-de="Kraftstoffrechner, wissenschaftlicher Taschenrechner und Einheitenkonverter — alles in einer sauberen Offline-App. Keine Werbung, kein Tracking, kein Internet." data-zh="燃油计算器、科学计算器和单位转换器 - 一款简洁的离线应用。无广告、无追踪、无需互联网。">Fuel calculator, scientific calculator, and unit converter — all in one clean, offline app. No ads, no tracking, no internet required.</p>
-            <div>
+            <div class="hero-actions">
                 <a href="#features" class="btn" data-en="Explore Features" data-ru="Изучить возможности" data-uk="Дослідити можливості" data-es="Explorar Características" data-fr="Explorer les Fonctionnalités" data-de="Funktionen Erkunden" data-zh="探索功能">Explore Features</a>
+                <a href="https://play.google.com/store/apps/details?id=com.drit.mxfuelconv" class="btn store-btn" target="_blank" rel="noopener noreferrer">Get it on Google Play</a>
             </div>
         </div>
     </section>
