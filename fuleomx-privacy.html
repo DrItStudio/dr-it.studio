@@ -39,12 +39,13 @@
         .lang-switcher {
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
             gap: 10px;
             margin-top: 1rem;
         }
 
         .lang-btn {
-            padding: 8px 20px;
+            padding: 8px 14px;
             border: 2px solid white;
             background: transparent;
             color: white;
@@ -165,6 +166,9 @@
         <div class="lang-switcher">
             <button class="lang-btn active" onclick="switchLang('en')">🇺🇸 English</button>
             <button class="lang-btn" onclick="switchLang('uk')">🇺🇦 Українська</button>
+            <button class="lang-btn" onclick="switchLang('es')">🇪🇸 Español</button>
+            <button class="lang-btn" onclick="switchLang('pt-BR')">🇧🇷 Português (Brasil)</button>
+            <button class="lang-btn" onclick="switchLang('ru')">🇷🇺 Русский</button>
         </div>
     </header>
 
@@ -205,7 +209,7 @@
             <h2>5. Third-Party Services</h2>
             <p>FuleoMX does <strong>not</strong> use any third-party services, SDKs, or libraries that collect data. There are:</p>
             <ul>
-                <li>No advertising SDKs</li>
+                <li>No advertisements are displayed, and no advertising SDKs are included</li>
                 <li>No analytics services (e.g., Firebase, Google Analytics)</li>
                 <li>No social media integrations</li>
                 <li>No third-party tracking tools</li>
@@ -278,7 +282,7 @@
             <h2>5. Сторонні сервіси</h2>
             <p>FuleoMX <strong>не</strong> використовує жодних сторонніх сервісів, SDK або бібліотек, які збирають дані. Немає:</p>
             <ul>
-                <li>Рекламних SDK</li>
+                <li>Реклама в додатку не показується, рекламні SDK не використовуються</li>
                 <li>Сервісів аналітики (наприклад, Firebase, Google Analytics)</li>
                 <li>Інтеграцій із соціальними мережами</li>
                 <li>Сторонніх інструментів відстеження</li>
@@ -317,42 +321,296 @@
             </ul>
         </div>
 
+        <!-- Spanish Version -->
+        <div id="content-es" class="policy-content" style="display: none;">
+            <h2>1. Introducción</h2>
+            <p>Esta Política de Privacidad explica cómo FuleoMX ("la aplicación"), desarrollada por DR.IT.Studio, trata sus datos. FuleoMX es una aplicación de utilidades completamente offline que incluye una calculadora de combustible, una calculadora científica y un conversor de unidades.</p>
+
+            <div class="highlight-box">
+                <p>FuleoMX NO recopila, transmite ni comparte datos personales. La aplicación funciona completamente offline y no tiene acceso a Internet.</p>
+            </div>
+
+            <h2>2. Recopilación de datos</h2>
+            <p>FuleoMX <strong>no</strong> recopila ningún dato personal. En concreto:</p>
+            <ul>
+                <li>No se recopila información personal</li>
+                <li>No se recopilan análisis de uso ni telemetría</li>
+                <li>No se envían informes de errores a servidores externos</li>
+                <li>No se utilizan cookies ni tecnologías de seguimiento</li>
+                <li>No se utilizan identificadores publicitarios</li>
+            </ul>
+
+            <h2>3. Acceso a Internet</h2>
+            <p>FuleoMX <strong>no</strong> solicita ni utiliza el permiso de Internet. La aplicación no puede conectarse a Internet de ninguna manera. Todas sus funciones funcionan completamente offline.</p>
+
+            <h2>4. Almacenamiento de datos</h2>
+            <p>Todos los datos creados en la aplicación se almacenan exclusivamente en su dispositivo:</p>
+            <ul>
+                <li><strong>Registros de combustible</strong>: se guardan en una base de datos local (Room) en su dispositivo</li>
+                <li><strong>Historial de cálculos</strong>: se guarda en una base de datos local en su dispositivo</li>
+                <li><strong>Configuración de la aplicación</strong> (tema, idioma y preferencia del modo oscuro): se guarda en SharedPreferences local en su dispositivo</li>
+            </ul>
+            <p>Estos datos nunca se transmiten, sincronizan ni respaldan en servidores externos. Al desinstalar la aplicación, se eliminarán permanentemente todos los datos almacenados localmente.</p>
+
+            <h2>5. Servicios de terceros</h2>
+            <p>FuleoMX <strong>no</strong> utiliza servicios, SDK ni bibliotecas de terceros que recopilen datos. No hay:</p>
+            <ul>
+                <li>No se muestran anuncios ni se incluyen SDK de publicidad</li>
+                <li>Servicios de análisis (por ejemplo, Firebase o Google Analytics)</li>
+                <li>Integraciones con redes sociales</li>
+                <li>Herramientas de seguimiento de terceros</li>
+            </ul>
+
+            <h2>6. Permisos</h2>
+            <p>FuleoMX <strong>no</strong> solicita permisos del dispositivo. La aplicación no accede a:</p>
+            <ul>
+                <li>La cámara ni el micrófono</li>
+                <li>Los contactos ni el teléfono</li>
+                <li>La ubicación</li>
+                <li>El almacenamiento externo</li>
+                <li>La red ni Internet</li>
+                <li>Ninguna otra función sensible del dispositivo</li>
+            </ul>
+
+            <h2>7. Privacidad de los menores</h2>
+            <p>FuleoMX no recopila datos de ningún usuario, incluidos los menores. La aplicación es segura para usuarios de todas las edades, ya que funciona completamente offline y no solicita información personal.</p>
+
+            <h2>8. Eliminación de datos</h2>
+            <p>Como todos los datos se almacenan localmente en su dispositivo, puede eliminarlos en cualquier momento:</p>
+            <ul>
+                <li>Borrando los datos de la aplicación en la configuración del dispositivo</li>
+                <li>Desinstalando la aplicación</li>
+            </ul>
+            <p>No hay datos en servidores externos, por lo que no es necesario solicitar su eliminación por separado.</p>
+
+            <h2>9. Cambios en esta política</h2>
+            <p>Es posible que actualicemos esta Política de Privacidad periódicamente. Publicaremos los cambios en esta página junto con la fecha de entrada en vigor actualizada. Le recomendamos que consulte esta página con regularidad.</p>
+
+            <h2>10. Contacto</h2>
+            <p>Si tiene preguntas sobre esta Política de Privacidad, póngase en contacto con nosotros:</p>
+            <ul>
+                <li>Correo electrónico: <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></li>
+                <li>Sitio web: <a href="https://dr-it.studio">https://dr-it.studio</a></li>
+            </ul>
+        </div>
+
+        <!-- Brazilian Portuguese Version -->
+        <div id="content-pt-BR" class="policy-content" style="display: none;">
+            <h2>1. Introdução</h2>
+            <p>Esta Política de Privacidade explica como o FuleoMX ("o Aplicativo"), desenvolvido pela DR.IT.Studio, trata os seus dados. O FuleoMX é um aplicativo utilitário totalmente offline que inclui uma calculadora de combustível, uma calculadora científica e um conversor de unidades.</p>
+
+            <div class="highlight-box">
+                <p>O FuleoMX NÃO coleta, transmite nem compartilha dados pessoais. O aplicativo funciona totalmente offline e não tem acesso à internet.</p>
+            </div>
+
+            <h2>2. Coleta de dados</h2>
+            <p>O FuleoMX <strong>não</strong> coleta nenhum dado pessoal. Especificamente:</p>
+            <ul>
+                <li>Nenhuma informação pessoal é coletada</li>
+                <li>Não há análises de uso nem telemetria</li>
+                <li>Relatórios de falhas não são enviados a servidores externos</li>
+                <li>Não são usados cookies nem tecnologias de rastreamento</li>
+                <li>Não são usados identificadores de publicidade</li>
+            </ul>
+
+            <h2>3. Acesso à internet</h2>
+            <p>O FuleoMX <strong>não</strong> solicita nem usa a permissão de internet. O aplicativo não consegue se conectar à internet de nenhuma forma. Todas as funcionalidades operam totalmente offline.</p>
+
+            <h2>4. Armazenamento de dados</h2>
+            <p>Todos os dados criados no aplicativo são armazenados exclusivamente no seu dispositivo:</p>
+            <ul>
+                <li><strong>Registros de combustível</strong>: salvos em um banco de dados local (Room) no seu dispositivo</li>
+                <li><strong>Histórico de cálculos</strong>: salvo em um banco de dados local no seu dispositivo</li>
+                <li><strong>Configurações do aplicativo</strong> (tema, idioma e preferência pelo modo escuro): salvas no SharedPreferences local do seu dispositivo</li>
+            </ul>
+            <p>Esses dados nunca são transmitidos, sincronizados nem armazenados em backup em servidores externos. A desinstalação do aplicativo excluirá permanentemente todos os dados armazenados localmente.</p>
+
+            <h2>5. Serviços de terceiros</h2>
+            <p>O FuleoMX <strong>não</strong> usa serviços, SDKs ou bibliotecas de terceiros que coletem dados. Não há:</p>
+            <ul>
+                <li>O aplicativo não exibe anúncios nem inclui SDKs de publicidade</li>
+                <li>Serviços de análise (por exemplo, Firebase ou Google Analytics)</li>
+                <li>Integrações com redes sociais</li>
+                <li>Ferramentas de rastreamento de terceiros</li>
+            </ul>
+
+            <h2>6. Permissões</h2>
+            <p>O FuleoMX <strong>não</strong> solicita permissões do dispositivo. O aplicativo não acessa:</p>
+            <ul>
+                <li>Câmera nem microfone</li>
+                <li>Contatos nem telefone</li>
+                <li>Localização</li>
+                <li>Armazenamento externo</li>
+                <li>Rede nem internet</li>
+                <li>Qualquer outro recurso sensível do dispositivo</li>
+            </ul>
+
+            <h2>7. Privacidade de crianças</h2>
+            <p>O FuleoMX não coleta dados de nenhum usuário, incluindo crianças. O aplicativo é seguro para pessoas de todas as idades, pois funciona totalmente offline e não solicita informações pessoais.</p>
+
+            <h2>8. Exclusão de dados</h2>
+            <p>Como todos os dados são armazenados localmente no seu dispositivo, você pode excluí-los a qualquer momento:</p>
+            <ul>
+                <li>Limpando os dados do aplicativo nas configurações do dispositivo</li>
+                <li>Desinstalando o aplicativo</li>
+            </ul>
+            <p>Não há dados em servidores externos, portanto não é necessário fazer uma solicitação de exclusão adicional.</p>
+
+            <h2>9. Alterações nesta política</h2>
+            <p>Podemos atualizar esta Política de Privacidade periodicamente. As alterações serão publicadas nesta página com a data de vigência atualizada. Recomendamos que você consulte esta página regularmente.</p>
+
+            <h2>10. Fale conosco</h2>
+            <p>Se tiver dúvidas sobre esta Política de Privacidade, entre em contato:</p>
+            <ul>
+                <li>E-mail: <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></li>
+                <li>Site: <a href="https://dr-it.studio">https://dr-it.studio</a></li>
+            </ul>
+        </div>
+
+        <!-- Russian Version -->
+        <div id="content-ru" class="policy-content" style="display: none;">
+            <h2>1. Введение</h2>
+            <p>В этой Политике конфиденциальности объясняется, как FuleoMX (далее — «Приложение»), разработанное DR.IT.Studio, обрабатывает ваши данные. FuleoMX — это полностью автономное приложение-утилита, включающее калькулятор топлива, научный калькулятор и конвертер единиц измерения.</p>
+
+            <div class="highlight-box">
+                <p>FuleoMX НЕ собирает, не передаёт и не раскрывает персональные данные. Приложение полностью работает офлайн и не имеет доступа к интернету.</p>
+            </div>
+
+            <h2>2. Сбор данных</h2>
+            <p>FuleoMX <strong>не</strong> собирает персональные данные. В частности:</p>
+            <ul>
+                <li>Личная информация не собирается</li>
+                <li>Аналитика использования и телеметрия не собираются</li>
+                <li>Отчёты о сбоях не отправляются на внешние серверы</li>
+                <li>Файлы cookie и технологии отслеживания не используются</li>
+                <li>Рекламные идентификаторы не используются</li>
+            </ul>
+
+            <h2>3. Доступ к интернету</h2>
+            <p>FuleoMX <strong>не</strong> запрашивает и не использует разрешение на доступ к интернету. Приложение не может подключиться к интернету ни одним способом. Все функции работают полностью офлайн.</p>
+
+            <h2>4. Хранение данных</h2>
+            <p>Все данные, создаваемые в приложении, хранятся исключительно на вашем устройстве:</p>
+            <ul>
+                <li><strong>Записи о заправках</strong> — сохраняются в локальной базе данных (Room) на вашем устройстве</li>
+                <li><strong>История вычислений</strong> — сохраняется в локальной базе данных на вашем устройстве</li>
+                <li><strong>Настройки приложения</strong> (тема, язык и предпочтение тёмного режима) — сохраняются в локальном SharedPreferences на вашем устройстве</li>
+            </ul>
+            <p>Эти данные никогда не передаются, не синхронизируются и не резервируются на внешних серверах. При удалении приложения все данные, хранящиеся локально, будут удалены без возможности восстановления.</p>
+
+            <h2>5. Сторонние сервисы</h2>
+            <p>FuleoMX <strong>не</strong> использует сторонние сервисы, SDK или библиотеки, собирающие данные. В приложении нет:</p>
+            <ul>
+                <li>В приложении не показывается реклама и не используются рекламные SDK</li>
+                <li>Сервисов аналитики (например, Firebase или Google Analytics)</li>
+                <li>Интеграций с социальными сетями</li>
+                <li>Сторонних инструментов отслеживания</li>
+            </ul>
+
+            <h2>6. Разрешения</h2>
+            <p>FuleoMX <strong>не</strong> запрашивает разрешения устройства. Приложение не получает доступ к:</p>
+            <ul>
+                <li>Камере или микрофону</li>
+                <li>Контактам или телефону</li>
+                <li>Местоположению</li>
+                <li>Внешнему хранилищу</li>
+                <li>Сети или интернету</li>
+                <li>Другим конфиденциальным функциям устройства</li>
+            </ul>
+
+            <h2>7. Конфиденциальность детей</h2>
+            <p>FuleoMX не собирает данные ни от каких пользователей, включая детей. Приложение безопасно для пользователей любого возраста: оно полностью работает офлайн и не запрашивает личную информацию.</p>
+
+            <h2>8. Удаление данных</h2>
+            <p>Поскольку все данные хранятся локально на вашем устройстве, вы можете удалить их в любое время:</p>
+            <ul>
+                <li>Очистив данные приложения в настройках устройства</li>
+                <li>Удалив приложение</li>
+            </ul>
+            <p>На внешних серверах данных нет, поэтому дополнительные запросы на удаление не требуются.</p>
+
+            <h2>9. Изменения этой политики</h2>
+            <p>Время от времени мы можем обновлять эту Политику конфиденциальности. Изменения будут опубликованы на этой странице с обновлённой датой вступления в силу. Рекомендуем периодически просматривать эту страницу.</p>
+
+            <h2>10. Контакты</h2>
+            <p>Если у вас есть вопросы об этой Политике конфиденциальности, свяжитесь с нами:</p>
+            <ul>
+                <li>Электронная почта: <a href="mailto:support@dr-it.studio">support@dr-it.studio</a></li>
+                <li>Сайт: <a href="https://dr-it.studio">https://dr-it.studio</a></li>
+            </ul>
+        </div>
+
         <p class="last-updated" id="last-updated">Last updated: January 2025</p>
     </div>
 
     <footer>
-        <p>&copy; 2025 DR.IT.Studio. All rights reserved.</p>
+        <p id="copyright">&copy; 2025 DR.IT.Studio. All rights reserved.</p>
         <p><a href="fuleomx.html">FuleoMX</a> | <a href="index.html">DR.IT.Studio</a></p>
     </footer>
 
     <script>
         function switchLang(lang) {
-            const enContent = document.getElementById('content-en');
-            const ukContent = document.getElementById('content-uk');
+            const languages = {
+                en: {
+                    documentTitle: 'FuleoMX - Privacy Policy',
+                    title: 'FuleoMX — Privacy Policy',
+                    back: '← Back to FuleoMX',
+                    updated: 'Last updated: January 2025',
+                    copyright: '© 2025 DR.IT.Studio. All rights reserved.'
+                },
+                uk: {
+                    documentTitle: 'FuleoMX — Політика конфіденційності',
+                    title: 'FuleoMX — Політика конфіденційності',
+                    back: '← Назад до FuleoMX',
+                    updated: 'Останнє оновлення: Січень 2025',
+                    copyright: '© 2025 DR.IT.Studio. Усі права захищені.'
+                },
+                es: {
+                    documentTitle: 'FuleoMX - Política de privacidad',
+                    title: 'FuleoMX — Política de privacidad',
+                    back: '← Volver a FuleoMX',
+                    updated: 'Última actualización: enero de 2025',
+                    copyright: '© 2025 DR.IT.Studio. Todos los derechos reservados.'
+                },
+                'pt-BR': {
+                    documentTitle: 'FuleoMX - Política de Privacidade',
+                    title: 'FuleoMX — Política de Privacidade',
+                    back: '← Voltar para o FuleoMX',
+                    updated: 'Última atualização: janeiro de 2025',
+                    copyright: '© 2025 DR.IT.Studio. Todos os direitos reservados.'
+                },
+                ru: {
+                    documentTitle: 'FuleoMX — Политика конфиденциальности',
+                    title: 'FuleoMX — Политика конфиденциальности',
+                    back: '← Вернуться к FuleoMX',
+                    updated: 'Последнее обновление: январь 2025 года',
+                    copyright: '© 2025 DR.IT.Studio. Все права защищены.'
+                }
+            };
+            const selectedLanguage = languages[lang] ? lang : 'en';
+            const selectedContent = document.getElementById(`content-${selectedLanguage}`);
             const pageTitle = document.getElementById('page-title');
             const backLink = document.getElementById('back-link');
             const lastUpdated = document.getElementById('last-updated');
             const buttons = document.querySelectorAll('.lang-btn');
 
+            document.querySelectorAll('.policy-content').forEach(content => {
+                content.style.display = content === selectedContent ? 'block' : 'none';
+            });
             buttons.forEach(btn => btn.classList.remove('active'));
+            buttons.forEach(btn => {
+                if (btn.getAttribute('onclick') === `switchLang('${selectedLanguage}')`) {
+                    btn.classList.add('active');
+                }
+            });
 
-            if (lang === 'uk') {
-                enContent.style.display = 'none';
-                ukContent.style.display = 'block';
-                pageTitle.textContent = 'FuleoMX — Політика конфіденційності';
-                backLink.textContent = '← Назад до FuleoMX';
-                lastUpdated.textContent = 'Останнє оновлення: Січень 2025';
-                buttons[1].classList.add('active');
-            } else {
-                enContent.style.display = 'block';
-                ukContent.style.display = 'none';
-                pageTitle.textContent = 'FuleoMX — Privacy Policy';
-                backLink.textContent = '← Back to FuleoMX';
-                lastUpdated.textContent = 'Last updated: January 2025';
-                buttons[0].classList.add('active');
-            }
-
-            localStorage.setItem('fuleomx-privacy-lang', lang);
+            document.documentElement.lang = selectedLanguage;
+            document.title = languages[selectedLanguage].documentTitle;
+            pageTitle.textContent = languages[selectedLanguage].title;
+            backLink.textContent = languages[selectedLanguage].back;
+            lastUpdated.textContent = languages[selectedLanguage].updated;
+            document.getElementById('copyright').textContent = languages[selectedLanguage].copyright;
+            localStorage.setItem('fuleomx-privacy-lang', selectedLanguage);
         }
 
         // Restore saved language preference
