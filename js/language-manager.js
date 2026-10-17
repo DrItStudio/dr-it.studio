@@ -19,6 +19,7 @@ class GlobalLanguageManager {
     init() {
         this.loadSavedLanguage();
         this.setupEventListeners();
+        this.updateUI();
         this.applyLanguage();
     }
 

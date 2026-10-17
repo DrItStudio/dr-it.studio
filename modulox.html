@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ModuloX is an offline construction materials calculator for room planning and project estimates.">
+    <title>ModuloX - Construction Materials Calculator</title>
+    <script src="js/language-manager.js" defer></script>
+    <style>
+        * { box-sizing: border-box; }
+        body {
+            margin: 0;
+            color: #172d2b;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            background: linear-gradient(145deg, #f3f6ef 0%, #e4eee8 52%, #dce8e5 100%);
+        }
+        a { color: inherit; }
+        .site-header {
+            position: absolute;
+            inset: 0 0 auto;
+            z-index: 2;
+            padding: 20px clamp(20px, 6vw, 88px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 24px;
+        }
+        .wordmark { color: #fff; font-size: 1.2rem; font-weight: 700; text-decoration: none; }
+        .language-dropdown { position: relative; }
+        .language-current {
+            border: 1px solid rgba(255,255,255,.45);
+            border-radius: 4px;
+            background: rgba(15, 45, 41, .45);
+            color: white;
+            padding: 9px 13px;
+            cursor: pointer;
+            font: inherit;
+        }
+        .language-options {
+            display: none;
+            position: absolute;
+            right: 0;
+            top: calc(100% + 6px);
+            min-width: 150px;
+            background: white;
+            color: #172d2b;
+            box-shadow: 0 8px 24px rgba(0,0,0,.2);
+        }
+        .language-options.show { display: block; }
+        .language-option { padding: 8px 13px; cursor: pointer; }
+        .language-option:hover, .language-option.active { background: #e6eee8; }
+        .hero {
+            min-height: 610px;
+            padding: 120px 24px 76px;
+            color: white;
+            background: linear-gradient(120deg, #153e39 0%, #23665c 65%, #398174 100%);
+            display: grid;
+            place-items: center;
+            text-align: center;
+        }
+        .hero-inner { max-width: 860px; }
+        .app-mark {
+            width: 148px;
+            aspect-ratio: 1;
+            margin: 0 auto 24px;
+            display: block;
+            object-fit: contain;
+            border-radius: 25px;
+            box-shadow: 0 14px 40px rgba(0,0,0,.22);
+        }
+        .eyebrow { margin: 0 0 8px; color: #f1c45e; font-size: .9rem; font-weight: 700; text-transform: uppercase; }
+        h1 { margin: 0; font-size: clamp(2.6rem, 7vw, 4.5rem); line-height: 1.08; }
+        .hero p { max-width: 680px; margin: 18px auto 28px; font-size: 1.15rem; color: rgba(255,255,255,.88); }
+        .hero-links { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; }
+        .button {
+            display: inline-block;
+            padding: 12px 19px;
+            border: 1px solid #f1c45e;
+            border-radius: 4px;
+            background: #f1c45e;
+            color: #20352e;
+            font-weight: 700;
+            text-decoration: none;
+        }
+        .button-secondary { color: white; background: transparent; border-color: rgba(255,255,255,.62); }
+        main { max-width: 1040px; margin: 0 auto; padding: 64px 24px 78px; }
+        .section-heading { max-width: 680px; margin-bottom: 26px; }
+        .section-heading h2 { margin: 0 0 8px; color: #153e39; font-size: 2rem; }
+        .section-heading p { margin: 0; color: #526662; }
+        .feature-list { display: grid; grid-template-columns: repeat(3, 1fr); border-top: 1px solid #b9cbc3; border-bottom: 1px solid #b9cbc3; }
+        .feature { padding: 25px 22px 27px 0; }
+        .feature + .feature { padding-left: 22px; border-left: 1px solid #b9cbc3; }
+        .feature h3 { margin: 0 0 7px; color: #23665c; font-size: 1.12rem; }
+        .feature p { margin: 0; color: #526662; }
+        .privacy-note { margin-top: 40px; padding: 23px 25px; background: #fff; border-left: 4px solid #e5b848; }
+        .privacy-note p { margin: 0 0 8px; }
+        .privacy-note a { color: #1d6157; font-weight: 700; margin-right: 16px; }
+        footer { padding: 22px 24px; background: #153e39; color: rgba(255,255,255,.8); text-align: center; }
+        footer a { color: #f1c45e; }
+        @media (max-width: 680px) {
+            .hero { min-height: 580px; }
+            .feature-list { grid-template-columns: 1fr; }
+            .feature, .feature + .feature { padding: 18px 0; border-left: 0; }
+            .feature + .feature { border-top: 1px solid #b9cbc3; }
+        }
+    </style>
+</head>
+<body>
+    <header class="site-header">
+        <a class="wordmark" href="index.html">DR.IT.Studio</a>
+        <div class="language-dropdown">
+            <button class="language-current" type="button"><span id="current-lang">🇺🇸 EN</span> ▼</button>
+            <div class="language-options" id="language-options">
+                <div class="language-option" data-lang="en">🇺🇸 English</div>
+                <div class="language-option" data-lang="ru">🇷🇺 Русский</div>
+                <div class="language-option" data-lang="uk">🇺🇦 Українська</div>
+                <div class="language-option" data-lang="es">🇪🇸 Español</div>
+                <div class="language-option" data-lang="fr">🇫🇷 Français</div>
+                <div class="language-option" data-lang="de">🇩🇪 Deutsch</div>
+                <div class="language-option" data-lang="zh">🇨🇳 中文</div>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-inner">
+            <img class="app-mark" src="modulox_icon.png" alt="ModuloX app icon">
+            <p class="eyebrow" data-en="Construction Calculator" data-ru="Калькулятор строительных материалов" data-uk="Калькулятор будівельних матеріалів" data-es="Calculadora de construcción" data-fr="Calculateur de construction" data-de="Baustoff-Rechner" data-zh="建筑计算器">Construction Calculator</p>
+            <h1>ModuloX</h1>
+            <p data-en="Plan rooms, estimate building materials, and keep project calculations organized in one offline Android app." data-ru="Планируйте комнаты, рассчитывайте строительные материалы и храните расчёты проектов в одном офлайн-приложении для Android." data-uk="Плануйте кімнати, розраховуйте будівельні матеріали та зберігайте розрахунки проєктів в одному офлайн-застосунку для Android." data-es="Planifica habitaciones, calcula materiales y organiza los cálculos de tus proyectos en una aplicación Android sin conexión." data-fr="Planifiez des pièces, estimez les matériaux et organisez les calculs de vos projets dans une application Android hors ligne." data-de="Planen Sie Räume, kalkulieren Sie Baumaterialien und organisieren Sie Projektberechnungen in einer Offline-Android-App." data-zh="在一款离线 Android 应用中规划房间、估算建筑材料并整理项目计算。">Plan rooms, estimate building materials, and keep project calculations organized in one offline Android app.</p>
+            <div class="hero-links">
+                <a class="button" href="modulox-privacy-ru.html" data-en="Privacy Policy" data-ru="Политика конфиденциальности" data-uk="Політика конфіденційності" data-es="Política de privacidad" data-fr="Politique de confidentialité" data-de="Datenschutzerklärung" data-zh="隐私政策">Privacy Policy</a>
+                <a class="button button-secondary" href="mailto:support@modulox.app" data-en="Contact support" data-ru="Написать в поддержку" data-uk="Звернутися до підтримки" data-es="Contactar con soporte" data-fr="Contacter le support" data-de="Support kontaktieren" data-zh="联系支持">Contact support</a>
+            </div>
+        </div>
+    </section>
+
+    <main id="features">
+        <div class="section-heading">
+            <h2 data-en="Built for practical estimates" data-ru="Для практичных расчётов" data-uk="Для практичних розрахунків" data-es="Cálculos prácticos" data-fr="Des estimations concrètes" data-de="Für praktische Kalkulationen" data-zh="实用的材料估算">Built for practical estimates</h2>
+            <p data-en="Create a project, describe its rooms, then review the quantities needed for common finishing and construction materials." data-ru="Создайте проект, задайте параметры комнат и просмотрите расчёт количества распространённых отделочных и строительных материалов." data-uk="Створіть проєкт, задайте параметри кімнат і перегляньте розрахунок кількості поширених оздоблювальних і будівельних матеріалів." data-es="Crea un proyecto, define sus habitaciones y consulta las cantidades de materiales habituales de construcción y acabado." data-fr="Créez un projet, décrivez ses pièces et consultez les quantités de matériaux de construction et de finition courants." data-de="Erstellen Sie ein Projekt, erfassen Sie die Räume und prüfen Sie den Bedarf an gängigen Bau- und Ausbaumaterialien." data-zh="创建项目并填写房间参数，查看常见装修和建筑材料的用量估算。">Create a project, describe its rooms, then review the quantities needed for common finishing and construction materials.</p>
+        </div>
+        <div class="feature-list">
+            <article class="feature">
+                <h3 data-en="Room-based projects" data-ru="Проекты по комнатам" data-uk="Проєкти за кімнатами" data-es="Proyectos por habitaciones" data-fr="Projets par pièce" data-de="Projekte nach Räumen" data-zh="按房间管理项目">Room-based projects</h3>
+                <p data-en="Save projects with room dimensions, windows, and doors. A project supports up to 25 rooms." data-ru="Сохраняйте проекты с размерами комнат, окон и дверей. В одном проекте можно вести до 25 комнат." data-uk="Зберігайте проєкти з розмірами кімнат, вікон і дверей. Один проєкт підтримує до 25 кімнат." data-es="Guarda proyectos con dimensiones, ventanas y puertas. Cada proyecto admite hasta 25 habitaciones." data-fr="Enregistrez les dimensions des pièces, fenêtres et portes. Un projet peut contenir jusqu'à 25 pièces." data-de="Speichern Sie Raummaße, Fenster und Türen. Ein Projekt unterstützt bis zu 25 Räume." data-zh="保存包含房间尺寸、窗户和门的数据，每个项目最多可添加 25 个房间。">Save projects with room dimensions, windows, and doors. A project supports up to 25 rooms.</p>
+            </article>
+            <article class="feature">
+                <h3 data-en="Material quantities" data-ru="Количество материалов" data-uk="Кількість матеріалів" data-es="Cantidades de materiales" data-fr="Quantités de matériaux" data-de="Materialmengen" data-zh="材料用量">Material quantities</h3>
+                <p data-en="Calculate areas and quantities for materials such as flooring, paint, plaster, tiles, and insulation." data-ru="Рассчитывайте площади и количество материалов: напольных покрытий, краски, штукатурки, плитки и утеплителя." data-uk="Розраховуйте площі та кількість матеріалів: підлогових покриттів, фарби, штукатурки, плитки й утеплювача." data-es="Calcula superficies y cantidades de materiales como pavimentos, pintura, yeso, azulejos y aislamiento." data-fr="Calculez les surfaces et quantités de revêtements, peinture, plâtre, carrelage et isolant." data-de="Berechnen Sie Flächen und Mengen für Bodenbeläge, Farbe, Putz, Fliesen und Dämmstoffe." data-zh="计算地板、油漆、石膏、瓷砖和保温材料等的面积与用量。">Calculate areas and quantities for materials such as flooring, paint, plaster, tiles, and insulation.</p>
+            </article>
+            <article class="feature">
+                <h3 data-en="Works offline" data-ru="Работает офлайн" data-uk="Працює офлайн" data-es="Funciona sin conexión" data-fr="Fonctionne hors ligne" data-de="Funktioniert offline" data-zh="离线使用">Works offline</h3>
+                <p data-en="Calculations and saved project data stay in the app on your device. No account is required." data-ru="Расчёты и сохранённые данные проектов остаются в приложении на устройстве. Аккаунт не требуется." data-uk="Розрахунки та збережені дані проєктів залишаються в застосунку на пристрої. Обліковий запис не потрібен." data-es="Los cálculos y proyectos guardados permanecen en la aplicación en tu dispositivo. No se necesita una cuenta." data-fr="Les calculs et projets enregistrés restent dans l'application sur votre appareil. Aucun compte n'est nécessaire." data-de="Berechnungen und gespeicherte Projektdaten bleiben in der App auf Ihrem Gerät. Ein Konto ist nicht erforderlich." data-zh="计算结果和已保存的项目数据保留在设备上的应用中，无需注册账户。">Calculations and saved project data stay in the app on your device. No account is required.</p>
+            </article>
+        </div>
+        <aside class="privacy-note">
+            <p data-en="ModuloX does not include advertising or analytics SDKs. Project data is stored locally and is not sent to DR.IT.Studio." data-ru="ModuloX не содержит SDK рекламы и аналитики. Данные проектов хранятся локально и не отправляются в DR.IT.Studio." data-uk="ModuloX не містить SDK реклами та аналітики. Дані проєктів зберігаються локально й не надсилаються до DR.IT.Studio." data-es="ModuloX no incluye SDK de publicidad ni analítica. Los datos del proyecto se guardan localmente y no se envían a DR.IT.Studio." data-fr="ModuloX n'intègre aucun SDK publicitaire ou analytique. Les données de projet sont stockées localement et ne sont pas envoyées à DR.IT.Studio." data-de="ModuloX enthält keine Werbe- oder Analyse-SDKs. Projektdaten werden lokal gespeichert und nicht an DR.IT.Studio gesendet." data-zh="ModuloX 不包含广告或分析 SDK。项目数据保存在本地，不会发送给 DR.IT.Studio。">ModuloX does not include advertising or analytics SDKs. Project data is stored locally and is not sent to DR.IT.Studio.</p>
+            <a href="modulox-privacy-ru.html">Русская версия политики</a>
+            <a href="modulox-privacy.html">English policy</a>
+        </aside>
+    </main>
+
+    <footer>
+        <span>DR.IT.Studio</span> · <a href="index.html" data-en="All products" data-ru="Все приложения" data-uk="Усі застосунки" data-es="Todos los productos" data-fr="Tous les produits" data-de="Alle Produkte" data-zh="所有产品">All products</a> · <a href="mailto:support@modulox.app">support@modulox.app</a>
+    </footer>
+</body>
+</html>
