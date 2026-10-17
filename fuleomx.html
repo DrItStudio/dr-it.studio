@@ -479,6 +479,205 @@
                 max-width: 320px;
             }
         }
+
+        header {
+            background: rgba(255, 255, 255, 0.97);
+            border-bottom-color: rgba(20, 61, 69, 0.12);
+            box-shadow: 0 8px 24px rgba(20, 61, 69, 0.08);
+        }
+
+        .hero {
+            background: linear-gradient(125deg, #123d48 0%, #185b61 58%, #26766c 100%);
+        }
+
+        .logo-text {
+            letter-spacing: 0;
+        }
+
+        .language-current {
+            border-radius: 7px;
+            background: #173c43;
+        }
+
+        .language-option.active {
+            background: #1a6b8a;
+        }
+
+        .btn {
+            border-radius: 8px;
+            background: #1d7187;
+            box-shadow: 0 8px 22px rgba(18, 74, 89, 0.24);
+        }
+
+        .btn:hover {
+            background: #175d70;
+            box-shadow: 0 12px 28px rgba(18, 74, 89, 0.3);
+        }
+
+        .hero .btn:not(.store-btn) {
+            background: #d6b66f;
+            color: #173c43;
+            box-shadow: 0 8px 22px rgba(10, 32, 36, 0.24);
+        }
+
+        .hero .btn:not(.store-btn):hover {
+            background: #e4c987;
+            box-shadow: 0 12px 28px rgba(10, 32, 36, 0.3);
+        }
+
+        .store-btn,
+        .store-btn:hover {
+            background: #17211f;
+            box-shadow: 0 8px 22px rgba(15, 25, 23, 0.22);
+        }
+
+        .feature-card {
+            border-radius: 8px;
+            border-color: rgba(26, 107, 138, 0.16);
+            box-shadow: 0 8px 26px rgba(18, 56, 64, 0.08);
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 14px 34px rgba(18, 56, 64, 0.14);
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            padding: 0;
+            border: 1px solid rgba(23, 60, 67, 0.18);
+            border-radius: 7px;
+            background: #fff;
+            color: #173c43;
+            cursor: pointer;
+            position: relative;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .mobile-menu-toggle::before,
+        .mobile-menu-toggle::after {
+            content: '';
+            position: absolute;
+            width: 18px;
+            height: 2px;
+            border-radius: 2px;
+            background: currentColor;
+            transition: transform 0.18s ease;
+        }
+
+        .mobile-menu-toggle::before {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 0 currentColor;
+        }
+
+        .mobile-menu-toggle::after {
+            transform: translateY(4px);
+        }
+
+        .mobile-menu-toggle[aria-expanded="true"]::before {
+            transform: rotate(45deg);
+            box-shadow: none;
+        }
+
+        .mobile-menu-toggle[aria-expanded="true"]::after {
+            transform: rotate(-45deg);
+        }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        @media (max-width: 768px) {
+            nav.container {
+                position: relative;
+            }
+
+            .logo-container {
+                gap: 10px;
+                min-width: 0;
+            }
+
+            .logo-img {
+                height: 32px;
+            }
+
+            .logo-text {
+                font-size: 1.05rem;
+                white-space: nowrap;
+            }
+
+            .language-selector {
+                margin-left: auto;
+                flex: 0 0 auto;
+            }
+
+            .language-dropdown,
+            .language-current {
+                flex: 0 0 auto;
+                white-space: nowrap;
+            }
+
+            .language-current {
+                gap: 4px;
+                padding-right: 10px;
+                padding-left: 10px;
+            }
+
+            .language-current #current-lang {
+                display: inline-block;
+                white-space: nowrap;
+            }
+
+            .mobile-menu-toggle {
+                display: inline-flex;
+                flex: 0 0 44px;
+                margin-left: 8px;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: calc(100% + 12px);
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                gap: 0;
+                padding: 8px;
+                background: rgba(255, 255, 255, 0.99);
+                border: 1px solid rgba(23, 60, 67, 0.12);
+                border-radius: 8px;
+                box-shadow: 0 18px 42px rgba(17, 39, 43, 0.17);
+            }
+
+            .nav-links.is-open {
+                display: flex;
+                animation: menuDrop 0.18s ease-out;
+            }
+
+            .nav-links li + li {
+                border-top: 1px solid rgba(23, 60, 67, 0.08);
+            }
+
+            .nav-links a {
+                display: block;
+                padding: 12px 10px;
+                color: #173c43;
+            }
+        }
+
+        @keyframes menuDrop {
+            from { opacity: 0; transform: translateY(-5px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
     </style>
 </head>
 <body>
@@ -488,7 +687,7 @@
                 <img src="logo_light.png" alt="DR.IT.Studio" class="logo-img">
                 <a href="index.html" class="logo-text">DR.IT.Studio</a>
             </div>
-            <ul class="nav-links">
+            <ul class="nav-links" id="primary-navigation">
                 <li><a href="index.html" data-en="Home" data-ru="Главная" data-uk="Головна" data-es="Inicio" data-fr="Accueil" data-de="Startseite" data-zh="首页">Home</a></li>
                 <li><a href="#features" data-en="Features" data-ru="Возможности" data-uk="Можливості" data-es="Características" data-fr="Fonctionnalités" data-de="Funktionen" data-zh="功能">Features</a></li>
                 <li><a href="#about" data-en="About" data-ru="О продукте" data-uk="Про продукт" data-es="Acerca del Producto" data-fr="À propos du Produit" data-de="Über das Produkt" data-zh="关于产品">About</a></li>
@@ -511,6 +710,9 @@
                     </div>
                 </div>
             </div>
+            <button class="mobile-menu-toggle" type="button" aria-expanded="false" aria-controls="primary-navigation">
+                <span class="sr-only" data-en="Open navigation menu" data-ru="Открыть меню навигации" data-uk="Відкрити меню навігації" data-es="Abrir menú de navegación" data-fr="Ouvrir le menu de navigation" data-de="Navigationsmenü öffnen" data-zh="打开导航菜单">Open navigation menu</span>
+            </button>
         </nav>
     </header>
 
@@ -524,7 +726,7 @@
             <p data-en="Fuel calculator, scientific calculator, and unit converter — all in one clean, offline app. No ads, no tracking, no internet required." data-ru="Расчёт топлива, научный калькулятор и конвертер единиц — всё в одном элегантном офлайн-приложении. Без рекламы, без отслеживания, без интернета." data-uk="Калькулятор палива, науковий калькулятор та конвертер одиниць — все в одному елегантному офлайн-додатку. Без реклами, без відстеження, без інтернету." data-es="Calculadora de combustible, calculadora científica y convertidor de unidades — todo en una app limpia y sin conexión. Sin anuncios, sin rastreo, sin internet." data-fr="Calculateur de carburant, calculatrice scientifique et convertisseur d'unités — tout dans une app propre et hors ligne. Sans pub, sans suivi, sans internet." data-de="Kraftstoffrechner, wissenschaftlicher Taschenrechner und Einheitenkonverter — alles in einer sauberen Offline-App. Keine Werbung, kein Tracking, kein Internet." data-zh="燃油计算器、科学计算器和单位转换器 - 一款简洁的离线应用。无广告、无追踪、无需互联网。">Fuel calculator, scientific calculator, and unit converter — all in one clean, offline app. No ads, no tracking, no internet required.</p>
             <div class="hero-actions">
                 <a href="#features" class="btn" data-en="Explore Features" data-ru="Изучить возможности" data-uk="Дослідити можливості" data-es="Explorar Características" data-fr="Explorer les Fonctionnalités" data-de="Funktionen Erkunden" data-zh="探索功能">Explore Features</a>
-                <a href="https://play.google.com/store/apps/details?id=com.drit.mxfuelconv" class="btn store-btn" target="_blank" rel="noopener noreferrer">Download on Google Play</a>
+                <a href="https://play.google.com/store/apps/details?id=com.drit.mxfuelconv" class="btn store-btn" target="_blank" rel="noopener noreferrer" data-en="Download on Google Play" data-ru="Скачать в Google Play" data-uk="Завантажити в Google Play" data-es="Descargar en Google Play" data-fr="Télécharger sur Google Play" data-de="Bei Google Play herunterladen" data-zh="在 Google Play 下载">Download on Google Play</a>
             </div>
         </div>
     </section>

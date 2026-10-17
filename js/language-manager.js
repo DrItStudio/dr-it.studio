@@ -19,8 +19,42 @@ class GlobalLanguageManager {
     init() {
         this.loadSavedLanguage();
         this.setupEventListeners();
+        this.setupMobileNavigation();
         this.updateUI();
         this.applyLanguage();
+    }
+
+    setupMobileNavigation() {
+        const toggle = document.querySelector('.mobile-menu-toggle');
+        const menuId = toggle?.getAttribute('aria-controls');
+        const menu = menuId ? document.getElementById(menuId) : null;
+
+        if (!toggle || !menu) return;
+
+        const closeMenu = () => {
+            toggle.setAttribute('aria-expanded', 'false');
+            menu.classList.remove('is-open');
+        };
+
+        toggle.addEventListener('click', () => {
+            const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+            toggle.setAttribute('aria-expanded', String(!isOpen));
+            menu.classList.toggle('is-open', !isOpen);
+        });
+
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        document.addEventListener('keydown', event => {
+            if (event.key === 'Escape') closeMenu();
+        });
+
+        document.addEventListener('click', event => {
+            if (!menu.contains(event.target) && !toggle.contains(event.target)) {
+                closeMenu();
+            }
+        });
     }
 
     loadSavedLanguage() {
